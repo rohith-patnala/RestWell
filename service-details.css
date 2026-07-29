@@ -1,0 +1,45 @@
+/* ==========================================================================
+   service-details.css — Single service detail page
+   Sections:
+     1. Breadcrumb + hero
+     2. What's included
+     3. How it works
+     4. Benefits grid
+     5. Pricing
+     6. Testimonials
+     7. Related services
+   ========================================================================== */
+
+/* ---------- Section: Page hero ---------- */
+.page-hero{padding:var(--space-7) 0;background:linear-gradient(135deg,var(--neutral-100),var(--neutral-50))}
+.breadcrumb{margin-bottom:var(--space-3)}
+
+/* ---------- Section: What's included ---------- */
+.feature-list{list-style:none;padding:0;margin:0}
+.feature-list li{display:flex;align-items:center;gap:.6rem;padding:.5rem 0;font-size:var(--fs-lg)}
+.feature-list i{color:var(--success);font-size:1.25rem}
+
+/* ---------- Section: How it works ---------- */
+.step-box{background:var(--surface);padding:var(--space-5);border-radius:var(--radius-lg);border:1px solid var(--border);height:100%;text-align:center}
+.step-box .num{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;background:var(--primary);color:#fff;font-family:var(--font-display);font-size:var(--fs-xl);font-weight:700;margin-bottom:var(--space-3)}
+
+/* ---------- Section: Benefits ---------- */
+.benefit-card{background:var(--surface);padding:var(--space-5);border-radius:var(--radius-lg);border:1px solid var(--border);height:100%;text-align:center}
+.benefit-card i{font-size:2rem;color:var(--secondary-dark);margin-bottom:var(--space-3)}
+.benefit-card h3{font-size:var(--fs-lg);margin-bottom:.5rem}
+.benefit-card p{color:var(--text-muted);margin:0;font-size:var(--fs-sm)}
+
+/* ---------- Section: Pricing ---------- */
+/* uses .img-soft and .img-float from global */
+
+/* ---------- Section: Testimonials ---------- */
+.testimonial-card{background:var(--surface);padding:var(--space-5);border-radius:var(--radius-lg);border:1px solid var(--border);height:100%}
+.testimonial-card .stars{color:var(--warning);margin-bottom:var(--space-3)}
+.testimonial-card .author{display:flex;flex-direction:column;margin-top:var(--space-3)}
+.testimonial-card .author span{color:var(--text-muted);font-size:var(--fs-sm)}
+
+/* ---------- Section: Related services ---------- */
+.service-card{display:block;background:var(--surface);padding:var(--space-5);border-radius:var(--radius-lg);border:1px solid var(--border);height:100%;color:inherit}
+.service-card i{font-size:2.25rem;color:var(--primary);margin-bottom:var(--space-3)}
+.service-card h3{font-size:var(--fs-xl);margin-bottom:var(--space-2)}
+.service-card p{color:var(--text-muted);margin:0}

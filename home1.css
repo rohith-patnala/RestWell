@@ -1,0 +1,55 @@
+
+.hero-section{padding:var(--space-8) 0;background:linear-gradient(135deg,var(--neutral-100),var(--neutral-50))}
+.hero-img{border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);max-height:520px;object-fit:cover;width:100%}
+.hero-stats{display:flex;gap:var(--space-6);margin-top:var(--space-6)}
+.hero-stats div{display:flex;flex-direction:column}
+.hero-stats strong{font-family:var(--font-display);font-size:var(--fs-2xl);color:var(--primary)}
+.hero-stats span{font-size:var(--fs-sm);color:var(--text-muted)}
+
+
+.trust-item i{font-size:2rem;color:var(--primary);margin-bottom:var(--space-2)}
+.trust-item h3{font-size:var(--fs-lg);margin-bottom:.25rem}
+.trust-item p{font-size:var(--fs-sm);color:var(--text-muted);margin:0}
+.trust-item{padding:var(--space-4);border-radius:var(--radius-lg);transition:transform var(--transition),box-shadow var(--transition)}
+.trust-item:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+
+
+.category-card{display:block;background:var(--surface);border-radius:var(--radius-lg);overflow:hidden;color:inherit}
+.category-card img{height:220px;width:100%;object-fit:cover;transition:transform 600ms ease}
+.category-card:hover img{transform:scale(1.07)}
+.category-body{padding:var(--space-4)}
+.category-body h3{font-size:var(--fs-xl);margin-bottom:.25rem}
+.category-body span{color:var(--secondary-dark);font-weight:700}
+
+
+.bg-soft{background:var(--neutral-100)}
+.product-card{background:var(--surface);border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border)}
+.product-card .hover-img img{height:200px;width:100%;object-fit:cover}
+.product-body{padding:var(--space-4)}
+.product-body h3{font-size:var(--fs-lg);margin:.5rem 0 .25rem}
+.product-body .price{font-family:var(--font-display);font-size:var(--fs-xl);color:var(--primary);font-weight:700;margin-bottom:var(--space-3)}
+
+
+.feature-list{list-style:none;padding:0;margin:0}
+.feature-list li{display:flex;align-items:center;gap:.6rem;padding:.5rem 0;font-size:var(--fs-lg)}
+.feature-list i{color:var(--success);font-size:1.25rem}
+
+
+.testimonial-card{background:var(--surface);padding:var(--space-5);border-radius:var(--radius-lg);border:1px solid var(--border)}
+.testimonial-card .stars{color:var(--warning);margin-bottom:var(--space-3)}
+.testimonial-card .author{display:flex;flex-direction:column;margin-top:var(--space-3)}
+.testimonial-card .author span{color:var(--text-muted);font-size:var(--fs-sm)}
+
+
+.booking-form{box-shadow:var(--shadow)}
+
+
+.newsletter-section{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;padding:var(--space-8) 0}
+.newsletter-section h2{color:#fff}
+.newsletter-section .lead{color:rgba(255,255,255,.85)}
+.newsletter-form{display:flex;gap:.5rem;max-width:480px;margin:var(--space-4) auto 0}
+.newsletter-form input{flex:1;border:none;border-radius:var(--radius-pill);padding:.75rem 1.25rem}
+.newsletter-form .btn{background:var(--secondary);border-color:var(--secondary)}
+.newsletter-form .btn:hover{background:var(--secondary-dark);border-color:var(--secondary-dark)}
+@media (max-width:575.98px){.newsletter-form{flex-direction:column}.newsletter-form input,.newsletter-form .btn{width:100%}}
+

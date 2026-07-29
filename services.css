@@ -1,0 +1,55 @@
+/* ==========================================================================
+   services.css — Services listing page
+   Sections:
+     1. Page hero
+     2. Services grid
+     3. Process steps
+     4. Service plans (pricing)
+     5. Testimonials
+     6. FAQ teaser
+     7. CTA
+   ========================================================================== */
+
+/* ---------- Section: Page hero ---------- */
+.page-hero{padding:var(--space-8) 0;background:linear-gradient(135deg,var(--neutral-100),var(--neutral-50));text-align:center}
+
+/* ---------- Section: Services grid ---------- */
+.service-card{display:block;background:var(--surface);padding:var(--space-5);border-radius:var(--radius-lg);border:1px solid var(--border);height:100%;color:inherit}
+.service-card i{font-size:2.25rem;color:var(--primary);margin-bottom:var(--space-3)}
+.service-card h3{font-size:var(--fs-xl);margin-bottom:var(--space-2)}
+.service-card p{color:var(--text-muted);margin-bottom:var(--space-3)}
+.link-arrow{color:var(--primary);font-weight:600;display:inline-flex;align-items:center;gap:.3rem;transition:gap var(--transition)}
+.service-card:hover .link-arrow{gap:.6rem}
+
+/* ---------- Section: Process steps ---------- */
+.process-step{text-align:center}
+.process-step .num{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:var(--secondary);color:#fff;font-weight:700;margin-bottom:var(--space-3)}
+.process-step img{border-radius:var(--radius);height:160px;width:100%;object-fit:cover;margin-bottom:var(--space-3);transition:transform 600ms ease}
+.process-step:hover img{transform:scale(1.05)}
+.process-step h3{font-size:var(--fs-lg);margin-bottom:.25rem}
+
+/* ---------- Section: Service plans ---------- */
+.plan-card{background:var(--surface);padding:var(--space-5);border-radius:var(--radius-lg);border:1px solid var(--border);position:relative;height:100%}
+.plan-card .price{font-family:var(--font-display);font-size:var(--fs-3xl);color:var(--primary);font-weight:700;margin:var(--space-2) 0 var(--space-4)}
+.plan-card ul{list-style:none;padding:0;margin:0}
+.plan-card ul li{padding:.4rem 0;border-bottom:1px dashed var(--border)}
+.plan-card.featured{border:2px solid var(--primary);box-shadow:var(--shadow-lg)}
+.badge-popular{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--secondary);color:#fff;font-size:var(--fs-xs);font-weight:700;padding:.25rem .75rem;border-radius:var(--radius-pill)}
+
+/* ---------- Section: Testimonials ---------- */
+.testimonial-card{background:var(--surface);padding:var(--space-5);border-radius:var(--radius-lg);border:1px solid var(--border)}
+.testimonial-card .stars{color:var(--warning);margin-bottom:var(--space-3)}
+.testimonial-card .author{display:flex;flex-direction:column;margin-top:var(--space-3)}
+.testimonial-card .author span{color:var(--text-muted);font-size:var(--fs-sm)}
+
+/* ---------- Section: FAQ teaser ---------- */
+.faq-mini{list-style:none;padding:0;margin:0 0 var(--space-4)}
+.faq-mini li{padding:.75rem 0;border-bottom:1px solid var(--border)}
+.faq-mini strong{display:block;color:var(--heading)}
+
+/* ---------- Section: CTA ---------- */
+.cta-saas{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;padding:var(--space-8) 0;text-align:center}
+.cta-saas h2{color:#fff}
+.cta-saas .lead{color:rgba(255,255,255,.85)}
+.cta-saas .btn-light{background:var(--secondary);border-color:var(--secondary);color:var(--neutral-900);font-weight:700}
+.cta-saas .btn-light:hover{background:var(--secondary-dark);transform:translateY(-2px)}

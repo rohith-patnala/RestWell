@@ -1,0 +1,238 @@
+/* ==========================================================================
+   global.css — shared styles for the Mattress & Bedding template
+   Sections:
+     1. CSS Variables (color, spacing, type, radius, shadow)
+     2. Resets & base typography
+     3. Bootstrap overrides (buttons, cards, forms)
+     4. Shared utilities (section spacing, containers, chips)
+     5. Header / Navbar (logo, dropdowns CSS-only, mobile slide-over)
+     6. Theme toggles (dark + RTL controls)
+     7. Footer
+     8. Animations library (fade-in, float, scale, parallax)
+     9. Dark mode rules (via #darkMode:checked + prefers-color-scheme)
+    10. RTL mode rules (via #rtlMode:checked)
+   ========================================================================== */
+
+/* ---------- 1. CSS Variables ---------- */
+:root{
+  --primary:#3A6B8C;          /* calm deep blue */
+  --primary-dark:#2C526A;
+  --primary-light:#5E8BAC;
+  --secondary:#C9A66B;        /* warm sand */
+  --secondary-dark:#B08D4F;
+  --accent:#6FA8A6;           /* soft teal */
+  --success:#3F9D6E;
+  --warning:#E0A458;
+  --error:#D9534F;
+  --info:#5B9BD5;
+
+  --neutral-0:#FFFFFF;
+  --neutral-50:#F7F8F9;
+  --neutral-100:#EEF1F4;
+  --neutral-200:#E2E7EB;
+  --neutral-300:#CBD3D9;
+  --neutral-400:#9AA7B0;
+  --neutral-500:#6B7780;
+  --neutral-600:#4A565E;
+  --neutral-700:#333D44;
+  --neutral-800:#1E262C;
+  --neutral-900:#0F1519;
+
+  --bg:var(--neutral-50);
+  --surface:var(--neutral-0);
+  --text:var(--neutral-800);
+  --text-muted:var(--neutral-500);
+  --border:var(--neutral-200);
+  --heading:var(--neutral-900);
+
+  --font-sans:"Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+  --font-display:"Georgia",serif;
+
+  --fs-xs:0.75rem;
+  --fs-sm:0.875rem;
+  --fs-base:1rem;
+  --fs-lg:1.125rem;
+  --fs-xl:1.375rem;
+  --fs-2xl:1.75rem;
+  --fs-3xl:2.25rem;
+  --fs-4xl:3rem;
+
+  --space-1:0.25rem;
+  --space-2:0.5rem;
+  --space-3:0.75rem;
+  --space-4:1rem;
+  --space-5:1.5rem;
+  --space-6:2rem;
+  --space-7:3rem;
+  --space-8:4rem;
+
+  --radius-sm:6px;
+  --radius:12px;
+  --radius-lg:20px;
+  --radius-pill:999px;
+
+  --shadow-sm:0 1px 2px rgba(15,21,25,.06);
+  --shadow:0 6px 18px rgba(15,21,25,.08);
+  --shadow-lg:0 18px 40px rgba(15,21,25,.12);
+
+  --transition:200ms ease;
+  --header-h:72px;
+}
+
+/* ---------- 2. Resets & base ---------- */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:var(--font-sans);
+  font-size:var(--fs-base);
+  line-height:1.6;
+  color:var(--text);
+  background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-display);color:var(--heading);line-height:1.2;margin:0 0 var(--space-4)}
+p{margin:0 0 var(--space-4)}
+a{color:var(--primary);text-decoration:none;transition:color var(--transition)}
+a:hover{color:var(--primary-dark)}
+img{max-width:100%;height:auto;display:block}
+:focus-visible{outline:3px solid var(--primary-light);outline-offset:2px;border-radius:4px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+
+/* ---------- 3. Bootstrap overrides ---------- */
+.btn{border-radius:var(--radius-pill);font-weight:600;transition:transform var(--transition),box-shadow var(--transition),background var(--transition)}
+.btn-primary{background:var(--primary);border-color:var(--primary)}
+.btn-primary:hover{background:var(--primary-dark);border-color:var(--primary-dark);transform:translateY(-2px);box-shadow:var(--shadow)}
+.btn-outline-primary{color:var(--primary);border-color:var(--primary)}
+.btn-outline-primary:hover{background:var(--primary);color:#fff;transform:translateY(-2px)}
+.card{border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--surface);box-shadow:var(--shadow-sm);transition:transform var(--transition),box-shadow var(--transition)}
+.form-control,.form-select{border-radius:var(--radius);border-color:var(--border)}
+.form-control:focus,.form-select:focus{border-color:var(--primary-light);box-shadow:0 0 0 .2rem rgba(94,139,172,.25)}
+.text-primary{color:var(--primary)!important}
+.bg-primary{background:var(--primary)!important}
+.bg-secondary{background:var(--secondary)!important}
+
+/* ---------- 4. Utilities ---------- */
+.section{padding:var(--space-8) 0}
+.section-tight{padding:var(--space-7) 0}
+.eyebrow{display:inline-block;font-size:var(--fs-sm);font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--secondary-dark);margin-bottom:var(--space-3)}
+.lead{font-size:var(--fs-lg);color:var(--text-muted)}
+.chip{display:inline-flex;align-items:center;gap:.35rem;padding:.3rem .8rem;border-radius:var(--radius-pill);background:var(--neutral-100);color:var(--text-muted);font-size:var(--fs-sm);font-weight:600}
+.img-soft{border-radius:var(--radius-lg);box-shadow:var(--shadow)}
+.section-divider{height:1px;background:var(--border);border:0;margin:0}
+
+/* ---------- 5. Header / Navbar ---------- */
+.site-header{
+  position:sticky;top:0;z-index:1030;
+  background:var(--surface);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:saturate(180%) blur(8px);
+}
+.navbar{padding-block:var(--space-3)}
+.brand{display:flex;align-items:center;gap:.6rem;font-family:var(--font-display);font-size:1.25rem;font-weight:700;color:var(--heading)}
+.brand:hover{color:var(--primary)}
+.brand svg{width:34px;height:34px}
+.nav-list{display:flex;align-items:center;gap:var(--space-4);list-style:none;margin:0;padding:0}
+.nav-list>li{position:relative}
+.nav-link{display:inline-flex;align-items:center;gap:.3rem;color:var(--text);font-weight:600;padding:.5rem .25rem;transition:color var(--transition)}
+.nav-link:hover{color:var(--primary)}
+.nav-link .caret{font-size:.7rem;transition:transform var(--transition)}
+
+/* CSS-only dropdown (hover + focus-within) */
+.dropdown{position:absolute;top:100%;left:0;min-width:220px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-lg);padding:.5rem;list-style:none;margin:0;
+  opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity var(--transition),transform var(--transition),visibility var(--transition)}
+.nav-list>li:hover .dropdown,.nav-list>li:focus-within .dropdown{opacity:1;visibility:visible;transform:translateY(0)}
+.dropdown li{width:100%}
+.dropdown a{display:block;padding:.5rem .75rem;border-radius:var(--radius);color:var(--text);font-weight:500}
+.dropdown a:hover{background:var(--neutral-100);color:var(--primary)}
+
+/* Header controls */
+.header-controls{display:flex;align-items:center;gap:var(--space-3);margin-left:auto}
+.theme-toggle{position:relative;width:44px;height:26px;background:var(--neutral-200);border-radius:var(--radius-pill);cursor:pointer;transition:background var(--transition)}
+.theme-toggle::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:var(--primary);transition:transform var(--transition)}
+#darkMode:checked ~ * .theme-toggle,#darkMode:checked + label .theme-toggle{background:var(--neutral-700)}
+#darkMode:checked ~ * .theme-toggle::after,#darkMode:checked + label .theme-toggle::after{transform:translateX(18px);background:var(--secondary)}
+.rtl-toggle{font-size:var(--fs-sm);font-weight:700;color:var(--text);cursor:pointer;border:1px solid var(--border);padding:.25rem .6rem;border-radius:var(--radius-pill)}
+.rtl-toggle:hover{border-color:var(--primary);color:var(--primary)}
+
+/* Mobile nav (CSS-only slide-over) */
+#mobileNav{display:none}
+.mobile-overlay{display:none}
+@media (max-width:991.98px){
+  .nav-list{display:none}
+  .mobile-bar{display:flex;align-items:center;justify-content:space-between;width:100%}
+  .hamburger{display:inline-block;width:30px;height:24px;position:relative;cursor:pointer}
+  .hamburger span{position:absolute;left:0;height:3px;width:100%;background:var(--text);border-radius:2px;transition:transform var(--transition),opacity var(--transition)}
+  .hamburger span:nth-child(1){top:0}
+  .hamburger span:nth-child(2){top:10px}
+  .hamburger span:nth-child(3){top:20px}
+  #mobileNav:checked ~ .mobile-panel{transform:translateX(0)}
+  #mobileNav:checked ~ .mobile-overlay{display:block;opacity:1}
+  .mobile-panel{position:fixed;top:0;right:0;height:100%;width:280px;background:var(--surface);box-shadow:var(--shadow-lg);transform:translateX(100%);transition:transform 300ms ease;z-index:1050;padding:var(--space-6) var(--space-5);overflow-y:auto}
+  .mobile-panel ul{list-style:none;padding:0;margin:0}
+  .mobile-panel li{border-bottom:1px solid var(--border)}
+  .mobile-panel a{display:block;padding:.9rem 0;color:var(--text);font-weight:600}
+  .mobile-panel .dropdown-static{padding-left:var(--space-4)}
+  .mobile-overlay{position:fixed;inset:0;background:rgba(15,21,25,.5);opacity:0;transition:opacity 300ms ease;z-index:1040}
+}
+@media (min-width:992px){
+  .mobile-bar,.hamburger,.mobile-panel,.mobile-overlay{display:none!important}
+}
+
+/* ---------- 6. Theme toggles (hidden checkboxes) ---------- */
+.theme-input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+
+/* ---------- 7. Footer ---------- */
+.site-footer{background:var(--neutral-900);color:var(--neutral-300);padding:var(--space-7) 0 var(--space-5)}
+.site-footer a{color:var(--neutral-200)}
+.site-footer a:hover{color:var(--secondary)}
+.footer-brand{display:flex;align-items:center;gap:.6rem;font-family:var(--font-display);font-size:1.25rem;color:#fff;margin-bottom:var(--space-3)}
+.footer-links{list-style:none;padding:0;margin:0}
+.footer-links li{margin-bottom:.5rem}
+.footer-bottom{border-top:1px solid var(--neutral-700);margin-top:var(--space-6);padding-top:var(--space-4);font-size:var(--fs-sm);color:var(--neutral-400)}
+
+/* ---------- 8. Animations library ---------- */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes scaleIn{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
+@keyframes parallaxBg{from{background-position:center 0}to{background-position:center 60px}}
+.anim-fade-up{animation:fadeUp .8s ease both}
+.anim-fade-in{animation:fadeIn 1s ease both}
+.anim-float{animation:floaty 5s ease-in-out infinite}
+.anim-scale{animation:scaleIn .7s ease both}
+.delay-1{animation-delay:.15s}
+.delay-2{animation-delay:.3s}
+.delay-3{animation-delay:.45s}
+.delay-4{animation-delay:.6s}
+
+/* Generic card hover */
+.hover-card{transition:transform var(--transition),box-shadow var(--transition)}
+.hover-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.hover-img{overflow:hidden;border-radius:var(--radius-lg)}
+.hover-img img{transition:transform 600ms ease}
+.hover-img:hover img{transform:scale(1.06)}
+
+/* ---------- 9. Dark mode ---------- */
+@media (prefers-color-scheme:dark){
+  :root:not(:has(#darkMode:checked)) body{
+    --bg:var(--neutral-900);--surface:var(--neutral-800);--text:var(--neutral-200);
+    --text-muted:var(--neutral-400);--border:var(--neutral-700);--heading:#fff;
+  }
+}
+#darkMode:checked ~ * body,
+body:has(#darkMode:checked){
+  --bg:var(--neutral-900);--surface:var(--neutral-800);--text:var(--neutral-200);
+  --text-muted:var(--neutral-400);--border:var(--neutral-700);--heading:#fff;
+}
+#darkMode:checked ~ * .site-header,
+body:has(#darkMode:checked) .site-header{background:rgba(30,38,44,.85)}
+
+/* ---------- 10. RTL mode ---------- */
+#rtlMode:checked ~ * body,
+body:has(#rtlMode:checked){direction:rtl}
+body:has(#rtlMode:checked) .nav-list,
+body:has(#rtlMode:checked) .header-controls{flex-direction:row-reverse}
+body:has(#rtlMode:checked) .dropdown{left:auto;right:0}
+body:has(#rtlMode:checked) .mobile-panel{right:auto;left:0;transform:translateX(-100%)}
+body:has(#rtlMode:checked) #mobileNav:checked ~ .mobile-panel{transform:translateX(0)}

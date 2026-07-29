@@ -1,0 +1,54 @@
+/* ==========================================================================
+   contact.css — Contact page
+   Sections:
+     1. Page hero
+     2. Contact methods
+     3. Contact form + image
+     4. Showrooms
+     5. Booking form
+     6. FAQ teaser
+     7. Newsletter
+   ========================================================================== */
+
+/* ---------- Section: Page hero ---------- */
+.page-hero{padding:var(--space-8) 0;background:linear-gradient(135deg,var(--neutral-100),var(--neutral-50));text-align:center}
+
+/* ---------- Section: Contact methods ---------- */
+.contact-method{background:var(--surface);padding:var(--space-5);border-radius:var(--radius-lg);border:1px solid var(--border);text-align:center;height:100%}
+.contact-method i{font-size:2rem;color:var(--primary);margin-bottom:var(--space-3)}
+.contact-method h3{font-size:var(--fs-lg);margin-bottom:.25rem}
+.contact-method p{color:var(--text-muted);font-size:var(--fs-sm);margin-bottom:.5rem}
+.contact-method a{font-weight:700}
+
+/* ---------- Section: Contact form ---------- */
+.bg-soft{background:var(--neutral-100)}
+.contact-form{box-shadow:var(--shadow)}
+
+/* ---------- Section: Showrooms ---------- */
+.showroom-card{background:var(--surface);border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);height:100%}
+.showroom-card img{height:180px;width:100%;object-fit:cover;transition:transform 600ms ease}
+.showroom-card:hover img{transform:scale(1.06)}
+.showroom-card h3{font-size:var(--fs-lg);padding:var(--space-3) var(--space-4) 0;margin-bottom:.25rem}
+.showroom-card p{padding:0 var(--space-4) var(--space-4);color:var(--text-muted);font-size:var(--fs-sm);margin:0}
+
+/* ---------- Section: Booking form ---------- */
+.booking-form{box-shadow:var(--shadow)}
+
+/* ---------- Section: FAQ teaser ---------- */
+.faq-mini{list-style:none;padding:0;margin:0 0 var(--space-4)}
+.faq-mini li{padding:.75rem 0;border-bottom:1px solid var(--border)}
+.faq-mini strong{display:block;color:var(--heading);margin-bottom:.25rem}
+
+/* ---------- Section: Newsletter ---------- */
+.newsletter-section{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;padding:var(--space-8) 0;text-align:center}
+.newsletter-section h2{color:#fff}
+.newsletter-section .lead{color:rgba(255,255,255,.85)}
+.newsletter-form{display:flex;gap:.5rem;max-width:480px;margin:var(--space-4) auto 0}
+.newsletter-form input{flex:1;border:none;border-radius:var(--radius-pill);padding:.75rem 1.25rem}
+.newsletter-form .btn{background:var(--secondary);border-color:var(--secondary)}
+.newsletter-form .btn:hover{background:var(--secondary-dark)}
+@media (max-width:575.98px){.newsletter-form{flex-direction:column}.newsletter-form input,.newsletter-form .btn{width:100%}}
+
+.col-lg-6 img{margin-top:180px;}
+/* .col-lg-6 img{margin-bottom:180px;} */
+  

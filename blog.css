@@ -1,0 +1,61 @@
+/* ==========================================================================
+   blog.css — Blog listing page
+   Sections:
+     1. Page hero
+     2. Category chips
+     3. Featured post
+     4. Post grid
+     5. Newsletter
+     6. Popular categories
+     7. Editor's picks
+   ========================================================================== */
+
+/* ---------- Section: Page hero ---------- */
+.page-hero{padding:var(--space-8) 0;background:linear-gradient(135deg,var(--neutral-100),var(--neutral-50));text-align:center}
+
+/* ---------- Section: Filter chips ---------- */
+.filter-bar{padding:var(--space-4) 0;background:var(--surface);border-bottom:1px solid var(--border)}
+.chip-active{background:var(--primary);color:#fff}
+.chip{cursor:pointer;transition:transform var(--transition),background var(--transition),color var(--transition)}
+.chip:hover{transform:translateY(-2px);background:var(--primary-light);color:#fff}
+
+/* ---------- Section: Featured post ---------- */
+.featured-post{background:var(--surface);border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border)}
+.featured-post img{width:100%;height:300px;object-fit:cover;transition:transform 600ms ease}
+.featured-post:hover img{transform:scale(1.04)}
+.featured-body{padding:var(--space-6)}
+.featured-body h2{font-size:var(--fs-2xl);margin-bottom:var(--space-3)}
+.featured-body .meta{display:flex;gap:var(--space-4);color:var(--text-muted);font-size:var(--fs-sm);margin-bottom:var(--space-4)}
+.featured-body .meta i{margin-right:.25rem}
+
+/* ---------- Section: Post grid ---------- */
+.bg-soft{background:var(--neutral-100)}
+.post-card{background:var(--surface);border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);height:100%;display:flex;flex-direction:column}
+.post-card .hover-img img{height:180px;width:100%;object-fit:cover}
+.post-body{padding:var(--space-4);display:flex;flex-direction:column;flex:1}
+.post-body h3{font-size:var(--fs-lg);margin:.5rem 0}
+.post-body p{color:var(--text-muted);font-size:var(--fs-sm);margin-bottom:var(--space-2)}
+.post-body .meta{color:var(--text-muted);font-size:var(--fs-xs);margin-top:auto}
+
+/* ---------- Section: Newsletter ---------- */
+.newsletter-section{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;padding:var(--space-8) 0;text-align:center}
+.newsletter-section h2{color:#fff}
+.newsletter-section .lead{color:rgba(255,255,255,.85)}
+.newsletter-form{display:flex;gap:.5rem;max-width:480px;margin:var(--space-4) auto 0}
+.newsletter-form input{flex:1;border:none;border-radius:var(--radius-pill);padding:.75rem 1.25rem}
+.newsletter-form .btn{background:var(--secondary);border-color:var(--secondary)}
+.newsletter-form .btn:hover{background:var(--secondary-dark)}
+@media (max-width:575.98px){.newsletter-form{flex-direction:column}.newsletter-form input,.newsletter-form .btn{width:100%}}
+
+/* ---------- Section: Popular categories ---------- */
+.cat-tile{display:block;background:var(--surface);padding:var(--space-5);border-radius:var(--radius-lg);border:1px solid var(--border);text-align:center;height:100%;color:inherit}
+.cat-tile i{font-size:2rem;color:var(--primary);margin-bottom:var(--space-3)}
+.cat-tile h3{font-size:var(--fs-lg);margin-bottom:.25rem}
+.cat-tile span{color:var(--text-muted);font-size:var(--fs-sm)}
+
+/* ---------- Section: Editor's picks (horizontal cards) ---------- */
+.post-card.horizontal{flex-direction:row}
+.post-card.horizontal .hover-img{flex:0 0 40%;max-width:40%}
+.post-card.horizontal .hover-img img{height:100%;min-height:180px}
+.post-card.horizontal .post-body{flex:1}
+@media (max-width:575.98px){.post-card.horizontal{flex-direction:column}.post-card.horizontal .hover-img{flex:none;max-width:100%}.post-card.horizontal .hover-img img{height:180px}}

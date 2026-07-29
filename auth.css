@@ -1,0 +1,40 @@
+/* ==========================================================================
+   auth.css — Login, Register, Forgot password pages
+   Sections:
+     1. Auth shell (split layout)
+     2. Auth card (form side)
+     3. Auth aside (image side)
+     4. Form controls
+     5. Divider
+     6. Theme controls (floating)
+   ========================================================================== */
+
+/* ---------- Section: Auth shell ---------- */
+.auth-shell{display:grid;grid-template-columns:1fr 1fr;min-height:100vh}
+@media (max-width:991.98px){.auth-shell{grid-template-columns:1fr}}
+
+/* ---------- Section: Auth card ---------- */
+.auth-card{display:flex;flex-direction:column;justify-content:center;padding:var(--space-7);max-width:480px;margin:0 auto;width:100%}
+.auth-card .brand{display:flex;align-items:center;gap:.6rem;font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--heading);margin-bottom:var(--space-5)}
+.auth-card h1{font-size:var(--fs-3xl);margin-bottom:var(--space-2)}
+
+/* ---------- Section: Auth aside ---------- */
+.auth-aside{position:relative;overflow:hidden}
+.auth-aside img{width:100%;height:100%;object-fit:cover;min-height:300px;transition:transform 8s ease}
+.auth-aside:hover img{transform:scale(1.05)}
+.auth-aside-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,21,25,.85),rgba(15,21,25,.2));display:flex;flex-direction:column;justify-content:flex-end;padding:var(--space-7);color:#fff}
+.auth-aside-overlay h2{color:#fff;font-size:var(--fs-2xl);margin-bottom:var(--space-2)}
+.auth-aside-overlay p{color:rgba(255,255,255,.9);margin:0}
+@media (max-width:991.98px){.auth-aside{display:none}}
+
+/* ---------- Section: Form controls ---------- */
+.auth-form .form-control{padding:.75rem 1rem}
+.auth-form .btn{padding:.75rem}
+
+/* ---------- Section: Divider ---------- */
+.auth-divider{display:flex;align-items:center;text-align:center;margin:var(--space-5) 0;color:var(--text-muted)}
+.auth-divider::before,.auth-divider::after{content:"";flex:1;height:1px;background:var(--border)}
+.auth-divider span{padding:0 var(--space-3);font-size:var(--fs-sm)}
+
+/* ---------- Section: Floating theme controls ---------- */
+.auth-controls{position:fixed;top:var(--space-4);right:var(--space-4);display:flex;gap:var(--space-3);z-index:10}

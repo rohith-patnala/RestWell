@@ -1,0 +1,73 @@
+/* ==========================================================================
+   products.css — shared styles for all product listing pages
+   Sections covered (per page, at least 7):
+     1. Page hero
+     2. Filter chips bar
+     3. Product grid
+     4. Trial & delivery details
+     5. Comparison table (mattresses) / Feature highlight (others)
+     6. Testimonials
+     7. Newsletter CTA
+   ========================================================================== */
+
+/* ---------- Section: Page hero ---------- */
+.page-hero{padding:var(--space-8) 0;background:linear-gradient(135deg,var(--neutral-100),var(--neutral-50));text-align:center}
+
+/* ---------- Section: Filter chips ---------- */
+.filter-bar{padding:var(--space-4) 0;background:var(--surface);border-bottom:1px solid var(--border)}
+.chip-active{background:var(--primary);color:#fff}
+.chip{cursor:pointer;transition:transform var(--transition),background var(--transition),color var(--transition)}
+.chip:hover{transform:translateY(-2px);background:var(--primary-light);color:#fff}
+
+/* ---------- Section: Product grid ---------- */
+.product-card{background:var(--surface);border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);height:100%;display:flex;flex-direction:column}
+.product-card .hover-img{position:relative}
+.product-card .hover-img img{height:220px;width:100%;object-fit:cover}
+.badge-trial{position:absolute;top:var(--space-3);left:var(--space-3);background:var(--secondary);color:#fff;font-size:var(--fs-xs);font-weight:700;padding:.3rem .7rem;border-radius:var(--radius-pill)}
+.product-body{padding:var(--space-4);display:flex;flex-direction:column;flex:1}
+.product-body h3{font-size:var(--fs-lg);margin:.5rem 0 .25rem}
+.product-body p{color:var(--text-muted);font-size:var(--fs-sm);margin-bottom:var(--space-2)}
+.specs{list-style:none;padding:0;margin:0 0 var(--space-3);display:flex;flex-wrap:wrap;gap:.4rem}
+.specs li{font-size:var(--fs-xs);background:var(--neutral-100);padding:.25rem .6rem;border-radius:var(--radius-pill);color:var(--text-muted)}
+.price-row{display:flex;align-items:center;justify-content:space-between;margin-top:auto}
+.price{font-family:var(--font-display);font-size:var(--fs-xl);color:var(--primary);font-weight:700}
+
+/* ---------- Section: Trial & delivery ---------- */
+.info-box{background:var(--surface);padding:var(--space-4);border-radius:var(--radius);border:1px solid var(--border);height:100%}
+.info-box i{font-size:1.5rem;color:var(--primary);margin-bottom:.5rem}
+.info-box h3{font-size:var(--fs-base);margin-bottom:.25rem}
+.info-box p{font-size:var(--fs-sm);color:var(--text-muted);margin:0}
+
+/* ---------- Section: Comparison table ---------- */
+.compare-table{background:var(--surface);border-radius:var(--radius-lg);overflow:hidden}
+.compare-table th{background:var(--primary);color:#fff;font-family:var(--font-display)}
+.compare-table th,.compare-table td{padding:var(--space-3) var(--space-4);text-align:center}
+.compare-table td:first-child,.compare-table th:first-child{text-align:left}
+.compare-table tbody tr{transition:background var(--transition)}
+.compare-table tbody tr:hover{background:var(--neutral-100)}
+
+/* ---------- Section: Feature highlight (used by non-mattress pages) ---------- */
+.feature-strip{display:flex;gap:var(--space-4);flex-wrap:wrap}
+.feature-strip .feature-item{flex:1;min-width:160px;background:var(--surface);padding:var(--space-4);border-radius:var(--radius);border:1px solid var(--border);text-align:center}
+.feature-strip .feature-item i{font-size:1.75rem;color:var(--secondary-dark);margin-bottom:.5rem}
+.feature-strip .feature-item h3{font-size:var(--fs-base);margin-bottom:.25rem}
+.feature-strip .feature-item p{font-size:var(--fs-sm);color:var(--text-muted);margin:0}
+
+/* ---------- Section: Testimonials ---------- */
+.testimonial-card{background:var(--surface);padding:var(--space-5);border-radius:var(--radius-lg);border:1px solid var(--border);height:100%}
+.testimonial-card .stars{color:var(--warning);margin-bottom:var(--space-3)}
+.testimonial-card .author{display:flex;flex-direction:column;margin-top:var(--space-3)}
+.testimonial-card .author span{color:var(--text-muted);font-size:var(--fs-sm)}
+
+/* ---------- Section: Newsletter CTA ---------- */
+.newsletter-section{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;padding:var(--space-8) 0;text-align:center}
+.newsletter-section h2{color:#fff}
+.newsletter-section .lead{color:rgba(255,255,255,.85)}
+.newsletter-form{display:flex;gap:.5rem;max-width:480px;margin:var(--space-4) auto 0}
+.newsletter-form input{flex:1;border:none;border-radius:var(--radius-pill);padding:.75rem 1.25rem}
+.newsletter-form .btn{background:var(--secondary);border-color:var(--secondary)}
+.newsletter-form .btn:hover{background:var(--secondary-dark);border-color:var(--secondary-dark)}
+@media (max-width:575.98px){.newsletter-form{flex-direction:column}.newsletter-form input,.newsletter-form .btn{width:100%}}
+
+/* ---------- Utility: soft bg ---------- */
+.bg-soft{background:var(--neutral-100)}

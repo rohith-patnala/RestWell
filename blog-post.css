@@ -1,0 +1,66 @@
+/* ==========================================================================
+   blog-post.css — Single blog post page
+   Sections:
+     1. Breadcrumb + header
+     2. Article body + sidebar
+     3. Key takeaways
+     4. CTA banner
+     5. Comments
+     6. Comment form
+     7. More articles
+   ========================================================================== */
+
+/* ---------- Section: Post hero ---------- */
+.post-hero{padding:var(--space-7) 0 var(--space-6);background:linear-gradient(135deg,var(--neutral-100),var(--neutral-50))}
+.breadcrumb{margin-bottom:var(--space-3)}
+.post-meta{display:flex;flex-wrap:wrap;gap:var(--space-4);color:var(--text-muted);font-size:var(--fs-sm);margin:var(--space-3) 0 var(--space-5)}
+.post-meta i{margin-right:.25rem}
+.post-cover{width:100%;height:auto;max-height:440px;object-fit:cover;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg)}
+
+/* ---------- Section: Article body + sidebar ---------- */
+.post-content h2{font-size:var(--fs-2xl);margin-top:var(--space-6);margin-bottom:var(--space-3)}
+.post-content p{font-size:var(--fs-lg);line-height:1.8}
+.post-content blockquote{border-left:4px solid var(--primary);padding:var(--space-3) var(--space-4);margin:var(--space-5) 0;background:var(--neutral-100);border-radius:var(--radius);font-family:var(--font-display);font-size:var(--fs-xl);color:var(--heading)}
+.inline-img{width:100%;border-radius:var(--radius-lg);margin:var(--space-5) 0;box-shadow:var(--shadow)}
+.sidebar-card{background:var(--surface);padding:var(--space-4);border-radius:var(--radius-lg);border:1px solid var(--border);margin-bottom:var(--space-4)}
+.sidebar-card h3{font-size:var(--fs-lg);margin-bottom:var(--space-3)}
+.sidebar-card img{width:80px;height:80px;border-radius:50%;object-fit:cover;margin-bottom:var(--space-2)}
+.sidebar-card strong{display:block;margin-bottom:.25rem}
+.sidebar-card p{font-size:var(--fs-sm);color:var(--text-muted);margin:0}
+.share-row{display:flex;gap:var(--space-3)}
+.share-row a{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:var(--neutral-100);color:var(--text);font-size:1.1rem;transition:background var(--transition),color var(--transition),transform var(--transition)}
+.share-row a:hover{background:var(--primary);color:#fff;transform:translateY(-3px)}
+.related-list{list-style:none;padding:0;margin:0}
+.related-list li{padding:.5rem 0;border-bottom:1px solid var(--border)}
+.related-list li:last-child{border-bottom:0}
+
+/* ---------- Section: Key takeaways ---------- */
+.bg-soft{background:var(--neutral-100)}
+.takeaway{background:var(--surface);padding:var(--space-4);border-radius:var(--radius-lg);border:1px solid var(--border);height:100%;text-align:center}
+.takeaway .num{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:var(--secondary);color:#fff;font-weight:700;margin-bottom:var(--space-2)}
+.takeaway h3{font-size:var(--fs-base);margin-bottom:.25rem}
+.takeaway p{font-size:var(--fs-sm);color:var(--text-muted);margin:0}
+
+/* ---------- Section: CTA banner ---------- */
+.post-cta{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;padding:var(--space-8) 0;text-align:center}
+.post-cta h2{color:#fff}
+.post-cta .lead{color:rgba(255,255,255,.85)}
+.post-cta .btn-light{background:var(--secondary);border-color:var(--secondary);color:var(--neutral-900);font-weight:700}
+.post-cta .btn-light:hover{background:var(--secondary-dark);transform:translateY(-2px)}
+
+/* ---------- Section: Comments ---------- */
+.comments-list{max-width:720px;margin:0 auto}
+.comment{display:flex;gap:var(--space-3);padding:var(--space-4) 0;border-bottom:1px solid var(--border)}
+.comment img{width:48px;height:48px;border-radius:50%;object-fit:cover;flex-shrink:0}
+.comment strong{display:block;margin-bottom:.25rem}
+.comment span{color:var(--text-muted);font-size:var(--fs-xs);margin-left:.5rem}
+.comment p{margin:0;color:var(--text)}
+
+/* ---------- Section: Comment form ---------- */
+.comment-form{max-width:720px;margin:0 auto;box-shadow:var(--shadow)}
+
+/* ---------- Section: More articles ---------- */
+.post-card{background:var(--surface);border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);height:100%}
+.post-card .hover-img img{height:180px;width:100%;object-fit:cover}
+.post-body{padding:var(--space-4)}
+.post-body h3{font-size:var(--fs-lg);margin:.5rem 0}

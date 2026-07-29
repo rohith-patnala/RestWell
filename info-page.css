@@ -1,0 +1,63 @@
+/* ==========================================================================
+   info-page.css — shared styles for FAQ, Privacy, Terms (info pages)
+   Sections used across these pages (each page has at least 7):
+     1. Page hero
+     2. Filter / nav chips
+     3. Main content (FAQ accordion / policy text)
+     4. Stats band
+     5. Sleep tips teaser / related
+     6. Newsletter
+     7. CTA
+   ========================================================================== */
+
+/* ---------- Section: Page hero ---------- */
+.page-hero{padding:var(--space-8) 0;background:linear-gradient(135deg,var(--neutral-100),var(--neutral-50));text-align:center}
+
+/* ---------- Section: Filter chips ---------- */
+.filter-bar{padding:var(--space-4) 0;background:var(--surface);border-bottom:1px solid var(--border)}
+.chip-active{background:var(--primary);color:#fff}
+.chip{cursor:pointer;transition:transform var(--transition),background var(--transition),color var(--transition)}
+.chip:hover{transform:translateY(-2px);background:var(--primary-light);color:#fff}
+
+/* ---------- Section: Main content ---------- */
+.bg-soft{background:var(--neutral-100)}
+.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:var(--space-3);overflow:hidden}
+.faq-item summary{padding:var(--space-4);font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;transition:background var(--transition)}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";font-size:1.5rem;color:var(--primary);transition:transform var(--transition)}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-item summary:hover{background:var(--neutral-100)}
+.faq-item p{padding:0 var(--space-4) var(--space-4);margin:0;color:var(--text-muted)}
+
+/* Policy / terms prose */
+.policy-doc{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:var(--space-6)}
+.policy-doc h2{font-size:var(--fs-2xl);margin-top:var(--space-5)}
+.policy-doc h2:first-child{margin-top:0}
+.policy-doc h3{font-size:var(--fs-lg);margin-top:var(--space-4)}
+.policy-doc p{color:var(--text)}
+.policy-doc ul{padding-left:var(--space-5)}
+.policy-doc li{margin-bottom:.5rem}
+.policy-toc{background:var(--neutral-100);border-radius:var(--radius);padding:var(--space-4);margin-bottom:var(--space-4)}
+.policy-toc a{display:block;padding:.35rem 0}
+.policy-updated{color:var(--text-muted);font-size:var(--fs-sm);font-style:italic}
+
+/* Help / sidebar card */
+.help-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:var(--space-4);text-align:center}
+.help-card img{width:100%;height:180px;object-fit:cover;border-radius:var(--radius);margin-bottom:var(--space-3)}
+.help-card h3{font-size:var(--fs-lg);margin-bottom:.5rem}
+.help-card p{color:var(--text-muted);font-size:var(--fs-sm);margin-bottom:var(--space-3)}
+
+/* ---------- Section: Stats band ---------- */
+.stats-band{background:var(--neutral-900);color:#fff;padding:var(--space-7) 0}
+.stats-band strong{display:block;font-family:var(--font-display);font-size:var(--fs-3xl);color:var(--secondary)}
+.stats-band span{color:var(--neutral-400);font-size:var(--fs-sm)}
+
+/* ---------- Section: Newsletter ---------- */
+.newsletter-section{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;padding:var(--space-8) 0;text-align:center}
+.newsletter-section h2{color:#fff}
+.newsletter-section .lead{color:rgba(255,255,255,.85)}
+.newsletter-form{display:flex;gap:.5rem;max-width:480px;margin:var(--space-4) auto 0}
+.newsletter-form input{flex:1;border:none;border-radius:var(--radius-pill);padding:.75rem 1.25rem}
+.newsletter-form .btn{background:var(--secondary);border-color:var(--secondary)}
+.newsletter-form .btn:hover{background:var(--secondary-dark)}
+@media (max-width:575.98px){.newsletter-form{flex-direction:column}.newsletter-form input,.newsletter-form .btn{width:100%}}
