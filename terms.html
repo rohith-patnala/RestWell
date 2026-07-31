@@ -17,24 +17,57 @@
 <input type="checkbox" id="darkMode" class="theme-input" aria-hidden="true">
 <input type="checkbox" id="rtlMode" class="theme-input" aria-hidden="true">
 
-<header class="site-header">
+<header class="site-header" >
   <div class="container">
-    <nav class="navbar" aria-label="Primary">
-      <div class="mobile-bar">
-        <a class="brand" href="home1.html" aria-label="RestWell home"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#3A6B8C"/><path d="M8 26h24v4H8z" fill="#fff"/><path d="M8 18c4-3 8-3 12 0s8 3 12 0v6H8z" fill="#C9A66B"/></svg> RestWell</a>
-        <label for="mobileNav" class="hamburger" aria-label="Open menu" tabindex="0"><span></span><span></span><span></span></label>
-      </div>
-      <ul class="nav-list">
-        <li><a class="nav-link" href="home1.html">Home <i class="bi bi-chevron-down caret"></i></a><ul class="dropdown" role="menu"><li><a href="home1.html">Home 1</a></li><li><a href="home2.html">Home 2</a></li></ul></li>
-        <li><a class="nav-link" href="services.html">Services <i class="bi bi-chevron-down caret"></i></a><ul class="dropdown" role="menu"><li><a href="services.html">All Services</a></li><li><a href="service-details.html">Service Details</a></li></ul></li>
-        <li><a class="nav-link" href="products-mattresses.html">Products <i class="bi bi-chevron-down caret"></i></a><ul class="dropdown" role="menu"><li><a href="products-mattresses.html">Mattresses</a></li><li><a href="products-pillows.html">Pillows</a></li><li><a href="products-bedsheets.html">Bed Sheets</a></li><li><a href="products-beds.html">Beds</a></li><li><a href="products-curtains.html">Curtains</a></li><li><a href="products-accessories.html">Accessories</a></li></ul></li>
+    <nav class="navbar d-flex align-items-center justify-content-between" aria-label="Primary">
+      <a class="brand d-flex align-items-center gap-2 text-decoration-none" href="home1.html" aria-label="RestWell home">
+        <svg viewBox="0 0 40 40" width="36" height="36" fill="none" aria-hidden="true">
+          <rect width="40" height="40" rx="10" fill="#3A6B8C"/>
+          <path d="M8 26h24v4H8z" fill="#fff"/>
+          <path d="M8 18c4-3 8-3 12 0s8 3 12 0v6H8z" fill="#C9A66B"/>
+        </svg>
+        <span class="fw-bold fs-4 brand-text">RestWell &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;</span>
+      </a>
+
+      <ul class="nav-list d-none d-lg-flex list-unstyled mb-0 gap-4">
+        <li>
+          <a class="nav-link" href="home1.html">Home <i class="bi bi-chevron-down caret"></i></a>
+          <ul class="dropdown" role="menu">
+            <li><a href="home1.html">Home 1 — General</a></li>
+            <li><a href="home2.html">Home 2 — Brand Story</a></li>
+          </ul>
+        </li>  
+        <li>
+          <a class="nav-link" href="service-details.html">Services </a>
+          <!-- <ul class="dropdown" role="menu">
+            <li><a href="services.html">All Services</a></li>
+            <li><a href="service-details.html">Service Details</a></li>
+          </ul> -->
+        </li>
+        <li>
+          <a class="nav-link" href="products-mattresses.html">Products <i class="bi bi-chevron-down caret"></i></a>
+          <ul class="dropdown" role="menu">
+            <li><a href="products-mattresses.html">Mattresses</a></li>
+            <li><a href="products-pillows.html">Pillows</a></li>
+            <li><a href="products-bedsheets.html">Bed Sheets</a></li>
+            <li><a href="products-beds.html">Beds</a></li>
+            <li><a href="products-curtains.html">Curtains</a></li>
+            <li><a href="products-accessories.html">Accessories</a></li>
+          </ul>
+        </li>
+        <li><a class="nav-link" href="about.html">About</a></li>
         <li><a class="nav-link" href="blog.html">Blog</a></li>
         <li><a class="nav-link" href="contact.html">Contact</a></li>
       </ul>
-      <div class="header-controls">
+
+      <div class="header-controls d-flex align-items-center gap-3">
         <label class="theme-toggle" for="darkMode" title="Toggle dark mode" aria-label="Toggle dark mode"></label>
         <label class="rtl-toggle" for="rtlMode" title="Toggle RTL" aria-label="Toggle right-to-left">RTL</label>
         <a class="btn btn-primary btn-sm" href="login.html">Sign In</a>
+
+        <label for="mobileNav" class="hamburger d-lg-none ms-2" aria-label="Open menu" tabindex="0">
+          <span></span><span></span><span></span>
+        </label>
       </div>
     </nav>
   </div>
@@ -84,7 +117,7 @@
       </div>
       <aside class="col-lg-4">
         <div class="help-card hover-card anim-fade-up">
-          <img src="assets/images/terms-help.jpg" alt="Legal document with RestWell branding" loading="lazy">
+          <img src="https://png.pngtree.com/template/20190323/ourmid/pngtree-law-firm-logo-law-firm-logo-image_82061.jpg" alt="Legal document with RestWell branding" loading="lazy">
           <h3>Terms questions?</h3>
           <p>Our legal team is happy to clarify.</p>
           <a href="contact.html" class="btn btn-primary w-100">Contact us</a>
@@ -110,7 +143,7 @@
 <section class="section bg-soft">
   <div class="container">
     <div class="row align-items-center g-5">
-      <div class="col-lg-6"><img src="assets/images/terms-related.jpg" alt="Customer reading product warranty card" class="img-soft anim-fade-in" loading="lazy"></div>
+      <div class="col-lg-6"><img src="https://media.qrtiger.com/blog/2023/07/how-to-simplify-product-warranty-registration-using-qr-codes_800.webp" alt="Customer reading product warranty card" class="img-soft anim-fade-in" loading="lazy"></div>
       <div class="col-lg-6">
         <span class="eyebrow anim-fade-up">Related</span>
         <h2 class="anim-fade-up delay-1">Read our Privacy Policy</h2>
@@ -158,14 +191,17 @@
 <footer class="site-footer">
   <div class="container">
     <div class="row g-4">
-      <div class="col-lg-4"><div class="footer-brand"><svg viewBox="0 0 40 40" width="34" fill="none" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#3A6B8C"/><path d="M8 26h24v4H8z" fill="#fff"/><path d="M8 18c4-3 8-3 12 0s8 3 12 0v6H8z" fill="#C9A66B"/></svg> RestWell</div><p>Crafting restful sleep since 2014.</p></div>
-      <div class="col-6 col-lg-2"><h3 class="h6 text-white">Shop</h3><ul class="footer-links"><li><a href="products-mattresses.html">Mattresses</a></li><li><a href="products-pillows.html">Pillows</a></li><li><a href="products-bedsheets.html">Bed Sheets</a></li></ul></div>
-      <div class="col-6 col-lg-2"><h3 class="h6 text-white">Company</h3><ul class="footer-links"><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="blog.html">Blog</a></li></ul></div>
-      <div class="col-6 col-lg-2"><h3 class="h6 text-white">Support</h3><ul class="footer-links"><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy-policy.html">Privacy</a></li></ul></div>
-      <div class="col-6 col-lg-2"><h3 class="h6 text-white">Follow</h3><ul class="footer-links"><li><a href="#"><i class="bi bi-instagram"></i> Instagram</a></li><li><a href="#"><i class="bi bi-youtube"></i> YouTube</a></li></ul></div>
+      <div class="col-lg-4" >
+        <div class="footer-brand"><svg viewBox="0 0 40 40" width="34" fill="none" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#3A6B8C"/><path d="M8 26h24v4H8z" fill="#fff"/><path d="M8 18c4-3 8-3 12 0s8 3 12 0v6H8z" fill="#C9A66B"/></svg> RestWell</div>
+        <p>Crafting restful sleep since 2014. Made in India, trusted by 2 lakh sleepers.</p>
+      </div>
+      <div class="col-6 col-lg-2" ><h3 class="h6 text-white">Shop</h3><ul class="footer-links"><li><a href="products-mattresses.html">Mattresses</a></li><li><a href="products-pillows.html">Pillows</a></li><li><a href="products-bedsheets.html">Bed Sheets</a></li><li><a href="products-beds.html">Beds</a></li><li><a href="products-curtains.html">Curtains</a></li><li><a href="products-accessories.html">Accessories</a></li></ul></div>
+      <div class="col-6 col-lg-2" ><h3 class="h6 text-white">Company</h3><ul class="footer-links"><li><a href="home1.html">Home</a></li><a href="about.html">About</a></li><li><a href="service-details.html">Services</a></li><li><a href="products-mattresses.html">Products</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="col-6 col-lg-2" ><h3 class="h6 text-white">Support</h3><ul class="footer-links"><li><a href="faq.html">FAQ</a></li><li><a href="privacy-policy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li><li><a href="login.html">Sign In</a></li><li><a href="404.html">404</a></li><li><a href="maintenance.html">Maintenance</a></li></ul></div>
+      <div class="col-6 col-lg-2" ><h3 class="h6 text-white">Follow</h3><ul class="footer-links"><li><a href="#"><i class="bi bi-instagram"></i> Instagram</a></li><li><a href="#"><i class="bi bi-facebook"></i> Facebook</a></li><li><a href="#"><i class="bi bi-youtube"></i> YouTube</a></li></ul></div>
     </div>
-    <div class="footer-bottom d-flex flex-wrap justify-content-between"><span>© 2026 RestWell.</span><span>Made in India</span></div>
+    <div class="footer-bottom d-flex flex-wrap justify-content-between" ><span>© 2026 RestWell. All rights reserved.</span><span>Privacy Policy. Made with care in India</span></div>
   </div>
-</footer>
+</footer> 
 </body>
 </html>

@@ -1,17 +1,13 @@
-/* ==========================================================================
-   service-details.css — Single service detail page
-   Sections:
-     1. Breadcrumb + hero
-     2. What's included
-     3. How it works
-     4. Benefits grid
-     5. Pricing
-     6. Testimonials
-     7. Related services
-   ========================================================================== */
 
 /* ---------- Section: Page hero ---------- */
-.page-hero{padding:var(--space-7) 0;background:linear-gradient(135deg,var(--neutral-100),var(--neutral-50))}
+.page-hero{padding:var(--space-7) 0;background: 
+    linear-gradient(rgba(18, 32, 43, 0.75), rgba(18, 32, 43, 0.75)), 
+    url("https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=1600&auto=format&fit=crop") center/cover no-repeat;
+  color: #ffffff;}
+/* .background: 
+    linear-gradient(rgba(18, 32, 43, 0.75), rgba(18, 32, 43, 0.75)), 
+    url("https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=1600&auto=format&fit=crop") center/cover no-repeat;
+  color: #ffffff; */
 .breadcrumb{margin-bottom:var(--space-3)}
 
 /* ---------- Section: What's included ---------- */
@@ -43,3 +39,53 @@
 .service-card i{font-size:2.25rem;color:var(--primary);margin-bottom:var(--space-3)}
 .service-card h3{font-size:var(--fs-xl);margin-bottom:var(--space-2)}
 .service-card p{color:var(--text-muted);margin:0}
+
+
+.lead{
+  color: rgb(5, 5, 5);
+}
+
+.benefit-card p{
+  color: black;
+}
+
+/* .row g-4{
+  border: 1px solid yellow;
+} */
+
+.benefit-card{
+  border: 1px solid rgb(211, 165, 13);
+}
+
+.service-card{
+  border: 1px solid rgb(35, 103, 167);
+}
+
+.eyebrow{
+  color: rgb(218, 172, 25);
+  margin-top: 20px;
+}
+
+.display-4 {
+  color: white;
+}
+
+.leaddd{
+  color: white;
+  font-size: larger;
+}
+
+/* .container1{
+  height: 300px;
+} */
+.container1{
+  margin-left: 330px;
+}
+
+.step-box{
+  border: 1px solid rgb(39, 39, 158);
+}
+
+.testimonial-card{
+  border: 1px solid rgb(27, 26, 26);
+}

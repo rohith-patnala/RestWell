@@ -11,7 +11,10 @@
    ========================================================================== */
 
 /* ---------- Section: Post hero ---------- */
-.post-hero{padding:var(--space-7) 0 var(--space-6);background:linear-gradient(135deg,var(--neutral-100),var(--neutral-50))}
+.post-hero{padding:var(--space-7) 0 var(--space-6);background: 
+    linear-gradient(rgba(18, 32, 43, 0.75), rgba(18, 32, 43, 0.75)), 
+    url("https://static.vecteezy.com/system/resources/thumbnails/043/301/715/small/top-view-of-sunflower-on-lay-flat-multi-colored-background-photo.jpg") center/cover no-repeat;
+  color: #ffffff;};text-align:center;;text-align:center}
 .breadcrumb{margin-bottom:var(--space-3)}
 .post-meta{display:flex;flex-wrap:wrap;gap:var(--space-4);color:var(--text-muted);font-size:var(--fs-sm);margin:var(--space-3) 0 var(--space-5)}
 .post-meta i{margin-right:.25rem}
@@ -64,3 +67,25 @@
 .post-card .hover-img img{height:180px;width:100%;object-fit:cover}
 .post-body{padding:var(--space-4)}
 .post-body h3{font-size:var(--fs-lg);margin:.5rem 0}
+
+
+.post-hero span{
+  color: rgb(192, 152, 18);
+}
+
+.display-4{
+  color: white;
+}
+
+.lead{
+  color: black;
+}
+
+.cmnt{
+  align-items: center;
+  margin-left: 425px;
+}
+
+.text-mute{
+  margin-left: 408px;
+}

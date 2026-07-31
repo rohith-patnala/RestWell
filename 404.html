@@ -13,7 +13,10 @@
 <body>
 <input type="checkbox" id="darkMode" class="theme-input" aria-hidden="true">
 <input type="checkbox" id="rtlMode" class="theme-input" aria-hidden="true">
-
+<header class="status-controls">
+    <label class="theme-toggle" for="darkMode" title="Toggle dark mode" aria-label="Toggle dark mode"></label>
+    <label class="rtl-toggle" for="rtlMode" title="Toggle RTL" aria-label="Toggle right-to-left">RTL</label>
+  </header>
 <div class="status-page">
   <div class="status-content anim-scale">
     <a class="brand" href="home1.html" aria-label="RestWell home"><svg viewBox="0 0 40 40" width="48" fill="none" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#3A6B8C"/><path d="M8 26h24v4H8z" fill="#fff"/><path d="M8 18c4-3 8-3 12 0s8 3 12 0v6H8z" fill="#C9A66B"/></svg> RestWell</a>
@@ -24,12 +27,9 @@
       <a href="home1.html" class="btn btn-primary btn-lg">Back to home</a>
       <a href="products-mattresses.html" class="btn btn-outline-primary btn-lg">Shop mattresses</a>
     </div>
-    <img src="assets/images/status-404.jpg" alt="A cat curled up asleep on a RestWell mattress" class="status-img anim-fade-in" loading="lazy">
+    <!-- <img src="assets/images/status-404.jpg" alt="A cat curled up asleep on a RestWell mattress" class="status-img anim-fade-in" loading="lazy"> -->
   </div>
-  <div class="status-controls">
-    <label class="theme-toggle" for="darkMode" title="Toggle dark mode" aria-label="Toggle dark mode"></label>
-    <label class="rtl-toggle" for="rtlMode" title="Toggle RTL" aria-label="Toggle right-to-left">RTL</label>
-  </div>
+  
 </div>
 </body>
 </html>

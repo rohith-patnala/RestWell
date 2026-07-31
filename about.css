@@ -11,21 +11,127 @@
    ========================================================================== */
 
 /* ---------- Section: Page hero ---------- */
-.page-hero{padding:var(--space-8) 0;background:linear-gradient(135deg,var(--neutral-100),var(--neutral-50));text-align:center}
-
+.page-hero{padding:var(--space-8) 0;background: 
+    linear-gradient(rgba(18, 32, 43, 0.75), rgba(18, 32, 43, 0.75)), 
+    url("https://moleculesleep.com/cdn/shop/files/Core_10in_1Landscape.jpg?v=1784914794") center/cover no-repeat;
+  color: #ffffff;};text-align:center;
+.page-hero h1,p{
+  color: white;
+}
+.eyebrow h1{
+  color:white;
+}
+.mintitle{
+  color: white;
+}
 /* ---------- Section: Story ---------- */
 .value-card{background:var(--surface);padding:var(--space-5);border-radius:var(--radius-lg);border:1px solid var(--border);height:100%}
 .value-card i{font-size:2rem;color:var(--primary);margin-bottom:var(--space-3)}
 .value-card h3{font-size:var(--fs-xl);margin-bottom:var(--space-2)}
 
 /* ---------- Section: Timeline ---------- */
-.timeline{position:relative;max-width:760px;margin:0 auto;padding-left:var(--space-6)}
+/* .timeline{position:relative;max-width:760px;margin:0 auto;padding-left:var(--space-6)}
 .timeline::before{content:"";position:absolute;left:18px;top:0;bottom:0;width:2px;background:var(--neutral-200)}
 .timeline-item{position:relative;margin-bottom:var(--space-6)}
 .timeline-item .year{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:var(--primary);color:#fff;font-weight:700;font-size:var(--fs-sm);position:absolute;left:-60px;top:0;border:4px solid var(--bg)}
 .timeline-item .body h3{font-size:var(--fs-lg);margin-bottom:.25rem}
 .timeline-item .body p{margin:0;color:var(--text-muted)}
-@media (max-width:575.98px){.timeline{padding-left:var(--space-5)}.timeline-item .year{left:-44px}}
+@media (max-width:575.98px){.timeline{padding-left:var(--space-5)}.timeline-item .year{left:-44px}} */
+
+/* Container styling */
+.timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+/* Central vertical line */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background-color: #e0e0e0; /* Color of the center line */
+  transform: translateX(-50%);
+}
+
+/* Timeline Item Layout */
+.timeline-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  position: relative;
+  width: 100%;
+}
+
+/* Center Year Badge */
+.timeline-item .year {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #007bff; /* Primary badge color */
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  z-index: 2;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Content Box Styling */
+.timeline-item .body {
+  width: 42%; /* Keeps content clear of the center badge */
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* --- Alternating Logic --- */
+
+/* Odd Items (1st, 3rd): Content on the RIGHT */
+.timeline-item:nth-child(odd) {
+  justify-content: flex-end;
+}
+
+.timeline-item:nth-child(odd) .body {
+  text-align: left;
+}
+
+/* Even Items (2nd, 4th): Content on the LEFT */
+.timeline-item:nth-child(even) {
+  justify-content: flex-start;
+}
+
+.timeline-item:nth-child(even) .body {
+  text-align: right;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 30px; /* Move vertical line to the left on mobile */
+  }
+
+  .timeline-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 70px;
+  }
+
+  .timeline-item .year {
+    left: 30px;
+    transform: translateX(-50%);
+  }
+
+  .timeline-item .body {
+    width: 100%;
+    text-align: left !important; /* Stack neatly on small screens */
+  }
+}
 
 /* ---------- Section: Team ---------- */
 .team-card{background:var(--surface);padding:var(--space-4);border-radius:var(--radius-lg);border:1px solid var(--border);text-align:center}
@@ -38,3 +144,8 @@
 .stats-band{background:var(--neutral-900);color:#fff;padding:var(--space-7) 0}
 .stats-band strong{display:block;font-family:var(--font-display);font-size:var(--fs-3xl);color:var(--secondary)}
 .stats-band span{color:var(--neutral-400);font-size:var(--fs-sm)}
+
+
+.value-card{
+  border: 1px solid rgb(34, 103, 168);
+}

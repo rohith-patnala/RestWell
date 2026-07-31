@@ -9,8 +9,14 @@
 <meta property="og:title" content="RestWell Studio — Sleep Tech">
 <meta property="og:description" content="Smart mattresses and a digital sleep coach for modern India.">
 <meta property="og:type" content="website">
+
+<!-- Bootstrap & Icons -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+<!-- AOS CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 <link href="global.css" rel="stylesheet">
 <link href="home2.css" rel="stylesheet">
 </head>
@@ -19,21 +25,18 @@
 <input type="checkbox" id="rtlMode" class="theme-input" aria-hidden="true">
 
 <!-- ===================== HEADER ===================== -->
-<header class="site-header">
+<header class="site-header" >
   <div class="container">
     <nav class="navbar d-flex align-items-center justify-content-between" aria-label="Primary">
-      
-      <!-- LEFT: Brand Logo & Name -->
       <a class="brand d-flex align-items-center gap-2 text-decoration-none" href="home1.html" aria-label="RestWell home">
         <svg viewBox="0 0 40 40" width="36" height="36" fill="none" aria-hidden="true">
           <rect width="40" height="40" rx="10" fill="#3A6B8C"/>
           <path d="M8 26h24v4H8z" fill="#fff"/>
           <path d="M8 18c4-3 8-3 12 0s8 3 12 0v6H8z" fill="#C9A66B"/>
         </svg>
-        <span class="fw-bold fs-4 brand-text">RestWell</span>
+        <span class="fw-bold fs-4 brand-text">RestWell &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;</span>
       </a>
 
-      <!-- MIDDLE: Navigation Links -->
       <ul class="nav-list d-none d-lg-flex list-unstyled mb-0 gap-4">
         <li>
           <a class="nav-link" href="home1.html">Home <i class="bi bi-chevron-down caret"></i></a>
@@ -43,11 +46,11 @@
           </ul>
         </li>  
         <li>
-          <a class="nav-link" href="services.html">Services <i class="bi bi-chevron-down caret"></i></a>
-          <ul class="dropdown" role="menu">
+          <a class="nav-link" href="service-details.html">Services </a>
+          <!-- <ul class="dropdown" role="menu">
             <li><a href="services.html">All Services</a></li>
             <li><a href="service-details.html">Service Details</a></li>
-          </ul>
+          </ul> -->
         </li>
         <li>
           <a class="nav-link" href="products-mattresses.html">Products <i class="bi bi-chevron-down caret"></i></a>
@@ -65,18 +68,15 @@
         <li><a class="nav-link" href="contact.html">Contact</a></li>
       </ul>
 
-      <!-- RIGHT: Theme Controls & Sign In Button -->
       <div class="header-controls d-flex align-items-center gap-3">
         <label class="theme-toggle" for="darkMode" title="Toggle dark mode" aria-label="Toggle dark mode"></label>
         <label class="rtl-toggle" for="rtlMode" title="Toggle RTL" aria-label="Toggle right-to-left">RTL</label>
         <a class="btn btn-primary btn-sm" href="login.html">Sign In</a>
-        
-        <!-- Hamburger menu toggle for mobile view -->
+
         <label for="mobileNav" class="hamburger d-lg-none ms-2" aria-label="Open menu" tabindex="0">
           <span></span><span></span><span></span>
         </label>
       </div>
-
     </nav>
   </div>
 </header>
@@ -102,16 +102,16 @@
   <div class="container">
     <div class="row align-items-center g-5">
       <div class="col-lg-7">
-        <span class="eyebrow anim-fade-up">Sleep technology</span>
-        <h1 class="display-3 anim-fade-up delay-1">The mattress that learns how you sleep.</h1>
-        <p class="lead anim-fade-up delay-2">RestWell Studio pairs a smart mattress with a digital sleep coach. Track REM, adjust firmness, and wake up to a nightly sleep score — all from your phone.</p>
-        <div class="anim-fade-up delay-3">
-          <a href="products-mattresses.html" class="btn btn-primary btn-lg me-2">Get started free</a>
-          <a href="services.html" class="btn btn-outline-primary btn-lg">How it works</a>
+        <span class="eyebrow" data-aos="fade-up">Sleep technology</span>
+        <h1 class="display-3" data-aos="fade-up" data-aos-delay="100">The mattress that learns how you sleep.</h1>
+        <p class="leaddd" data-aos="fade-up" data-aos-delay="200">RestWell Studio pairs a smart mattress with a digital sleep coach. Track REM, adjust firmness, and wake up to a nightly sleep score — all from your phone.</p>
+        <div data-aos="fade-up" data-aos-delay="300">
+          <a href="products-mattresses.html" class="btn btn-primary btn-lg me-2">Show Mattresses</a>
+          <a href="service-details.html" class="btn btn-outline-primary btn-lg">How it works</a>
         </div>
       </div>
       <div class="col-lg-5">
-        <div class="hero-card anim-scale">
+        <div class="hero-card" data-aos="zoom-in" data-aos-delay="200">
           <img src="https://www.shopmattressondemand.com/cdn/shop/articles/ChatGPT_Image_Jul_24_2025_04_30_39_PM.png?v=1766759008" alt="Smart mattress with companion sleep tracking app" loading="lazy">
           <div class="hero-card-body">
             <div class="metric"><strong>92</strong><span>Sleep score</span></div>
@@ -125,11 +125,59 @@
 </section>
 
 <!-- Section 2: Logos / social proof -->
+<!-- <section class="logos-section section-tight">
+  <div class="container">
+    <p class="classp text-center" data-aos="fade-up">Trusted by teams at</p>
+    <div class="logos-row" data-aos="fade-in" data-aos-delay="100">
+      <span class="logos-rows" data-aos="fade-up">Tata Digital</span><span class="logos-rows" data-aos="fade-up">Zomato</span><span class="logos-rows" data-aos="fade-up">Swiggy</span><span class="logos-rows" data-aos="fade-up">PhonePe</span><span class="logos-rows" data-aos="fade-up">Razorpay</span><span class="logos-rows" data-aos="fade-up">Flipkart</span>
+    </div>
+  </div>
+</section> -->
+
 <section class="logos-section section-tight">
   <div class="container">
-    <p class="text-center text-muted anim-fade-up">Trusted by teams at</p>
-    <div class="logos-row anim-fade-in">
-      <span>Tata Digital</span><span>Zomato</span><span>Swiggy</span><span>PhonePe</span><span>Razorpay</span><span>Flipkart</span>
+    <p class="classp text-center">Trusted by teams at</p>
+
+    <!-- Infinite Scroll Wrapper -->
+    <div class="ticker-container">
+      <div class="ticker-track">
+        <!-- Original set -->
+        <div class="ticker-group">
+          <span class="logos-rows">Tata Digital</span>
+          <span class="logos-rows">Zomato</span>
+          <span class="logos-rows">Swiggy</span>
+          <span class="logos-rows">PhonePe</span>
+          <span class="logos-rows">Razorpay</span>
+          <span class="logos-rows">Flipkart</span>
+        </div>
+        <!-- Duplicate set (Ensures seamless repetition) -->
+        <div class="ticker-group" aria-hidden="true">
+          <span class="logos-rows">Tata Digital</span>
+          <span class="logos-rows">Zomato</span>
+          <span class="logos-rows">Swiggy</span>
+          <span class="logos-rows">PhonePe</span>
+          <span class="logos-rows">Razorpay</span>
+          <span class="logos-rows">Flipkart</span>
+        </div>
+         <!-- Duplicate set (Ensures seamless repetition) -->
+        <div class="ticker-group" aria-hidden="true">
+          <span class="logos-rows">Tata Digital</span>
+          <span class="logos-rows">Zomato</span>
+          <span class="logos-rows">Swiggy</span>
+          <span class="logos-rows">PhonePe</span>
+          <span class="logos-rows">Razorpay</span>
+          <span class="logos-rows">Flipkart</span>
+        </div>
+         <!-- Duplicate set (Ensures seamless repetition) -->
+        <div class="ticker-group" aria-hidden="true">
+          <span class="logos-rows">Tata Digital</span>
+          <span class="logos-rows">Zomato</span>
+          <span class="logos-rows">Swiggy</span>
+          <span class="logos-rows">PhonePe</span>
+          <span class="logos-rows">Razorpay</span>
+          <span class="logos-rows">Flipkart</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -137,14 +185,14 @@
 <!-- Section 3: Feature grid (bento) -->
 <section class="section" id="features">
   <div class="container">
-    <div class="text-center mb-5 anim-fade-up"><span class="eyebrow">Platform</span><h2>One platform for better sleep</h2><p class="lead">Hardware, software, and coaching — working together.</p></div>
+    <div class="text-center mb-5" data-aos="fade-up"><span class="eyebrow">Platform</span><h2>One platform for better sleep</h2><p class="lead">Hardware, software, and coaching — working together.</p></div>
     <div class="row g-4">
-      <div class="col-md-6 col-lg-4"><div class="feature-bento hover-card anim-fade-up"><i class="bi bi-cpu"></i><h3>Smart firmness</h3><p>Adjust each side independently via the app. Dual-zone air chambers respond in real time.</p></div></div>
-      <div class="col-md-6 col-lg-4"><div class="feature-bento hover-card anim-fade-up delay-1"><i class="bi bi-graph-up"></i><h3>Sleep tracking</h3><p>Sensors in the mattress track heart rate, breathing, and movement — no wearable needed.</p></div></div>
-      <div class="col-md-6 col-lg-4"><div class="feature-bento hover-card anim-fade-up delay-2"><i class="bi bi-robot"></i><h3>Digital coach</h3><p>AI coach suggests bedtime, temperature, and routines based on your weekly trends.</p></div></div>
-      <div class="col-md-6 col-lg-4"><div class="feature-bento hover-card anim-fade-up delay-3"><i class="bi bi-thermometer-half"></i><h3>Cooling layer</h3><p>Phase-change fabric keeps the surface 3°C cooler for deeper summer sleep.</p></div></div>
-      <div class="col-md-6 col-lg-4"><div class="feature-bento hover-card anim-fade-up delay-4"><i class="bi bi-shield-lock"></i><h3>Private by design</h3><p>Sleep data stays on-device. No cloud uploads unless you opt in.</p></div></div>
-      <div class="col-md-6 col-lg-4"><div class="feature-bento hover-card anim-fade-up"><i class="bi bi-phone"></i><h3>iOS & Android</h3><p>Native apps with HomeKit and Google Home integrations.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="feature-bento hover-card" data-aos="fade-up" data-aos-delay="100"><i class="bi bi-cpu"></i><h3>Smart firmness</h3><p>Adjust each side independently via the app. Dual-zone air chambers respond in real time.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="feature-bento hover-card" data-aos="fade-up" data-aos-delay="200"><i class="bi bi-graph-up"></i><h3>Sleep tracking</h3><p>Sensors in the mattress track heart rate, breathing, and movement — no wearable needed.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="feature-bento hover-card" data-aos="fade-up" data-aos-delay="300"><i class="bi bi-robot"></i><h3>Digital coach</h3><p>AI coach suggests bedtime, temperature, and routines based on your weekly trends.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="feature-bento hover-card" data-aos="fade-up" data-aos-delay="100"><i class="bi bi-thermometer-half"></i><h3>Cooling layer</h3><p>Phase-change fabric keeps the surface 3°C cooler for deeper summer sleep.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="feature-bento hover-card" data-aos="fade-up" data-aos-delay="200"><i class="bi bi-shield-lock"></i><h3>Private by design</h3><p>Sleep data stays on-device. No cloud uploads unless you opt in.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="feature-bento hover-card" data-aos="fade-up" data-aos-delay="300"><i class="bi bi-phone"></i><h3>iOS & Android</h3><p>Native apps with HomeKit and Google Home integrations.</p></div></div>
     </div>
   </div>
 </section>
@@ -152,11 +200,11 @@
 <!-- Section 4: How it works -->
 <section class="section bg-soft" id="how">
   <div class="container">
-    <div class="text-center mb-5 anim-fade-up"><span class="eyebrow">How it works</span><h2>Three steps to better sleep</h2></div>
+    <div class="text-center mb-5" data-aos="fade-up"><span class="eyebrow">How it works</span><h2>Three steps to better sleep</h2></div>
     <div class="row g-4">
-      <div class="col-md-4"><div class="step-card hover-card anim-fade-up"><div class="step-num">1</div><h3>Take the sleep quiz</h3><p>2 minutes. We learn your habits, pain points, and goals.</p><img src="https://luxemattresses.co.uk/wp-content/uploads/2025/07/image-27.png" alt="Sleep quiz on a phone" loading="lazy"></div></div>
-      <div class="col-md-4"><div class="step-card hover-card anim-fade-up delay-1"><div class="step-num">2</div><h3>Get your mattress</h3><p>Free delivery in 3 days. Set up in 10 minutes, no tools.</p><img src="https://holmevalley.org/cdn/shop/files/home-valley-social-sharing-image.jpg?v=1705080417" alt="Mattress being unrolled" loading="lazy"></div></div>
-      <div class="col-md-4"><div class="step-card hover-card anim-fade-up delay-2"><div class="step-num">3</div><h3>Track & improve</h3><p>The app builds your weekly sleep plan. See progress in days.</p><img src="https://cdn.dribbble.com/userupload/47656831/file/18636f30eb1392670352ba21a473bb1d.jpg?resize=752x&vertical=center" alt="Sleep dashboard on a laptop" loading="lazy"></div></div>
+      <div class="col-md-4"><div class="step-card hover-card" data-aos="fade-up" data-aos-delay="100"><div class="step-num">1</div><h3>Take the sleep quiz</h3><p>2 minutes. We learn your habits, pain points, and goals.</p><img src="https://luxemattresses.co.uk/wp-content/uploads/2025/07/image-27.png" alt="Sleep quiz on a phone" loading="lazy"></div></div>
+      <div class="col-md-4"><div class="step-card hover-card" data-aos="fade-up" data-aos-delay="200"><div class="step-num">2</div><h3>Get your mattress</h3><p>Free delivery in 3 days. Set up in 10 minutes, no tools.</p><img src="https://holmevalley.org/cdn/shop/files/home-valley-social-sharing-image.jpg?v=1705080417" alt="Mattress being unrolled" loading="lazy"></div></div>
+      <div class="col-md-4"><div class="step-card hover-card" data-aos="fade-up" data-aos-delay="300"><div class="step-num">3</div><h3>Track & improve</h3><p>The app builds your weekly sleep plan. See progress in days.</p><img src="https://cdn.dribbble.com/userupload/47656831/file/18636f30eb1392670352ba21a473bb1d.jpg?resize=752x&vertical=center" alt="Sleep dashboard on a laptop" loading="lazy"></div></div>
     </div>
   </div>
 </section>
@@ -164,11 +212,11 @@
 <!-- Section 5: Pricing -->
 <section class="section" id="pricing">
   <div class="container">
-    <div class="text-center mb-5 anim-fade-up"><span class="eyebrow">Pricing</span><h2>Simple, transparent plans</h2><p class="lead">Includes the mattress, app, and coaching. 100-night trial on every plan.</p></div>
+    <div class="text-center mb-5" data-aos="fade-up"><span class="eyebrow">Pricing</span><h2>Simple, transparent plans</h2><p class="lead">Includes the mattress, app, and coaching. 100-night trial on every plan.</p></div>
     <div class="row g-4 justify-content-center">
-      <div class="col-md-4"><div class="price-card hover-card anim-fade-up"><h3>Solo</h3><div class="price">₹24,999</div><ul><li>Smart mattress (single)</li><li>Sleep tracking</li><li>App access</li></ul><a href="products-mattresses.html" class="btn btn-outline-primary w-100">Choose Solo</a></div></div>
-      <div class="col-md-4"><div class="price-card featured hover-card anim-fade-up delay-1"><span class="badge-popular">Most popular</span><h3>Duo</h3><div class="price">₹39,999</div><ul><li>Dual-zone smart mattress</li><li>Sleep tracking + coach</li><li>Cooling layer</li><li>10-year warranty</li></ul><a href="products-mattresses.html" class="btn btn-primary w-100">Choose Duo</a></div></div>
-      <div class="col-md-4"><div class="price-card hover-card anim-fade-up delay-2"><h3>Family</h3><div class="price">₹64,999</div><ul><li>King smart mattress</li><li>Up to 4 user profiles</li><li>Priority coach</li><li>HomeKit integration</li></ul><a href="products-mattresses.html" class="btn btn-outline-primary w-100">Choose Family</a></div></div>
+      <div class="col-md-4"><div class="price-card hover-card" data-aos="fade-up" data-aos-delay="100"><h3>Solo</h3><div class="price">₹24,999</div><ul><li>Smart mattress (single)</li><li>Sleep tracking</li><li>App access</li></ul><a href="products-mattresses.html" class="btn btn-outline-primary w-100">Choose Solo</a></div></div>
+      <div class="col-md-4"><div class="price-card featured hover-card" data-aos="fade-up" data-aos-delay="200"><span class="badge-popular">Most popular</span><h3>Duo</h3><div class="price">₹39,999</div><ul><li>Dual-zone smart mattress</li><li>Sleep tracking + coach</li><li>Cooling layer</li><li>10-year warranty</li></ul><a href="products-mattresses.html" class="btn btn-primary w-100">Choose Duo</a></div></div>
+      <div class="col-md-4"><div class="price-card hover-card" data-aos="fade-up" data-aos-delay="300"><h3>Family</h3><div class="price">₹64,999</div><ul><li>King smart mattress</li><li>Up to 4 user profiles</li><li>Priority coach</li><li>HomeKit integration</li></ul><a href="products-mattresses.html" class="btn btn-outline-primary w-100">Choose Family</a></div></div>
     </div>
   </div>
 </section>
@@ -177,10 +225,30 @@
 <section class="stats-band">
   <div class="container">
     <div class="row text-center g-4">
-      <div class="col-6 col-md-3"><div class="anim-fade-up"><strong>2,00,000+</strong><span>Smart sleepers</span></div></div>
-      <div class="col-6 col-md-3"><div class="anim-fade-up delay-1"><strong>4.8★</strong><span>App rating</span></div></div>
-      <div class="col-6 col-md-3"><div class="anim-fade-up delay-2"><strong>1.4M</strong><span>Nights tracked</span></div></div>
-      <div class="col-6 col-md-3"><div class="anim-fade-up delay-3"><strong>32%</strong><span>Avg better sleep</span></div></div>
+      <div class="col-6 col-md-3">
+        <div>
+          <strong class="counter" data-target="200000" data-format="comma" data-suffix="+">0</strong>
+          <span>Smart sleepers</span>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div>
+          <strong class="counter" data-target="4.8" data-format="decimal" data-suffix="★">0</strong>
+          <span>App rating</span>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div>
+          <strong class="counter" data-target="1.4" data-format="decimal" data-suffix="M">0</strong>
+          <span>Nights tracked</span>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div>
+          <strong class="counter" data-target="32" data-format="integer" data-suffix="%">0</strong>
+          <span>Avg better sleep</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -188,11 +256,11 @@
 <!-- Section 7: Testimonials -->
 <section class="section bg-soft" id="testimonials">
   <div class="container">
-    <div class="text-center mb-5 anim-fade-up"><span class="eyebrow">Loved by sleepers</span><h2>Real results, real people</h2></div>
+    <div class="text-center mb-5" data-aos="fade-up"><span class="eyebrow">Loved by sleepers</span><h2>Real results, real people</h2></div>
     <div class="row g-4">
-      <div class="col-md-4"><div class="testimonial-card hover-card anim-fade-up"><div class="stars">★★★★★</div><p>"My sleep score went from 61 to 89 in six weeks. The coach actually nudges me to bed on time."</p><div class="author"><strong>Rahul V.</strong><span>Product Manager, Bengaluru</span></div></div></div>
-      <div class="col-md-4"><div class="testimonial-card hover-card anim-fade-up delay-1"><div class="stars">★★★★★</div><p>"Dual-zone is a marriage saver. I like firm, my wife likes soft — both happy."</p><div class="author"><strong>Meera & Arjun</strong><span>Pune</span></div></div></div>
-      <div class="col-md-4"><div class="testimonial-card hover-card anim-fade-up delay-2"><div class="stars">★★★★★</div><p>"No wearable, still full tracking. The app is genuinely well designed."</p><div class="author"><strong>Sneha K.</strong><span>Designer, Mumbai</span></div></div></div>
+      <div class="col-md-4"><div class="testimonial-card hover-card" data-aos="fade-up" data-aos-delay="100"><div class="stars">★★★★★</div><p>"sleep score went from 61-89 in six weeks. The coach nudges me to bed on time."</p><div class="author"><strong>Rahul V.</strong><span>Product Manager, Bengaluru</span></div></div></div>
+      <div class="col-md-4"><div class="testimonial-card hover-card" data-aos="fade-up" data-aos-delay="200"><div class="stars">★★★★★</div><p>"Dual-zone is a marriage saver. I like firm, my wife likes soft — both happy."</p><div class="author"><strong>Meera & Arjun</strong><span>Pune</span></div></div></div>
+      <div class="col-md-4"><div class="testimonial-card hover-card" data-aos="fade-up" data-aos-delay="300"><div class="stars">★★★★★</div><p>"No wearable, still full tracking. The app is genuinely well designed."</p><div class="author"><strong>Sneha K.</strong><span>Designer, Mumbai</span></div></div></div>
     </div>
   </div>
 </section>
@@ -200,9 +268,9 @@
 <!-- Section 8: CTA -->
 <section class="cta-saas">
   <div class="container text-center">
-    <h2 class="anim-fade-up">Start your 100-night trial tonight</h2>
-    <p class="lead anim-fade-up delay-1">Free delivery, free returns. No credit card needed to start.</p>
-    <a href="products-mattresses.html" class="btn btn-light btn-lg anim-fade-up delay-2">Shop smart mattresses</a>
+    <h2 data-aos="fade-up">Start your 100-night trial tonight</h2>
+    <p class="lead" data-aos="fade-up" data-aos-delay="100">Free delivery, free returns. No credit card needed to start.</p>
+    <a href="products-mattresses.html" class="btn btn-light btn-lg" data-aos="fade-up" data-aos-delay="200">Shop smart mattresses</a>
   </div>
 </section>
 </main>
@@ -210,14 +278,84 @@
 <footer class="site-footer">
   <div class="container">
     <div class="row g-4">
-      <div class="col-lg-4"><div class="footer-brand"><svg viewBox="0 0 40 40" width="34" fill="none" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#3A6B8C"/><path d="M8 26h24v4H8z" fill="#fff"/><path d="M8 18c4-3 8-3 12 0s8 3 12 0v6H8z" fill="#C9A66B"/></svg> RestWell Studio</div><p>Sleep technology, designed and made in India.</p></div>
-      <div class="col-6 col-lg-2"><h3 class="h6 text-white">Product</h3><ul class="footer-links"><li><a href="products-mattresses.html">Mattresses</a></li><li><a href="products-pillows.html">Pillows</a></li><li><a href="products-accessories.html">Accessories</a></li></ul></div>
-      <div class="col-6 col-lg-2"><h3 class="h6 text-white">Company</h3><ul class="footer-links"><li><a href="about.html">About</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-      <div class="col-6 col-lg-2"><h3 class="h6 text-white">Legal</h3><ul class="footer-links"><li><a href="privacy-policy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
-      <div class="col-6 col-lg-2"><h3 class="h6 text-white">Follow</h3><ul class="footer-links"><li><a href="#"><i class="bi bi-twitter-x"></i> X</a></li><li><a href="#"><i class="bi bi-linkedin"></i> LinkedIn</a></li></ul></div>
+      <div class="col-lg-4" >
+        <div class="footer-brand"><svg viewBox="0 0 40 40" width="34" fill="none" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#3A6B8C"/><path d="M8 26h24v4H8z" fill="#fff"/><path d="M8 18c4-3 8-3 12 0s8 3 12 0v6H8z" fill="#C9A66B"/></svg> RestWell</div>
+        <p>Crafting restful sleep since 2014. Made in India, trusted by 2 lakh sleepers.</p>
+      </div>
+      <div class="col-6 col-lg-2" ><h3 class="h6 text-white">Shop</h3><ul class="footer-links"><li><a href="products-mattresses.html">Mattresses</a></li><li><a href="products-pillows.html">Pillows</a></li><li><a href="products-bedsheets.html">Bed Sheets</a></li><li><a href="products-beds.html">Beds</a></li><li><a href="products-curtains.html">Curtains</a></li><li><a href="products-accessories.html">Accessories</a></li></ul></div>
+      <div class="col-6 col-lg-2" ><h3 class="h6 text-white">Company</h3><ul class="footer-links"><li><a href="home1.html">Home</a></li><a href="about.html">About</a></li><li><a href="service-details.html">Services</a></li><li><a href="products-mattresses.html">Products</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="col-6 col-lg-2" ><h3 class="h6 text-white">Support</h3><ul class="footer-links"><li><a href="faq.html">FAQ</a></li><li><a href="privacy-policy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li><li><a href="login.html">Sign In</a></li><li><a href="404.html">404</a></li><li><a href="maintenance.html">Maintenance</a></li></ul></div>
+      <div class="col-6 col-lg-2" ><h3 class="h6 text-white">Follow</h3><ul class="footer-links"><li><a href="#"><i class="bi bi-instagram"></i> Instagram</a></li><li><a href="#"><i class="bi bi-facebook"></i> Facebook</a></li><li><a href="#"><i class="bi bi-youtube"></i> YouTube</a></li></ul></div>
     </div>
-    <div class="footer-bottom d-flex flex-wrap justify-content-between"><span>© 2026 RestWell Studio.</span><span>Bengaluru · India</span></div>
+    <div class="footer-bottom d-flex flex-wrap justify-content-between" ><span>© 2026 RestWell. All rights reserved.</span><span>Privacy Policy. Made with care in India</span></div>
   </div>
 </footer>
+
+<!-- AOS JavaScript -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Initialize AOS
+  AOS.init({
+    duration: 800,
+    easing: "ease-out-cubic",
+    once: true, // Animations play once while scrolling down
+    offset: 100
+  });
+
+  // Counter animation logic
+  const counters = document.querySelectorAll(".counter");
+  const animationDuration = 2000; // Animation duration in milliseconds
+
+  const animateCounter = (counter) => {
+    const target = parseFloat(counter.getAttribute("data-target"));
+    const format = counter.getAttribute("data-format");
+    const suffix = counter.getAttribute("data-suffix") || "";
+    let startTime = null;
+
+    const updateCount = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / animationDuration, 1);
+      
+      const easeOut = 1 - Math.pow(1 - progress, 3);
+      const currentValue = target * easeOut;
+
+      let formattedValue = "";
+      if (format === "comma") {
+        formattedValue = Math.floor(currentValue).toLocaleString("en-IN");
+      } else if (format === "decimal") {
+        formattedValue = currentValue.toFixed(1);
+      } else {
+        formattedValue = Math.floor(currentValue);
+      }
+
+      counter.textContent = formattedValue + suffix;
+
+      if (progress < 1) {
+        requestAnimationFrame(updateCount);
+      }
+    };
+
+    requestAnimationFrame(updateCount);
+  };
+
+  // Trigger counter animation on scroll
+  const observer = new IntersectionObserver(
+    (entries, observerInstance) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          observerInstance.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
+
+  counters.forEach((counter) => observer.observe(counter));
+});
+</script>
+
 </body>
 </html>

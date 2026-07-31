@@ -1,3 +1,8 @@
+html{
+    scroll-behavior:smooth;
+}
+
+
 
 .hero-section{padding:var(--space-8) 0;background:linear-gradient(135deg,var(--neutral-100),var(--neutral-50))}
 .hero-img{border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);max-height:520px;object-fit:cover;width:100%}
@@ -40,6 +45,52 @@
 .testimonial-card .author{display:flex;flex-direction:column;margin-top:var(--space-3)}
 .testimonial-card .author span{color:var(--text-muted);font-size:var(--fs-sm)}
 
+/* Base Keyframes */
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animation Helper Classes */
+.anim-slide-left {
+  opacity: 0;
+  animation: slideInFromLeft 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.anim-slide-right {
+  opacity: 0;
+  animation: slideInFromRight 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Staggered Delay Classes */
+.delay-1 {
+  animation-delay: 0.15s;
+}
+
+.delay-2 {
+  animation-delay: 0.3s;
+}
+
+.delay-3 {
+  animation-delay: 0.45s;
+}
 
 .booking-form{box-shadow:var(--shadow)}
 
@@ -53,3 +104,136 @@
 .newsletter-form .btn:hover{background:var(--secondary-dark);border-color:var(--secondary-dark)}
 @media (max-width:575.98px){.newsletter-form{flex-direction:column}.newsletter-form input,.newsletter-form .btn{width:100%}}
 
+.lead{
+    color: rgb(5, 5, 5);
+}
+
+.trust-item{
+    border: 1px solid rgb(85, 154, 245);
+}
+.trust-item p{
+    color: rgb(5, 5, 5);
+}
+.ppp{
+    color: rgb(5, 5, 5);
+}
+
+.hero-section{
+    padding-top:25px;
+}
+
+.testimonial-card{
+    border: 1px solid rgb(156, 140, 50);
+}
+
+
+
+
+
+
+
+/* =====================================================
+   Mobile Header Customization (991.98px and below)
+   ===================================================== */
+
+@media (max-width:991.98px){
+
+  /* Hide desktop navigation */
+  .nav-list{
+    display:none !important;
+  }
+
+  /* Hide Sign In button, RTL toggle, and Dark Mode toggle in header */
+  .header-controls,
+  .header-controls .btn,
+  .header-controls .theme-toggle,
+  .header-controls .rtl-toggle{
+    display:none !important;
+  }
+
+  /* Keep only logo and hamburger */
+  .mobile-bar{
+    display:flex !important;
+    align-items:center;
+    justify-content:space-between;
+    width:100%;
+  }
+
+  .brand{
+    flex:1;
+  }
+
+  /* Mobile panel styling */
+  .mobile-panel{
+    width:300px;
+    padding:24px 20px;
+    background:var(--surface);
+    overflow-y:auto;
+  }
+
+  .mobile-panel ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+
+  .mobile-panel li{
+    border-bottom:1px solid var(--border);
+  }
+
+  .mobile-panel a{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:14px 0;
+    color:var(--text);
+    font-weight:600;
+    text-decoration:none;
+  }
+
+  /* Indent existing submenu items */
+  .mobile-panel .dropdown-static{
+    padding-left:18px;
+  }
+
+  /* Existing nested lists (if present in HTML) */
+  .mobile-panel li ul{
+    padding-left:18px;
+  }
+
+  .mobile-panel li ul li{
+    border-bottom:none;
+  }
+
+  .mobile-panel li ul a{
+    padding:10px 0;
+    font-weight:500;
+    color:var(--text-muted);
+  }
+
+  /* Slightly larger menu title if one exists */
+  .mobile-panel h3,
+  .mobile-panel .menu-title{
+    font-size:1.15rem;
+    margin-bottom:16px;
+    color:var(--heading);
+  }
+}
+
+/* Mobile Devices (Portrait) */
+@media screen and (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  .container {
+    width: 100%;
+    padding: 0 15px;
+  }
+
+  /* Stack layout elements vertically */
+  .row, .grid {
+    flex-direction: column;
+    grid-template-columns: 1fr;
+  }
+}

@@ -62,3 +62,71 @@
 .cta-saas .lead{color:rgba(255,255,255,.85)}
 .cta-saas .btn-light{background:var(--secondary);border-color:var(--secondary);color:var(--neutral-900);font-weight:700}
 .cta-saas .btn-light:hover{background:var(--secondary-dark);border-color:var(--secondary-dark);transform:translateY(-2px)}
+
+.feature-bento{
+   border: 1px solid rgb(85, 154, 245);
+}
+.feature-bento p{
+   color: rgb(5, 5, 5);
+}
+.lead{
+  color: rgb(5, 5, 5);
+}
+
+.classp{
+  color: black;
+}
+
+.logos-row span{
+  color: rgb(5, 5, 5);
+}
+
+.price-card:hover{
+  /* border-color:rgb(85, 154, 245); */
+  border: 2px solid rgb(49, 85, 185);
+}
+
+/* Hide overflow so off-screen text doesn't trigger horizontal scrollbars */
+.ticker-container {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  /* Optional: adds a soft fade effect on the left and right edges */
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+/* Flex wrapper holding both groups side-by-side */
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: scroll-left 15s linear infinite;
+}
+
+/* Optional: Pause animation when user hovers over logos */
+.ticker-container:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+/* Identical flex groups */
+.ticker-group {
+  display: flex;
+  gap: 3rem; /* Space between items */
+  padding-right: 3rem; /* Ensures equal gap between the end of group 1 and start of group 2 */
+}
+
+.logos-rows {
+  white-space: nowrap;
+  font-weight: 600;
+  /* Add any additional typography styling here */
+}
+
+/* Keyframe for continuous right-to-left motion */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* Moves exactly one group's width */
+  }
+}
