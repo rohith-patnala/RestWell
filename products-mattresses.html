@@ -69,6 +69,84 @@
   border: 2px solid #3A6B8C;
   overflow-y: auto;
 }
+
+/* =========================================================
+   SUN (LEFT) / MOON (RIGHT) SLIDER TOGGLE (THUMB BEHIND ICONS)
+   ========================================================= */
+.theme-toggle-slider {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  background-color: #e2e8f0;
+  border-radius: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 7px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  user-select: none;
+  border: 2px solid #cbd5e1;
+}
+
+/* Icons sit ABOVE the sliding circle (z-index: 2) */
+.theme-toggle-slider .icon-sun {
+  font-size: 14px;
+  color: #d97706; /* Darker amber for contrast over white background */
+  z-index: 2;
+  transition: color 0.3s ease, opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.theme-toggle-slider .icon-moon {
+  font-size: 13px;
+  color: #94a3b8; /* Dim Slate */
+  z-index: 2;
+  transition: color 0.3s ease, opacity 0.3s ease;
+  pointer-events: none;
+}
+
+/* Sliding Circle sits BEHIND the icons (z-index: 1) */
+.theme-toggle-slider .slider-thumb {
+  position: absolute;
+  top: 2px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease;
+  z-index: 1;
+}
+
+/* Hover effects */
+.theme-toggle-slider:hover {
+  border-color: #94a3b8;
+}
+
+/* ================= Dark Mode State ================= */
+#darkMode:checked ~ .site-header .theme-toggle-slider {
+  background-color: #0f172a;
+  border-color: #334155;
+}
+
+/* Move thumb circle behind the moon icon on the right */
+#darkMode:checked ~ .site-header .theme-toggle-slider .slider-thumb {
+  transform: translateX(28px);
+  background-color: #1e293b; /* Dark backdrop circle */
+}
+
+/* Update icon colors in dark mode */
+#darkMode:checked ~ .site-header .theme-toggle-slider .icon-sun {
+  color: #64748b;
+  opacity: 0.5;
+}
+
+#darkMode:checked ~ .site-header .theme-toggle-slider .icon-moon {
+  color: #38bdf8; /* Soft glowing blue moon icon over dark circle */
+  opacity: 1;
+}
 </style>
 </head>
 <body>
@@ -114,7 +192,13 @@
       </ul>
 
       <div class="header-controls d-flex align-items-center gap-3">
-        <label class="theme-toggle" for="darkMode" title="Toggle dark mode" aria-label="Toggle dark mode"></label>
+        <!-- Slider Toggle with Circle Thumb Behind Icons -->
+        <label class="theme-toggle-slider" for="darkMode" title="Toggle dark mode" aria-label="Toggle dark mode">
+          <i class="bi bi-sun-fill icon-sun"></i>
+          <i class="bi bi-moon-stars-fill icon-moon"></i>
+          <span class="slider-thumb"></span>
+        </label>
+        
         <label class="rtl-toggle" for="rtlMode" title="Toggle RTL" aria-label="Toggle right-to-left">RTL</label>
         <a class="btn btn-primary btn-sm" href="login.html">Sign In</a>
 

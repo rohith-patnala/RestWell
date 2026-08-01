@@ -17,14 +17,15 @@
 <link href="products.css" rel="stylesheet">
 
 <style>
-/* 3D Perspective on Card Container */
+/* =========================================================
+   3D PERSPECTIVE & FLIP CARDS
+   ========================================================= */
 .product-card {
   perspective: 1000px;
   position: relative;
-  min-height: 480px; /* Ensures consistent card height during rotation */
+  min-height: 480px;
 }
 
-/* Flipper element that handles the 180deg rotation */
 .card-flipper {
   position: relative;
   width: 100%;
@@ -33,12 +34,10 @@
   transform-style: preserve-3d;
 }
 
-/* Flipped State - Rotates strictly in place */
 .product-card.flipped .card-flipper {
   transform: rotateY(180deg);
 }
 
-/* Common Card Face Styling */
 .card-front, .card-back {
   width: 100%;
   height: 100%;
@@ -67,13 +66,108 @@
   border: 2px solid #3A6B8C;
   overflow-y: auto;
 }
+
+/* =========================================================
+   CLEAN & ACCURATE THEME TOGGLE (1 Backdrop Circle)
+   ========================================================= */
+
+/* Hide native checkbox */
+.theme-input#darkMode {
+  display: none;
+}
+
+.theme-toggle {
+  display: inline-block;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Oval Track Container */
+.toggle-track {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 60px;
+  height: 30px;
+  padding: 0 7px;
+  box-sizing: border-box;
+  background-color: #cbd5e1;
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+}
+
+/* Single Circular Backdrop Indicator */
+.toggle-indicator {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 24px;
+  height: 24px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1; /* Positioned BEHIND icons */
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease;
+}
+
+/* Icons styling */
+.toggle-track .bi {
+  position: relative;
+  z-index: 2; /* Positioned ABOVE the sliding circle */
+  font-size: 13px;
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+
+/* ---------------------------------------------------------
+   LIGHT MODE (Default)
+   - Indicator circle sits on RIGHT (behind Sun)
+   --------------------------------------------------------- */
+.toggle-indicator {
+  transform: translateX(30px); /* Moves behind Sun */
+  background-color: #ffffff;
+}
+
+.icon-moon {
+  color: #64748b; /* Muted inactive moon */
+}
+
+.icon-sun {
+  color: #d97706; /* Active bright sun */
+}
+
+/* ---------------------------------------------------------
+   DARK MODE (Checked)
+   - Indicator circle slides to LEFT (behind Moon)
+   --------------------------------------------------------- */
+.theme-input#darkMode:checked ~ .site-header .toggle-track,
+.theme-input#darkMode:checked ~ * .toggle-track {
+  background-color: #0f172a;
+}
+
+.theme-input#darkMode:checked ~ .site-header .toggle-indicator,
+.theme-input#darkMode:checked ~ * .toggle-indicator {
+  transform: translateX(0); /* Moves behind Moon */
+  background-color: #334155;
+}
+
+.theme-input#darkMode:checked ~ .site-header .icon-moon,
+.theme-input#darkMode:checked ~ * .icon-moon {
+  color: #fbbf24; /* Active bright moon */
+}
+
+.theme-input#darkMode:checked ~ .site-header .icon-sun,
+.theme-input#darkMode:checked ~ * .icon-sun {
+  color: #475569; /* Muted inactive sun */
+}
 </style>
 </head>
 <body>
 <input type="checkbox" id="darkMode" class="theme-input" aria-hidden="true">
 <input type="checkbox" id="rtlMode" class="theme-input" aria-hidden="true">
 
-<!-- ===================== HEADER (No AOS) ===================== -->
+<!-- ===================== HEADER ===================== -->
 <header class="site-header">
   <div class="container">
     <nav class="navbar d-flex align-items-center justify-content-between" aria-label="Primary">
@@ -114,7 +208,20 @@
       </ul>
 
       <div class="header-controls d-flex align-items-center gap-3">
-        <label class="theme-toggle" for="darkMode" title="Toggle dark mode" aria-label="Toggle dark mode"></label>
+        <!-- SINGLE CIRCLE THEME TOGGLE -->
+        <label class="theme-toggle" for="darkMode" title="Toggle dark mode" aria-label="Toggle dark mode">
+          <span class="toggle-track">
+            <!-- Left Moon Icon -->
+            <i class="bi bi-moon-stars-fill icon-moon"></i>
+            
+            <!-- Single Circular Backdrop Indicator -->
+            <span class="toggle-indicator"></span>
+            
+            <!-- Right Sun Icon -->
+            <i class="bi bi-sun-fill icon-sun"></i>
+          </span>
+        </label>
+        
         <label class="rtl-toggle" for="rtlMode" title="Toggle RTL" aria-label="Toggle right-to-left">RTL</label>
         <a class="btn btn-primary btn-sm" href="login.html">Sign In</a>
 
@@ -145,7 +252,7 @@
   </div>
 </section>
 
-<!-- Section 3: Product grid (6 In-Place Flipping Cards) -->
+<!-- Section 3: Product grid -->
 <section class="section">
   <div class="container">
     <div class="row g-4">
@@ -154,7 +261,6 @@
       <div class="col-md-6 col-lg-4">
         <article class="product-card" data-aos="fade-up" data-aos-delay="100">
           <div class="card-flipper">
-            <!-- Front Face -->
             <div class="card-front">
               <div class="hover-img">
                 <img src="https://www.malako-india.com/cdn/shop/products/malako-italian-opulence-800-tc-turquoise-jacquard-super-king-size-100-egyptian-cotton-bed-sheetduvet-cover-149978.webp?v=1754834882" alt="Egyptian cotton sateen sheet set" loading="lazy">
@@ -177,7 +283,6 @@
                 </div>
               </div>
             </div>
-            <!-- Back Face (Advantages) -->
             <div class="card-back">
               <div>
                 <div class="d-flex justify-content-between align-items-center mb-2">
@@ -205,7 +310,6 @@
       <div class="col-md-6 col-lg-4">
         <article class="product-card" data-aos="fade-up" data-aos-delay="200">
           <div class="card-flipper">
-            <!-- Front Face -->
             <div class="card-front">
               <div class="hover-img">
                 <img src="https://thehomeandlinenladies.com.au/cdn/shop/products/Olivesheetsets_808x700.jpg?v=1651188297" alt="Pure linen bed sheet set" loading="lazy">
@@ -228,7 +332,6 @@
                 </div>
               </div>
             </div>
-            <!-- Back Face (Advantages) -->
             <div class="card-back">
               <div>
                 <div class="d-flex justify-content-between align-items-center mb-2">
@@ -256,7 +359,6 @@
       <div class="col-md-6 col-lg-4">
         <article class="product-card" data-aos="fade-up" data-aos-delay="300">
           <div class="card-flipper">
-            <!-- Front Face -->
             <div class="card-front">
               <div class="hover-img">
                 <img src="https://whitesoflondon.in/cdn/shop/files/R_36856.jpg?v=1782803739" alt="Organic cotton percale sheets" loading="lazy">
@@ -279,7 +381,6 @@
                 </div>
               </div>
             </div>
-            <!-- Back Face (Advantages) -->
             <div class="card-back">
               <div>
                 <div class="d-flex justify-content-between align-items-center mb-2">
@@ -307,7 +408,6 @@
       <div class="col-md-6 col-lg-4">
         <article class="product-card" data-aos="fade-up" data-aos-delay="100">
           <div class="card-flipper">
-            <!-- Front Face -->
             <div class="card-front">
               <div class="hover-img">
                 <img src="https://www.bambaw.com/cdn/shop/files/BBxDCxOL_Lifestyle_Website_Hero_001.jpg?v=1749629274&width=1600" alt="Bamboo fiber bed sheet set" loading="lazy">
@@ -330,7 +430,6 @@
                 </div>
               </div>
             </div>
-            <!-- Back Face (Advantages) -->
             <div class="card-back">
               <div>
                 <div class="d-flex justify-content-between align-items-center mb-2">
@@ -358,7 +457,6 @@
       <div class="col-md-6 col-lg-4">
         <article class="product-card" data-aos="fade-up" data-aos-delay="200">
           <div class="card-flipper">
-            <!-- Front Face -->
             <div class="card-front">
               <div class="hover-img">
                 <img src="https://m.media-amazon.com/images/I/71sp4liKrPL.jpg" alt="Flannel winter bed sheet" loading="lazy">
@@ -381,7 +479,6 @@
                 </div>
               </div>
             </div>
-            <!-- Back Face (Advantages) -->
             <div class="card-back">
               <div>
                 <div class="d-flex justify-content-between align-items-center mb-2">
@@ -409,7 +506,6 @@
       <div class="col-md-6 col-lg-4">
         <article class="product-card" data-aos="fade-up" data-aos-delay="300">
           <div class="card-flipper">
-            <!-- Front Face -->
             <div class="card-front">
               <div class="hover-img">
                 <img src="https://www.klotthe.com/cdn/shop/files/2_24ec5df9-b752-4314-b225-86010748235d_1445x.jpg?v=1716269895" alt="Basic cotton bed sheet value pack" loading="lazy">
@@ -432,7 +528,6 @@
                 </div>
               </div>
             </div>
-            <!-- Back Face (Advantages) -->
             <div class="card-back">
               <div>
                 <div class="d-flex justify-content-between align-items-center mb-2">
@@ -519,7 +614,7 @@
 </section>
 </main>
 
-<!-- ===================== FOOTER (No AOS) ===================== -->
+<!-- ===================== FOOTER ===================== -->
 <footer class="site-footer">
   <div class="container">
     <div class="row g-4">
@@ -540,7 +635,6 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // Initialize AOS
   AOS.init({
     duration: 800,
     easing: 'ease-out-cubic',
@@ -548,7 +642,6 @@ document.addEventListener('DOMContentLoaded', () => {
     offset: 120
   });
 
-  // Toggle card flip in-place when clicking "View" button
   document.querySelectorAll('.view-btn').forEach(button => {
     button.addEventListener('click', (e) => {
       e.preventDefault();
@@ -557,7 +650,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Toggle card flip back when clicking close/back buttons
   document.querySelectorAll('.close-btn').forEach(button => {
     button.addEventListener('click', (e) => {
       e.preventDefault();

@@ -19,6 +19,71 @@
 
 <link href="global.css" rel="stylesheet">
 <link href="home2.css" rel="stylesheet">
+
+<style>
+/* ================= SUN / MOON DARK MODE TOGGLE ================= */
+.theme-toggle-switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 58px;
+  height: 30px;
+  padding: 0 6px;
+  background-color: #e2e8f0;
+  border: 1px solid #cbd5e1;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  user-select: none;
+}
+
+.theme-toggle-switch .bi {
+  font-size: 13px;
+  z-index: 1;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.theme-toggle-switch .icon-sun {
+  color: #f59e0b;
+}
+
+.theme-toggle-switch .icon-moon {
+  color: #94a3b8;
+}
+
+.theme-toggle-switch .toggle-slider {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease;
+}
+
+/* Checked state (Dark Mode Active) */
+#darkMode:checked ~ .site-header .theme-toggle-switch {
+  background-color: #1e293b;
+  border-color: #334155;
+}
+
+#darkMode:checked ~ .site-header .theme-toggle-switch .toggle-slider {
+  transform: translateX(28px);
+  background-color: #0f172a;
+}
+
+#darkMode:checked ~ .site-header .theme-toggle-switch .icon-sun {
+  color: #64748b;
+}
+
+#darkMode:checked ~ .site-header .theme-toggle-switch .icon-moon {
+  color: #38bdf8;
+}
+</style>
+
 </head>
 <body>
 <input type="checkbox" id="darkMode" class="theme-input" aria-hidden="true">
@@ -47,10 +112,6 @@
         </li>  
         <li>
           <a class="nav-link" href="service-details.html">Services </a>
-          <!-- <ul class="dropdown" role="menu">
-            <li><a href="services.html">All Services</a></li>
-            <li><a href="service-details.html">Service Details</a></li>
-          </ul> -->
         </li>
         <li>
           <a class="nav-link" href="products-mattresses.html">Products <i class="bi bi-chevron-down caret"></i></a>
@@ -69,7 +130,13 @@
       </ul>
 
       <div class="header-controls d-flex align-items-center gap-3">
-        <label class="theme-toggle" for="darkMode" title="Toggle dark mode" aria-label="Toggle dark mode"></label>
+        <!-- Sun & Moon Icon Dark Mode Toggle -->
+        <label class="theme-toggle-switch" for="darkMode" title="Toggle dark mode" aria-label="Toggle dark mode">
+          <i class="bi bi-sun-fill icon-sun"></i>
+          <i class="bi bi-moon-stars-fill icon-moon"></i>
+          <span class="toggle-slider"></span>
+        </label>
+
         <label class="rtl-toggle" for="rtlMode" title="Toggle RTL" aria-label="Toggle right-to-left">RTL</label>
         <a class="btn btn-primary btn-sm" href="login.html">Sign In</a>
 
@@ -124,16 +191,6 @@
   </div>
 </section>
 
-<!-- Section 2: Logos / social proof -->
-<!-- <section class="logos-section section-tight">
-  <div class="container">
-    <p class="classp text-center" data-aos="fade-up">Trusted by teams at</p>
-    <div class="logos-row" data-aos="fade-in" data-aos-delay="100">
-      <span class="logos-rows" data-aos="fade-up">Tata Digital</span><span class="logos-rows" data-aos="fade-up">Zomato</span><span class="logos-rows" data-aos="fade-up">Swiggy</span><span class="logos-rows" data-aos="fade-up">PhonePe</span><span class="logos-rows" data-aos="fade-up">Razorpay</span><span class="logos-rows" data-aos="fade-up">Flipkart</span>
-    </div>
-  </div>
-</section> -->
-
 <section class="logos-section section-tight">
   <div class="container">
     <p class="classp text-center">Trusted by teams at</p>
@@ -150,7 +207,7 @@
           <span class="logos-rows">Razorpay</span>
           <span class="logos-rows">Flipkart</span>
         </div>
-        <!-- Duplicate set (Ensures seamless repetition) -->
+        <!-- Duplicate set -->
         <div class="ticker-group" aria-hidden="true">
           <span class="logos-rows">Tata Digital</span>
           <span class="logos-rows">Zomato</span>
@@ -159,7 +216,6 @@
           <span class="logos-rows">Razorpay</span>
           <span class="logos-rows">Flipkart</span>
         </div>
-         <!-- Duplicate set (Ensures seamless repetition) -->
         <div class="ticker-group" aria-hidden="true">
           <span class="logos-rows">Tata Digital</span>
           <span class="logos-rows">Zomato</span>
@@ -168,7 +224,6 @@
           <span class="logos-rows">Razorpay</span>
           <span class="logos-rows">Flipkart</span>
         </div>
-         <!-- Duplicate set (Ensures seamless repetition) -->
         <div class="ticker-group" aria-hidden="true">
           <span class="logos-rows">Tata Digital</span>
           <span class="logos-rows">Zomato</span>
@@ -300,13 +355,13 @@ document.addEventListener("DOMContentLoaded", () => {
   AOS.init({
     duration: 800,
     easing: "ease-out-cubic",
-    once: true, // Animations play once while scrolling down
+    once: true,
     offset: 100
   });
 
   // Counter animation logic
   const counters = document.querySelectorAll(".counter");
-  const animationDuration = 2000; // Animation duration in milliseconds
+  const animationDuration = 2000;
 
   const animateCounter = (counter) => {
     const target = parseFloat(counter.getAttribute("data-target"));
