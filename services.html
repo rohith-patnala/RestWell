@@ -13,6 +13,84 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 <link href="global.css" rel="stylesheet">
 <link href="services.css" rel="stylesheet">
+<style>
+  /* Updated Header & Toggle Styles */
+  .brand-text .rest {
+    color: #3A6B8C;
+  }
+  .brand-text .well {
+    color: #C9A66B;
+  }
+  .navbar {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .nav-list {
+    flex: 1;
+    justify-content: center;
+  }
+  .header-controls {
+    margin-left: auto;
+  }
+  
+  /* Slider Dark Mode Toggle */
+  .theme-toggle-slider {
+    display: inline-flex;
+    align-items: center;
+    background: #e9ecef;
+    border-radius: 50rem;
+    padding: 3px;
+    cursor: pointer;
+    position: relative;
+    width: 64px;
+    height: 32px;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+  }
+  .theme-toggle-slider .slider-circle {
+    position: absolute;
+    left: 3px;
+    width: 26px;
+    height: 26px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .theme-toggle-slider .icon-sun,
+  .theme-toggle-slider .icon-moon {
+    position: relative;
+    z-index: 2;
+    width: 50%;
+    text-align: center;
+    font-size: 14px;
+    line-height: 26px;
+    user-select: none;
+  }
+  .theme-toggle-slider .icon-sun {
+    color: #d97706;
+  }
+  .theme-toggle-slider .icon-moon {
+    color: #6c757d;
+  }
+
+  /* Checked state for dark mode slider */
+  #darkMode:checked ~ * .theme-toggle-slider,
+  body:has(#darkMode:checked) .theme-toggle-slider,
+  .theme-input:checked + .theme-toggle-slider {
+    background: #2b3035;
+  }
+  #darkMode:checked ~ * .theme-toggle-slider .slider-circle,
+  body:has(#darkMode:checked) .slider-circle,
+  #darkMode:checked ~ .site-header .slider-circle {
+    transform: translateX(32px);
+  }
+
+  /* Hide raw checkbox */
+  input.theme-input[type="checkbox"]#darkMode {
+    display: none;
+  }
+</style>
 </head>
 <body>
 <input type="checkbox" id="darkMode" class="theme-input" aria-hidden="true">
@@ -20,7 +98,7 @@
 
 <!-- ===================== HEADER ===================== -->
 <header class="site-header">
-  <div class="container">
+  <div class="container-fluid px-4">
     <nav class="navbar d-flex align-items-center justify-content-between" aria-label="Primary">
       
       <!-- LEFT: Brand Logo & Name -->
@@ -30,7 +108,7 @@
           <path d="M8 26h24v4H8z" fill="#fff"/>
           <path d="M8 18c4-3 8-3 12 0s8 3 12 0v6H8z" fill="#C9A66B"/>
         </svg>
-        <span class="fw-bold fs-4 brand-text">RestWell</span>
+        <span class="fw-bold fs-4 brand-text"><span class="rest" style="color: #3A6B8C;">Rest</span><span class="well" style="color: #C9A66B;">Well</span></span>
       </a>
 
       <!-- MIDDLE: Navigation Links -->
@@ -67,8 +145,14 @@
 
       <!-- RIGHT: Theme Controls & Sign In Button -->
       <div class="header-controls d-flex align-items-center gap-3">
-        <label class="theme-toggle" for="darkMode" title="Toggle dark mode" aria-label="Toggle dark mode"></label>
-        <label class="rtl-toggle" for="rtlMode" title="Toggle RTL" aria-label="Toggle right-to-left">RTL</label>
+        <!-- Replaced dark mode label with custom slider layout -->
+        <label class="theme-toggle-slider" for="darkMode" title="Toggle dark mode" aria-label="Toggle dark mode">
+          <span class="slider-circle"></span>
+          <span class="icon-sun"><i class="bi bi-sun-fill"></i></span>
+          <span class="icon-moon"><i class="bi bi-moon-fill"></i></span>
+        </label>
+        
+        <label class="rtl-toggle btn btn-outline-secondary btn-sm px-2 py-1 mb-0" for="rtlMode" title="Toggle RTL" aria-label="Toggle right-to-left" style="cursor: pointer;">RTL</label>
         <a class="btn btn-primary btn-sm" href="login.html">Sign In</a>
         
         <!-- Hamburger menu toggle for mobile view -->
@@ -177,15 +261,24 @@
 </main>
 
 <footer class="site-footer">
-  <div class="container">
-    <div class="row g-4">
-      <div class="col-lg-4"><div class="footer-brand"><svg viewBox="0 0 40 40" width="34" fill="none" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#3A6B8C"/><path d="M8 26h24v4H8z" fill="#fff"/><path d="M8 18c4-3 8-3 12 0s8 3 12 0v6H8z" fill="#C9A66B"/></svg> RestWell</div><p>Crafting restful sleep since 2014.</p></div>
-      <div class="col-6 col-lg-2"><h3 class="h6 text-white">Shop</h3><ul class="footer-links"><li><a href="products-mattresses.html">Mattresses</a></li><li><a href="products-pillows.html">Pillows</a></li><li><a href="products-bedsheets.html">Bed Sheets</a></li></ul></div>
-      <div class="col-6 col-lg-2"><h3 class="h6 text-white">Company</h3><ul class="footer-links"><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="blog.html">Blog</a></li></ul></div>
-      <div class="col-6 col-lg-2"><h3 class="h6 text-white">Support</h3><ul class="footer-links"><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy-policy.html">Privacy</a></li></ul></div>
-      <div class="col-6 col-lg-2"><h3 class="h6 text-white">Follow</h3><ul class="footer-links"><li><a href="#"><i class="bi bi-instagram"></i> Instagram</a></li><li><a href="#"><i class="bi bi-facebook"></i> Facebook</a></li></ul></div>
+  <div class="container-fluid px-5">
+    <div class="row g-4 justify-content-between">
+      <div class="col-auto">
+        <div class="footer-brand d-flex align-items-center gap-2">
+          <svg viewBox="0 0 40 40" width="34" height="34" fill="none" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#3A6B8C"/><path d="M8 26h24v4H8z" fill="#fff"/><path d="M8 18c4-3 8-3 12 0s8 3 12 0v6H8z" fill="#C9A66B"/></svg>
+          <span class="fw-bold fs-4 brand-text"><span class="rest" style="color: #3A6B8C;">Rest</span><span class="well" style="color: #C9A66B;">Well</span></span>
+        </div>
+        <div class="d-flex gap-3 mt-3">
+          <a href="#" class="text-white fs-5" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="text-white fs-5" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="text-white fs-5" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-auto"><h3 class="h6 text-white">Shop</h3><ul class="footer-links"><li><a href="products-mattresses.html">Mattresses</a></li><li><a href="products-pillows.html">Pillows</a></li><li><a href="products-bedsheets.html">Bed Sheets</a></li><li><a href="products-beds.html">Beds</a></li><li><a href="products-curtains.html">Curtains</a></li><li><a href="products-accessories.html">Accessories</a></li></ul></div>
+      <div class="col-auto"><h3 class="h6 text-white">Company</h3><ul class="footer-links"><li><a href="home1.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="service-details.html">Services</a></li><li><a href="products-mattresses.html">Products</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="col-auto"><h3 class="h6 text-white">Support</h3><ul class="footer-links"><li><a href="faq.html">FAQ</a></li><li><a href="privacy-policy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li><li><a href="login.html">Sign In</a></li><li><a href="404.html">404</a></li><li><a href="maintenance.html">Maintenance</a></li></ul></div>
     </div>
-    <div class="footer-bottom d-flex flex-wrap justify-content-between"><span>© 2026 RestWell.</span><span>Made in India</span></div>
+    <div class="footer-bottom d-flex flex-wrap justify-content-between mt-4"><span>© 2026 RestWell. All rights reserved.</span><span>Made with care in India</span></div>
   </div>
 </footer>
 </body>

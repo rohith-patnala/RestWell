@@ -3,51 +3,334 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The 4 Stages of Sleep — RestWell Sleep Journal</title>
-<meta name="description" content="A sleep scientist explains the four stages of sleep, why deep sleep matters most, and how your mattress affects how much you actually get.">
-<link rel="canonical" href="https://example.com/blog-post.html">
-<meta property="og:title" content="The 4 Stages of Sleep — and Why You're Missing the Deepest">
-<meta property="og:description" content="How your mattress affects deep sleep, explained by a sleep scientist.">
-<meta property="og:type" content="article">
+<title>About RestWell — Our Story of Better Sleep</title>
+<meta name="description" content="Learn how RestWell grew from a small workshop in Jaipur to India's trusted sleep brand, crafting mattresses and bedding for over 2 lakh happy sleepers.">
+<link rel="canonical" href="https://example.com/about.html">
+<meta property="og:title" content="About RestWell">
+<meta property="og:description" content="Our story of crafting better sleep across India.">
+<meta property="og:type" content="website">
+
+<!-- Bootstrap & Icons CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+<!-- AOS Animation Library CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 <link href="global.css" rel="stylesheet">
-<link href="blog-post.css" rel="stylesheet">
+<link href="about.css" rel="stylesheet">
+<style>
+  /* Updated Header & Toggle Styles */
+  .brand-text .rest {
+    color: #3A6B8C;
+  }
+  .brand-text .well {
+    color: #C9A66B;
+  }
+  .navbar {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .nav-list {
+    flex: 1;
+    justify-content: center;
+  }
+  .header-controls {
+    margin-left: auto;
+  }
+  
+  /* Slider Dark Mode Toggle */
+  .theme-toggle-slider {
+    display: inline-flex;
+    align-items: center;
+    background: #e9ecef;
+    border-radius: 50rem;
+    padding: 3px;
+    cursor: pointer;
+    position: relative;
+    width: 64px;
+    height: 32px;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+  }
+  .theme-toggle-slider .slider-circle {
+    position: absolute;
+    left: 3px;
+    width: 26px;
+    height: 26px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .theme-toggle-slider .icon-sun,
+  .theme-toggle-slider .icon-moon {
+    position: relative;
+    z-index: 2;
+    width: 50%;
+    text-align: center;
+    font-size: 14px;
+    line-height: 26px;
+    user-select: none;
+  }
+  .theme-toggle-slider .icon-sun {
+    color: #d97706;
+  }
+  .theme-toggle-slider .icon-moon {
+    color: #6c757d;
+  }
+
+  /* Checked state for dark mode slider */
+  #darkMode:checked ~ * .theme-toggle-slider,
+  body:has(#darkMode:checked) .theme-toggle-slider,
+  .theme-input:checked + .theme-toggle-slider {
+    background: #2b3035;
+  }
+  #darkMode:checked ~ * .theme-toggle-slider .slider-circle,
+  body:has(#darkMode:checked) .slider-circle,
+  #darkMode:checked ~ .site-header .slider-circle {
+    transform: translateX(32px);
+  }
+
+  /* Hide raw checkbox */
+  input.theme-input[type="checkbox"]#darkMode {
+    display: none;
+  }
+
+  /* RTL Button Black Color Text Styling */
+  .rtl-toggle {
+    color: #000000 !important;
+  }
+
+  /* Hero Section Height & Alignment Adjustments (90vh - 95vh & Centered) with Increased Text Sizes */
+  .page-hero {
+    min-height: 92vh !important;
+    height: 92vh !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+    text-align: center !important;
+  }
+  .page-hero .container,
+  .page-hero div {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+  .page-hero h1,
+  .page-hero p,
+  .page-hero span {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* Increased Hero Text Sizes */
+  .page-hero h1 {
+    font-size: 3.5rem !important;
+    font-weight: 800 !important;
+    margin-bottom: 1.25rem !important;
+  }
+  .page-hero p {
+    font-size: 1.35rem !important;
+    max-width: 800px;
+    line-height: 1.6;
+  }
+  .page-hero .eyebrow {
+    font-size: 1.15rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem !important;
+    display: inline-block;
+  }
+
+  /* Timeline Customizations: Navy Blue Line & Card Borders */
+  .timeline {
+    position: relative;
+  }
+  .timeline::before {
+    background-color: #3A6B8C !important; /* Navy blue timeline line */
+  }
+  .timeline-item .body {
+    border: 1px solid #dee2e6; /* Adds clear borders to timeline cards */
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    background-color: #ffffff;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  }
+
+  /* Center align icons and headlines in Section 3 values cards with uniform navy blue matching borders */
+  .value-card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    background-color: #ffffff;
+    border: 1px solid #3A6B8C;
+  }
+  .value-card i {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  /* ================= MOBILE RESPONSIVE TWEAKS ================= */
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
+
+  @media (max-width: 991.98px) {
+    .header-controls .btn-signin-desktop {
+      display: none !important;
+    }
+    .navbar {
+      justify-content: space-between !important;
+      padding-left: 0 !important;
+      padding-right: 0.25rem !important;
+    }
+    .container-fluid.px-4 {
+      padding-left: 0.5rem !important;
+      padding-right: 0.5rem !important;
+    }
+    .brand {
+      margin-right: auto !important;
+      padding-left: 0 !important;
+    }
+    .header-controls {
+      margin-left: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 0.5rem !important;
+    }
+  }
+
+  /* Mobile Nav Drawer Enhancements */
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: #334155;
+    margin: 4px 0;
+    transition: 0.3s;
+  }
+
+  .mobile-panel {
+    width: 280px;
+    padding: 24px 20px;
+    background: #ffffff;
+    position: fixed;
+    top: 0;
+    right: -280px;
+    height: 100vh;
+    z-index: 1050;
+    transition: right 0.3s ease;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+    overflow-y: auto;
+  }
+
+  #mobileNav:checked ~ .mobile-panel {
+    right: 0;
+  }
+
+  .mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    z-index: 1040;
+    display: none;
+  }
+
+  #mobileNav:checked ~ .mobile-overlay {
+    display: block;
+  }
+
+  input.theme-input[type="checkbox"]#mobileNav {
+    display: none;
+  }
+
+  .mobile-panel ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .mobile-panel ul li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .mobile-panel ul li a {
+    text-decoration: none;
+    color: #334155;
+    font-weight: 500;
+    display: block;
+  }
+
+  /* Mobile-specific navigation dropdown accordion styles */
+  .mobile-dropdown-toggle {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .mobile-submenu {
+    list-style: none;
+    padding-left: 1rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  .mobile-submenu-toggle {
+    display: none;
+  }
+  .mobile-submenu-toggle:checked ~ .mobile-submenu {
+    max-height: 500px;
+  }
+</style>
 </head>
 <body>
 <input type="checkbox" id="darkMode" class="theme-input" aria-hidden="true">
 <input type="checkbox" id="rtlMode" class="theme-input" aria-hidden="true">
+<input type="checkbox" id="mobileNav" class="theme-input" aria-hidden="true">
+<label for="mobileNav" class="mobile-overlay" aria-label="Close menu"></label>
 
 <!-- ===================== HEADER ===================== -->
-<header class="site-header">
-  <div class="container">
-    <nav class="navbar d-flex align-items-center justify-content-between" aria-label="Primary">
-      
-      <!-- LEFT: Brand Logo & Name -->
-      <a class="brand d-flex align-items-center gap-2 text-decoration-none" href="home1.html" aria-label="RestWell home">
+<header class="site-header" data-aos="fade-down" data-aos-duration="600">
+  <div class="container-fluid px-4">
+    <nav class="navbar d-flex align-items-center justify-content-between flex-nowrap" aria-label="Primary">
+      <a class="brand d-flex align-items-center gap-2 text-decoration-none me-auto" href="index.html" aria-label="RestWell home">
         <svg viewBox="0 0 40 40" width="36" height="36" fill="none" aria-hidden="true">
           <rect width="40" height="40" rx="10" fill="#3A6B8C"/>
           <path d="M8 26h24v4H8z" fill="#fff"/>
           <path d="M8 18c4-3 8-3 12 0s8 3 12 0v6H8z" fill="#C9A66B"/>
         </svg>
-        <span class="fw-bold fs-4 brand-text">RestWell</span>
+        <span class="fw-bold fs-4 brand-text"><span class="rest">Rest</span><span class="well">Well</span></span>
       </a>
 
-      <!-- MIDDLE: Navigation Links -->
       <ul class="nav-list d-none d-lg-flex list-unstyled mb-0 gap-4">
         <li>
-          <a class="nav-link" href="home1.html">Home <i class="bi bi-chevron-down caret"></i></a>
+          <a class="nav-link" href="index.html">Home <i class="bi bi-chevron-down caret"></i></a>
           <ul class="dropdown" role="menu">
-            <li><a href="home1.html">Home 1 — General</a></li>
+            <li><a href="index.html">Home 1 — General</a></li>
             <li><a href="home2.html">Home 2 — Brand Story</a></li>
           </ul>
         </li>  
         <li>
-          <a class="nav-link" href="services.html">Services <i class="bi bi-chevron-down caret"></i></a>
-          <ul class="dropdown" role="menu">
-            <li><a href="services.html">All Services</a></li>
-            <li><a href="service-details.html">Service Details</a></li>
-          </ul>
+          <a class="nav-link" href="service-details.html">Services </a>
         </li>
         <li>
           <a class="nav-link" href="products-mattresses.html">Products <i class="bi bi-chevron-down caret"></i></a>
@@ -65,152 +348,191 @@
         <li><a class="nav-link" href="contact.html">Contact</a></li>
       </ul>
 
-      <!-- RIGHT: Theme Controls & Sign In Button -->
-      <div class="header-controls d-flex align-items-center gap-3">
-        <label class="theme-toggle" for="darkMode" title="Toggle dark mode" aria-label="Toggle dark mode"></label>
-        <label class="rtl-toggle" for="rtlMode" title="Toggle RTL" aria-label="Toggle right-to-left">RTL</label>
-        <a class="btn btn-primary btn-sm" href="login.html">Sign In</a>
+      <div class="header-controls d-flex align-items-center gap-2 ms-auto">
+        <!-- Replaced dark mode label with custom slider layout -->
+        <label class="theme-toggle-slider" for="darkMode" title="Toggle dark mode" aria-label="Toggle dark mode">
+          <span class="slider-circle"></span>
+          <span class="icon-sun"><i class="bi bi-sun-fill"></i></span>
+          <span class="icon-moon"><i class="bi bi-moon-fill"></i></span>
+        </label>
         
-        <!-- Hamburger menu toggle for mobile view -->
-        <label for="mobileNav" class="hamburger d-lg-none ms-2" aria-label="Open menu" tabindex="0">
+        <label class="rtl-toggle btn btn-outline-secondary btn-sm px-2 py-1 mb-0" for="rtlMode" title="Toggle RTL" aria-label="Toggle right-to-left" style="cursor: pointer;">RTL</label>
+        <a class="btn btn-primary btn-sm btn-signin-desktop" href="login.html">Sign In</a>
+
+        <label for="mobileNav" class="hamburger d-lg-none ms-1 mb-0" aria-label="Open menu" tabindex="0" style="cursor: pointer;">
           <span></span><span></span><span></span>
         </label>
       </div>
-
     </nav>
   </div>
 </header>
 
-<input type="checkbox" id="mobileNav" class="theme-input" aria-hidden="true">
-<label for="mobileNav" class="mobile-overlay" aria-label="Close menu"></label>
-<aside class="mobile-panel" aria-label="Mobile navigation"><h2 class="h5 mb-3">Menu</h2><ul>
-  <li><a href="home1.html">Home 1</a></li><li><a href="home2.html">Home 2</a></li><li><a href="services.html">Services</a></li><li><a href="service-details.html">Service Details</a></li><li><a href="products-mattresses.html">Mattresses</a></li><li><a href="products-pillows.html">Pillows</a></li><li><a href="products-bedsheets.html">Bed Sheets</a></li><li><a href="products-beds.html">Beds</a></li><li><a href="products-curtains.html">Curtains</a></li><li><a href="products-accessories.html">Accessories</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li><li><a href="login.html">Sign In</a></li>
-</ul></aside>
+<!-- Mobile Navigation Sidebar -->
+<aside class="mobile-panel" aria-label="Mobile navigation">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="h5 mb-0 fw-bold">Menu</h2>
+    <label for="mobileNav" class="btn-close" aria-label="Close" style="cursor: pointer;"></label>
+  </div>
+  <ul>
+    <!-- Home Dropdown for Mobile -->
+    <li>
+      <input type="checkbox" id="mobHomeToggle" class="mobile-submenu-toggle">
+      <label for="mobHomeToggle" class="mobile-dropdown-toggle py-2 text-decoration-none text-dark fw-medium">
+        Home <i class="bi bi-chevron-down small"></i>
+      </label>
+      <ul class="mobile-submenu">
+        <li class="border-bottom-0"><a href="index.html" class="py-2 text-muted">Home 1 — General</a></li>
+        <li class="border-bottom-0"><a href="home2.html" class="py-2 text-muted">Home 2 — Brand Story</a></li>
+      </ul>
+    </li>
+
+    <!-- Services (Renamed from Service Details) -->
+    <li><a href="service-details.html">Services</a></li>
+
+    <!-- Products Dropdown for Mobile -->
+    <li>
+      <input type="checkbox" id="mobProdToggle" class="mobile-submenu-toggle">
+      <label for="mobProdToggle" class="mobile-dropdown-toggle py-2 text-decoration-none text-dark fw-medium">
+        Products <i class="bi bi-chevron-down small"></i>
+      </label>
+      <ul class="mobile-submenu">
+        <li class="border-bottom-0"><a href="products-mattresses.html" class="py-2 text-muted">Mattresses</a></li>
+        <li class="border-bottom-0"><a href="products-pillows.html" class="py-2 text-muted">Pillows</a></li>
+        <li class="border-bottom-0"><a href="products-beds.html" class="py-2 text-muted">Beds</a></li>
+        <li class="border-bottom-0"><a href="products-bedsheets.html" class="py-2 text-muted">Bed Sheets</a></li>
+        <li class="border-bottom-0"><a href="products-curtains.html" class="py-2 text-muted">Curtains</a></li>
+        <li class="border-bottom-0"><a href="products-accessories.html" class="py-2 text-muted">Accessories</a></li>
+      </ul>
+    </li>
+
+    <li><a href="about.html">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li class="mt-3"><a href="login.html" class="btn btn-primary btn-sm w-100 text-white text-center">Sign In</a></li>
+  </ul>
+</aside>
 
 <main>
-<!-- Section 1: Breadcrumb + header -->
-<section class="post-hero">
-  <div class="container">
-    <nav aria-label="Breadcrumb" class="anim-fade-up"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="home1.html">Home</a></li><li class="breadcrumb-item"><a href="blog.html">Blog</a></li><li class="breadcrumb-item active" aria-current="page">The 4 stages of sleep</li></ol></nav>
-    <span class="chip anim-fade-up">Sleep Science</span>
-    <h1 class="display-4 mt-3 anim-fade-up delay-1">The 4 stages of sleep — and why you're probably missing the deepest one</h1>
-    <div class="post-meta anim-fade-up delay-2"><span><i class="bi bi-person"></i> Dr. Ravi Menon</span><span><i class="bi bi-calendar3"></i> July 14, 2026</span><span><i class="bi bi-clock"></i> 8 min read</span></div>
-    <img src="assets/images/blog-post-hero.jpg" alt="Illustration of the four sleep stages on a brain wave chart" class="post-cover anim-fade-in" loading="lazy">
-  </div>
-</section>
-
-<!-- Section 2: Article body + sidebar -->
-<section class="section">
-  <div class="container">
-    <div class="row g-5">
-      <article class="col-lg-8 post-content">
-        <p class="lead">Every night, your brain runs through four distinct stages of sleep — a cycle it repeats about five times. Most people focus on total hours, but the quality of those hours depends almost entirely on how much time you spend in the deepest stage.</p>
-        <h2>Stage 1: The drift-off</h2>
-        <p>This is the lightest stage, lasting just a few minutes. Your muscles relax, your eyes move slowly, and you can be woken easily. It's the bridge between wakefulness and real sleep.</p>
-        <h2>Stage 2: The settling</h2>
-        <p>Your heart rate drops, your body temperature falls, and your brain waves slow. You spend about half the night here. It's restorative, but it's not where the deepest recovery happens.</p>
-        <blockquote>"Deep sleep is when your body does its heaviest repair work — muscle growth, tissue healing, and immune strengthening."</blockquote>
-        <h2>Stage 3: Deep sleep (the one you're missing)</h2>
-        <p>This is the stage that matters most, and it's the one people cut short without realising. Deep sleep is when your body releases growth hormone, repairs tissue, and strengthens your immune system. The problem? It mostly happens in the first half of the night — and it's easily disrupted.</p>
-        <img src="assets/images/blog-post-inline-1.jpg" alt="Diagram showing the proportion of deep sleep in a typical night" class="inline-img anim-fade-in" loading="lazy">
-        <p>An uncomfortable mattress is one of the most common disruptors. Pressure points cause micro-arousals — tiny awakenings you don't remember but that pull you out of deep sleep. Over a week, that's hours of lost recovery.</p>
-        <h2>Stage 4: REM sleep</h2>
-        <p>Rapid eye movement sleep is when you dream. Your brain is almost as active as when awake, consolidating memories and processing emotions. REM increases in the second half of the night, which is why cutting sleep short costs you REM disproportionately.</p>
-        <h2>What this means for your mattress</h2>
-        <p>A mattress that's too firm creates pressure at the shoulders and hips, causing those micro-arousals. One that's too soft lets your spine sag, which triggers discomfort-based awakenings. The right mattress — matched to your sleep position and body type — keeps you in deep sleep longer.</p>
-        <p>That's why we built the RestWell Sleep Quiz: it uses your sleep position, weight, and pain history to recommend a firmness that minimises pressure points and maximises deep sleep.</p>
-      </article>
-      <aside class="col-lg-4">
-        <div class="sidebar-card hover-card anim-fade-up">
-          <h3>Author</h3>
-          <img src="assets/images/blog-post-author.jpg" alt="Dr. Ravi Menon, sleep scientist" loading="lazy">
-          <strong>Dr. Ravi Menon</strong>
-          <p>Sleep Science Lead at RestWell. PhD in sleep physiology, 12 years of research.</p>
-        </div>
-        <div class="sidebar-card hover-card anim-fade-up delay-1">
-          <h3>Share this article</h3>
-          <div class="share-row"><a href="#" aria-label="Share on X"><i class="bi bi-twitter-x"></i></a><a href="#" aria-label="Share on Facebook"><i class="bi bi-facebook"></i></a><a href="#" aria-label="Share on LinkedIn"><i class="bi bi-linkedin"></i></a><a href="#" aria-label="Share by email"><i class="bi bi-envelope"></i></a></div>
-        </div>
-        <div class="sidebar-card hover-card anim-fade-up delay-2">
-          <h3>Related reads</h3>
-          <ul class="related-list"><li><a href="blog-post.html">How to choose the right mattress firmness</a></li><li><a href="blog-post.html">The ideal bedroom temperature for sleep</a></li><li><a href="blog-post.html">Memory foam vs latex: which is right for you?</a></li></ul>
-        </div>
-      </aside>
-    </div>
-  </div>
-</section>
-
-<!-- Section 3: Key takeaways -->
-<section class="section bg-soft">
-  <div class="container">
-    <div class="text-center mb-5 anim-fade-up"><span class="eyebrow">Key takeaways</span><h2>The 30-second summary</h2></div>
-    <div class="row g-4">
-      <div class="col-md-3 col-6"><div class="takeaway hover-card anim-fade-up"><span class="num">1</span><h3>Four stages</h3><p>Your brain cycles through 4 stages, ~5 times a night.</p></div></div>
-      <div class="col-md-3 col-6"><div class="takeaway hover-card anim-fade-up delay-1"><span class="num">2</span><h3>Deep sleep first</h3><p>Most deep sleep happens in the first half of the night.</p></div></div>
-      <div class="col-md-3 col-6"><div class="takeaway hover-card anim-fade-up delay-2"><span class="num">3</span><h3>Pressure disrupts</h3><p>Pressure points cause micro-arousals that cut deep sleep.</p></div></div>
-      <div class="col-md-3 col-6"><div class="takeaway hover-card anim-fade-up delay-3"><span class="num">4</span><h3>Mattress matters</h3><p>The right firmness keeps you in deep sleep longer.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- Section 4: CTA banner -->
-<section class="post-cta">
+<!-- Section 1: Page hero -->
+<section class="page-hero">
   <div class="container text-center">
-    <h2 class="anim-fade-up">Find the mattress that keeps you in deep sleep</h2>
-    <p class="lead anim-fade-up delay-1">Take the 2-minute sleep quiz. Get a personalised recommendation.</p>
-    <a href="products-mattresses.html" class="btn btn-light btn-lg anim-fade-up delay-2">Take the quiz</a>
+    <span class="eyebrow" data-aos="fade-up">Our story</span>
+    <h1 class="mintitle" data-aos="fade-up" data-aos-delay="100">Crafting better sleep since 2014</h1>
+    <p data-aos="fade-up" data-aos-delay="200">From a small Jaipur workshop to 2 lakh bedrooms across India — every mattress is still made by hand, then tested by sleep experts.</p>
   </div>
 </section>
 
-<!-- Section 5: Comments -->
+<!-- Section 2: Story (image left, text right) -->
 <section class="section">
   <div class="container">
-    <div class="text-center mb-5 anim-fade-up"><span class="eyebrow">Discussion</span><h2>Comments (12)</h2></div>
-    <div class="comments-list">
-      <div class="comment anim-fade-up"><img src="assets/images/blog-comment-1.jpg" alt="Commenter avatar" loading="lazy"><div><strong>Priya S.</strong><span>2 days ago</span><p>This finally explains why I wake up tired despite 8 hours. Booking a consultation!</p></div></div>
-      <div class="comment anim-fade-up delay-1"><img src="assets/images/blog-comment-2.jpg" alt="Commenter avatar" loading="lazy"><div><strong>Aman G.</strong><span>3 days ago</span><p>The pressure-point point is so true. Switched to memory foam and stopped waking at 3am.</p></div></div>
-      <div class="comment anim-fade-up delay-2"><img src="assets/images/blog-comment-3.jpg" alt="Commenter avatar" loading="lazy"><div><strong>Deepa R.</strong><span>5 days ago</span><p>Would love a follow-up on how REM debt affects mood. Great article!</p></div></div>
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6" data-aos="fade-right">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFYAgr6_tbDwTauG-QveiW6pU68zzV9ZhQAAUT-MWOIjjb462kVDxWOLY&s=10" alt="Artisans hand-stitching a mattress in the RestWell workshop" class="img-soft" loading="lazy">
+      </div>
+      <div class="col-lg-6">
+        <span class="eyebrow" data-aos="fade-up">How it began</span>
+        <h2 data-aos="fade-up" data-aos-delay="100">A grandfather's bad back started it all</h2>
+        <p data-aos="fade-up" data-aos-delay="200">In 2014, our founder Aditya watched his grandfather struggle with sleep night after night. Every mattress he tried was either too firm or too soft — never quite right. So Aditya set out to build one that adapted to the body, not the other way around.</p>
+        <p data-aos="fade-up" data-aos-delay="300">Today, RestWell mattresses are crafted with 7-zone orthopedic foam, certified safe foams, and a cooling cover designed for Indian summers — all backed by a 100-night trial.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Section 6: Comment form -->
+<!-- Section 3: Values -->
 <section class="section bg-soft">
   <div class="container">
-    <div class="anim-fade-up"><h2>Leave a comment</h2><p class="text-muted">Your email address will not be published.</p></div>
-    <form class="comment-form card p-4 anim-scale" action="blog-post.html" method="get">
-      <div class="mb-3"><label for="c-name" class="form-label">Name</label><input type="text" id="c-name" class="form-control" required></div>
-      <div class="mb-3"><label for="c-email" class="form-label">Email</label><input type="email" id="c-email" class="form-control" required></div>
-      <div class="mb-3"><label for="c-msg" class="form-label">Comment</label><textarea id="c-msg" class="form-control" rows="4" required></textarea></div>
-      <button type="submit" class="btn btn-primary">Post comment</button>
-    </form>
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="eyebrow">What we stand for</span>
+      <h2>Our values</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="value-card hover-card"><i class="bi bi-heart-fill"></i><h3>Comfort first</h3><p>Every decision starts with one question: does this help someone sleep better?</p></div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="value-card hover-card"><i class="bi bi-globe2"></i><h3>Made in India</h3><p>Designed, manufactured, and shipped from our own facilities — supporting local artisans.</p></div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="value-card hover-card"><i class="bi bi-tree-fill"></i><h3>Responsible sourcing</h3><p>Certified foams, recycled fabrics, and packaging that's 90% plastic-free.</p></div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- Section 7: More articles -->
+<!-- Section 4: Timeline -->
 <section class="section">
   <div class="container">
-    <div class="text-center mb-5 anim-fade-up"><span class="eyebrow">Keep reading</span><h2>More from the journal</h2></div>
-    <div class="row g-4">
-      <div class="col-md-4"><article class="post-card hover-card anim-fade-up"><a href="blog-post.html" class="hover-img"><img src="assets/images/blog-more-1.jpg" alt="How to break in a new mattress" loading="lazy"></a><div class="post-body"><span class="chip">Sleep Science</span><h3>How to break in a new mattress faster</h3></div></article></div>
-      <div class="col-md-4"><article class="post-card hover-card anim-fade-up delay-1"><a href="blog-post.html" class="hover-img"><img src="assets/images/blog-more-2.jpg" alt="Best pillows for neck pain" loading="lazy"></a><div class="post-body"><span class="chip">Buying Guides</span><h3>The 5 best pillows for neck pain</h3></div></article></div>
-      <div class="col-md-4"><article class="post-card hover-card anim-fade-up delay-2"><a href="blog-post.html" class="hover-img"><img src="assets/images/blog-more-3.jpg" alt="Bedroom colours for sleep" loading="lazy"></a><div class="post-body"><span class="chip">Bedroom Design</span><h3>5 calming bedroom colours</h3></div></article></div>
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="eyebrow">Milestones</span>
+      <h2>Our journey</h2>
     </div>
+    <div class="timeline">
+      <div class="timeline-item" data-aos="fade-up" data-aos-delay="100"><div class="year">2015</div><div class="body"><h3>The first mattress</h3><p>Hand-stitched in a Jaipur workshop, sold to 12 neighbours.</p></div></div>
+      <div class="timeline-item" data-aos="fade-up" data-aos-delay="200"><div class="year">2018</div><div class="body"><h3>100-night trial</h3><p>India's first mattress brand to offer a no-questions trial.</p></div></div>
+      <div class="timeline-item" data-aos="fade-up" data-aos-delay="300"><div class="year">2022</div><div class="body"><h3>1 lakh sleepers</h3><p>Crossed 100,000 happy customers across 80 cities.</p></div></div>
+      <div class="timeline-item" data-aos="fade-up" data-aos-delay="400"><div class="year">2026</div><div class="body"><h3>RestWell Studio</h3><p>Launched our smart mattress and sleep coach platform.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 5: Team -->
+<section class="section bg-soft">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="eyebrow">The people</span>
+      <h2>Meet the team</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="100"><div class="team-card hover-card"><img src="https://plus.unsplash.com/premium_photo-1689977927774-401b12d137d6?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fG1hbGUlMjBwcm9maWxlfGVufDB8fDB8fHww" alt="Aditya, Founder and CEO" loading="lazy"><h3>Aditya Rao</h3><span>Founder & CEO</span></div></div>
+      <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="200"><div class="team-card hover-card"><img src="https://www.shutterstock.com/image-photo/advertising-testimonial-photo-smiling-young-260nw-2637206875.jpg" alt="Nisha, Head of Design" loading="lazy"><h3>Nisha Gupta</h3><span>Head of Design</span></div></div>
+      <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="300"><div class="team-card hover-card"><img src="https://plus.unsplash.com/premium_photo-1689708721750-8a0e6dc14cee?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8aHVtYW4lMjBwaG90b3xlbnwwfHwwfHx8MA%3D%3D" alt="Ravi, Sleep Science Lead" loading="lazy"><h3>Ravi Menon</h3><span>Sleep Science Lead</span></div></div>
+      <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="400"><div class="team-card hover-card"><img src="https://www.shutterstock.com/image-photo/portrait-group-young-business-people-260nw-2700901223.jpg" alt="Fatima, Operations Head" loading="lazy"><h3>Fatima Sheikh</h3><span>Operations Head</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 6: CTA -->
+<section class="section">
+  <div class="container text-center">
+    <h2 data-aos="fade-up">Ready to sleep better?</h2>
+    <p class="lead" data-aos="fade-up" data-aos-delay="100">Join 2 lakh Indians who switched to RestWell.</p>
+    <a href="products-mattresses.html" class="btn btn-primary btn-lg" data-aos="fade-up" data-aos-delay="200">Shop mattresses</a>
   </div>
 </section>
 </main>
 
 <footer class="site-footer">
-  <div class="container">
-    <div class="row g-4">
-      <div class="col-lg-4"><div class="footer-brand"><svg viewBox="0 0 40 40" width="34" fill="none" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#3A6B8C"/><path d="M8 26h24v4H8z" fill="#fff"/><path d="M8 18c4-3 8-3 12 0s8 3 12 0v6H8z" fill="#C9A66B"/></svg> RestWell</div><p>Crafting restful sleep since 2014.</p></div>
-      <div class="col-6 col-lg-2"><h3 class="h6 text-white">Shop</h3><ul class="footer-links"><li><a href="products-mattresses.html">Mattresses</a></li><li><a href="products-pillows.html">Pillows</a></li><li><a href="products-bedsheets.html">Bed Sheets</a></li></ul></div>
-      <div class="col-6 col-lg-2"><h3 class="h6 text-white">Company</h3><ul class="footer-links"><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="blog.html">Blog</a></li></ul></div>
-      <div class="col-6 col-lg-2"><h3 class="h6 text-white">Support</h3><ul class="footer-links"><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li><li><a href="terms.html">Terms</a></li></ul></div>
-      <div class="col-6 col-lg-2"><h3 class="h6 text-white">Follow</h3><ul class="footer-links"><li><a href="#"><i class="bi bi-instagram"></i> Instagram</a></li><li><a href="#"><i class="bi bi-youtube"></i> YouTube</a></li></ul></div>
+  <div class="container-fluid px-5">
+    <div class="row g-4 justify-content-between">
+      <div class="col-auto">
+        <div class="footer-brand d-flex align-items-center gap-2">
+          <svg viewBox="0 0 40 40" width="34" height="34" fill="none" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#3A6B8C"/><path d="M8 26h24v4H8z" fill="#fff"/><path d="M8 18c4-3 8-3 12 0s8 3 12 0v6H8z" fill="#C9A66B"/></svg>
+          <span class="fw-bold fs-4 brand-text"><span class="rest" style="color: #3A6B8C;">Rest</span><span class="well" style="color: #C9A66B;">Well</span></span>
+        </div>
+        <div class="d-flex gap-3 mt-3">
+          <a href="#" class="text-white fs-5" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="text-white fs-5" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="text-white fs-5" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-auto"><h3 class="h6 text-white">Shop</h3><ul class="footer-links"><li><a href="products-mattresses.html">Mattresses</a></li><li><a href="products-pillows.html">Pillows</a></li><li><a href="products-bedsheets.html">Bed Sheets</a></li><li><a href="products-beds.html">Beds</a></li><li><a href="products-curtains.html">Curtains</a></li><li><a href="products-accessories.html">Accessories</a></li></ul></div>
+      <div class="col-auto"><h3 class="h6 text-white">Company</h3><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="service-details.html">Services</a></li><li><a href="products-mattresses.html">Products</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="col-auto"><h3 class="h6 text-white">Support</h3><ul class="footer-links"><li><a href="faq.html">FAQ</a></li><li><a href="privacy-policy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li><li><a href="login.html">Sign In</a></li><li><a href="404.html">404</a></li><li><a href="maintenance.html">Maintenance</a></li></ul></div>
     </div>
-    <div class="footer-bottom d-flex flex-wrap justify-content-between"><span>© 2026 RestWell.</span><span>Made in India</span></div>
+    <div class="footer-bottom d-flex flex-wrap justify-content-between mt-4"><span>© 2026 RestWell. All rights reserved.</span><span>Made with care in India</span></div>
   </div>
 </footer>
+
+<!-- AOS Animation Library JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800, // Animation duration in milliseconds
+    once: true,    // Whether animation should happen only once while scrolling down
+    offset: 100    // Offset (in px) from the original trigger point
+  });
+</script>
+
 </body>
 </html>

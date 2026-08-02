@@ -11,8 +11,45 @@
    ========================================================================== */
 
 /* ---------- Section: Page hero ---------- */
-.page-hero{padding:var(--space-8) 0;background:linear-gradient(135deg,var(--neutral-100),var(--neutral-50));text-align:center}
+.page-hero{padding:var(--space-8) 0;background: 
+    linear-gradient(rgba(18, 32, 43, 0.75), rgba(18, 32, 43, 0.75)), 
+    url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUZZpOuEyj_vhizaPKtw8SpS4h_yUcJHO4hidtFj9-tUkmExIWmvZpLkU&s=10") center/cover no-repeat;
+  color: #ffffff;};text-align:center}
 
+.lead p{
+  color: white;
+}
+.page-hero p,h1{
+  color: white;
+}
+.page-hero span{
+  color: rgb(223, 175, 17);
+}
+
+/* General reset to ensure no list dots or default margin padding if not using Bootstrap's list-unstyled */
+.feature-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* Style for the strong text inside feature list */
+.feature-list li strong {
+  font-weight: 600;         /* Slightly bolder, readable weight */
+  color: #1a1a1a;          /* Darker color for strong visual contrast */
+  font-size: 1.05rem;       /* Slightly larger than body text */
+}
+
+/* .table-responsive{
+  border: 1px solid blue;
+} */
+
+.featureitem{
+  border: 1px solid rgb(156, 140, 50);
+}
+
+.container2 h1{
+  color: white;
+}
 /* ---------- Section: Filter chips ---------- */
 .filter-bar{padding:var(--space-4) 0;background:var(--surface);border-bottom:1px solid var(--border)}
 .chip-active{background:var(--primary);color:#fff}

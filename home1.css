@@ -1,3 +1,8 @@
+html{
+    scroll-behavior:smooth;
+}
+
+
 
 .hero-section{padding:var(--space-8) 0;background:linear-gradient(135deg,var(--neutral-100),var(--neutral-50))}
 .hero-img{border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);max-height:520px;object-fit:cover;width:100%}
@@ -40,6 +45,52 @@
 .testimonial-card .author{display:flex;flex-direction:column;margin-top:var(--space-3)}
 .testimonial-card .author span{color:var(--text-muted);font-size:var(--fs-sm)}
 
+/* Base Keyframes */
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animation Helper Classes */
+.anim-slide-left {
+  opacity: 0;
+  animation: slideInFromLeft 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.anim-slide-right {
+  opacity: 0;
+  animation: slideInFromRight 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Staggered Delay Classes */
+.delay-1 {
+  animation-delay: 0.15s;
+}
+
+.delay-2 {
+  animation-delay: 0.3s;
+}
+
+.delay-3 {
+  animation-delay: 0.45s;
+}
 
 .booking-form{box-shadow:var(--shadow)}
 
@@ -53,3 +104,24 @@
 .newsletter-form .btn:hover{background:var(--secondary-dark);border-color:var(--secondary-dark)}
 @media (max-width:575.98px){.newsletter-form{flex-direction:column}.newsletter-form input,.newsletter-form .btn{width:100%}}
 
+.lead{
+    color: rgb(5, 5, 5);
+}
+
+.trust-item{
+    border: 1px solid rgb(85, 154, 245);
+}
+.trust-item p{
+    color: rgb(5, 5, 5);
+}
+.ppp{
+    color: rgb(5, 5, 5);
+}
+
+.hero-section{
+    padding-top:25px;
+}
+
+.testimonial-card{
+    border: 1px solid rgb(156, 140, 50);
+}

@@ -3,51 +3,346 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact RestWell — We're Here to Help You Sleep Better</title>
-<meta name="description" content="Contact RestWell: call us, email us, or send a message. Find our showrooms across India and book a free sleep consultation.">
-<link rel="canonical" href="https://example.com/contact.html">
-<meta property="og:title" content="Contact RestWell">
-<meta property="og:description" content="Call, email, or visit our showrooms across India.">
+<title>Sleep Journal — Tips, Science & Stories | RestWell Blog</title>
+<meta name="description" content="The RestWell Sleep Journal: science-backed sleep tips, mattress guides, bedroom design ideas, and stories from real sleepers across India.">
+<link rel="canonical" href="https://example.com/blog.html">
+<meta property="og:title" content="RestWell Sleep Journal">
+<meta property="og:description" content="Sleep tips, mattress guides, and sleeper stories.">
 <meta property="og:type" content="website">
+
+<!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+<!-- AOS (Animate On Scroll) CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 <link href="global.css" rel="stylesheet">
-<link href="contact.css" rel="stylesheet">
+<link href="blog.css" rel="stylesheet">
+<style>
+  /* Updated Header & Toggle Styles */
+  .brand-text .rest {
+    color: #3A6B8C;
+  }
+  .brand-text .well {
+    color: #C9A66B;
+  }
+  .navbar {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .nav-list {
+    flex: 1;
+    justify-content: center;
+  }
+  .header-controls {
+    margin-left: auto;
+  }
+  
+  /* Slider Dark Mode Toggle */
+  .theme-toggle-slider {
+    display: inline-flex;
+    align-items: center;
+    background: #e9ecef;
+    border-radius: 50rem;
+    padding: 3px;
+    cursor: pointer;
+    position: relative;
+    width: 64px;
+    height: 32px;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+  }
+  .theme-toggle-slider .slider-circle {
+    position: absolute;
+    left: 3px;
+    width: 26px;
+    height: 26px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .theme-toggle-slider .icon-sun,
+  .theme-toggle-slider .icon-moon {
+    position: relative;
+    z-index: 2;
+    width: 50%;
+    text-align: center;
+    font-size: 14px;
+    line-height: 26px;
+    user-select: none;
+  }
+  .theme-toggle-slider .icon-sun {
+    color: #d97706;
+  }
+  .theme-toggle-slider .icon-moon {
+    color: #6c757d;
+  }
+
+  /* Checked state for dark mode slider */
+  #darkMode:checked ~ * .theme-toggle-slider,
+  body:has(#darkMode:checked) .theme-toggle-slider,
+  .theme-input:checked + .theme-toggle-slider {
+    background: #2b3035;
+  }
+  #darkMode:checked ~ * .theme-toggle-slider .slider-circle,
+  body:has(#darkMode:checked) .slider-circle,
+  #darkMode:checked ~ .site-header .slider-circle {
+    transform: translateX(32px);
+  }
+
+  /* Hide raw checkbox */
+  input.theme-input[type="checkbox"]#darkMode {
+    display: none;
+  }
+
+  /* RTL Button Black Color Text Styling */
+  .rtl-toggle {
+    color: #000000 !important;
+  }
+
+  /* Hero Section Height & Alignment Adjustments (90vh - 95vh & Centered) with Increased Text Sizes */
+  .page-hero {
+    min-height: 92vh !important;
+    height: 92vh !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+    text-align: center !important;
+  }
+  .page-hero .container3 {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+  .page-hero h1,
+  .page-hero p,
+  .page-hero span {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* Increased Hero Text Sizes */
+  .page-hero h1 {
+    font-size: 3.5rem !important;
+    font-weight: 800 !important;
+    margin-bottom: 1.25rem !important;
+  }
+  .page-hero p {
+    font-size: 1.35rem !important;
+    max-width: 800px;
+    line-height: 1.6;
+  }
+  .page-hero .eyebrow {
+    font-size: 1.15rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem !important;
+    display: inline-block;
+  }
+
+  /* ================= BULLETPROOF UNIVERSAL DARK MODE STYLING ================= */
+  #darkMode:checked,
+  #darkMode:checked body,
+  #darkMode:checked ~ main {
+    background-color: #0f172a !important;
+    color: #f8fafc !important;
+  }
+
+  #darkMode:checked *:not(.btn):not(.badge):not(.chip):not(.brand-text):not(.rest):not(.well) {
+    color: #f8fafc !important;
+  }
+
+  #darkMode:checked .text-muted,
+  #darkMode:checked p,
+  #darkMode:checked .lead,
+  #darkMode:checked span:not(.rest):not(.well):not(.brand-text span) {
+    color: #cbd5e1 !important;
+  }
+
+  #darkMode:checked .site-header,
+  #darkMode:checked .section,
+  #darkMode:checked .bg-soft,
+  #darkMode:checked .site-footer {
+    background-color: #1e293b !important;
+    background-image: none !important;
+  }
+
+  #darkMode:checked .post-card,
+  #darkMode:checked .cat-tile,
+  #darkMode:checked .featured-post {
+    background-color: #0f172a !important;
+    border-color: #334155 !important;
+    color: #f8fafc !important;
+  }
+
+  #darkMode:checked .form-control {
+    background-color: #1e293b !important;
+    border-color: #334155 !important;
+    color: #f8fafc !important;
+  }
+
+  #darkMode:checked .rtl-toggle {
+    background-color: #1e293b;
+    border-color: #334155;
+    color: #f8fafc !important;
+  }
+
+  /* ================= MOBILE RESPONSIVE TWEAKS ================= */
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
+
+  @media (max-width: 991.98px) {
+    .header-controls .btn-signin-desktop {
+      display: none !important;
+    }
+    .navbar {
+      justify-content: space-between !important;
+      padding-left: 0 !important;
+      padding-right: 0.25rem !important;
+    }
+    .container-fluid.px-4 {
+      padding-left: 0.5rem !important;
+      padding-right: 0.5rem !important;
+    }
+    .brand {
+      margin-right: auto !important;
+      padding-left: 0 !important;
+    }
+    .header-controls {
+      margin-left: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 0.5rem !important;
+    }
+  }
+
+  /* Mobile Nav Drawer Enhancements */
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: #334155;
+    margin: 4px 0;
+    transition: 0.3s;
+  }
+
+  .mobile-panel {
+    width: 280px;
+    padding: 24px 20px;
+    background: #ffffff;
+    position: fixed;
+    top: 0;
+    right: -280px;
+    height: 100vh;
+    z-index: 1050;
+    transition: right 0.3s ease;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+    overflow-y: auto;
+  }
+
+  #mobileNav:checked ~ .mobile-panel {
+    right: 0;
+  }
+
+  .mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    z-index: 1040;
+    display: none;
+  }
+
+  #mobileNav:checked ~ .mobile-overlay {
+    display: block;
+  }
+
+  input.theme-input[type="checkbox"]#mobileNav {
+    display: none;
+  }
+
+  .mobile-panel ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .mobile-panel ul li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .mobile-panel ul li a {
+    text-decoration: none;
+    color: #334155;
+    font-weight: 500;
+    display: block;
+  }
+
+  /* Mobile-specific navigation dropdown accordion styles */
+  .mobile-dropdown-toggle {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .mobile-submenu {
+    list-style: none;
+    padding-left: 1rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  .mobile-submenu-toggle {
+    display: none;
+  }
+  .mobile-submenu-toggle:checked ~ .mobile-submenu {
+    max-height: 500px;
+  }
+</style>
 </head>
 <body>
 <input type="checkbox" id="darkMode" class="theme-input" aria-hidden="true">
 <input type="checkbox" id="rtlMode" class="theme-input" aria-hidden="true">
+<input type="checkbox" id="mobileNav" class="theme-input" aria-hidden="true">
+<label for="mobileNav" class="mobile-overlay" aria-label="Close menu"></label>
 
 <!-- ===================== HEADER ===================== -->
 <header class="site-header">
-  <div class="container">
-    <nav class="navbar d-flex align-items-center justify-content-between" aria-label="Primary">
-      
-      <!-- LEFT: Brand Logo & Name -->
-      <a class="brand d-flex align-items-center gap-2 text-decoration-none" href="home1.html" aria-label="RestWell home">
+  <div class="container-fluid px-4">
+    <nav class="navbar d-flex align-items-center justify-content-between flex-nowrap" aria-label="Primary">
+      <a class="brand d-flex align-items-center gap-2 text-decoration-none me-auto" href="index.html" aria-label="RestWell home">
         <svg viewBox="0 0 40 40" width="36" height="36" fill="none" aria-hidden="true">
           <rect width="40" height="40" rx="10" fill="#3A6B8C"/>
           <path d="M8 26h24v4H8z" fill="#fff"/>
           <path d="M8 18c4-3 8-3 12 0s8 3 12 0v6H8z" fill="#C9A66B"/>
         </svg>
-        <span class="fw-bold fs-4 brand-text">RestWell</span>
+        <span class="fw-bold fs-4 brand-text"><span class="rest">Rest</span><span class="well">Well</span></span>
       </a>
 
-      <!-- MIDDLE: Navigation Links -->
       <ul class="nav-list d-none d-lg-flex list-unstyled mb-0 gap-4">
         <li>
-          <a class="nav-link" href="home1.html">Home <i class="bi bi-chevron-down caret"></i></a>
+          <a class="nav-link" href="index.html">Home <i class="bi bi-chevron-down caret"></i></a>
           <ul class="dropdown" role="menu">
-            <li><a href="home1.html">Home 1 — General</a></li>
+            <li><a href="index.html">Home 1 — General</a></li>
             <li><a href="home2.html">Home 2 — Brand Story</a></li>
           </ul>
         </li>  
         <li>
-          <a class="nav-link" href="services.html">Services <i class="bi bi-chevron-down caret"></i></a>
-          <ul class="dropdown" role="menu">
-            <li><a href="services.html">All Services</a></li>
-            <li><a href="service-details.html">Service Details</a></li>
-          </ul>
+          <a class="nav-link" href="service-details.html">Services </a>
         </li>
         <li>
           <a class="nav-link" href="products-mattresses.html">Products <i class="bi bi-chevron-down caret"></i></a>
@@ -65,155 +360,329 @@
         <li><a class="nav-link" href="contact.html">Contact</a></li>
       </ul>
 
-      <!-- RIGHT: Theme Controls & Sign In Button -->
-      <div class="header-controls d-flex align-items-center gap-3">
-        <label class="theme-toggle" for="darkMode" title="Toggle dark mode" aria-label="Toggle dark mode"></label>
-        <label class="rtl-toggle" for="rtlMode" title="Toggle RTL" aria-label="Toggle right-to-left">RTL</label>
-        <a class="btn btn-primary btn-sm" href="login.html">Sign In</a>
+      <div class="header-controls d-flex align-items-center gap-2 ms-auto">
+        <!-- Replaced dark mode label with custom slider layout -->
+        <label class="theme-toggle-slider" for="darkMode" title="Toggle dark mode" aria-label="Toggle dark mode">
+          <span class="slider-circle"></span>
+          <span class="icon-sun"><i class="bi bi-sun-fill"></i></span>
+          <span class="icon-moon"><i class="bi bi-moon-fill"></i></span>
+        </label>
         
-        <!-- Hamburger menu toggle for mobile view -->
-        <label for="mobileNav" class="hamburger d-lg-none ms-2" aria-label="Open menu" tabindex="0">
+        <label class="rtl-toggle btn btn-outline-secondary btn-sm px-2 py-1 mb-0" for="rtlMode" title="Toggle RTL" aria-label="Toggle right-to-left" style="cursor: pointer;">RTL</label>
+        <a class="btn btn-primary btn-sm btn-signin-desktop" href="login.html">Sign In</a>
+
+        <label for="mobileNav" class="hamburger d-lg-none ms-1 mb-0" aria-label="Open menu" tabindex="0" style="cursor: pointer;">
           <span></span><span></span><span></span>
         </label>
       </div>
-
     </nav>
   </div>
 </header>
 
-<input type="checkbox" id="mobileNav" class="theme-input" aria-hidden="true">
-<label for="mobileNav" class="mobile-overlay" aria-label="Close menu"></label>
-<aside class="mobile-panel" aria-label="Mobile navigation"><h2 class="h5 mb-3">Menu</h2><ul>
-  <li><a href="home1.html">Home 1</a></li><li><a href="home2.html">Home 2</a></li><li><a href="services.html">Services</a></li><li><a href="service-details.html">Service Details</a></li><li><a href="products-mattresses.html">Mattresses</a></li><li><a href="products-pillows.html">Pillows</a></li><li><a href="products-bedsheets.html">Bed Sheets</a></li><li><a href="products-beds.html">Beds</a></li><li><a href="products-curtains.html">Curtains</a></li><li><a href="products-accessories.html">Accessories</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li><li><a href="login.html">Sign In</a></li>
-</ul></aside>
+<!-- Mobile Navigation Sidebar -->
+<aside class="mobile-panel" aria-label="Mobile navigation">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="h5 mb-0 fw-bold">Menu</h2>
+    <label for="mobileNav" class="btn-close" aria-label="Close" style="cursor: pointer;"></label>
+  </div>
+  <ul>
+    <!-- Home Dropdown for Mobile -->
+    <li>
+      <input type="checkbox" id="mobHomeToggle" class="mobile-submenu-toggle">
+      <label for="mobHomeToggle" class="mobile-dropdown-toggle py-2 text-decoration-none text-dark fw-medium">
+        Home <i class="bi bi-chevron-down small"></i>
+      </label>
+      <ul class="mobile-submenu">
+        <li class="border-bottom-0"><a href="index.html" class="py-2 text-muted">Home 1 — General</a></li>
+        <li class="border-bottom-0"><a href="home2.html" class="py-2 text-muted">Home 2 — Brand Story</a></li>
+      </ul>
+    </li>
+
+    <!-- Services (Renamed from Service Details) -->
+    <li><a href="service-details.html">Services</a></li>
+
+    <!-- Products Dropdown for Mobile -->
+    <li>
+      <input type="checkbox" id="mobProdToggle" class="mobile-submenu-toggle">
+      <label for="mobProdToggle" class="mobile-dropdown-toggle py-2 text-decoration-none text-dark fw-medium">
+        Products <i class="bi bi-chevron-down small"></i>
+      </label>
+      <ul class="mobile-submenu">
+        <li class="border-bottom-0"><a href="products-mattresses.html" class="py-2 text-muted">Mattresses</a></li>
+        <li class="border-bottom-0"><a href="products-pillows.html" class="py-2 text-muted">Pillows</a></li>
+        <li class="border-bottom-0"><a href="products-beds.html" class="py-2 text-muted">Beds</a></li>
+        <li class="border-bottom-0"><a href="products-bedsheets.html" class="py-2 text-muted">Bed Sheets</a></li>
+        <li class="border-bottom-0"><a href="products-curtains.html" class="py-2 text-muted">Curtains</a></li>
+        <li class="border-bottom-0"><a href="products-accessories.html" class="py-2 text-muted">Accessories</a></li>
+      </ul>
+    </li>
+
+    <li><a href="about.html">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li class="mt-3"><a href="login.html" class="btn btn-primary btn-sm w-100 text-white text-center">Sign In</a></li>
+  </ul>
+</aside>
 
 <main>
 <!-- Section 1: Page hero -->
 <section class="page-hero">
-  <div class="container text-center">
-    <span class="eyebrow anim-fade-up">Contact</span>
-    <h1 class="display-4 anim-fade-up delay-1">We'd love to help you sleep better</h1>
-    <p class="lead anim-fade-up delay-2">Questions about a mattress, an order, or a trial return? Reach us any way you like.</p>
+  <div class="container3 text-center">
+    <span class="eyebrow" data-aos="fade-up" data-aos-duration="600">Sleep Journal</span>
+    <h1 data-aos="fade-up" data-aos-delay="100" data-aos-duration="600">Sleep better, read smarter</h1>
+    <p class="rrrrr" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">Science-backed tips, buying guides, and stories from people who fixed their sleep.</p>
   </div>
 </section>
 
-<!-- Section 2: Contact methods -->
+<!-- Section 2: Category chips -->
+<section class="filter-bar">
+  <div class="container d-flex flex-wrap gap-2 justify-content-center">
+    <!-- Category chips can be populated here -->
+  </div>
+</section>
+
+<!-- Section 3: Featured post -->
 <section class="section">
   <div class="container">
-    <div class="row g-4">
-      <div class="col-md-4"><div class="contact-method hover-card anim-fade-up"><i class="bi bi-telephone-fill"></i><h3>Call us</h3><p>Mon–Sat, 9am–8pm</p><a href="tel:+918001234567">+91 800 123 4567</a></div></div>
-      <div class="col-md-4"><div class="contact-method hover-card anim-fade-up delay-1"><i class="bi bi-envelope-fill"></i><h3>Email us</h3><p>We reply within 4 hours</p><a href="mailto:hello@restwell.in">hello@restwell.in</a></div></div>
-      <div class="col-md-4"><div class="contact-method hover-card anim-fade-up delay-2"><i class="bi bi-chat-dots-fill"></i><h3>Chat with us</h3><p>Tap to start a WhatsApp chat</p><a href="#">WhatsApp us</a></div></div>
-    </div>
+    <article class="featured-post hover-card" data-aos="fade-up" data-aos-duration="800">
+      <div class="row g-0 align-items-center">
+        <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+          <a href="blog-post.html">
+            <img src="https://media.post.rvohealth.io/wp-content/uploads/sites/3/2020/08/the-science-of-sleep-1200x628-facebook.20200819200501126.jpg" alt="Featured article about the science of deep sleep" loading="lazy">
+          </a>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+          <div class="featured-body">
+            <span class="chip">Featured · Sleep Science</span>
+            <h2>The 4 stages of sleep — and why you're probably missing the deepest one</h2>
+            <p class="text-muted">A sleep scientist breaks down what happens in your brain each night, and how your mattress affects how much deep sleep you actually get.</p>
+            <div class="meta">
+              <span><i class="bi bi-person"></i> Dr. Ravi Menon</span>
+              <span><i class="bi bi-clock"></i> 8 min read</span>
+            </div>
+            <a href="blog-post.html" class="btn btn-primary">Read article</a>
+          </div>
+        </div>
+      </div>
+    </article>
   </div>
 </section>
 
-<!-- Section 3: Contact form + image -->
+<!-- Section 4: Post grid -->
 <section class="section bg-soft">
   <div class="container">
-    <div class="row g-5 align-items-center">
-      <div class="col-lg-6">
-        <span class="eyebrow anim-fade-up">Send a message</span>
-        <h2 class="anim-fade-up delay-1">Drop us a line</h2>
-        <p class="lead anim-fade-up delay-2">Fill in the form and our team will get back to you within 4 hours during business hours.</p>
-        <form class="contact-form card p-4 anim-scale" action="contact.html" method="get">
-          <div class="row g-3">
-            <div class="col-md-6"><label for="ct-name" class="form-label">Full name</label><input type="text" id="ct-name" name="name" class="form-control" required autocomplete="name"></div>
-            <div class="col-md-6"><label for="ct-email" class="form-label">Email</label><input type="email" id="ct-email" name="email" class="form-control" required autocomplete="email"></div>
-            <div class="col-md-6"><label for="ct-phone" class="form-label">Phone (optional)</label><input type="tel" id="ct-phone" name="phone" class="form-control" autocomplete="tel"></div>
-            <div class="col-md-6"><label for="ct-topic" class="form-label">Topic</label><select id="ct-topic" name="topic" class="form-select"><option>General enquiry</option><option>Order status</option><option>Trial return</option><option>Warranty</option><option>Partnership</option></select></div>
-            <div class="col-12"><label for="ct-msg" class="form-label">Message</label><textarea id="ct-msg" name="message" class="form-control" rows="5" required></textarea></div>
-            <div class="col-12"><div class="form-check"><input class="form-check-input" type="checkbox" id="ct-consent" required><label class="form-check-label" for="ct-consent">I agree to be contacted about my enquiry.</label></div></div>
-            <div class="col-12"><button type="submit" class="btn btn-primary w-100">Send message</button></div>
-          </div>
-        </form>
-      </div>
-      <div class="col-lg-6"><img src="https://brokerstorm.net/wp-content/uploads/2022/06/Customer-Support3.jpg" alt="Friendly RestWell customer support team at their desks" class="img-soft anim-float" loading="lazy"></div>
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="eyebrow">Latest</span>
+      <h2>Recent articles</h2>
     </div>
-  </div>
-</section>
-
-<!-- Section 4: Showrooms -->
-<section class="section">
-  <div class="container">
-    <div class="text-center mb-5 anim-fade-up"><span class="eyebrow">Visit us</span><h2>Our showrooms across India</h2></div>
     <div class="row g-4">
-      <div class="col-md-6 col-lg-3"><div class="showroom-card hover-card anim-fade-up"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXe99jvRmsd-U70zQlzKjSxFv8DTGoB9u_IsuGriE7sw&s=10" alt="RestWell Bengaluru showroom" loading="lazy"><h3>Bengaluru</h3><p>Indiranagar, 100ft Road<br>Open daily 10am–9pm</p></div></div>
-      <div class="col-md-6 col-lg-3"><div class="showroom-card hover-card anim-fade-up delay-1"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHfUFYc4-4W1A2rC1wyNh8f8YXpU_kfkXp4JAwGomZ4A&s" alt="RestWell Mumbai showroom" loading="lazy"><h3>Mumbai</h3><p>Lower Parel, Senapati Bapat Marg<br>Open daily 10am–9pm</p></div></div>
-      <div class="col-md-6 col-lg-3"><div class="showroom-card hover-card anim-fade-up delay-2"><img src="https://bedtimesmagazine.com/wp-content/uploads/2025/07/King-Koil-lighting-Vegas.png" alt="RestWell Delhi showroom" loading="lazy"><h3>Delhi</h3><p>Khan Market<br>Open daily 10am–9pm</p></div></div>
-      <div class="col-md-6 col-lg-3"><div class="showroom-card hover-card anim-fade-up delay-3"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjnQ6D_ac7PPdsy-YFT3NaG5Z9CSh7B7Zrv6gE3PlEdw&s" alt="RestWell Hyderabad showroom" loading="lazy"><h3>Hyderabad</h3><p>Jubilee Hills, Road No. 36<br>Open daily 10am–9pm</p></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- Section 5: Booking form -->
-<section class="section bg-soft">
-  <div class="container">
-    <div class="row g-5 align-items-center">
-      <div class="col-lg-5"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtWEKlnmCtLMipc904-BeMSYn8lHIG8mj-c5BkfcC9YEkalKQkgbdFE-X0&s=10" alt="Customer trying out mattresses in a RestWell showroom" class="img-soft anim-fade-in" loading="lazy"></div>
-      <div class="col-lg-7">
-        <span class="eyebrow anim-fade-up">Book a visit</span>
-        <h2 class="anim-fade-up delay-1">Book a showroom appointment</h2>
-        <p class="anim-fade-up delay-2">Skip the wait. Pick a slot and a sleep expert will be ready for you.</p>
-        <form class="booking-form card p-4 anim-scale" action="contact.html" method="get">
-          <div class="row g-3">
-            <div class="col-md-6"><label for="bk2-name" class="form-label">Full name</label><input type="text" id="bk2-name" name="name" class="form-control" required autocomplete="name"></div>
-            <div class="col-md-6"><label for="bk2-phone" class="form-label">Phone</label><input type="tel" id="bk2-phone" name="phone" class="form-control" required autocomplete="tel"></div>
-            <div class="col-md-6"><label for="bk2-showroom" class="form-label">Showroom</label><select id="bk2-showroom" name="showroom" class="form-select" required><option value="">Select…</option><option>Bengaluru</option><option>Mumbai</option><option>Delhi</option><option>Hyderabad</option></select></div>
-            <div class="col-md-6"><label for="bk2-date" class="form-label">Date</label><input type="date" id="bk2-date" name="date" class="form-control" required></div>
-            <div class="col-md-6"><label for="bk2-time" class="form-label">Time</label><input type="time" id="bk2-time" name="time" class="form-control" required></div>
-            <div class="col-12"><label for="bk2-addr" class="form-label">Notes (optional)</label><input type="text" id="bk2-addr" name="notes" class="form-control" placeholder="Any specific mattresses you want to try?"></div>
-            <div class="col-12"><button type="submit" class="btn btn-primary w-100">Book appointment</button></div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <article class="post-card hover-card">
+          <a href="blog-post.html" class="hover-img">
+            <img src="https://kurlon.com/cdn/shop/articles/Choosing_the_right_mattress_firmness_-_Soft_Medium_or_Firm_large.jpg?v=1750147872" alt="How to choose a mattress firmness" loading="lazy">
+          </a>
+          <div class="post-body">
+            <span class="chip">Buying Guides</span>
+            <h3>How to choose the right mattress firmness</h3>
+            <p>Your sleep position and body weight decide it. Here's a simple chart.</p>
+            <div class="meta"><span><i class="bi bi-clock"></i> 6 min</span></div>
           </div>
-        </form>
+        </article>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <article class="post-card hover-card">
+          <a href="blog-post.html" class="hover-img">
+            <img src="https://i.ytimg.com/vi/-_YNuJjO7iE/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBlmJcc3m0y0TEYlh2IMnjH7mnehQ" alt="Bedroom colours for better sleep" loading="lazy">
+          </a>
+          <div class="post-body">
+            <span class="chip">Bedroom Design</span>
+            <h3>5 calming bedroom colours that help you sleep</h3>
+            <p>Colour psychology is real. These shades lower your heart rate.</p>
+            <div class="meta"><span><i class="bi bi-clock"></i> 4 min</span></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+        <article class="post-card hover-card">
+          <a href="blog-post.html" class="hover-img">
+            <img src="https://www.springfit.com/cdn/shop/articles/Memory_Foam_Mattress_And_Latex_Mattress.jpg?v=1719648490" alt="Memory foam vs latex comparison" loading="lazy">
+          </a>
+          <div class="post-body">
+            <span class="chip">Buying Guides</span>
+            <h3>Memory foam vs latex: which is right for you?</h3>
+            <p>We compare feel, cooling, durability, and price — honestly.</p>
+            <div class="meta"><span><i class="bi bi-clock"></i> 7 min</span></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <article class="post-card hover-card">
+          <a href="blog-post.html" class="hover-img">
+            <img src="https://ndpsych.com.au/wp-content/uploads/2023/09/Understanding-Insomnia-1024x724.png" alt="How I cured my insomnia" loading="lazy">
+          </a>
+          <div class="post-body">
+            <span class="chip">Stories</span>
+            <h3>How I cured 10 years of insomnia in 30 days</h3>
+            <p>A reader's journey from 3 hours of sleep to a full night.</p>
+            <div class="meta"><span><i class="bi bi-clock"></i> 9 min</span></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <article class="post-card hover-card">
+          <a href="blog-post.html" class="hover-img">
+            <img src="https://media.post.rvohealth.io/wp-content/uploads/2023/11/3264148-Best-Pillows-for-Neck-Pain-of-2023-732x549-Feature.jpg" alt="Best pillows for neck pain" loading="lazy">
+          </a>
+          <div class="post-body">
+            <span class="chip">Buying Guides</span>
+            <h3>The 5 best pillows for neck pain, ranked</h3>
+            <p>We tested 23 pillows. These 5 actually helped.</p>
+            <div class="meta"><span><i class="bi bi-clock"></i> 5 min</span></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+        <article class="post-card hover-card">
+          <a href="blog-post.html" class="hover-img">
+            <img src="https://media.licdn.com/dms/image/v2/C5612AQF67Qpfl0fByQ/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1607300636249?e=2147483647&v=beta&t=bxxGe9-DwfzMUU081rjK44IMP_8VnTZj50u0gzSsC38" alt="How temperature affects sleep" loading="lazy">
+          </a>
+          <div class="post-body">
+            <span class="chip">Sleep Science</span>
+            <h3>The ideal bedroom temperature for sleep</h3>
+            <p>Hint: it's cooler than you think. Here's the science.</p>
+            <div class="meta"><span><i class="bi bi-clock"></i> 6 min</span></div>
+          </div>
+        </article>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Section 6: FAQ teaser -->
-<section class="section">
-  <div class="container">
-    <div class="row align-items-center g-5">
-      <div class="col-lg-6">
-        <span class="eyebrow anim-fade-up">Quick answers</span>
-        <h2 class="anim-fade-up delay-1">Before you write to us…</h2>
-        <ul class="faq-mini anim-fade-up delay-2">
-          <li><strong>How long is the trial?</strong> 100 nights from delivery.</li>
-          <li><strong>Is delivery free?</strong> Yes, everywhere in India.</li>
-          <li><strong>How do I return?</strong> One tap in your account, free pickup.</li>
-        </ul>
-        <a href="faq.html" class="btn btn-outline-primary anim-fade-up delay-3">See all FAQs</a>
-      </div>
-      <div class="col-lg-6"><img src="https://static.vecteezy.com/system/resources/previews/003/715/697/non_2x/faq-or-frequently-asked-questions-for-website-blogger-helpdesk-clients-assistance-helpful-information-guides-background-illustration-vector.jpg" alt="Customer reading RestWell FAQ on a tablet" class="img-soft anim-fade-in" loading="lazy"></div>
-    </div>
-  </div>
-</section>
-
-<!-- Section 7: Newsletter -->
+<!-- Section 5: Newsletter -->
 <section class="newsletter-section">
   <div class="container text-center">
-    <h2 class="anim-fade-up">Sleep tips, in your inbox</h2>
-    <p class="lead anim-fade-up delay-1">Weekly sleep science and exclusive offers.</p>
-    <form class="newsletter-form anim-fade-up delay-2" action="contact.html" method="get">
+    <h2 data-aos="fade-up">Get the weekly sleep digest</h2>
+    <p class="lead" data-aos="fade-up" data-aos-delay="100">One email, every Sunday. No spam, just better sleep.</p>
+    <form class="newsletter-form" data-aos="fade-up" data-aos-delay="200" action="blog.html" method="get">
       <input type="email" placeholder="you@example.com" aria-label="Email address" required>
       <button type="submit" class="btn btn-primary">Subscribe</button>
     </form>
   </div>
 </section>
+
+<!-- Section 6: Popular categories -->
+<section class="section">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="eyebrow">Browse</span>
+      <h2>Popular categories</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="100">
+        <a href="blog.html" class="cat-tile hover-card">
+          <i class="bi bi-moon-stars"></i>
+          <h3>Sleep Science</h3>
+          <span>24 articles</span>
+        </a>
+      </div>
+      <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="200">
+        <a href="blog.html" class="cat-tile hover-card">
+          <i class="bi bi-cart3"></i>
+          <h3>Buying Guides</h3>
+          <span>18 articles</span>
+        </a>
+      </div>
+      <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="300">
+        <a href="blog.html" class="cat-tile hover-card">
+          <i class="bi bi-house-heart"></i>
+          <h3>Bedroom Design</h3>
+          <span>12 articles</span>
+        </a>
+      </div>
+      <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="400">
+        <a href="blog.html" class="cat-tile hover-card">
+          <i class="bi bi-people"></i>
+          <h3>Sleeper Stories</h3>
+          <span>9 articles</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 7: Editor's picks -->
+<section class="section bg-soft">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="eyebrow">Editor's picks</span>
+      <h2>Must-read this month</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6" data-aos="fade-right" data-aos-delay="100">
+        <article class="post-card horizontal hover-card">
+          <a href="blog-post.html" class="hover-img">
+            <img src="https://a1501dca.delivery.rocketcdn.me/wp-content/uploads/2017/03/Break-in-a-Mattress.jpg" alt="How to break in a new mattress faster" loading="lazy">
+          </a>
+          <div class="post-body">
+            <span class="chip">Sleep Science</span>
+            <h3>How to break in a new mattress faster</h3>
+            <div class="meta"><span><i class="bi bi-clock"></i> 5 min</span></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-md-6" data-aos="fade-left" data-aos-delay="200">
+        <article class="post-card horizontal hover-card">
+          <a href="blog-post.html" class="hover-img">
+            <img src="https://otty.com/cdn/shop/files/SHOWROOM_01_1000x_crop_center_2x_3764afc3-9171-410a-aed2-4c3fea5d7c96.webp?v=1738526964&width=2800" alt="The truth about 100-night trials" loading="lazy">
+          </a>
+          <div class="post-body">
+            <span class="chip">Buying Guides</span>
+            <h3>The truth about 100-night trials (ours included)</h3>
+            <div class="meta"><span><i class="bi bi-clock"></i> 7 min</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer class="site-footer">
-  <div class="container">
-    <div class="row g-4">
-      <div class="col-lg-4"><div class="footer-brand"><svg viewBox="0 0 40 40" width="34" fill="none" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#3A6B8C"/><path d="M8 26h24v4H8z" fill="#fff"/><path d="M8 18c4-3 8-3 12 0s8 3 12 0v6H8z" fill="#C9A66B"/></svg> RestWell</div><p>Crafting restful sleep since 2014.</p></div>
-      <div class="col-6 col-lg-2"><h3 class="h6 text-white">Shop</h3><ul class="footer-links"><li><a href="products-mattresses.html">Mattresses</a></li><li><a href="products-pillows.html">Pillows</a></li><li><a href="products-bedsheets.html">Bed Sheets</a></li></ul></div>
-      <div class="col-6 col-lg-2"><h3 class="h6 text-white">Company</h3><ul class="footer-links"><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="blog.html">Blog</a></li></ul></div>
-      <div class="col-6 col-lg-2"><h3 class="h6 text-white">Support</h3><ul class="footer-links"><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li><li><a href="terms.html">Terms</a></li></ul></div>
-      <div class="col-6 col-lg-2"><h3 class="h6 text-white">Follow</h3><ul class="footer-links"><li><a href="#"><i class="bi bi-instagram"></i> Instagram</a></li><li><a href="#"><i class="bi bi-facebook"></i> Facebook</a></li></ul></div>
+  <div class="container-fluid px-5">
+    <div class="row g-4 justify-content-between">
+      <div class="col-auto">
+        <div class="footer-brand d-flex align-items-center gap-2">
+          <svg viewBox="0 0 40 40" width="34" height="34" fill="none" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#3A6B8C"/><path d="M8 26h24v4H8z" fill="#fff"/><path d="M8 18c4-3 8-3 12 0s8 3 12 0v6H8z" fill="#C9A66B"/></svg>
+          <span class="fw-bold fs-4 brand-text"><span class="rest" style="color: #3A6B8C;">Rest</span><span class="well" style="color: #C9A66B;">Well</span></span>
+        </div>
+        <div class="d-flex gap-3 mt-3">
+          <a href="#" class="text-white fs-5" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="text-white fs-5" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="text-white fs-5" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-auto"><h3 class="h6 text-white">Shop</h3><ul class="footer-links"><li><a href="products-mattresses.html">Mattresses</a></li><li><a href="products-pillows.html">Pillows</a></li><li><a href="products-bedsheets.html">Bed Sheets</a></li><li><a href="products-beds.html">Beds</a></li><li><a href="products-curtains.html">Curtains</a></li><li><a href="products-accessories.html">Accessories</a></li></ul></div>
+      <div class="col-auto"><h3 class="h6 text-white">Company</h3><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="service-details.html">Services</a></li><li><a href="products-mattresses.html">Products</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="col-auto"><h3 class="h6 text-white">Support</h3><ul class="footer-links"><li><a href="faq.html">FAQ</a></li><li><a href="privacy-policy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li><li><a href="login.html">Sign In</a></li><li><a href="404.html">404</a></li><li><a href="maintenance.html">Maintenance</a></li></ul></div>
     </div>
-    <div class="footer-bottom d-flex flex-wrap justify-content-between"><span>© 2026 RestWell.</span><span>Made in India</span></div>
+    <div class="footer-bottom d-flex flex-wrap justify-content-between mt-4"><span>© 2026 RestWell. All rights reserved.</span><span>Made with care in India</span></div>
   </div>
 </footer>
+
+<!-- AOS JS Script -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800, // Animation duration in milliseconds
+    once: true,    // Animation runs only once while scrolling down
+    offset: 100    // Offset (in px) from the original trigger point
+  });
+</script>
 </body>
 </html>

@@ -11,7 +11,21 @@
    ========================================================================== */
 
 /* ---------- Section: Page hero ---------- */
-.page-hero{padding:var(--space-8) 0;background:linear-gradient(135deg,var(--neutral-100),var(--neutral-50));text-align:center}
+.page-hero{padding:var(--space-8) 0;background: 
+    linear-gradient(rgba(18, 32, 43, 0.75), rgba(18, 32, 43, 0.75)), 
+    url("https://static.vecteezy.com/system/resources/thumbnails/035/723/312/small/3d-good-night-and-sweet-dreams-banner-fluffy-clouds-on-dark-sky-background-with-gold-moon-and-stars-place-for-text-3d-rendering-illustration-vector.jpg") center/cover no-repeat;
+  color: #ffffff;};text-align:center;;text-align:center}
+.ttttt{
+  color: white;
+}
+.rrrrr{
+  color:white;
+}
+.container3 h1{
+  color: white;
+}
+
+
 
 /* ---------- Section: Filter chips ---------- */
 .filter-bar{padding:var(--space-4) 0;background:var(--surface);border-bottom:1px solid var(--border)}
