@@ -124,4 +124,395 @@ html{
 
 .testimonial-card{
     border: 1px solid rgb(156, 140, 50);
+<<<<<<< HEAD
+=======
 }
+
+
+
+
+
+
+
+/* =====================================================
+   Mobile Header Customization (991.98px and below)
+   ===================================================== */
+
+@media (max-width:991.98px){
+
+  /* Hide desktop navigation */
+  .nav-list{
+    display:none !important;
+  }
+
+  /* Hide Sign In button, RTL toggle, and Dark Mode toggle in header */
+  .header-controls,
+  .header-controls .btn,
+  .header-controls .theme-toggle,
+  .header-controls .rtl-toggle{
+    display:none !important;
+  }
+
+  /* Keep only logo and hamburger */
+  .mobile-bar{
+    display:flex !important;
+    align-items:center;
+    justify-content:space-between;
+    width:100%;
+  }
+
+  .brand{
+    flex:1;
+  }
+
+  /* Mobile panel styling */
+  .mobile-panel{
+    width:300px;
+    padding:24px 20px;
+    background:var(--surface);
+    overflow-y:auto;
+  }
+
+  .mobile-panel ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+
+  .mobile-panel li{
+    border-bottom:1px solid var(--border);
+  }
+
+  .mobile-panel a{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:14px 0;
+    color:var(--text);
+    font-weight:600;
+    text-decoration:none;
+  }
+
+  /* Indent existing submenu items */
+  .mobile-panel .dropdown-static{
+    padding-left:18px;
+  }
+
+  /* Existing nested lists (if present in HTML) */
+  .mobile-panel li ul{
+    padding-left:18px;
+  }
+
+  .mobile-panel li ul li{
+    border-bottom:none;
+  }
+
+  .mobile-panel li ul a{
+    padding:10px 0;
+    font-weight:500;
+    color:var(--text-muted);
+  }
+
+  /* Slightly larger menu title if one exists */
+  .mobile-panel h3,
+  .mobile-panel .menu-title{
+    font-size:1.15rem;
+    margin-bottom:16px;
+    color:var(--heading);
+  }
+}
+
+/* Mobile Devices (Portrait) */
+@media screen and (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  .container {
+    width: 100%;
+    padding: 0 15px;
+  }
+
+  /* Stack layout elements vertically */
+  .row, .grid {
+    flex-direction: column;
+    grid-template-columns: 1fr;
+  }
+>>>>>>> 3379e232c5c3e4761492e92a6f7d28c5da21b222
+}
+
+.brand-text .rest {
+    color: #3A6B8C;
+  }
+  .brand-text .well {
+    color: #C9A66B;
+  }
+  .navbar {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .nav-list {
+    flex: 1;
+    justify-content: center;
+  }
+  .header-controls {
+    margin-left: auto;
+  }
+  
+  /* Slider Dark Mode Toggle */
+  .theme-toggle-slider {
+    display: inline-flex;
+    align-items: center;
+    background: #e9ecef;
+    border-radius: 50rem;
+    padding: 3px;
+    cursor: pointer;
+    position: relative;
+    width: 64px;
+    height: 32px;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+  }
+  .theme-toggle-slider .slider-circle {
+    position: absolute;
+    left: 3px;
+    width: 26px;
+    height: 26px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .theme-toggle-slider .icon-sun,
+  .theme-toggle-slider .icon-moon {
+    position: relative;
+    z-index: 2;
+    width: 50%;
+    text-align: center;
+    font-size: 14px;
+    line-height: 26px;
+    user-select: none;
+  }
+  .theme-toggle-slider .icon-sun {
+    color: #d97706;
+  }
+  .theme-toggle-slider .icon-moon {
+    color: #6c757d;
+  }
+
+  /* Checked state for dark mode slider */
+  #darkMode:checked ~ * .theme-toggle-slider,
+  body:has(#darkMode:checked) .theme-toggle-slider,
+  .theme-input:checked + .theme-toggle-slider {
+    background: #2b3035;
+  }
+  #darkMode:checked ~ * .theme-toggle-slider .slider-circle,
+  body:has(#darkMode:checked) .slider-circle,
+  #darkMode:checked ~ .site-header .slider-circle {
+    transform: translateX(32px);
+  }
+
+  /* Hide raw checkbox */
+  input.theme-input[type="checkbox"]#darkMode {
+    display: none;
+  }
+
+  /* Prevent horizontal overflow globally */
+  html, body {
+    max-width: 100vw;
+    overflow-x: hidden !important;
+  }
+
+  /* ================= BULLETPROOF UNIVERSAL DARK MODE STYLING ================= */
+  #darkMode:checked,
+  #darkMode:checked body,
+  #darkMode:checked ~ main {
+    background-color: #0f172a !important;
+    color: #ffffff !important;
+  }
+
+  /* Force every single text element, header, heading, tag line, paragraph, and card text to be pure white in dark mode */
+  #darkMode:checked *:not(.btn):not(.badge):not(.chip):not(.brand-text):not(.rest):not(.well) {
+    color: #ffffff !important;
+  }
+
+  #darkMode:checked .text-muted,
+  #darkMode:checked p,
+  #darkMode:checked .lead,
+  #darkMode:checked .ppp,
+  #darkMode:checked span:not(.rest):not(.well):not(.brand-text span) {
+    color: #ffffff !important;
+  }
+
+  /* Keep hero section title specifically in black color even in dark mode */
+  #darkMode:checked .hero-section h1,
+  #darkMode:checked .hero-section .display-4 {
+    color: #000000 !important;
+  }
+
+  /* Force all sections and backgrounds, including the hero section, to adopt dark surface themes */
+  #darkMode:checked .site-header,
+  #darkMode:checked .hero-section,
+  #darkMode:checked .trust-section,
+  #darkMode:checked .section,
+  #darkMode:checked .bg-soft,
+  #darkMode:checked .site-footer {
+    background-color: #1e293b !important;
+    background-image: none !important;
+  }
+
+  #darkMode:checked .product-card,
+  #darkMode:checked .pricing-card,
+  #darkMode:checked .trust-item,
+  #darkMode:checked .category-card,
+  #darkMode:checked .testimonial-card,
+  #darkMode:checked .card {
+    background-color: #0f172a !important;
+    border-color: #334155 !important;
+    color: #ffffff !important;
+  }
+
+  #darkMode:checked .form-control {
+    background-color: #1e293b !important;
+    border-color: #334155 !important;
+    color: #ffffff !important;
+  }
+
+  #darkMode:checked .rtl-toggle {
+    background-color: #1e293b;
+    border-color: #334155;
+    color: #ffffff !important;
+  }
+
+  /* ================= MOBILE RESPONSIVE TWEAKS ================= */
+  @media (max-width: 991.98px) {
+    .header-controls .btn-signin-desktop {
+      display: none !important; /* Hide sign in button in mobile header */
+    }
+    .navbar {
+      justify-content: space-between !important;
+      padding-left: 0rem !important;
+      padding-right: 0rem !important;
+    }
+    .container-fluid.px-4 {
+      padding-left: 0.75rem !important;
+      padding-right: 0.75rem !important;
+    }
+    .brand {
+      margin-right: 0 !important;
+      padding-left: 0 !important;
+    }
+    .header-controls {
+      margin-left: auto !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 0.4rem !important;
+    }
+    /* Center align the whole page content on mobile */
+    main {
+      text-align: center !important;
+    }
+    .hero-section .row,
+    .section .row,
+    .trust-section .row {
+      justify-content: center !important;
+    }
+    /* Add vertical spacing between hero buttons in mobile view */
+    .hero-section .btn {
+      display: block !important;
+      width: 100% !important;
+      margin-right: 0 !important;
+      margin-bottom: 0.75rem !important;
+    }
+    .hero-section div[data-aos="fade-up"] {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+    }
+  }
+
+  /* Mobile Nav Drawer Enhancements */
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: #334155;
+    margin: 4px 0;
+    transition: 0.3s;
+  }
+
+  .mobile-panel {
+    width: 280px;
+    padding: 24px 20px;
+    background: #ffffff;
+    position: fixed;
+    top: 0;
+    right: -280px;
+    height: 100vh;
+    z-index: 1050;
+    transition: right 0.3s ease;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+    overflow-y: auto;
+  }
+
+  #mobileNav:checked ~ .mobile-panel {
+    right: 0;
+  }
+
+  .mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    z-index: 1040;
+    display: none;
+  }
+
+  #mobileNav:checked ~ .mobile-overlay {
+    display: block;
+  }
+
+  input.theme-input[type="checkbox"]#mobileNav {
+    display: none;
+  }
+
+  .mobile-panel ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .mobile-panel ul li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .mobile-panel ul li a {
+    text-decoration: none;
+    color: #334155;
+    font-weight: 500;
+    display: block;
+  }
+
+  /* Mobile-specific navigation dropdown accordion styles */
+  .mobile-dropdown-toggle {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .mobile-submenu {
+    list-style: none;
+    padding-left: 1rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  .mobile-submenu-toggle {
+    display: none;
+  }
+  .mobile-submenu-toggle:checked ~ .mobile-submenu {
+    max-height: 500px;
+  }

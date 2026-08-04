@@ -10,288 +10,6 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 <link href="global.css" rel="stylesheet">
 <link href="auth.css" rel="stylesheet">
-<style>
-  /* Updated Header & Toggle Styles */
-  .brand .rest {
-    color: #3A6B8C !important;
-  }
-  .brand .well {
-    color: #C9A66B !important;
-  }
-  
-  /* Slider Dark Mode Toggle */
-  .theme-toggle-slider {
-    display: inline-flex;
-    align-items: center;
-    background: #e9ecef;
-    border-radius: 50rem;
-    padding: 3px;
-    cursor: pointer;
-    position: relative;
-    width: 64px;
-    height: 32px;
-    box-sizing: border-box;
-    transition: background-color 0.3s ease;
-  }
-  .theme-toggle-slider .slider-circle {
-    position: absolute;
-    left: 3px;
-    width: 26px;
-    height: 26px;
-    background: #ffffff;
-    border-radius: 50%;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .theme-toggle-slider .icon-sun,
-  .theme-toggle-slider .icon-moon {
-    position: relative;
-    z-index: 2;
-    width: 50%;
-    text-align: center;
-    font-size: 14px;
-    line-height: 26px;
-    user-select: none;
-  }
-  .theme-toggle-slider .icon-sun {
-    color: #d97706;
-  }
-  .theme-toggle-slider .icon-moon {
-    color: #6c757d;
-  }
-
-  /* Checked state for dark mode slider */
-  #darkMode:checked ~ * .theme-toggle-slider,
-  body:has(#darkMode:checked) .theme-toggle-slider,
-  .theme-input:checked + .theme-toggle-slider {
-    background: #2b3035;
-  }
-  #darkMode:checked ~ * .theme-toggle-slider .slider-circle,
-  body:has(#darkMode:checked) .slider-circle,
-  #darkMode:checked ~ .auth-controls .slider-circle {
-    transform: translateX(32px);
-  }
-
-  /* Hide raw checkbox */
-  input.theme-input[type="checkbox"]#darkMode {
-    display: none;
-  }
-
-  /* RTL Button White Color Text Styling by default */
-  .rtl-toggle {
-    color: #ffffff !important;
-  }
-
-  /* Layout and Sizing Adjustments to Prevent Scrolling */
-  html, body {
-    height: 100vh;
-    overflow: hidden;
-    margin: 0;
-  }
-  .auth-shell {
-    display: flex;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-  }
-  .auth-card {
-    flex: 0 0 50%;
-    max-width: 50%;
-    height: 100vh;
-    overflow-y: auto;
-    padding: 1.5rem 2.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    box-sizing: border-box;
-  }
-  .auth-aside {
-    flex: 0 0 50%;
-    max-width: 50%;
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
-  }
-  .auth-aside img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .auth-controls {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    z-index: 100;
-  }
-
-  /* Compact form styling to fit screen without scroll */
-  .auth-card h1 {
-    font-size: 1.5rem;
-    margin-bottom: 0.25rem;
-  }
-  .auth-card p.text-muted {
-    font-size: 0.85rem;
-    margin-bottom: 0.75rem !important;
-  }
-  .auth-form .mb-3 {
-    margin-bottom: 0.5rem !important;
-  }
-  .auth-form .form-label {
-    font-size: 0.75rem;
-    margin-bottom: 0.15rem;
-  }
-  .auth-form .form-control {
-    padding: 0.35rem 0.75rem;
-    font-size: 0.85rem;
-  }
-  .auth-form .form-check {
-    font-size: 0.8rem;
-    margin-bottom: 0.5rem !important;
-  }
-  .auth-form .btn-primary {
-    padding: 0.4rem;
-    font-size: 0.9rem;
-  }
-  .auth-divider {
-    margin: 0.5rem 0;
-  }
-  .auth-card .text-center.small {
-    font-size: 0.8rem;
-  }
-
-  /* Mobile Hamburger Styles */
-  .hamburger span {
-    display: block;
-    width: 22px;
-    height: 2px;
-    background-color: #334155;
-    margin: 4px 0;
-    transition: 0.3s;
-  }
-  .mobile-panel {
-    width: 280px;
-    padding: 24px 20px;
-    background: #ffffff;
-    position: fixed;
-    top: 0;
-    right: -280px;
-    height: 100vh;
-    z-index: 1050;
-    transition: right 0.3s ease;
-    box-shadow: -2px 0 10px rgba(0,0,0,0.1);
-    overflow-y: auto;
-  }
-  #mobileNav:checked ~ .mobile-panel {
-    right: 0;
-  }
-  .mobile-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0,0,0,0.5);
-    z-index: 1040;
-    display: none;
-  }
-  #mobileNav:checked ~ .mobile-overlay {
-    display: block;
-  }
-  input.theme-input[type="checkbox"]#mobileNav {
-    display: none;
-  }
-  .mobile-panel ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .mobile-panel ul li {
-    padding: 0.5rem 0;
-    border-bottom: 1px solid #e2e8f0;
-  }
-  .mobile-panel ul li a {
-    text-decoration: none;
-    color: #334155;
-    font-weight: 500;
-    display: block;
-  }
-
-  /* Mobile-specific navigation dropdown accordion styles */
-  .mobile-dropdown-toggle {
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .mobile-submenu {
-    list-style: none;
-    padding-left: 1rem;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-  }
-  .mobile-submenu-toggle {
-    display: none;
-  }
-  .mobile-submenu-toggle:checked ~ .mobile-submenu {
-    max-height: 500px;
-  }
-
-  /* ================= MOBILE RESPONSIVE TWEAKS ================= */
-  @media (max-width: 991.98px) {
-    html, body {
-      height: auto !important;
-      overflow-y: auto !important;
-    }
-    .auth-shell {
-      flex-direction: column !important;
-      height: auto !important;
-      overflow: visible !important;
-    }
-    .auth-aside {
-      display: none !important;
-    }
-    .auth-card {
-      flex: 1 1 100% !important;
-      max-width: 100% !important;
-      height: auto !important;
-      min-height: 100vh !important;
-      padding: 3rem 1.5rem !important;
-      justify-content: center !important;
-      align-items: center !important;
-      text-align: center !important;
-    }
-    .auth-card form,
-    .auth-card .text-center {
-      width: 100% !important;
-      max-width: 400px !important;
-      margin-left: auto !important;
-      margin-right: auto !important;
-    }
-    .auth-form .mb-3 {
-      text-align: left !important;
-    }
-    .form-check {
-      text-align: left !important;
-    }
-    .auth-controls {
-      top: 1rem !important;
-      right: 1rem !important;
-      position: absolute !important;
-      background: transparent;
-      padding: 0;
-      border-radius: 0;
-      box-shadow: none;
-    }
-    /* Change RTL button text color to black only in mobile responsive view */
-    .rtl-toggle {
-      color: #000000 !important;
-    }
-  }
-</style>
 </head>
 <body>
 <input type="checkbox" id="darkMode" class="theme-input" aria-hidden="true">
@@ -317,7 +35,6 @@
     <label for="mobileNav" class="btn-close" aria-label="Close" style="cursor: pointer;"></label>
   </div>
   <ul>
-    <!-- Home Dropdown for Mobile -->
     <li>
       <input type="checkbox" id="mobHomeToggle" class="mobile-submenu-toggle">
       <label for="mobHomeToggle" class="mobile-dropdown-toggle py-2 text-decoration-none text-dark fw-medium">
@@ -329,10 +46,8 @@
       </ul>
     </li>
 
-    <!-- Services (Renamed from Service Details) -->
     <li><a href="service-details.html">Services</a></li>
 
-    <!-- Products Dropdown for Mobile -->
     <li>
       <input type="checkbox" id="mobProdToggle" class="mobile-submenu-toggle">
       <label for="mobProdToggle" class="mobile-dropdown-toggle py-2 text-decoration-none text-dark fw-medium">
@@ -369,6 +84,7 @@
       <h1>Create your account</h1>
       <p class="text-muted">Start your 100-night trial in minutes.</p>
     </div>
+    
     <form action="login.html" method="get" class="auth-form">
       <div class="mb-3"><label for="name" class="form-label">Full name</label><input type="text" id="name" name="name" class="form-control" required autocomplete="name" placeholder="Your name"></div>
       <div class="mb-3"><label for="email" class="form-label">Email</label><input type="email" id="email" name="email" class="form-control" required autocomplete="email" placeholder="you@example.com"></div>
@@ -376,11 +92,33 @@
       <div class="mb-3"><label for="password" class="form-label">Password</label><input type="password" id="password" name="password" class="form-control" required autocomplete="new-password" placeholder="At least 8 characters" minlength="8"></div>
       <div class="mb-3"><label for="confirm" class="form-label">Confirm password</label><input type="password" id="confirm" name="confirm" class="form-control" required autocomplete="new-password" placeholder="Re-enter password"></div>
       <div class="form-check mb-3"><input class="form-check-input" type="checkbox" id="terms" required><label class="form-check-label" for="terms">I agree to the <a href="terms.html">Terms</a> and <a href="privacy-policy.html">Privacy Policy</a>.</label></div>
-      <button type="submit" class="btn btn-primary w-100">Create account</button>
+      
+      <!-- Primary Create Account Button -->
+      <button type="submit" class="btn btn-primary w-100 mb-3">Create account</button>
+      
+      <!-- Social Sign Up Buttons -->
+      <div class="social-login-btns d-flex flex-column gap-2">
+        <a href="/auth/google" class="btn btn-social btn-google w-100 d-flex align-items-center justify-content-center gap-2 py-2">
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+          </svg>
+          <span>Sign up with Google</span>
+        </a>
+
+        <a href="/auth/apple" class="btn btn-apple w-100 d-flex align-items-center justify-content-center gap-2 py-2">
+          <i class="bi bi-apple fs-5"></i>
+          <span>Sign up with Apple</span>
+        </a>
+      </div>
     </form>
+    
     <div class="auth-divider"><span>or</span></div>
     <p class="text-center text-muted small">Already have an account? <a href="login.html">Sign in</a></p>
   </div>
+  
   <div class="auth-aside">
     <img src="https://thesleepcompany.in/cdn/shop/files/01_e3bf0abb-2e54-4804-957f-db75e784980b.webp?v=1758620774" alt="Person unboxing a new RestWell mattress" loading="lazy">
     <div class="auth-aside-overlay">

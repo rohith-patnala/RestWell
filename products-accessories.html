@@ -11,300 +11,13 @@
 <meta property="og:type" content="website">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+<!-- AOS Library CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 <link href="global.css" rel="stylesheet">
 <link href="products.css" rel="stylesheet">
-<style>
-  /* Updated Header & Toggle Styles */
-  .brand-text .rest {
-    color: #3A6B8C;
-  }
-  .brand-text .well {
-    color: #C9A66B;
-  }
-  .navbar {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  .nav-list {
-    flex: 1;
-    justify-content: center;
-  }
-  .header-controls {
-    margin-left: auto;
-  }
-  
-  /* Slider Dark Mode Toggle */
-  .theme-toggle-slider {
-    display: inline-flex;
-    align-items: center;
-    background: #e9ecef;
-    border-radius: 50rem;
-    padding: 3px;
-    cursor: pointer;
-    position: relative;
-    width: 64px;
-    height: 32px;
-    box-sizing: border-box;
-    transition: background-color 0.3s ease;
-  }
-  .theme-toggle-slider .slider-circle {
-    position: absolute;
-    left: 3px;
-    width: 26px;
-    height: 26px;
-    background: #ffffff;
-    border-radius: 50%;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .theme-toggle-slider .icon-sun,
-  .theme-toggle-slider .icon-moon {
-    position: relative;
-    z-index: 2;
-    width: 50%;
-    text-align: center;
-    font-size: 14px;
-    line-height: 26px;
-    user-select: none;
-  }
-  .theme-toggle-slider .icon-sun {
-    color: #d97706;
-  }
-  .theme-toggle-slider .icon-moon {
-    color: #6c757d;
-  }
-
-  /* Checked state for dark mode slider */
-  #darkMode:checked ~ * .theme-toggle-slider,
-  body:has(#darkMode:checked) .theme-toggle-slider,
-  .theme-input:checked + .theme-toggle-slider {
-    background: #2b3035;
-  }
-  #darkMode:checked ~ * .theme-toggle-slider .slider-circle,
-  body:has(#darkMode:checked) .slider-circle,
-  #darkMode:checked ~ .site-header .slider-circle {
-    transform: translateX(32px);
-  }
-
-  /* Hide raw checkbox */
-  input.theme-input[type="checkbox"]#darkMode {
-    display: none;
-  }
-
-  /* Hero Section Height & Alignment Adjustments (90vh - 95vh & Centered) with Increased Text Sizes */
-  .page-hero {
-    min-height: 92vh !important;
-    height: 92vh !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    padding-top: 4rem !important;
-    padding-bottom: 4rem !important;
-    text-align: center !important;
-  }
-  .page-hero .container,
-  .page-hero div {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 100% !important;
-    text-align: center !important;
-  }
-  .page-hero h1,
-  .page-hero p,
-  .page-hero span {
-    text-align: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-
-  /* Increased Hero Text Sizes */
-  .page-hero h1 {
-    font-size: 3.5rem !important;
-    font-weight: 800 !important;
-    margin-bottom: 1.25rem !important;
-  }
-  .page-hero p {
-    font-size: 1.35rem !important;
-    max-width: 800px;
-    line-height: 1.6;
-  }
-  .page-hero .eyebrow {
-    font-size: 1.15rem !important;
-    font-weight: 700 !important;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 0.75rem !important;
-    display: inline-block;
-  }
-
-  /* ================= BULLETPROOF UNIVERSAL DARK MODE STYLING ================= */
-  #darkMode:checked,
-  #darkMode:checked body,
-  #darkMode:checked ~ main {
-    background-color: #0f172a !important;
-    color: #f8fafc !important;
-  }
-
-  #darkMode:checked *:not(.btn):not(.badge):not(.chip):not(.brand-text):not(.rest):not(.well) {
-    color: #f8fafc !important;
-  }
-
-  #darkMode:checked .text-muted,
-  #darkMode:checked p,
-  #darkMode:checked .lead,
-  #darkMode:checked span:not(.rest):not(.well):not(.brand-text span) {
-    color: #cbd5e1 !important;
-  }
-
-  #darkMode:checked .site-header,
-  #darkMode:checked .page-hero,
-  #darkMode:checked .section,
-  #darkMode:checked .bg-soft,
-  #darkMode:checked .site-footer {
-    background-color: #1e293b !important;
-    background-image: none !important;
-  }
-
-  #darkMode:checked .product-card,
-  #darkMode:checked .info-box,
-  #darkMode:checked .feature-item,
-  #darkMode:checked .testimonial-card {
-    background-color: #0f172a !important;
-    border-color: #334155 !important;
-    color: #f8fafc !important;
-  }
-
-  #darkMode:checked .form-control {
-    background-color: #1e293b !important;
-    border-color: #334155 !important;
-    color: #f8fafc !important;
-  }
-
-  #darkMode:checked .rtl-toggle {
-    background-color: #1e293b;
-    border-color: #334155;
-    color: #f8fafc !important;
-  }
-
-  /* ================= MOBILE RESPONSIVE TWEAKS ================= */
-  html, body {
-    overflow-x: hidden !important;
-    max-width: 100vw !important;
-  }
-
-  @media (max-width: 991.98px) {
-    .header-controls .btn-signin-desktop {
-      display: none !important;
-    }
-    .navbar {
-      justify-content: space-between !important;
-      padding-left: 0 !important;
-      padding-right: 0.25rem !important;
-    }
-    .container-fluid.px-4 {
-      padding-left: 0.5rem !important;
-      padding-right: 0.5rem !important;
-    }
-    .brand {
-      margin-right: auto !important;
-      padding-left: 0 !important;
-    }
-    .header-controls {
-      margin-left: 0 !important;
-      display: flex !important;
-      align-items: center !important;
-      gap: 0.5rem !important;
-    }
-  }
-
-  /* Mobile Nav Drawer Enhancements */
-  .hamburger span {
-    display: block;
-    width: 22px;
-    height: 2px;
-    background-color: #334155;
-    margin: 4px 0;
-    transition: 0.3s;
-  }
-
-  .mobile-panel {
-    width: 280px;
-    padding: 24px 20px;
-    background: #ffffff;
-    position: fixed;
-    top: 0;
-    right: -280px;
-    height: 100vh;
-    z-index: 1050;
-    transition: right 0.3s ease;
-    box-shadow: -2px 0 10px rgba(0,0,0,0.1);
-    overflow-y: auto;
-  }
-
-  #mobileNav:checked ~ .mobile-panel {
-    right: 0;
-  }
-
-  .mobile-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0,0,0,0.5);
-    z-index: 1040;
-    display: none;
-  }
-
-  #mobileNav:checked ~ .mobile-overlay {
-    display: block;
-  }
-
-  input.theme-input[type="checkbox"]#mobileNav {
-    display: none;
-  }
-
-  .mobile-panel ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .mobile-panel ul li {
-    padding: 0.5rem 0;
-    border-bottom: 1px solid #e2e8f0;
-  }
-
-  .mobile-panel ul li a {
-    text-decoration: none;
-    color: #334155;
-    font-weight: 500;
-    display: block;
-  }
-
-  /* Mobile-specific navigation dropdown accordion styles */
-  .mobile-dropdown-toggle {
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .mobile-submenu {
-    list-style: none;
-    padding-left: 1rem;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-  }
-  .mobile-submenu-toggle {
-    display: none;
-  }
-  .mobile-submenu-toggle:checked ~ .mobile-submenu {
-    max-height: 500px;
-  }
-</style>
+<link href="accessories-custom.css" rel="stylesheet">
 </head>
 <body>
 <input type="checkbox" id="darkMode" class="theme-input" aria-hidden="true">
@@ -333,9 +46,7 @@
             <li><a href="home2.html">Home 2 — Brand Story</a></li>
           </ul>
         </li>  
-        <li>
-          <a class="nav-link" href="service-details.html">Services </a>
-        </li>
+        <li><a class="nav-link" href="service-details.html">Services</a></li>
         <li>
           <a class="nav-link" href="products-mattresses.html">Products <i class="bi bi-chevron-down caret"></i></a>
           <ul class="dropdown" role="menu">
@@ -353,7 +64,6 @@
       </ul>
 
       <div class="header-controls d-flex align-items-center gap-2 ms-auto">
-        <!-- Replaced dark mode label with custom slider layout -->
         <label class="theme-toggle-slider" for="darkMode" title="Toggle dark mode" aria-label="Toggle dark mode">
           <span class="slider-circle"></span>
           <span class="icon-sun"><i class="bi bi-sun-fill"></i></span>
@@ -378,7 +88,6 @@
     <label for="mobileNav" class="btn-close" aria-label="Close" style="cursor: pointer;"></label>
   </div>
   <ul>
-    <!-- Home Dropdown for Mobile -->
     <li>
       <input type="checkbox" id="mobHomeToggle" class="mobile-submenu-toggle">
       <label for="mobHomeToggle" class="mobile-dropdown-toggle py-2 text-decoration-none text-dark fw-medium">
@@ -389,11 +98,7 @@
         <li class="border-bottom-0"><a href="home2.html" class="py-2 text-muted">Home 2 — Brand Story</a></li>
       </ul>
     </li>
-
-    <!-- Services (Renamed from Service Details) -->
     <li><a href="service-details.html">Services</a></li>
-
-    <!-- Products Dropdown for Mobile -->
     <li>
       <input type="checkbox" id="mobProdToggle" class="mobile-submenu-toggle">
       <label for="mobProdToggle" class="mobile-dropdown-toggle py-2 text-decoration-none text-dark fw-medium">
@@ -408,7 +113,6 @@
         <li class="border-bottom-0"><a href="products-accessories.html" class="py-2 text-muted">Accessories</a></li>
       </ul>
     </li>
-
     <li><a href="about.html">About</a></li>
     <li><a href="blog.html">Blog</a></li>
     <li><a href="contact.html">Contact</a></li>
@@ -419,23 +123,316 @@
 <main>
 <!-- Section 1: Page hero -->
 <section class="page-hero">
-  <div class="container text-center">
-    <span class="eyebrow anim-fade-up">Accessories</span>
-    <h1 class="display-4 anim-fade-up delay-1">The finishing touches for perfect sleep</h1>
-    <p class="lead anim-fade-up delay-2">Mattress protectors, foam toppers, weighted blankets, and sleep masks — the small things that make a big difference.</p>
+  <!-- Dedicated background and overlay layer -->
+  <div class="hero-bg-overlay"></div>
+  
+  <!-- Content layer with fully opaque text -->
+  <div class="container text-center position-relative" style="z-index: 2;">
+    <span class="eyebrow custom-eyebrow" data-aos="fade-up">Accessories</span>
+    <h1 class="display-4 text-white fw-bold" data-aos="fade-up" data-aos-delay="100">The finishing touches for perfect sleep</h1>
+    <p class="lead text-white" data-aos="fade-up" data-aos-delay="200">Mattress protectors, foam toppers, weighted blankets, and sleep masks — the small things that make a big difference.</p>
   </div>
 </section>
 
-<!-- Section 3: Product grid -->
+<!-- Section 3: Product grid (6 In-Place Flipping Cards) -->
 <section class="section">
   <div class="container">
     <div class="row g-4">
-      <div class="col-md-6 col-lg-4"><article class="product-card hover-card anim-fade-up"><div class="hover-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcGhxgIjQwigBiRo4gEjfq_liCpWSsNqbmVXnwWeW8yF0EZ2nDD--Gibw&s=10" alt="Waterproof mattress protector" loading="lazy"><span class="badge-trial">Bestseller</span></div><div class="product-body"><span class="chip">Protector</span><h3>Waterproof Protector</h3><p>TPU backing · Queen</p><ul class="specs"><li>100% waterproof</li><li>Breathable</li><li>Machine wash</li></ul><div class="price-row"><div class="price">₹999</div><a href="productview.html" class="btn btn-primary btn-sm">View</a></div></div></article></div>
-      <div class="col-md-6 col-lg-4"><article class="product-card hover-card anim-fade-up delay-1"><div class="hover-img"><img src="https://m.media-amazon.com/images/I/81HoSSz8keL.jpg" alt="Memory foam mattress topper" loading="lazy"><span class="badge-trial">2-inch</span></div><div class="product-body"><span class="chip">Topper</span><h3>Memory Foam Topper</h3><p>2 inch gel · King</p><ul class="specs"><li>Cooling gel</li><li>Revives old mattress</li><li>Anti-slip base</li></ul><div class="price-row"><div class="price">₹4,499</div><a href="productview.html" class="btn btn-primary btn-sm">View</a></div></div></article></div>
-      <div class="col-md-6 col-lg-4"><article class="product-card hover-card anim-fade-up delay-2"><div class="hover-img"><img src="https://i5.walmartimages.com/seo/Weighted-Blanket-Adults-Heavy-Throw-Blanket-Premium-Glass-Beads-Soft-Breathable-Sleeping-Prefect-People-s-Body-60-x-80-20lbs-Grey_2d4941ea-26d3-4b1b-a033-0ef20ce89969.dcd4f59c6ea00b80ded33642ee5b8c7e.jpeg?odnHeight=328&odnWidth=328&odnBg=FFFFFF" alt="Weighted blanket" loading="lazy"><span class="badge-trial">7 kg</span></div><div class="product-body"><span class="chip">Blanket</span><h3>Weighted Blanket</h3><p>7 kg · Cotton · Double</p><ul class="specs"><li>Deep pressure</li><li>Reduces anxiety</li><li>Glass beads</li></ul><div class="price-row"><div class="price">₹3,799</div><a href="productview.html" class="btn btn-primary btn-sm">View</a></div></div></article></div>
-      <div class="col-md-6 col-lg-4"><article class="product-card hover-card anim-fade-up delay-3"><div class="hover-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL822LFaMOPKGVzdDee4975x6ZU4ji6UP5eIt_75qTL9RzZhidAC04VBo&s=10" alt="Silk sleep mask" loading="lazy"><span class="badge-trial">Silk</span></div><div class="product-body"><span class="chip">Mask</span><h3>Silk Sleep Mask</h3><p>22 momme silk · One size</p><ul class="specs"><li>Total blackout</li><li>Gentle on skin</li><li>Adjustable strap</li></ul><div class="price-row"><div class="price">₹699</div><a href="productview.html" class="btn btn-primary btn-sm">View</a></div></div></article></div>
-      <div class="col-md-6 col-lg-4"><article class="product-card hover-card anim-fade-up"><div class="hover-img"><img src="https://vitruvi.ca/cdn/shop/files/preview_images/773581970535487a86a73e7d5d07cca4.thumbnail.0000000000.jpg?v=1719459786&width=1946" alt="Aroma diffuser sleep bundle" loading="lazy"><span class="badge-trial">Bundle</span></div><div class="product-body"><span class="chip">Bundle</span><h3>Lavender Sleep Set</h3><p>Diffuser + oil + mask</p><ul class="specs"><li>Aromatherapy</li><li>Calming</li><li>Gift-ready</li></ul><div class="price-row"><div class="price">₹2,199</div><a href="productview.html" class="btn btn-primary btn-sm">View</a></div></div></article></div>
-      <div class="col-md-6 col-lg-4"><article class="product-card hover-card anim-fade-up delay-1"><div class="hover-img"><img src="https://www.seevo.in/cdn/shop/products/wedge-pillow-565251_1445x.jpg?v=1748418519" alt="Bed wedge pillow" loading="lazy"><span class="badge-trial">Multi-use</span></div><div class="product-body"><span class="chip">Wedge</span><h3>Bed Wedge Pillow</h3><p>Foam · 30° incline</p><ul class="specs"><li>Acid reflux relief</li><li>Reading support</li><li>Removable cover</li></ul><div class="price-row"><div class="price">₹1,999</div><a href="productview.html" class="btn btn-primary btn-sm">View</a></div></div></article></div>
+      
+      <!-- CARD 1 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up">
+        <article class="product-card">
+          <div class="card-flipper">
+            <div class="card-front">
+              <div class="hover-img">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcGhxgIjQwigBiRo4gEjfq_liCpWSsNqbmVXnwWeW8yF0EZ2nDD--Gibw&s=10" alt="Waterproof mattress protector" loading="lazy">
+                <span class="badge-trial">Bestseller</span>
+              </div>
+              <div class="product-body flex-grow-1 d-flex flex-column justify-content-between">
+                <div>
+                  <span class="chip">Protector</span>
+                  <h3>Waterproof Protector</h3>
+                  <p>TPU backing · Queen</p>
+                  <ul class="specs">
+                    <li>100% waterproof</li>
+                    <li>Breathable</li>
+                    <li>Machine wash</li>
+                  </ul>
+                </div>
+                <div class="price-row mt-3">
+                  <div class="price">₹999</div>
+                  <button type="button" class="btn btn-primary btn-sm view-btn">View</button>
+                </div>
+              </div>
+            </div>
+            <div class="card-back">
+              <div>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="badge bg-primary">Advantages</span>
+                  <button type="button" class="btn-close close-btn" aria-label="Close"></button>
+                </div>
+                <h4 class="h5 mb-2">Waterproof Protector</h4>
+                <hr class="my-2">
+                <ul class="list-unstyled d-flex flex-column gap-2 text-start small">
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Spill & Stain Shield:</strong> 100% waterproof TPU layer stops liquid seepage.</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Breathable Fabric:</strong> Air-permeable surface avoids heat buildup.</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Easy Maintenance:</strong> Machine-washable with durable fitted elastic skirts.</li>
+                </ul>
+              </div>
+              <div class="pt-2 border-top d-flex gap-2">
+                <a href="#" class="btn btn-primary btn-sm w-100">Buy Now</a>
+                <button type="button" class="btn btn-outline-secondary btn-sm close-btn">Back</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <article class="product-card">
+          <div class="card-flipper">
+            <div class="card-front">
+              <div class="hover-img">
+                <img src="https://m.media-amazon.com/images/I/81HoSSz8keL.jpg" alt="Memory foam mattress topper" loading="lazy">
+                <span class="badge-trial">2-inch</span>
+              </div>
+              <div class="product-body flex-grow-1 d-flex flex-column justify-content-between">
+                <div>
+                  <span class="chip">Topper</span>
+                  <h3>Memory Foam Topper</h3>
+                  <p>2 inch gel · King</p>
+                  <ul class="specs">
+                    <li>Cooling gel</li>
+                    <li>Revives old mattress</li>
+                    <li>Anti-slip base</li>
+                  </ul>
+                </div>
+                <div class="price-row mt-3">
+                  <div class="price">₹4,499</div>
+                  <button type="button" class="btn btn-primary btn-sm view-btn">View</button>
+                </div>
+              </div>
+            </div>
+            <div class="card-back">
+              <div>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="badge bg-primary">Advantages</span>
+                  <button type="button" class="btn-close close-btn" aria-label="Close"></button>
+                </div>
+                <h4 class="h5 mb-2">Memory Foam Topper</h4>
+                <hr class="my-2">
+                <ul class="list-unstyled d-flex flex-column gap-2 text-start small">
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Instant Comfort:</strong> Adds 2 inches of pressure-relieving gel foam.</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Cooling Tech:</strong> Open-cell gel infusion dissipates body warmth.</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Stays in Place:</strong> Anti-slip bottom with corner straps prevents sliding.</li>
+                </ul>
+              </div>
+              <div class="pt-2 border-top d-flex gap-2">
+                <a href="#" class="btn btn-primary btn-sm w-100">Buy Now</a>
+                <button type="button" class="btn btn-outline-secondary btn-sm close-btn">Back</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <article class="product-card">
+          <div class="card-flipper">
+            <div class="card-front">
+              <div class="hover-img">
+                <img src="https://i5.walmartimages.com/seo/Weighted-Blanket-Adults-Heavy-Throw-Blanket-Premium-Glass-Beads-Soft-Breathable-Sleeping-Prefect-People-s-Body-60-x-80-20lbs-Grey_2d4941ea-26d3-4b1b-a033-0ef20ce89969.dcd4f59c6ea00b80ded33642ee5b8c7e.jpeg?odnHeight=328&odnWidth=328&odnBg=FFFFFF" alt="Weighted blanket" loading="lazy">
+                <span class="badge-trial">7 kg</span>
+              </div>
+              <div class="product-body flex-grow-1 d-flex flex-column justify-content-between">
+                <div>
+                  <span class="chip">Blanket</span>
+                  <h3>Weighted Blanket</h3>
+                  <p>7 kg · Cotton · Double</p>
+                  <ul class="specs">
+                    <li>Deep pressure</li>
+                    <li>Reduces anxiety</li>
+                    <li>Glass beads</li>
+                  </ul>
+                </div>
+                <div class="price-row mt-3">
+                  <div class="price">₹3,799</div>
+                  <button type="button" class="btn btn-primary btn-sm view-btn">View</button>
+                </div>
+              </div>
+            </div>
+            <div class="card-back">
+              <div>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="badge bg-primary">Advantages</span>
+                  <button type="button" class="btn-close close-btn" aria-label="Close"></button>
+                </div>
+                <h4 class="h5 mb-2">Weighted Blanket</h4>
+                <hr class="my-2">
+                <ul class="list-unstyled d-flex flex-column gap-2 text-start small">
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Deep Touch Therapy:</strong> Even weight distribution calms the nervous system.</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Premium Glass Microbeads:</strong> Quiet, non-toxic micro-bead filling.</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Natural Cotton Cover:</strong> Highly breathable, skin-friendly fabric layer.</li>
+                </ul>
+              </div>
+              <div class="pt-2 border-top d-flex gap-2">
+                <a href="#" class="btn btn-primary btn-sm w-100">Buy Now</a>
+                <button type="button" class="btn btn-outline-secondary btn-sm close-btn">Back</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+        <article class="product-card">
+          <div class="card-flipper">
+            <div class="card-front">
+              <div class="hover-img">
+                <img src="https://api-eu.sofitelboutique.com/media/catalog/product/0/0/007ce31b971b0b5b56a1f8ecdad699af879a104581482040bfb4b4e655ca109f.jpeg" alt="Silk sleep mask" loading="lazy">
+                <span class="badge-trial">Silk</span>
+              </div>
+              <div class="product-body flex-grow-1 d-flex flex-column justify-content-between">
+                <div>
+                  <span class="chip">Mask</span>
+                  <h3>Silk Sleep Mask</h3>
+                  <p>22 momme silk · One size</p>
+                  <ul class="specs">
+                    <li>Total blackout</li>
+                    <li>Gentle on skin</li>
+                    <li>Adjustable strap</li>
+                  </ul>
+                </div>
+                <div class="price-row mt-3">
+                  <div class="price">₹699</div>
+                  <button type="button" class="btn btn-primary btn-sm view-btn">View</button>
+                </div>
+              </div>
+            </div>
+            <div class="card-back">
+              <div>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="badge bg-primary">Advantages</span>
+                  <button type="button" class="btn-close close-btn" aria-label="Close"></button>
+                </div>
+                <h4 class="h5 mb-2">Silk Sleep Mask</h4>
+                <hr class="my-2">
+                <ul class="list-unstyled d-flex flex-column gap-2 text-start small">
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>100% Mulberry Silk:</strong> Ultra-soft 22 momme silk prevents delicate eye wrinkles.</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>100% Light Blocking:</strong> Ergonomic nose contour cuts out all ambient light.</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Snag-Free Band:</strong> Soft adjustable strap doesn't pull or tangle hair.</li>
+                </ul>
+              </div>
+              <div class="pt-2 border-top d-flex gap-2">
+                <a href="#" class="btn btn-primary btn-sm w-100">Buy Now</a>
+                <button type="button" class="btn btn-outline-secondary btn-sm close-btn">Back</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- CARD 5 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up">
+        <article class="product-card">
+          <div class="card-flipper">
+            <div class="card-front">
+              <div class="hover-img">
+                <img src="https://vitruvi.ca/cdn/shop/files/preview_images/773581970535487a86a73e7d5d07cca4.thumbnail.0000000000.jpg?v=1719459786&width=1946" alt="Aroma diffuser sleep bundle" loading="lazy">
+                <span class="badge-trial">Bundle</span>
+              </div>
+              <div class="product-body flex-grow-1 d-flex flex-column justify-content-between">
+                <div>
+                  <span class="chip">Bundle</span>
+                  <h3>Lavender Sleep Set</h3>
+                  <p>Diffuser + oil + mask</p>
+                  <ul class="specs">
+                    <li>Aromatherapy</li>
+                    <li>Calming</li>
+                    <li>Gift-ready</li>
+                  </ul>
+                </div>
+                <div class="price-row mt-3">
+                  <div class="price">₹2,199</div>
+                  <button type="button" class="btn btn-primary btn-sm view-btn">View</button>
+                </div>
+              </div>
+            </div>
+            <div class="card-back">
+              <div>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="badge bg-primary">Advantages</span>
+                  <button type="button" class="btn-close close-btn" aria-label="Close"></button>
+                </div>
+                <h4 class="h5 mb-2">Lavender Sleep Set</h4>
+                <hr class="my-2">
+                <ul class="list-unstyled d-flex flex-column gap-2 text-start small">
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Complete Relaxation:</strong> Ultrasonic mister with pure French lavender oil.</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Quiet Operation:</strong> Whisper-silent ultrasonic diffusion with auto-off.</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Gift Package:</strong> Luxuriously packaged for wellness gifting.</li>
+                </ul>
+              </div>
+              <div class="pt-2 border-top d-flex gap-2">
+                <a href="#" class="btn btn-primary btn-sm w-100">Buy Now</a>
+                <button type="button" class="btn btn-outline-secondary btn-sm close-btn">Back</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- CARD 6 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <article class="product-card">
+          <div class="card-flipper">
+            <div class="card-front">
+              <div class="hover-img">
+                <img src="https://www.seevo.in/cdn/shop/products/wedge-pillow-565251_1445x.jpg?v=1748418519" alt="Bed wedge pillow" loading="lazy">
+                <span class="badge-trial">Multi-use</span>
+              </div>
+              <div class="product-body flex-grow-1 d-flex flex-column justify-content-between">
+                <div>
+                  <span class="chip">Wedge</span>
+                  <h3>Bed Wedge Pillow</h3>
+                  <p>Foam · 30° incline</p>
+                  <ul class="specs">
+                    <li>Acid reflux relief</li>
+                    <li>Reading support</li>
+                    <li>Removable cover</li>
+                  </ul>
+                </div>
+                <div class="price-row mt-3">
+                  <div class="price">₹1,999</div>
+                  <button type="button" class="btn btn-primary btn-sm view-btn">View</button>
+                </div>
+              </div>
+            </div>
+            <div class="card-back">
+              <div>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="badge bg-primary">Advantages</span>
+                  <button type="button" class="btn-close close-btn" aria-label="Close"></button>
+                </div>
+                <h4 class="h5 mb-2">Bed Wedge Pillow</h4>
+                <hr class="my-2">
+                <ul class="list-unstyled d-flex flex-column gap-2 text-start small">
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Health Incline:</strong> Ideal 30° slope reduces acid reflux and snoring.</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>High-Density Base:</strong> Resilient foam foundation prevents sagging over time.</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Multi-Position:</strong> Ergonomic support for reading, sitting, or leg elevation.</li>
+                </ul>
+              </div>
+              <div class="pt-2 border-top d-flex gap-2">
+                <a href="#" class="btn btn-primary btn-sm w-100">Buy Now</a>
+                <button type="button" class="btn btn-outline-secondary btn-sm close-btn">Back</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
     </div>
   </div>
 </section>
@@ -444,11 +441,13 @@
 <section class="section bg-soft">
   <div class="container">
     <div class="row align-items-center g-5">
-      <div class="col-lg-6"><img src="https://cdn.shopify.com/s/files/1/0968/8691/5390/files/NP_Blog_2023_PadvTopper_SecondaryImage-2_1280x600px_2.jpg?v=1777922428" alt="Person caring for a mattress with a protector and topper" class="img-soft anim-fade-in" loading="lazy"></div>
+      <div class="col-lg-6" data-aos="fade-right">
+        <img src="https://cdn.shopify.com/s/files/1/0968/8691/5390/files/NP_Blog_2023_PadvTopper_SecondaryImage-2_1280x600px_2.jpg?v=1777922428" alt="Person caring for a mattress with a protector and topper" class="img-soft" loading="lazy">
+      </div>
       <div class="col-lg-6">
-        <span class="eyebrow anim-fade-up">Care guide</span>
-        <h2 class="anim-fade-up delay-1">Make your mattress last longer</h2>
-        <ul class="feature-list anim-fade-up delay-2">
+        <span class="eyebrow" data-aos="fade-up">Care guide</span>
+        <h2 data-aos="fade-up" data-aos-delay="100">Make your mattress last longer</h2>
+        <ul class="feature-list" data-aos="fade-up" data-aos-delay="200">
           <li><i class="bi bi-check-circle-fill"></i> <strong>Protector</strong> — always use one. It's the cheapest way to extend mattress life.</li>
           <li><i class="bi bi-check-circle-fill"></i> <strong>Topper</strong> — adds 2–3 years to a sagging mattress and changes firmness.</li>
           <li><i class="bi bi-check-circle-fill"></i> <strong>Rotate</strong> — rotate your mattress head-to-toe every 3 months.</li>
@@ -462,12 +461,15 @@
 <!-- Section 5: Feature highlight -->
 <section class="section">
   <div class="container">
-    <div class="text-center mb-5 anim-fade-up"><span class="eyebrow">Why RestWell accessories</span><h2>The details that complete your sleep</h2></div>
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="eyebrow">Why RestWell accessories</span>
+      <h2>The details that complete your sleep</h2>
+    </div>
     <div class="feature-strip">
-      <div class="feature-item hover-card anim-fade-up"><i class="bi bi-droplet-fill"></i><h3>Waterproof</h3><p>Protectors that breathe and protect.</p></div>
-      <div class="feature-item hover-card anim-fade-up delay-1"><i class="bi bi-thermometer-snow"></i><h3>Cooling gel</h3><p>Toppers that keep you cool.</p></div>
-      <div class="feature-item hover-card anim-fade-up delay-2"><i class="bi bi-heart-pulse"></i><h3>Calming</h3><p>Weighted blankets for deeper sleep.</p></div>
-      <div class="feature-item hover-card anim-fade-up delay-3"><i class="bi bi-gift"></i><h3>Gift-ready</h3><p>Beautifully packaged bundles.</p></div>
+      <div class="feature-item hover-card" data-aos="fade-up"><i class="bi bi-droplet-fill"></i><h3>Waterproof</h3><p>Protectors that breathe and protect.</p></div>
+      <div class="feature-item hover-card" data-aos="fade-up" data-aos-delay="100"><i class="bi bi-thermometer-snow"></i><h3>Cooling gel</h3><p>Toppers that keep you cool.</p></div>
+      <div class="feature-item hover-card" data-aos="fade-up" data-aos-delay="200"><i class="bi bi-heart-pulse"></i><h3>Calming</h3><p>Weighted blankets for deeper sleep.</p></div>
+      <div class="feature-item hover-card" data-aos="fade-up" data-aos-delay="300"><i class="bi bi-gift"></i><h3>Gift-ready</h3><p>Beautifully packaged bundles.</p></div>
     </div>
   </div>
 </section>
@@ -475,11 +477,14 @@
 <!-- Section 6: Testimonials -->
 <section class="section bg-soft">
   <div class="container">
-    <div class="text-center mb-5 anim-fade-up"><span class="eyebrow">Reviews</span><h2>What sleepers say</h2></div>
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="eyebrow">Reviews</span>
+      <h2>What sleepers say</h2>
+    </div>
     <div class="row g-4">
-      <div class="col-md-4"><div class="testimonial-card hover-card anim-fade-up"><div class="stars">★★★★★</div><p>"Weighted blanket cured my tossing and turning. I fall asleep in minutes now."</p><div class="author"><strong>Aisha K.</strong><span>Hyderabad</span></div></div></div>
-      <div class="col-md-4"><div class="testimonial-card hover-card anim-fade-up delay-1"><div class="stars">★★★★★</div><p>"Foam topper gave my old mattress a new lease of life. Saved me ₹15,000."</p><div class="author"><strong>Manish G.</strong><span>Delhi</span></div></div></div>
-      <div class="col-md-4"><div class="testimonial-card hover-card anim-fade-up delay-2"><div class="stars">★★★★★</div><p>"Lavender sleep set is my nightly ritual now. The mask is pure luxury."</p><div class="author"><strong>Zara F.</strong><span>Mumbai</span></div></div></div>
+      <div class="col-md-4" data-aos="fade-up"><div class="testimonial-card hover-card"><div class="stars">★★★★★</div><p>"Weighted blanket cured my tossing and turning. I fall asleep in minutes now."</p><div class="author"><strong>Aisha K.</strong><span>Hyderabad</span></div></div></div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100"><div class="testimonial-card hover-card"><div class="stars">★★★★★</div><p>"Foam topper gave my old mattress a new lease of life. Saved me ₹15,000."</p><div class="author"><strong>Manish G.</strong><span>Delhi</span></div></div></div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200"><div class="testimonial-card hover-card"><div class="stars">★★★★★</div><p>"Lavender sleep set is my nightly ritual now. The mask is pure luxury."</p><div class="author"><strong>Zara F.</strong><span>Mumbai</span></div></div></div>
     </div>
   </div>
 </section>
@@ -487,9 +492,9 @@
 <!-- Section 7: Newsletter CTA -->
 <section class="newsletter-section">
   <div class="container text-center">
-    <h2 class="anim-fade-up">Small upgrades, big sleep gains</h2>
-    <p class="lead anim-fade-up delay-1">Subscribe for accessory launches and bundle deals.</p>
-    <form class="newsletter-form anim-fade-up delay-2" action="products-accessories.html" method="get">
+    <h2 data-aos="fade-up">Small upgrades, big sleep gains</h2>
+    <p class="lead" data-aos="fade-up" data-aos-delay="100">Subscribe for accessory launches and bundle deals.</p>
+    <form class="newsletter-form" data-aos="fade-up" data-aos-delay="200" action="products-accessories.html" method="get">
       <input type="email" placeholder="you@example.com" aria-label="Email address" required>
       <button type="submit" class="btn btn-primary">Subscribe</button>
     </form>
@@ -519,5 +524,36 @@
   </div>
 </footer>
 
+<!-- AOS Library JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // Initialize AOS
+  AOS.init({
+    duration: 800,
+    once: true,
+    offset: 100
+  });
+
+  // Flip to back when View is clicked
+  document.querySelectorAll('.view-btn').forEach(btn => {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      const card = this.closest('.product-card');
+      card.classList.add('flipped');
+    });
+  });
+
+  // Flip back to front when Back or X is clicked
+  document.querySelectorAll('.close-btn').forEach(btn => {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      const card = this.closest('.product-card');
+      card.classList.remove('flipped');
+    });
+  });
+});
+</script>
 </body>
 </html>

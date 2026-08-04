@@ -1,75 +1,310 @@
-/* ==========================================================================
-   blog.css — Blog listing page
-   Sections:
-     1. Page hero
-     2. Category chips
-     3. Featured post
-     4. Post grid
-     5. Newsletter
-     6. Popular categories
-     7. Editor's picks
-   ========================================================================== */
+/* ==========================================================
+   GLOBAL & HEADER STYLES (Including Theme Toggle Switch)
+   ================================================---------- */
 
-/* ---------- Section: Page hero ---------- */
-.page-hero{padding:var(--space-8) 0;background: 
-    linear-gradient(rgba(18, 32, 43, 0.75), rgba(18, 32, 43, 0.75)), 
-    url("https://static.vecteezy.com/system/resources/thumbnails/035/723/312/small/3d-good-night-and-sweet-dreams-banner-fluffy-clouds-on-dark-sky-background-with-gold-moon-and-stars-place-for-text-3d-rendering-illustration-vector.jpg") center/cover no-repeat;
-  color: #ffffff;};text-align:center;;text-align:center}
-.ttttt{
-  color: white;
-}
-.rrrrr{
-  color:white;
-}
-.container3 h1{
-  color: white;
+:root {
+  --bs-primary: #3A6B8C;
+  --bs-secondary-bg: #f4f6f8;
+  --text-color: #333333;
+  --bg-color: #ffffff;
 }
 
+/* Hidden inputs to control CSS state toggles */
+.theme-input {
+  display: none;
+}
 
+/* Dark Mode State Variable Handling */
+#darkMode:checked ~ * {
+  --bs-secondary-bg: #1a1a1a;
+  --text-color: #f0f0f0;
+  --bg-color: #121212;
+}
 
-/* ---------- Section: Filter chips ---------- */
-.filter-bar{padding:var(--space-4) 0;background:var(--surface);border-bottom:1px solid var(--border)}
-.chip-active{background:var(--primary);color:#fff}
-.chip{cursor:pointer;transition:transform var(--transition),background var(--transition),color var(--transition)}
-.chip:hover{transform:translateY(-2px);background:var(--primary-light);color:#fff}
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-/* ---------- Section: Featured post ---------- */
-.featured-post{background:var(--surface);border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border)}
-.featured-post img{width:100%;height:300px;object-fit:cover;transition:transform 600ms ease}
-.featured-post:hover img{transform:scale(1.04)}
-.featured-body{padding:var(--space-6)}
-.featured-body h2{font-size:var(--fs-2xl);margin-bottom:var(--space-3)}
-.featured-body .meta{display:flex;gap:var(--space-4);color:var(--text-muted);font-size:var(--fs-sm);margin-bottom:var(--space-4)}
-.featured-body .meta i{margin-right:.25rem}
+/* Header Theme Toggle Slider with Sun (Left) and Moon (Right) */
+.theme-toggle-slider {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 65px;
+  height: 32px;
+  background-color: #e2e8f0;
+  border-radius: 30px;
+  padding: 0 8px;
+  cursor: pointer;
+  z-index: 1;
+}
 
-/* ---------- Section: Post grid ---------- */
-.bg-soft{background:var(--neutral-100)}
-.post-card{background:var(--surface);border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);height:100%;display:flex;flex-direction:column}
-.post-card .hover-img img{height:180px;width:100%;object-fit:cover}
-.post-body{padding:var(--space-4);display:flex;flex-direction:column;flex:1}
-.post-body h3{font-size:var(--fs-lg);margin:.5rem 0}
-.post-body p{color:var(--text-muted);font-size:var(--fs-sm);margin-bottom:var(--space-2)}
-.post-body .meta{color:var(--text-muted);font-size:var(--fs-xs);margin-top:auto}
+.theme-toggle-slider .icon-sun,
+.theme-toggle-slider .icon-moon {
+  font-size: 0.85rem;
+  z-index: 2;
+  color: #64748b;
+  line-height: 1;
+  transition: color 0.3s ease;
+}
 
-/* ---------- Section: Newsletter ---------- */
-.newsletter-section{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;padding:var(--space-8) 0;text-align:center}
-.newsletter-section h2{color:#fff}
-.newsletter-section .lead{color:rgba(255,255,255,.85)}
-.newsletter-form{display:flex;gap:.5rem;max-width:480px;margin:var(--space-4) auto 0}
-.newsletter-form input{flex:1;border:none;border-radius:var(--radius-pill);padding:.75rem 1.25rem}
-.newsletter-form .btn{background:var(--secondary);border-color:var(--secondary)}
-.newsletter-form .btn:hover{background:var(--secondary-dark)}
-@media (max-width:575.98px){.newsletter-form{flex-direction:column}.newsletter-form input,.newsletter-form .btn{width:100%}}
+/* Sliding Circle Background Element */
+.theme-toggle-slider .slider-circle {
+  position: absolute;
+  left: 3px;
+  width: 26px;
+  height: 26px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
 
-/* ---------- Section: Popular categories ---------- */
-.cat-tile{display:block;background:var(--surface);padding:var(--space-5);border-radius:var(--radius-lg);border:1px solid var(--border);text-align:center;height:100%;color:inherit}
-.cat-tile i{font-size:2rem;color:var(--primary);margin-bottom:var(--space-3)}
-.cat-tile h3{font-size:var(--fs-lg);margin-bottom:.25rem}
-.cat-tile span{color:var(--text-muted);font-size:var(--fs-sm)}
+/* When dark mode checkbox is checked, slide the round circle to the right (behind the moon) */
+#darkMode:checked ~ * .theme-toggle-slider .slider-circle,
+#darkMode:checked ~ .site-header .theme-toggle-slider .slider-circle {
+  transform: translateX(33px);
+}
 
-/* ---------- Section: Editor's picks (horizontal cards) ---------- */
-.post-card.horizontal{flex-direction:row}
-.post-card.horizontal .hover-img{flex:0 0 40%;max-width:40%}
-.post-card.horizontal .hover-img img{height:100%;min-height:180px}
-.post-card.horizontal .post-body{flex:1}
-@media (max-width:575.98px){.post-card.horizontal{flex-direction:column}.post-card.horizontal .hover-img{flex:none;max-width:100%}.post-card.horizontal .hover-img img{height:180px}}
+#darkMode:checked ~ * .theme-toggle-slider .icon-moon,
+#darkMode:checked ~ .site-header .theme-toggle-slider .icon-moon {
+  color: #f59e0b;
+}
+
+#darkMode:not(:checked) ~ * .theme-toggle-slider .icon-sun,
+#darkMode:not(:checked) ~ .site-header .theme-toggle-slider .icon-sun {
+  color: #f59e0b;
+}
+
+/* ==========================================================
+   LAYOUT & BLOG COMPONENT STYLES
+   ================================================---------- */
+
+.site-header {
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  background: var(--bg-color);
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+}
+
+.brand-text .rest {
+  color: #3A6B8C;
+}
+
+.brand-text .well {
+  color: #C9A66B;
+}
+
+/* .page-hero {
+  padding: 80px 0 40px;
+  background: linear-gradient(135deg, rgba(58, 107, 140, 0.05), rgba(201, 166, 107, 0.05));
+}
+
+.page-hero h1 {
+  font-weight: 800;
+  font-size: 2.75rem;
+  margin-bottom: 15px;
+} */
+
+.page-hero {
+  position: relative;
+  height: 92vh; /* Sets height between 90vh and 95vh */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+              url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1920&auto=format&fit=crop') no-repeat center center/cover;
+  color: #ffffff; /* Ensures text stands out against the dark overlay */
+}
+
+/* Optional: Ensures text and headings inside the hero remain crisp and readable */
+.page-hero h1, 
+.page-hero p, 
+.page-hero .eyebrow {
+  color: #ffffff !important;
+}
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #3A6B8C;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.chip {
+  background: rgba(58, 107, 140, 0.1);
+  color: #3A6B8C;
+  padding: 4px 10px;
+  border-radius: 50rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.hover-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.featured-post {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.featured-body {
+  padding: 40px;
+}
+
+.post-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.06);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.post-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.post-card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.post-footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 15px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.bg-soft {
+  background-color: #f8fafc;
+}
+
+.cat-tile {
+  background: #fff;
+  border-radius: 12px;
+  padding: 30px 20px;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.cat-tile i {
+  font-size: 2rem;
+  color: #3A6B8C;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.newsletter-section {
+  padding: 80px 0;
+  background: #3A6B8C;
+  color: #fff;
+}
+
+.newsletter-form input {
+  max-width: 350px;
+  border-radius: 8px;
+  padding: 12px 16px;
+  border: none;
+}
+
+.site-footer {
+  background: #1e293b;
+  color: #94a3b8;
+  padding: 60px 0 30px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0 0;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 25px;
+  font-size: 0.875rem;
+}
+
+/* Mobile Sidebar Styling Elements */
+.mobile-panel {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 300px;
+  height: 100%;
+  background: var(--bg-color);
+  z-index: 1050;
+  box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+  transition: right 0.3s ease;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+#mobileNav:checked ~ .mobile-panel {
+  right: 0;
+}
+
+.mobile-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  z-index: 1040;
+  display: none;
+}
+
+#mobileNav:checked ~ .mobile-overlay {
+  display: block;
+}

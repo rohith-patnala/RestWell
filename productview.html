@@ -2,628 +2,56 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>RestWell Mattresses — Engineered for Deep, Restful Sleep</title>
-<meta name="description" content="Experience 7-zone orthopedic memory foam mattresses with cooling technology. Try risk-free for 100 nights with free home delivery.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mattresses — Memory Foam, Latex & Orthopedic | RestWell</title>
+<meta name="description" content="Shop RestWell mattresses: orthopedic memory foam, cooling latex, and hybrid spring. 7-zone support, 100-night trial, free delivery across India. Prices from ₹8,999.">
+<link rel="canonical" href="https://example.com/products-mattresses.html">
+<meta property="og:title" content="RestWell Mattresses">
+<meta property="og:description" content="Orthopedic memory foam, latex, and hybrid mattresses with 100-night trial.">
+<meta property="og:type" content="website">
 
 <!-- Bootstrap & Icons -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
-<!-- AOS Animation CSS -->
+<!-- AOS CSS -->
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-<style>
-:root {
-  --brand-blue: #3A6B8C;
-  --brand-gold: #C9A66B;
-}
-
-html, body {
-  overflow-x: hidden !important;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  scroll-behavior: smooth;
-}
-
-/* ================= BRAND LOGO & TEXT STYLING ================= */
-.brand-text-styled {
-  font-weight: 800;
-  font-size: 1.5rem;
-  background: linear-gradient(135deg, var(--brand-blue) 45%, var(--brand-gold) 85%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
-  letter-spacing: -0.5px;
-}
-
-.brand-icon {
-  width: 36px;
-  height: 36px;
-  flex-shrink: 0;
-}
-
-/* ================= HEADER STRUCTURE & PERFECTLY CENTERED NAV ================= */
-.site-header {
-  padding: 0.75rem 0;
-}
-
-.site-header .navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  margin: 0;
-  padding: 0 1rem;
-}
-
-.brand-wrapper, .header-controls {
-  flex: 1;
-  display: flex;
-  align-items: center;
-}
-
-.brand-wrapper {
-  justify-content: flex-start;
-}
-
-.header-controls {
-  justify-content: flex-end;
-  gap: 1rem !important;
-  direction: ltr !important;
-}
-
-/* Centering Navigation Links & Equalizing Side Spacing */
-.nav-list {
-  flex: 1;
-  margin: 0 !important;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  list-style: none;
-  gap: 2rem !important;
-}
-
-.nav-list > li {
-  position: relative;
-}
-
-.nav-list > li > a {
-  text-decoration: none;
-  color: #334155;
-  font-weight: 500;
-  padding: 0.5rem 0;
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  transition: color 0.2s ease;
-}
-
-.nav-list > li > a:hover {
-  color: var(--brand-blue);
-}
-
-/* ================= HOVER-ONLY DROPDOWN MENU ================= */
-.nav-list .dropdown {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%) translateY(10px);
-  background: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  padding: 0.5rem 0;
-  list-style: none;
-  min-width: 180px;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
-  z-index: 1000;
-}
-
-.nav-list > li:hover .dropdown {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(-50%) translateY(0);
-}
-
-.nav-list .dropdown li a {
-  display: block;
-  padding: 0.5rem 1rem;
-  color: #334155;
-  text-decoration: none;
-  font-size: 0.9rem;
-  white-space: nowrap;
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.nav-list .dropdown li a:hover {
-  background-color: #f8fafc;
-  color: var(--brand-blue);
-}
-
-/* ================= SUN / MOON DARK MODE TOGGLE ================= */
-.theme-toggle-switch {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 58px;
-  height: 30px;
-  padding: 0 6px;
-  background-color: #e2e8f0;
-  border: 1px solid #cbd5e1;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-  user-select: none;
-  margin: 0;
-}
-
-.theme-toggle-switch .bi {
-  font-size: 13px;
-  z-index: 1;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.theme-toggle-switch .icon-sun {
-  color: #f59e0b;
-}
-
-.theme-toggle-switch .icon-moon {
-  color: #94a3b8;
-}
-
-.theme-toggle-switch .toggle-slider {
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 22px;
-  height: 22px;
-  background-color: #ffffff;
-  border-radius: 50%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease;
-}
-
-.rtl-toggle {
-  cursor: pointer;
-  user-select: none;
-  font-weight: 600;
-  font-size: 0.85rem;
-  padding: 4px 8px;
-  border: 1px solid #cbd5e1;
-  border-radius: 6px;
-  background-color: #f8fafc;
-}
-
-/* ================= FIXED CONTROLS IN RTL MODE ================= */
-#rtlMode:checked ~ main,
-#rtlMode:checked ~ .site-header,
-#rtlMode:checked ~ .site-footer {
-  direction: rtl;
-  text-align: right;
-}
-
-#rtlMode:checked ~ .site-header .navbar {
-  flex-direction: row-reverse;
-}
-
-#rtlMode:checked ~ .site-header .brand-wrapper {
-  justify-content: flex-end;
-}
-
-#rtlMode:checked ~ .site-header .header-controls {
-  justify-content: flex-end !important;
-  flex-direction: row !important;
-  gap: 1rem !important;
-  direction: ltr !important;
-}
-
-#rtlMode:checked ~ .site-header .nav-list {
-  margin: 0 !important;
-  flex-direction: row-reverse;
-  gap: 2rem !important;
-}
-
-/* ================= DARK MODE OVERRIDES ================= */
-#darkMode:checked ~ .site-header .theme-toggle-switch {
-  background-color: #1e293b;
-  border-color: #334155;
-}
-
-#darkMode:checked ~ .site-header .theme-toggle-switch .toggle-slider {
-  transform: translateX(28px);
-  background-color: #0f172a;
-}
-
-#darkMode:checked ~ .site-header .theme-toggle-switch .icon-sun {
-  color: #64748b;
-}
-
-#darkMode:checked ~ .site-header .theme-toggle-switch .icon-moon {
-  color: #38bdf8;
-}
-
-#darkMode:checked ~ main,
-#darkMode:checked body,
-#darkMode:checked {
-  background-color: #0f172a !important;
-  color: #f8fafc !important;
-}
-
-#darkMode:checked .site-header {
-  background-color: #1e293b !important;
-  border-bottom: 1px solid #334155 !important;
-}
-
-#darkMode:checked .nav-list > li > a,
-#darkMode:checked .brand-text-styled {
-  color: #f8fafc !important;
-}
-
-#darkMode:checked .nav-list .dropdown {
-  background-color: #1e293b !important;
-  border: 1px solid #334155 !important;
-}
-
-#darkMode:checked .nav-list .dropdown li a {
-  color: #f8fafc !important;
-}
-
-#darkMode:checked .nav-list .dropdown li a:hover {
-  background-color: #334155 !important;
-  color: var(--brand-gold) !important;
-}
-
-#darkMode:checked .hero-section,
-#darkMode:checked .bg-soft {
-  background: #1e293b !important;
-}
-
-#darkMode:checked .lead,
-#darkMode:checked p,
-#darkMode:checked .text-muted,
-#darkMode:checked .trust-item p,
-#darkMode:checked .hero-stats span {
-  color: #cbd5e1 !important;
-}
-
-#darkMode:checked h1,
-#darkMode:checked h2,
-#darkMode:checked h3,
-#darkMode:checked h4,
-#darkMode:checked .trust-item h3 {
-  color: #f8fafc !important;
-}
-
-#darkMode:checked .product-card,
-#darkMode:checked .pricing-card,
-#darkMode:checked .trust-item,
-#darkMode:checked .card,
-#darkMode:checked .table {
-  background-color: #1e293b !important;
-  border-color: #334155 !important;
-  color: #f8fafc !important;
-}
-
-#darkMode:checked .table td, 
-#darkMode:checked .table th {
-  border-color: #334155 !important;
-  color: #f8fafc !important;
-}
-
-#darkMode:checked .form-control {
-  background-color: #0f172a !important;
-  border-color: #334155 !important;
-  color: #f8fafc !important;
-}
-
-#darkMode:checked .rtl-toggle {
-  background-color: #1e293b;
-  border-color: #334155;
-  color: #f8fafc;
-}
-
-/* ================= COMPONENT STYLING ================= */
-.bg-soft {
-  background-color: #f8fafc;
-}
-
-.hero-section {
-  padding: 4rem 0 3.5rem 0;
-  background: linear-gradient(135deg, #f8fafc, #ffffff);
-}
-
-.hero-img {
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  max-height: 480px;
-  object-fit: cover;
-  width: 100%;
-}
-
-.hero-stats {
-  display: flex;
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-}
-
-.hero-stats div {
-  display: flex;
-  flex-direction: column;
-}
-
-.hero-stats strong {
-  font-size: 1.5rem;
-  color: var(--brand-blue);
-}
-
-.trust-item {
-  padding: 1.25rem 1rem;
-  border-radius: 12px;
-  border: 1px solid #e2e8f0;
-  background: #fff;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  height: 100%;
-}
-
-.trust-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.06);
-}
-
-.trust-item i {
-  font-size: 2rem;
-  color: var(--brand-blue);
-  margin-bottom: 0.5rem;
-}
-
-.feature-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.feature-list li {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.5rem 0;
-  font-size: 1.05rem;
-}
-
-.feature-list i {
-  color: #10b981;
-  font-size: 1.25rem;
-}
-
-/* Feature Details Card */
-.product-card {
-  background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid #e2e8f0;
-  height: 100%;
-}
-
-.product-card img {
-  height: 200px;
-  width: 100%;
-  object-fit: cover;
-}
-
-/* Footer Styling */
-.site-footer {
-  background-color: #0f172a;
-  color: #94a3b8;
-  padding: 4rem 0 2rem 0;
-  overflow-x: hidden;
-}
-
-.footer-links {
-  list-style: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 0.6rem !important;
-}
-
-.footer-links a {
-  color: #94a3b8;
-  text-decoration: none;
-  display: inline-block;
-  transition: color 0.2s ease;
-}
-
-.footer-links a:hover {
-  color: #fff;
-}
-
-/* Mobile Nav Drawer */
-.hamburger span {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background-color: #334155;
-  margin: 4px 0;
-  transition: 0.3s;
-}
-
-@media (max-width: 991.98px) {
-  .nav-list { display: none !important; }
-  
-  .brand-wrapper {
-    flex: 0 0 auto !important;
-    justify-content: flex-start !important;
-  }
-  
-  .header-controls {
-    flex: 0 0 auto !important;
-    justify-content: flex-end !important;
-    gap: 0.5rem !important;
-    margin-left: auto !important;
-  }
-
-  .header-controls .btn-signin-desktop {
-    display: none !important;
-  }
-  
-  .mobile-panel {
-    width: 280px;
-    padding: 24px 20px;
-    background: #ffffff;
-    position: fixed;
-    top: 0;
-    right: -280px;
-    height: 100vh;
-    z-index: 1050;
-    transition: right 0.3s ease;
-    box-shadow: -2px 0 10px rgba(0,0,0,0.1);
-    overflow-y: auto;
-  }
-
-  #mobileNav:checked ~ .mobile-panel { right: 0; }
-
-  .mobile-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0,0,0,0.5);
-    z-index: 1040;
-    display: none;
-  }
-
-  #mobileNav:checked ~ .mobile-overlay { display: block; }
-}
-
-@media screen and (max-width: 480px) {
-  .hero-section { padding: 2rem 0; text-align: center; }
-  .hero-stats { justify-content: center; }
-  .site-footer { padding: 2.5rem 0 1.5rem 0; }
-}
-
-/* Brand Text Styles */
-.brand-text .rest {
-  color: #3A6B8C;
-}
-.brand-text .well {
-  color: #C9A66B;
-}
-
-/* Slider Dark Mode Toggle */
-.theme-toggle-slider {
-  display: inline-flex;
-  align-items: center;
-  background: #e9ecef;
-  border-radius: 50rem;
-  padding: 3px;
-  cursor: pointer;
-  position: relative;
-  width: 64px;
-  height: 32px;
-  box-sizing: border-box;
-  transition: background-color 0.3s ease;
-}
-.theme-toggle-slider .slider-circle {
-  position: absolute;
-  left: 3px;
-  width: 26px;
-  height: 26px;
-  background: #ffffff;
-  border-radius: 50%;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.theme-toggle-slider .icon-sun,
-.theme-toggle-slider .icon-moon {
-  position: relative;
-  z-index: 2;
-  width: 50%;
-  text-align: center;
-  font-size: 14px;
-  line-height: 26px;
-  user-select: none;
-}
-.theme-toggle-slider .icon-sun {
-  color: #d97706;
-}
-.theme-toggle-slider .icon-moon {
-  color: #6c757d;
-}
-
-/* Checked state for dark mode slider */
-#darkMode:checked ~ * .theme-toggle-slider,
-body:has(#darkMode:checked) .theme-toggle-slider,
-.theme-input:checked + .theme-toggle-slider {
-  background: #2b3035;
-}
-#darkMode:checked ~ * .theme-toggle-slider .slider-circle,
-body:has(#darkMode:checked) .slider-circle,
-#darkMode:checked ~ .site-header .slider-circle {
-  transform: translateX(32px);
-}
-
-/* Hide raw checkbox */
-input.theme-input[type="checkbox"]#darkMode {
-  display: none;
-}
-
-/* RTL Button Black Color Text Styling */
-.rtl-toggle {
-  color: #000000 !important;
-}
-
-/* Mobile-specific navigation dropdown accordion styles */
-.mobile-dropdown-toggle {
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.mobile-submenu {
-  list-style: none;
-  padding-left: 1rem;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-}
-.mobile-submenu-toggle {
-  display: none;
-}
-.mobile-submenu-toggle:checked ~ .mobile-submenu {
-  max-height: 500px;
-}
-</style>
+<!-- Custom Stylesheets -->
+<link href="global.css" rel="stylesheet">
+<link href="products.css" rel="stylesheet">
 </head>
 <body>
 
-<input type="checkbox" id="darkMode" class="theme-input d-none" aria-hidden="true">
-<input type="checkbox" id="rtlMode" class="theme-input d-none" aria-hidden="true">
-<input type="checkbox" id="mobileNav" class="theme-input d-none" aria-hidden="true">
+<input type="checkbox" id="darkMode" class="theme-input" aria-hidden="true">
+<input type="checkbox" id="rtlMode" class="theme-input" aria-hidden="true">
+<input type="checkbox" id="mobileNav" class="theme-input" aria-hidden="true">
 <label for="mobileNav" class="mobile-overlay" aria-label="Close menu"></label>
 
 <!-- ===================== HEADER ===================== -->
 <header class="site-header">
-  <div class="container-fluid px-4">
-    <nav class="navbar d-flex align-items-center justify-content-between" aria-label="Primary">
-      <div class="brand-wrapper">
-        <a class="brand d-flex align-items-center gap-2 text-decoration-none" href="index.html" aria-label="RestWell home">
-          <svg viewBox="0 0 40 40" width="36" height="36" fill="none" aria-hidden="true">
-            <rect width="40" height="40" rx="10" fill="#3A6B8C"/>
-            <path d="M8 26h24v4H8z" fill="#fff"/>
-            <path d="M8 18c4-3 8-3 12 0s8 3 12 0v6H8z" fill="#C9A66B"/>
-          </svg>
-          <span class="fw-bold fs-4 brand-text"><span class="rest">Rest</span><span class="well">Well</span></span>
-        </a>
+  <div class="container">
+    <nav class="navbar navbar-expand-lg d-flex align-items-center justify-content-between px-3" aria-label="Primary">
+      
+      <!-- Right Header Controls (Moved to Left End) -->
+      <div class="header-controls d-flex align-items-center gap-3 order-lg-1">
+        <!-- Theme Toggle Slider -->
+        <label class="theme-toggle-slider" for="darkMode" title="Toggle dark mode" aria-label="Toggle dark mode">
+          <i class="bi bi-sun-fill icon-sun"></i>
+          <i class="bi bi-moon-stars-fill icon-moon"></i>
+          <span class="slider-thumb"></span>
+        </label>
+        
+        <label class="rtl-toggle btn btn-outline-secondary btn-sm px-2 py-1 mb-0" for="rtlMode" title="Toggle RTL" aria-label="Toggle right-to-left" style="cursor: pointer;">RTL</label>
+        <a class="btn btn-primary btn-sm" href="login.html">Sign In</a>
+
+        <label for="mobileNav" class="hamburger d-lg-none ms-2 mb-0" aria-label="Open menu" tabindex="0" style="cursor: pointer;">
+          <span></span><span></span><span></span>
+        </label>
       </div>
 
-      <ul class="nav-list d-none d-lg-flex list-unstyled mb-0">
+      <!-- Centered Navigation Links with Equal Spacing -->
+      <ul class="nav-list d-none d-lg-flex list-unstyled mb-0 mx-auto justify-content-center gap-4 order-lg-2">
         <li>
           <a class="nav-link" href="index.html">Home <i class="bi bi-chevron-down caret"></i></a>
           <ul class="dropdown" role="menu">
@@ -631,9 +59,7 @@ input.theme-input[type="checkbox"]#darkMode {
             <li><a href="home2.html">Home 2 — Brand Story</a></li>
           </ul>
         </li>  
-        <li>
-          <a class="nav-link" href="service-details.html">Services</a>
-        </li>
+        <li><a class="nav-link" href="service-details.html">Services</a></li>
         <li>
           <a class="nav-link" href="products-mattresses.html">Products <i class="bi bi-chevron-down caret"></i></a>
           <ul class="dropdown" role="menu">
@@ -650,21 +76,16 @@ input.theme-input[type="checkbox"]#darkMode {
         <li><a class="nav-link" href="contact.html">Contact</a></li>
       </ul>
 
-      <div class="header-controls d-flex align-items-center gap-3">
-        <!-- Replaced dark mode label with custom slider layout -->
-        <label class="theme-toggle-slider" for="darkMode" title="Toggle dark mode" aria-label="Toggle dark mode">
-          <span class="slider-circle"></span>
-          <span class="icon-sun"><i class="bi bi-sun-fill"></i></span>
-          <span class="icon-moon"><i class="bi bi-moon-fill"></i></span>
-        </label>
-        
-        <label class="rtl-toggle btn btn-outline-secondary btn-sm px-2 py-1 mb-0" for="rtlMode" title="Toggle RTL" aria-label="Toggle right-to-left" style="cursor: pointer;">RTL</label>
-        <a class="btn btn-primary btn-sm btn-signin-desktop" href="login.html">Sign In</a>
+      <!-- Brand Logo (Moved to Total Right End) -->
+      <a class="brand d-flex align-items-center gap-2 text-decoration-none order-lg-3" href="index.html" aria-label="RestWell home">
+        <svg viewBox="0 0 40 40" width="36" height="36" fill="none" aria-hidden="true">
+          <rect width="40" height="40" rx="10" fill="#3A6B8C"/>
+          <path d="M8 26h24v4H8z" fill="#fff"/>
+          <path d="M8 18c4-3 8-3 12 0s8 3 12 0v6H8z" fill="#C9A66B"/>
+        </svg>
+        <span class="fw-bold fs-4 brand-text"><span class="rest">Rest</span><span class="well">Well</span></span>
+      </a>
 
-        <label for="mobileNav" class="hamburger d-lg-none ms-2" aria-label="Open menu" tabindex="0" style="cursor: pointer;">
-          <span></span><span></span><span></span>
-        </label>
-      </div>
     </nav>
   </div>
 </header>
@@ -675,223 +96,403 @@ input.theme-input[type="checkbox"]#darkMode {
     <h2 class="h5 mb-0 fw-bold">Menu</h2>
     <label for="mobileNav" class="btn-close" aria-label="Close" style="cursor: pointer;"></label>
   </div>
-  <ul class="list-unstyled">
-    <!-- Home Dropdown for Mobile -->
-    <li>
-      <input type="checkbox" id="mobHomeToggle" class="mobile-submenu-toggle">
-      <label for="mobHomeToggle" class="mobile-dropdown-toggle py-2 text-decoration-none text-dark fw-medium">
-        Home <i class="bi bi-chevron-down small"></i>
-      </label>
-      <ul class="mobile-submenu">
-        <li class="border-bottom-0"><a href="index.html" class="py-2 text-muted text-decoration-none d-block">Home 1 — General</a></li>
-        <li class="border-bottom-0"><a href="home2.html" class="py-2 text-muted text-decoration-none d-block">Home 2 — Brand Story</a></li>
-      </ul>
-    </li>
-
-    <!-- Services (Renamed from Service Details) -->
-    <li><a href="service-details.html" class="text-decoration-none d-block py-2">Services</a></li>
-
-    <!-- Products Dropdown for Mobile -->
-    <li>
-      <input type="checkbox" id="mobProdToggle" class="mobile-submenu-toggle">
-      <label for="mobProdToggle" class="mobile-dropdown-toggle py-2 text-decoration-none text-dark fw-medium">
-        Products <i class="bi bi-chevron-down small"></i>
-      </label>
-      <ul class="mobile-submenu">
-        <li class="border-bottom-0"><a href="products-mattresses.html" class="py-2 text-muted text-decoration-none d-block">Mattresses</a></li>
-        <li class="border-bottom-0"><a href="products-pillows.html" class="py-2 text-muted text-decoration-none d-block">Pillows</a></li>
-        <li class="border-bottom-0"><a href="products-beds.html" class="py-2 text-muted text-decoration-none d-block">Beds</a></li>
-        <li class="border-bottom-0"><a href="products-bedsheets.html" class="py-2 text-muted text-decoration-none d-block">Bed Sheets</a></li>
-        <li class="border-bottom-0"><a href="products-curtains.html" class="py-2 text-muted text-decoration-none d-block">Curtains</a></li>
-        <li class="border-bottom-0"><a href="products-accessories.html" class="py-2 text-muted text-decoration-none d-block">Accessories</a></li>
-      </ul>
-    </li>
-
-    <li><a href="about.html" class="text-decoration-none d-block py-2">About</a></li>
-    <li><a href="blog.html" class="text-decoration-none d-block py-2">Blog</a></li>
-    <li><a href="contact.html" class="text-decoration-none d-block py-2">Contact</a></li>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="service-details.html">Services</a></li>
+    <li><a href="products-mattresses.html">Mattresses</a></li>
+    <li><a href="products-pillows.html">Pillows</a></li>
+    <li><a href="products-bedsheets.html">Bed Sheets</a></li>
+    <li><a href="products-beds.html">Beds</a></li>
+    <li><a href="products-curtains.html">Curtains</a></li>
+    <li><a href="products-accessories.html">Accessories</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
     <li class="mt-3"><a href="login.html" class="btn btn-primary btn-sm w-100 text-white text-center">Sign In</a></li>
   </ul>
 </aside>
 
+<!-- ===================== MAIN CONTENT ===================== -->
 <main>
-  <!-- ===================== HERO SECTION ===================== -->
-  <section class="hero-section">
-    <div class="container">
-      <div class="row align-items-center g-4 g-lg-5">
-        <div class="col-lg-6">
-          <span class="eyebrow text-primary fw-semibold" data-aos="fade-up">Engineered Sleep Technology</span>
-          <h1 class="display-5 fw-bold my-3" data-aos="fade-up" data-aos-delay="100">Experience true spine alignment every night.</h1>
-          <p class="lead mb-4" data-aos="fade-up" data-aos-delay="200">Our adaptive memory foam cradles your body, relieves pressure points, and regulates temperature for deeper, uninterrupted sleep.</p>
-          <div data-aos="fade-up" data-aos-delay="300" class="d-flex flex-wrap gap-2">
-            <a href="#pricing" class="btn btn-primary btn-lg">Claim 100-Night Trial</a>
-            <a href="#features" class="btn btn-outline-primary btn-lg">Explore Layers</a>
-          </div>
-          <div class="hero-stats" data-aos="fade-up" data-aos-delay="400">
-            <div><strong>250k+</strong><span>Happy Sleepers</span></div>
-            <div><strong>100</strong><span>Nights Trial</span></div>
-            <div><strong>10 Years</strong><span>Warranty</span></div>
-          </div>
-        </div>
-        <div class="col-lg-6 text-center">
-          <img src="https://i5.walmartimages.com/seo/King-Size-Mattress-12-inch-Gel-Memory-Foam-Mattresses-for-Back-Pressure-Relief-Mattress-in-a-Box_611cb847-bd9e-4df4-a031-d0cfbb840546.55a8f8c8131f111b22bf316792132b9d.jpeg" alt="RestWell Orthopedic Mattress Hero" class="hero-img" loading="lazy" data-aos="zoom-in" data-aos-delay="200">
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- Section 1: Page hero (92vh) -->
+<section class="page-hero d-flex align-items-center justify-content-center">
+  <div class="container text-center">
+    <span class="eyebrow" data-aos="fade-up">Mattresses</span>
+    <h1 class="display-4 fw-bold" data-aos="fade-up" data-aos-delay="100">Find your perfect mattress</h1>
+    <p class="lead mx-auto" style="max-width: 600px; color: #ffffff;" data-aos="fade-up" data-aos-delay="200">Orthopedic memory foam, cooling latex, and hybrid spring — each with a 100-night trial and 10-year warranty.</p>
+  </div>
+</section>
 
-  <!-- ===================== SECTION 1: ADVANTAGES ===================== -->
-  <section class="py-5" id="advantages">
-    <div class="container">
-      <div class="text-center mb-5" data-aos="fade-up">
-        <span class="eyebrow text-primary fw-semibold">Why RestWell?</span>
-        <h2 class="fw-bold">Designed for health, built for pure comfort</h2>
-      </div>
+<!-- Section 3: Product grid (6 In-Place Flipping Cards) -->
+<section class="section">
+  <div class="container">
+    <div class="row g-4">
       
-      <div class="row g-4">
-        <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-          <div class="trust-item text-center">
-            <i class="bi bi-heart-pulse"></i>
-            <h3 class="h5 fw-bold">Orthopedic Support</h3>
-            <p class="small text-muted mb-0">7-zone ergonomic support targets shoulders, hips, and lower back.</p>
+      <!-- CARD 1 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <article class="product-card">
+          <div class="card-flipper">
+            <div class="card-front">
+              <div class="hover-img">
+                <img src="https://ik.imagekit.io/2xkwa8s1i/img/mattresslifestyle/Ortho_Classic/ortho-classic-3-desk.jpg?tr=w-3840" alt="OrthoCare memory foam mattress" loading="lazy">
+                <span class="badge-trial">100-night trial</span>
+              </div>
+              <div class="product-body flex-grow-1 d-flex flex-column justify-content-between p-3">
+                <div>
+                  <span class="chip">Memory Foam</span>
+                  <h3>OrthoCare Memory Foam</h3>
+                  <p>7-zone orthopedic support · Queen · 6 inch</p>
+                  <ul class="specs">
+                    <li>Medium-firm</li>
+                    <li>Cooling cover</li>
+                    <li>0% EMI available</li>
+                  </ul>
+                </div>
+                <div class="price-row mt-3 d-flex justify-content-between align-items-center">
+                  <div class="price">₹12,499</div>
+                  <button type="button" class="btn btn-primary btn-sm view-btn">View</button>
+                </div>
+              </div>
+            </div>
+            <div class="card-back">
+              <div>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="badge bg-primary">Advantages</span>
+                  <button type="button" class="btn-close close-btn" aria-label="Close"></button>
+                </div>
+                <h4 class="h5 mb-2">OrthoCare Foam</h4>
+                <hr class="my-2">
+                <ul class="list-unstyled d-flex flex-column gap-2 text-start small">
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Spinal Support:</strong> 7-Zone ergonomic support targets pressure points.</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Zero Motion Transfer:</strong> Sleep undisturbed with isolation tech.</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Cooling Layer:</strong> Open-cell foam maintains ideal sleep temperature.</li>
+                </ul>
+              </div>
+              <div class="pt-2 border-top d-flex gap-2">
+                <a href="#" class="btn btn-primary btn-sm w-100">Buy Now</a>
+                <button type="button" class="btn btn-outline-secondary btn-sm close-btn">Back</button>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
-          <div class="trust-item text-center">
-            <i class="bi bi-thermometer-half"></i>
-            <h3 class="h5 fw-bold">Cooling Tech</h3>
-            <p class="small text-muted mb-0">Infused phase-change cooling gel channels heat away all night long.</p>
+        </article>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <article class="product-card">
+          <div class="card-flipper">
+            <div class="card-front">
+              <div class="hover-img">
+                <img src="https://mymorningowl.com/cdn/shop/files/preview_images/fcf9805937b94bbcba4a284ea84842db.thumbnail.0000000000.jpg?v=1780938711&width=3840" alt="CloudSoft latex mattress" loading="lazy">
+                <span class="badge-trial">100-night trial</span>
+              </div>
+              <div class="product-body flex-grow-1 d-flex flex-column justify-content-between p-3">
+                <div>
+                  <span class="chip">Latex</span>
+                  <h3>CloudSoft Natural Latex</h3>
+                  <p>100% natural latex · King · 8 inch</p>
+                  <ul class="specs">
+                    <li>Plush</li>
+                    <li>Breathable</li>
+                    <li>Hypoallergenic</li>
+                  </ul>
+                </div>
+                <div class="price-row mt-3 d-flex justify-content-between align-items-center">
+                  <div class="price">₹21,999</div>
+                  <button type="button" class="btn btn-primary btn-sm view-btn">View</button>
+                </div>
+              </div>
+            </div>
+            <div class="card-back">
+              <div>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="badge bg-primary">Advantages</span>
+                  <button type="button" class="btn-close close-btn" aria-label="Close"></button>
+                </div>
+                <h4 class="h5 mb-2">CloudSoft Latex</h4>
+                <hr class="my-2">
+                <ul class="list-unstyled d-flex flex-column gap-2 text-start small">
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>100% Organic:</strong> Pure eco-friendly rubber tree sap base.</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Responsive Bounce:</strong> Gentle uplift prevents the "sinking" feel.</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Hypoallergenic:</strong> Naturally dust-mite and mold resistant.</li>
+                </ul>
+              </div>
+              <div class="pt-2 border-top d-flex gap-2">
+                <a href="#" class="btn btn-primary btn-sm w-100">Buy Now</a>
+                <button type="button" class="btn btn-outline-secondary btn-sm close-btn">Back</button>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
-          <div class="trust-item text-center">
-            <i class="bi bi-moon-stars"></i>
-            <h3 class="h5 fw-bold">Zero Motion Transfer</h3>
-            <p class="small text-muted mb-0">Individually pocketed coils isolate movement so your partner sleeps soundly.</p>
+        </article>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+        <article class="product-card">
+          <div class="card-flipper">
+            <div class="card-front">
+              <div class="hover-img">
+                <img src="https://cdn.shopify.com/s/files/1/2097/4191/files/12in_Hybrid_Spring_mattress_Better_cutaway_new_RRR_S_f53ebaf7-01de-428a-aa79-8d6e6561beb5.png?v=1755542249" alt="Spring hybrid mattress" loading="lazy">
+                <span class="badge-trial">100-night trial</span>
+              </div>
+              <div class="product-body flex-grow-1 d-flex flex-column justify-content-between p-3">
+                <div>
+                  <span class="chip">Hybrid</span>
+                  <h3>SpringWell Hybrid</h3>
+                  <p>Pocket springs + foam · Queen · 10 inch</p>
+                  <ul class="specs">
+                    <li>Firm</li>
+                    <li>Edge support</li>
+                    <li>Low motion transfer</li>
+                  </ul>
+                </div>
+                <div class="price-row mt-3 d-flex justify-content-between align-items-center">
+                  <div class="price">₹18,499</div>
+                  <button type="button" class="btn btn-primary btn-sm view-btn">View</button>
+                </div>
+              </div>
+            </div>
+            <div class="card-back">
+              <div>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="badge bg-primary">Advantages</span>
+                  <button type="button" class="btn-close close-btn" aria-label="Close"></button>
+                </div>
+                <h4 class="h5 mb-2">SpringWell Hybrid</h4>
+                <hr class="my-2">
+                <ul class="list-unstyled d-flex flex-column gap-2 text-start small">
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Pocket Springs:</strong> Pocketed coils contour individually to body contours.</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Perimeter Guard:</strong> Strong edge support prevents roll-off.</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Air Circulation:</strong> Coil design enables continuous airflow.</li>
+                </ul>
+              </div>
+              <div class="pt-2 border-top d-flex gap-2">
+                <a href="#" class="btn btn-primary btn-sm w-100">Buy Now</a>
+                <button type="button" class="btn btn-outline-secondary btn-sm close-btn">Back</button>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
-          <div class="trust-item text-center">
-            <i class="bi bi-shield-check"></i>
-            <h3 class="h5 fw-bold">Hypoallergenic</h3>
-            <p class="small text-muted mb-0">Oeko-Tex Standard 100 cover protects against dust mites and allergens.</p>
+        </article>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <article class="product-card">
+          <div class="card-flipper">
+            <div class="card-front">
+              <div class="hover-img">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJPj1FyD2xbRwrSFoVTf04kGPob5fRcmkxE8dMZJ-JUAU_QWcu6sNhx9O0&s=10" alt="CoolGel premium mattress" loading="lazy">
+                <span class="badge-trial">100-night trial</span>
+              </div>
+              <div class="product-body flex-grow-1 d-flex flex-column justify-content-between p-3">
+                <div>
+                  <span class="chip">Cooling Gel</span>
+                  <h3>CoolGel Premium</h3>
+                  <p>Gel-infused foam · Queen · 8 inch</p>
+                  <ul class="specs">
+                    <li>Medium</li>
+                    <li>Cooling gel</li>
+                    <li>Removable cover</li>
+                  </ul>
+                </div>
+                <div class="price-row mt-3 d-flex justify-content-between align-items-center">
+                  <div class="price">₹15,999</div>
+                  <button type="button" class="btn btn-primary btn-sm view-btn">View</button>
+                </div>
+              </div>
+            </div>
+            <div class="card-back">
+              <div>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="badge bg-primary">Advantages</span>
+                  <button type="button" class="btn-close close-btn" aria-label="Close"></button>
+                </div>
+                <h4 class="h5 mb-2">CoolGel Premium</h4>
+                <hr class="my-2">
+                <ul class="list-unstyled d-flex flex-column gap-2 text-start small">
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Heat Dissipation:</strong> Thermal gel beads absorb excess heat.</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Zippable Cover:</strong> Washable cover keeps sleep surface fresh.</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Joint Relief:</strong> Eases tension in shoulders and hips.</li>
+                </ul>
+              </div>
+              <div class="pt-2 border-top d-flex gap-2">
+                <a href="#" class="btn btn-primary btn-sm w-100">Buy Now</a>
+                <button type="button" class="btn btn-outline-secondary btn-sm close-btn">Back</button>
+              </div>
+            </div>
           </div>
+        </article>
+      </div>
+
+      <!-- CARD 5 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <article class="product-card">
+          <div class="card-flipper">
+            <div class="card-front">
+              <div class="hover-img">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdeQn3CQ1Y-XCHm7uaj9-SF3ERyuGEnAdljBmhUcWIAtdd0uCFl1xd4Ng&s=10" alt="OrthoSpine firm mattress" loading="lazy">
+                <span class="badge-trial">100-night trial</span>
+              </div>
+              <div class="product-body flex-grow-1 d-flex flex-column justify-content-between p-3">
+                <div>
+                  <span class="chip">Orthopedic</span>
+                  <h3>OrthoSpine Firm</h3>
+                  <p>High-density foam · Single · 6 inch</p>
+                  <ul class="specs">
+                    <li>Extra firm</li>
+                    <li>Back pain relief</li>
+                    <li>10-yr warranty</li>
+                  </ul>
+                </div>
+                <div class="price-row mt-3 d-flex justify-content-between align-items-center">
+                  <div class="price">₹8,999</div>
+                  <button type="button" class="btn btn-primary btn-sm view-btn">View</button>
+                </div>
+              </div>
+            </div>
+            <div class="card-back">
+              <div>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="badge bg-primary">Advantages</span>
+                  <button type="button" class="btn-close close-btn" aria-label="Close"></button>
+                </div>
+                <h4 class="h5 mb-2">OrthoSpine Firm</h4>
+                <hr class="my-2">
+                <ul class="list-unstyled d-flex flex-column gap-2 text-start small">
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Medical Support:</strong> Engineered specifically for lower back issues.</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>High-Density Base:</strong> Resists sagging for guaranteed longevity.</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Posture Guard:</strong> Maintains optimal spinal horizontal alignment.</li>
+                </ul>
+              </div>
+              <div class="pt-2 border-top d-flex gap-2">
+                <a href="#" class="btn btn-primary btn-sm w-100">Buy Now</a>
+                <button type="button" class="btn btn-outline-secondary btn-sm close-btn">Back</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- CARD 6 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+        <article class="product-card">
+          <div class="card-flipper">
+            <div class="card-front">
+              <div class="hover-img">
+                <img src="https://m.media-amazon.com/images/I/71Kf5HaLLEL._AC_UF894,1000_QL80_.jpg" alt="Luxury plush pillow-top mattress" loading="lazy">
+                <span class="badge-trial">100-night trial</span>
+              </div>
+              <div class="product-body flex-grow-1 d-flex flex-column justify-content-between p-3">
+                <div>
+                  <span class="chip">Luxury</span>
+                  <h3>Luxe Plush Pillow-Top</h3>
+                  <p>Pillow-top + latex · King · 12 inch</p>
+                  <ul class="specs">
+                    <li>Ultra-plush</li>
+                    <li>Hotel grade</li>
+                    <li>15-yr warranty</li>
+                  </ul>
+                </div>
+                <div class="price-row mt-3 d-flex justify-content-between align-items-center">
+                  <div class="price">₹34,999</div>
+                  <button type="button" class="btn btn-primary btn-sm view-btn">View</button>
+                </div>
+              </div>
+            </div>
+            <div class="card-back">
+              <div>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="badge bg-primary">Advantages</span>
+                  <button type="button" class="btn-close close-btn" aria-label="Close"></button>
+                </div>
+                <h4 class="h5 mb-2">Luxe Pillow-Top</h4>
+                <hr class="my-2">
+                <ul class="list-unstyled d-flex flex-column gap-2 text-start small">
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>5-Star Comfort:</strong> Plush double top layer delivers hotel luxury.</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>15-Yr Warranty:</strong> Built using heavy-duty luxury materials.</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Cashmere Cover:</strong> Ultra-soft organic outer knit finish.</li>
+                </ul>
+              </div>
+              <div class="pt-2 border-top d-flex gap-2">
+                <a href="#" class="btn btn-primary btn-sm w-100">Buy Now</a>
+                <button type="button" class="btn btn-outline-secondary btn-sm close-btn">Back</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Section 4: Trial & delivery details -->
+<section class="section bg-soft">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6" data-aos="fade-right">
+        <img src="https://img.staticmb.com/mbcontent/images/crop/uploads/ver2/XIwvQlc61t8ZIpanz4mAnTU1SakajKZkoFH52-ps7Mda-A/platform-floating-bed-design_0_1200.jpg" alt="Mattress delivery setup" class="img-fluid rounded" loading="lazy">
+      </div>
+      <div class="col-lg-6" data-aos="fade-left">
+        <span class="eyebrow">Trial & delivery</span>
+        <h2>100 nights, risk-free</h2>
+        <p>Every mattress comes with a 100-night trial and free white-glove delivery. If it's not right, we pick it up for free and refund you in full.</p>
+        <div class="row g-3 mt-2">
+          <div class="col-sm-6" data-aos="zoom-in" data-aos-delay="100"><div class="info-box p-3 border rounded"><i class="bi bi-truck fs-3 text-primary"></i><h3>Free delivery</h3><p class="mb-0">3–5 days, room of choice</p></div></div>
+          <div class="col-sm-6" data-aos="zoom-in" data-aos-delay="200"><div class="info-box p-3 border rounded"><i class="bi bi-arrow-repeat fs-3 text-primary"></i><h3>Free returns</h3><p class="mb-0">Pickup within 48 hours</p></div></div>
+          <div class="col-sm-6" data-aos="zoom-in" data-aos-delay="300"><div class="info-box p-3 border rounded"><i class="bi bi-shield-check fs-3 text-primary"></i><h3>10-year warranty</h3><p class="mb-0">Against sagging & defects</p></div></div>
+          <div class="col-sm-6" data-aos="zoom-in" data-aos-delay="400"><div class="info-box p-3 border rounded"><i class="bi bi-credit-card-2-front fs-3 text-primary"></i><h3>0% EMI</h3><p class="mb-0">From ₹1,041/month</p></div></div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ===================== SECTION 2: FEATURES ===================== -->
-  <section class="py-5 bg-soft" id="features">
-    <div class="container">
-      <div class="row align-items-center g-4 g-lg-5 mb-5">
-        <div class="col-lg-6" data-aos="fade-right">
-          <span class="eyebrow text-primary fw-semibold">Multi-Layered Architecture</span>
-          <h2 class="fw-bold my-3">Inside the RestWell Adaptive Mattress</h2>
-          <p class="lead text-muted">Every layer is meticulously engineered to balance contouring support, breathability, and durability.</p>
-          <ul class="feature-list mt-4">
-            <li><i class="bi bi-check-circle-fill"></i> <strong>Breathable Fabric Cover:</strong> Antimicrobial and cool-to-the-touch.</li>
-            <li><i class="bi bi-check-circle-fill"></i> <strong>Cooling Gel Memory Foam:</strong> Adapts instantly to body pressure.</li>
-            <li><i class="bi bi-check-circle-fill"></i> <strong>High-Resilience Transition Foam:</strong> Prevents sinking feeling.</li>
-            <li><i class="bi bi-check-circle-fill"></i> <strong>Pocket Spring Core:</strong> Reinforced edge-to-edge support.</li>
-          </ul>
-        </div>
-        <div class="col-lg-6 text-center" data-aos="fade-left">
-          <img src="https://media.istockphoto.com/id/1630042746/photo/matttress-cross-section-structure-of-layers-of-mattress.jpg?s=612x612&w=0&k=20&c=D_KfsrtBRpYci9E1-rHwFCXnRhaJMozT4ZqXvskw-2A=" alt="Mattress Cross Section Layer Breakdown" class="img-fluid rounded-3 shadow">
-        </div>
-      </div>
-
-      <!-- Feature Highlight Cards -->
-      <div class="row g-4">
-        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
-          <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?q=80&w=500&auto=format&fit=crop" alt="Cooling Foam">
-            <div class="p-4">
-              <h3 class="h5 fw-bold">AirFlow Gel Technology</h3>
-              <p class="text-muted small mb-0">Open-cell structure maintains active circulation and eliminates sleeping hot.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
-          <div class="product-card">
-            <img src="https://assets.kmart.com.au/transform/a18c3004-f33a-46da-9872-9688066e65d1/110168045-5?io=transform:fit,width:3840,height:4800&quality=90" alt="Edge Support">
-            <div class="p-4">
-              <h3 class="h5 fw-bold">Reinforced Edge Guard</h3>
-              <p class="text-muted small mb-0">High-density perimeter foam prevents roll-off and sagging when sitting on edges.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
-          <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=500&auto=format&fit=crop" alt="Organic Cover">
-            <div class="p-4">
-              <h3 class="h5 fw-bold">Removable Zip Cover</h3>
-              <p class="text-muted small mb-0">Easy to remove, machine washable organic cotton blend cover.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+<!-- Section 5: Comparison -->
+<section class="section">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up"><span class="eyebrow">Compare</span><h2>Which mattress is right for you?</h2></div>
+    <div class="table-responsive" data-aos="fade-up" data-aos-delay="150">
+      <table class="table compare-table">
+        <thead><tr><th>Feature</th><th>OrthoCare</th><th>CloudSoft</th><th>SpringWell</th></tr></thead>
+        <tbody>
+          <tr><td>Firmness</td><td>Medium-firm</td><td>Plush</td><td>Firm</td></tr>
+          <tr><td>Material</td><td>Memory foam</td><td>Natural latex</td><td>Pocket springs</td></tr>
+          <tr><td>Cooling</td><td>Cover</td><td>Breathable</td><td>Airflow</td></tr>
+          <tr><td>Best for</td><td>Back pain</td><td>Side sleepers</td><td>Stomach sleepers</td></tr>
+          <tr><td>Starting at</td><td>₹12,499</td><td>₹21,999</td><td>₹18,499</td></tr>
+        </tbody>
+      </table>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ===================== SECTION 4: COMPARISON ===================== -->
-  <section class="py-5 bg-soft" id="comparison">
-    <div class="container">
-      <div class="text-center mb-5" data-aos="fade-up">
-        <span class="eyebrow text-primary fw-semibold">Side-by-Side</span>
-        <h2 class="fw-bold">How RestWell Compares</h2>
-        <p class="lead text-muted">See why thousands are upgrading from traditional innerspring beds.</p>
-      </div>
-
-      <div class="table-responsive shadow-sm rounded-3" data-aos="zoom-in">
-        <table class="table table-hover align-middle mb-0 text-center bg-white">
-          <thead class="table-light">
-            <tr>
-              <th scope="col" class="text-start p-3">Feature</th>
-              <th scope="col" class="p-3 text-primary fs-5">RestWell Mattress</th>
-              <th scope="col" class="p-3 text-muted">Traditional Spring Bed</th>
-              <th scope="col" class="p-3 text-muted">Basic Foam Mattress</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row" class="text-start p-3">Spinal Alignment Support</th>
-              <td class="text-success"><i class="bi bi-check-circle-fill"></i> 7-Zone Ergonomic</td>
-              <td class="text-danger"><i class="bi bi-x-circle"></i> Rigid / Uneven</td>
-              <td><i class="bi bi-dash-circle"></i> Basic Contour</td>
-            </tr>
-            <tr>
-              <th scope="row" class="text-start p-3">Temperature Regulation</th>
-              <td class="text-success"><i class="bi bi-check-circle-fill"></i> AirFlow Gel Infused</td>
-              <td><i class="bi bi-dash-circle"></i> Medium Trapped Heat</td>
-              <td class="text-danger"><i class="bi bi-x-circle"></i> Sleeps Very Hot</td>
-            </tr>
-            <tr>
-              <th scope="row" class="text-start p-3">Motion Isolation</th>
-              <td class="text-success"><i class="bi bi-check-circle-fill"></i> Zero Partner Disturbance</td>
-              <td class="text-danger"><i class="bi bi-x-circle"></i> High Bounciness</td>
-              <td class="text-success"><i class="bi bi-check-circle-fill"></i> Good Isolation</td>
-            </tr>
-            <tr>
-              <th scope="row" class="text-start p-3">Risk-Free Home Trial</th>
-              <td class="text-success fw-bold"><i class="bi bi-check-circle-fill"></i> 100 Nights</td>
-              <td class="text-danger"><i class="bi bi-x-circle"></i> None / Store Only</td>
-              <td><i class="bi bi-dash-circle"></i> 14-30 Days</td>
-            </tr>
-            <tr>
-              <th scope="row" class="text-start p-3">Warranty Protection</th>
-              <td class="text-success fw-bold"><i class="bi bi-check-circle-fill"></i> 10 Years Full Coverage</td>
-              <td><i class="bi bi-dash-circle"></i> 1-3 Years Limited</td>
-              <td><i class="bi bi-dash-circle"></i> 5 Years</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+<!-- Section 6: Testimonials -->
+<section class="section bg-soft">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up"><span class="eyebrow">Reviews</span><h2>What customers say</h2></div>
+    <div class="row g-4">
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100"><div class="testimonial-card p-4 border rounded bg-white"><div class="stars text-warning">★★★★★</div><p class="mt-2">"OrthoCare fixed my lower back pain in two weeks. Best ₹12,499 I've spent for this."</p><div class="author mt-3"><strong>Ananya R.</strong><br><span class="text-muted small">Bengaluru</span></div></div></div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200"><div class="testimonial-card p-4 border rounded bg-white"><div class="stars text-warning">★★★★★</div><p class="mt-2">"CloudSoft is like sleeping on a cloud but supportive. My partner doesn't feel me move."</p><div class="author mt-3"><strong>Karthik M.</strong><br><span class="text-muted small">Chennai</span></div></div></div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300"><div class="testimonial-card p-4 border rounded bg-white"><div class="stars text-warning">★★★★★</div><p class="mt-2">"SpringWell is firm and cool — perfect for Hyderabad summers. Delivery was next-day."</p><div class="author mt-3"><strong>Sai T.</strong><br><span class="text-muted small">Hyderabad</span></div></div></div>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- Section 7: Newsletter CTA -->
+<section class="newsletter-section py-5 bg-dark text-white text-center" data-aos="zoom-in">
+  <div class="container">
+    <h2>Get ₹500 off your first mattress</h2>
+    <p class="lead">Subscribe for sleep tips and an exclusive first-order coupon.</p>
+    <form class="newsletter-form d-flex justify-content-center gap-2 mt-4" action="products-mattresses.html" method="get">
+      <input type="email" class="form-control w-25" placeholder="you@example.com" aria-label="Email address" required>
+      <button type="submit" class="btn btn-primary">Get my coupon</button>
+    </form>
+  </div>
+</section>
 </main>
 
-<!-- ===================== SECTION 5: FOOTER ===================== -->
+<!-- ===================== FOOTER ===================== -->
 <footer class="site-footer">
   <div class="container-fluid px-5">
     <div class="row g-4 justify-content-between">
@@ -914,13 +515,34 @@ input.theme-input[type="checkbox"]#darkMode {
   </div>
 </footer> 
 
-<!-- AOS Animation Script -->
+<!-- AOS JS Script & Card Flipping Script -->
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
+document.addEventListener('DOMContentLoaded', () => {
   AOS.init({
     duration: 800,
-    once: true
+    easing: 'ease-out-cubic',
+    once: true,
+    offset: 100
   });
+
+  document.querySelectorAll('.view-btn').forEach(button => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      const card = button.closest('.product-card');
+      card.classList.add('flipped');
+    });
+  });
+
+  document.querySelectorAll('.close-btn').forEach(button => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      const card = button.closest('.product-card');
+      card.classList.remove('flipped');
+    });
+  });
+});
 </script>
+
 </body>
 </html>

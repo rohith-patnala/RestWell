@@ -39,3 +39,498 @@
 .countdown strong{font-family:var(--font-display);font-size:var(--fs-2xl);color:var(--primary);background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:.5rem 1rem;min-width:64px}
 .countdown span{font-size:var(--fs-xs);color:var(--text-muted);margin-top:.25rem;text-transform:uppercase;letter-spacing:.1em}
 @media (max-width:575.98px){.countdown{gap:var(--space-2)}.countdown strong{font-size:var(--fs-lg);min-width:52px;padding:.4rem .6rem}}
+
+
+.status-controls{
+  margin-bottom: 15px;
+  margin-top:15px;
+  display: flex;
+  gap: 30px;
+  padding-left: 1150px;
+  
+    
+}
+
+.status-content{
+  margin-left: px;
+  margin-right:0px;
+}
+
+
+
+
+
+
+
+
+/* Updated Header & Toggle Styles */
+.brand-text .rest {
+  color: #3A6B8C !important;
+}
+.brand-text .well {
+  color: #C9A66B !important;
+}
+
+/* Slider Dark Mode Toggle */
+.theme-toggle-slider {
+  display: inline-flex;
+  align-items: center;
+  background: #e9ecef;
+  border-radius: 50rem;
+  padding: 3px;
+  cursor: pointer;
+  position: relative;
+  width: 64px;
+  height: 32px;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+}
+.theme-toggle-slider .slider-circle {
+  position: absolute;
+  left: 3px;
+  width: 26px;
+  height: 26px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.theme-toggle-slider .icon-sun,
+.theme-toggle-slider .icon-moon {
+  position: relative;
+  z-index: 2;
+  width: 50%;
+  text-align: center;
+  font-size: 14px;
+  line-height: 26px;
+  user-select: none;
+}
+.theme-toggle-slider .icon-sun {
+  color: #d97706;
+}
+.theme-toggle-slider .icon-moon {
+  color: #6c757d;
+}
+
+/* Checked state for dark mode slider */
+#darkMode:checked ~ * .theme-toggle-slider,
+body:has(#darkMode:checked) .theme-toggle-slider,
+.theme-input:checked + .theme-toggle-slider {
+  background: #2b3035;
+}
+#darkMode:checked ~ * .theme-toggle-slider .slider-circle,
+body:has(#darkMode:checked) .slider-circle,
+#darkMode:checked ~ .status-controls .slider-circle {
+  transform: translateX(32px);
+}
+
+/* Hide raw checkbox */
+input.theme-input[type="checkbox"]#darkMode {
+  display: none;
+}
+
+/* RTL Button Black Color Styling */
+.rtl-toggle {
+  color: #000000 !important;
+}
+
+/* Reposition status controls to the top right end */
+.status-controls {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 10;
+}
+.status-page {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+/* Decrease form/content size and prevent scrolling */
+.status-content {
+  max-width: 500px;
+  padding: 1.5rem;
+  transform: scale(0.9);
+}
+.status-code {
+  font-size: 4rem;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.status-content h1 {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+.status-content p {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+.status-actions {
+  gap: 0.5rem;
+}
+.status-actions .btn {
+  padding: 0.4rem 1rem;
+  font-size: 0.9rem;
+}
+
+/* Mobile Hamburger Styles */
+.hamburger {
+  display: none;
+}
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: #334155;
+  margin: 4px 0;
+  transition: 0.3s;
+}
+.mobile-panel {
+  width: 280px;
+  padding: 24px 20px;
+  background: #ffffff;
+  position: fixed;
+  top: 0;
+  right: -280px;
+  height: 100vh;
+  z-index: 1050;
+  transition: right 0.3s ease;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+  overflow-y: auto;
+}
+#mobileNav:checked ~ .mobile-panel {
+  right: 0;
+}
+.mobile-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  z-index: 1040;
+  display: none;
+}
+#mobileNav:checked ~ .mobile-overlay {
+  display: block;
+}
+input.theme-input[type="checkbox"]#mobileNav {
+  display: none;
+}
+.mobile-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.mobile-panel ul li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+.mobile-panel ul li a {
+  text-decoration: none;
+  color: #334155;
+  font-weight: 500;
+  display: block;
+}
+
+/* Mobile-specific navigation dropdown accordion styles */
+.mobile-dropdown-toggle {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.mobile-submenu {
+  list-style: none;
+  padding-left: 1rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.mobile-submenu-toggle {
+  display: none;
+}
+.mobile-submenu-toggle:checked ~ .mobile-submenu {
+  max-height: 500px;
+}
+
+/* ================= MOBILE RESPONSIVE TWEAKS ================= */
+@media (max-width: 991.98px) {
+  .hamburger {
+    display: inline-block !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Updated Header & Toggle Styles */
+.brand-text .rest {
+  color: #3A6B8C;
+}
+.brand-text .well {
+  color: #C9A66B;
+}
+
+/* Base Layout & Centering Setup */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  color: #333;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Status Container */
+.status-page {
+  position: relative;
+  width: 100%;
+  max-width: 680px;
+  padding: 2.5rem 1.5rem;
+  margin: auto;
+  text-align: center;
+}
+
+/* Content Block */
+.status-content {
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Branding */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #3A6B8C;
+  text-decoration: none;
+  margin-bottom: 1.5rem;
+}
+
+/* Status Icon */
+.status-icon {
+  font-size: 3rem;
+  color: #3A6B8C;
+  margin-bottom: 1rem;
+}
+
+/* Typography */
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #2b3a4a;
+}
+
+p.text-muted {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* Action Buttons Grid/Flex */
+.status-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+  flex-wrap: wrap;
+}
+
+.status-actions .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+}
+
+/* Slider Dark Mode Toggle */
+.theme-toggle-slider {
+  display: inline-flex;
+  align-items: center;
+  background: #e9ecef;
+  border-radius: 50rem;
+  padding: 3px;
+  cursor: pointer;
+  position: relative;
+  width: 64px;
+  height: 32px;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+}
+.theme-toggle-slider .slider-circle {
+  position: absolute;
+  left: 3px;
+  width: 26px;
+  height: 26px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.theme-toggle-slider .icon-sun,
+.theme-toggle-slider .icon-moon {
+  position: relative;
+  z-index: 2;
+  width: 50%;
+  text-align: center;
+  font-size: 14px;
+  line-height: 26px;
+  user-select: none;
+}
+.theme-toggle-slider .icon-sun {
+  color: #d97706;
+}
+.theme-toggle-slider .icon-moon {
+  color: #6c757d;
+}
+
+/* Checked state for dark mode slider */
+#darkMode:checked ~ * .theme-toggle-slider,
+body:has(#darkMode:checked) .theme-toggle-slider,
+.theme-input:checked + .theme-toggle-slider {
+  background: #2b3035;
+}
+#darkMode:checked ~ * .theme-toggle-slider .slider-circle,
+body:has(#darkMode:checked) .slider-circle,
+#darkMode:checked ~ .status-controls .slider-circle {
+  transform: translateX(32px);
+}
+
+/* Hide raw checkbox */
+input.theme-input[type="checkbox"] {
+  display: none;
+}
+
+/* RTL Button White Color Styling by default */
+.rtl-toggle {
+  color: #ffffff !important;
+}
+
+/* Reposition status controls to the top right end */
+.status-controls {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 10;
+}
+
+/* Mobile Hamburger Styles */
+.hamburger {
+  display: none;
+}
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: #334155;
+  margin: 4px 0;
+  transition: 0.3s;
+}
+.mobile-panel {
+  width: 280px;
+  padding: 24px 20px;
+  background: #ffffff;
+  position: fixed;
+  top: 0;
+  right: -280px;
+  height: 100vh;
+  z-index: 1050;
+  transition: right 0.3s ease;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+  overflow-y: auto;
+}
+#mobileNav:checked ~ .mobile-panel {
+  right: 0;
+}
+.mobile-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  z-index: 1040;
+  display: none;
+}
+#mobileNav:checked ~ .mobile-overlay {
+  display: block;
+}
+.mobile-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.mobile-panel ul li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+.mobile-panel ul li a {
+  text-decoration: none;
+  color: #334155;
+  font-weight: 500;
+  display: block;
+}
+
+/* Mobile-specific navigation dropdown accordion styles */
+.mobile-dropdown-toggle {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.mobile-submenu {
+  list-style: none;
+  padding-left: 1rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.mobile-submenu-toggle {
+  display: none;
+}
+.mobile-submenu-toggle:checked ~ .mobile-submenu {
+  max-height: 500px;
+}
+
+/* ================= MOBILE RESPONSIVE TWEAKS ================= */
+@media (max-width: 991.98px) {
+  .hamburger {
+    display: inline-block !important;
+  }
+  .rtl-toggle {
+    color: #000000 !important;
+  }
+}

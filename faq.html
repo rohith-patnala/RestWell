@@ -13,206 +13,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 <link href="global.css" rel="stylesheet">
 <link href="info-page.css" rel="stylesheet">
-<style>
-  /* Updated Header & Toggle Styles */
-  .brand-text .rest {
-    color: #3A6B8C;
-  }
-  .brand-text .well {
-    color: #C9A66B;
-  }
-  .navbar {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  .nav-list {
-    flex: 1;
-    justify-content: center;
-  }
-  .header-controls {
-    margin-left: auto;
-  }
-  
-  /* Slider Dark Mode Toggle */
-  .theme-toggle-slider {
-    display: inline-flex;
-    align-items: center;
-    background: #e9ecef;
-    border-radius: 50rem;
-    padding: 3px;
-    cursor: pointer;
-    position: relative;
-    width: 64px;
-    height: 32px;
-    box-sizing: border-box;
-    transition: background-color 0.3s ease;
-  }
-  .theme-toggle-slider .slider-circle {
-    position: absolute;
-    left: 3px;
-    width: 26px;
-    height: 26px;
-    background: #ffffff;
-    border-radius: 50%;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .theme-toggle-slider .icon-sun,
-  .theme-toggle-slider .icon-moon {
-    position: relative;
-    z-index: 2;
-    width: 50%;
-    text-align: center;
-    font-size: 14px;
-    line-height: 26px;
-    user-select: none;
-  }
-  .theme-toggle-slider .icon-sun {
-    color: #d97706;
-  }
-  .theme-toggle-slider .icon-moon {
-    color: #6c757d;
-  }
-
-  /* Checked state for dark mode slider */
-  #darkMode:checked ~ * .theme-toggle-slider,
-  body:has(#darkMode:checked) .theme-toggle-slider,
-  .theme-input:checked + .theme-toggle-slider {
-    background: #2b3035;
-  }
-  #darkMode:checked ~ * .theme-toggle-slider .slider-circle,
-  body:has(#darkMode:checked) .slider-circle,
-  #darkMode:checked ~ .site-header .slider-circle {
-    transform: translateX(32px);
-  }
-
-  /* Hide raw checkbox */
-  input.theme-input[type="checkbox"]#darkMode {
-    display: none;
-  }
-
-  /* RTL Button Black Color Text Styling */
-  .rtl-toggle {
-    color: #000000 !important;
-  }
-
-  /* ================= MOBILE RESPONSIVE TWEAKS ================= */
-  html, body {
-    overflow-x: hidden !important;
-    max-width: 100vw !important;
-  }
-
-  @media (max-width: 991.98px) {
-    .header-controls .btn-signin-desktop {
-      display: none !important;
-    }
-    .navbar {
-      justify-content: space-between !important;
-      padding-left: 0 !important;
-      padding-right: 0.25rem !important;
-    }
-    .container-fluid.px-4 {
-      padding-left: 0.5rem !important;
-      padding-right: 0.5rem !important;
-    }
-    .brand {
-      margin-right: auto !important;
-      padding-left: 0 !important;
-    }
-    .header-controls {
-      margin-left: 0 !important;
-      display: flex !important;
-      align-items: center !important;
-      gap: 0.5rem !important;
-    }
-  }
-
-  /* Mobile Nav Drawer Enhancements */
-  .hamburger span {
-    display: block;
-    width: 22px;
-    height: 2px;
-    background-color: #334155;
-    margin: 4px 0;
-    transition: 0.3s;
-  }
-
-  .mobile-panel {
-    width: 280px;
-    padding: 24px 20px;
-    background: #ffffff;
-    position: fixed;
-    top: 0;
-    right: -280px;
-    height: 100vh;
-    z-index: 1050;
-    transition: right 0.3s ease;
-    box-shadow: -2px 0 10px rgba(0,0,0,0.1);
-    overflow-y: auto;
-  }
-
-  #mobileNav:checked ~ .mobile-panel {
-    right: 0;
-  }
-
-  .mobile-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0,0,0,0.5);
-    z-index: 1040;
-    display: none;
-  }
-
-  #mobileNav:checked ~ .mobile-overlay {
-    display: block;
-  }
-
-  input.theme-input[type="checkbox"]#mobileNav {
-    display: none;
-  }
-
-  .mobile-panel ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .mobile-panel ul li {
-    padding: 0.5rem 0;
-    border-bottom: 1px solid #e2e8f0;
-  }
-
-  .mobile-panel ul li a {
-    text-decoration: none;
-    color: #334155;
-    font-weight: 500;
-    display: block;
-  }
-
-  /* Mobile-specific navigation dropdown accordion styles */
-  .mobile-dropdown-toggle {
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .mobile-submenu {
-    list-style: none;
-    padding-left: 1rem;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-  }
-  .mobile-submenu-toggle {
-    display: none;
-  }
-  .mobile-submenu-toggle:checked ~ .mobile-submenu {
-    max-height: 500px;
-  }
-</style>
+<link href="style.css" rel="stylesheet">
 </head>
 <body>
 <input type="checkbox" id="darkMode" class="theme-input" aria-hidden="true">
@@ -241,7 +42,7 @@
           </ul>
         </li>  
         <li>
-          <a class="nav-link" href="service-details.html">Services </a>
+          <a class="nav-link" href="service-details.html">Services</a>
         </li>
         <li>
           <a class="nav-link" href="products-mattresses.html">Products <i class="bi bi-chevron-down caret"></i></a>
@@ -260,7 +61,6 @@
       </ul>
 
       <div class="header-controls d-flex align-items-center gap-2 ms-auto">
-        <!-- Replaced dark mode label with custom slider layout -->
         <label class="theme-toggle-slider" for="darkMode" title="Toggle dark mode" aria-label="Toggle dark mode">
           <span class="slider-circle"></span>
           <span class="icon-sun"><i class="bi bi-sun-fill"></i></span>
@@ -284,7 +84,6 @@
     <label for="mobileNav" class="btn-close" aria-label="Close" style="cursor: pointer;"></label>
   </div>
   <ul>
-    <!-- Home Dropdown for Mobile -->
     <li>
       <input type="checkbox" id="mobHomeToggle" class="mobile-submenu-toggle">
       <label for="mobHomeToggle" class="mobile-dropdown-toggle py-2 text-decoration-none text-dark fw-medium">
@@ -295,11 +94,7 @@
         <li class="border-bottom-0"><a href="home2.html" class="py-2 text-muted">Home 2 — Brand Story</a></li>
       </ul>
     </li>
-
-    <!-- Services (Renamed from Service Details) -->
     <li><a href="service-details.html">Services</a></li>
-
-    <!-- Products Dropdown for Mobile -->
     <li>
       <input type="checkbox" id="mobProdToggle" class="mobile-submenu-toggle">
       <label for="mobProdToggle" class="mobile-dropdown-toggle py-2 text-decoration-none text-dark fw-medium">
@@ -314,7 +109,6 @@
         <li class="border-bottom-0"><a href="products-accessories.html" class="py-2 text-muted">Accessories</a></li>
       </ul>
     </li>
-
     <li><a href="about.html">About</a></li>
     <li><a href="blog.html">Blog</a></li>
     <li><a href="contact.html">Contact</a></li>
@@ -323,97 +117,97 @@
 </aside>
 
 <main>
-<!-- Section 1: Page hero -->
-<section class="page-hero">
-  <div class="container text-center">
-    <span class="eyebrow anim-fade-up">Help center</span>
-    <h1 class="display-4 anim-fade-up delay-1">Frequently asked questions</h1>
-    <p class="lead anim-fade-up delay-2">Everything you need to know about mattresses, trials, delivery, and care.</p>
-  </div>
-</section>
+  <!-- Section 1: Page hero -->
+  <section class="page-hero">
+    <div class="container text-center">
+      <span class="eyebrow anim-fade-up">Help center</span>
+      <h1 class="display-4 anim-fade-up delay-1">Frequently asked questions</h1>
+      <p class="lead anim-fade-up delay-2">Everything you need to know about mattresses, trials, delivery, and care.</p>
+    </div>
+  </section>
 
-<!-- Section 3: FAQ accordion (CSS-only with <details>) -->
-<section class="section">
-  <div class="container">
-    <div class="row g-5">
-      <div class="col-lg-8">
-        <h2 class="anim-fade-up">Trial & Returns</h2>
-        <details class="faq-item anim-fade-up"><summary>How does the 100-night trial work?</summary><p>You get 100 nights from the delivery date to sleep on your mattress. If it's not right, request a return in your account and we'll pick it up for free — full refund within 7 days.</p></details>
-        <details class="faq-item anim-fade-up"><summary>Can I return during the trial?</summary><p>Yes, anytime within 100 nights. No questions asked, no restocking fee. Pickup is free across India.</p></details>
-        <details class="faq-item anim-fade-up"><summary>How long does a refund take?</summary><p>Refunds are processed within 7 days of pickup. The exact time depends on your bank, usually 3–5 business days.</p></details>
+  <!-- Section 3: FAQ accordion -->
+  <section class="section">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-8">
+          <h2 class="anim-fade-up">Trial & Returns</h2>
+          <details class="faq-item anim-fade-up"><summary>How does the 100-night trial work?</summary><p>You get 100 nights from the delivery date to sleep on your mattress. If it's not right, request a return in your account and we'll pick it up for free — full refund within 7 days.</p></details>
+          <details class="faq-item anim-fade-up"><summary>Can I return during the trial?</summary><p>Yes, anytime within 100 nights. No questions asked, no restocking fee. Pickup is free across India.</p></details>
+          <details class="faq-item anim-fade-up"><summary>How long does a refund take?</summary><p>Refunds are processed within 7 days of pickup. The exact time depends on your bank, usually 3–5 business days.</p></details>
 
-        <h2 class="mt-5 anim-fade-up">Delivery</h2>
-        <details class="faq-item anim-fade-up"><summary>Is delivery really free?</summary><p>Yes — free across India on every order, including mattresses, beds, and accessories.</p></details>
-        <details class="faq-item anim-fade-up"><summary>How long does delivery take?</summary><p>Mattresses and accessories ship in 3–5 days. Beds and made-to-order items take 7–10 days.</p></details>
-        <details class="faq-item anim-fade-up"><summary>Do you offer installation?</summary><p>Yes, free white-glove setup for mattresses and free assembly for beds, by our trained team.</p></details>
+          <h2 class="mt-5 anim-fade-up">Delivery</h2>
+          <details class="faq-item anim-fade-up"><summary>Is delivery really free?</summary><p>Yes — free across India on every order, including mattresses, beds, and accessories.</p></details>
+          <details class="faq-item anim-fade-up"><summary>How long does delivery take?</summary><p>Mattresses and accessories ship in 3–5 days. Beds and made-to-order items take 7–10 days.</p></details>
+          <details class="faq-item anim-fade-up"><summary>Do you offer installation?</summary><p>Yes, free white-glove setup for mattresses and free assembly for beds, by our trained team.</p></details>
 
-        <h2 class="mt-5 anim-fade-up">Warranty</h2>
-        <details class="faq-item anim-fade-up"><summary>How long is the warranty?</summary><p>Mattresses carry a 10-year warranty (15 years on Luxe models). Beds have a 5-year warranty. Pillows and accessories have 2–5 year warranties.</p></details>
-        <details class="faq-item anim-fade-up"><summary>What does the warranty cover?</summary><p>Manufacturing defects and sagging deeper than 1.5 inches under normal use. It doesn't cover normal wear, stains, or misuse.</p></details>
+          <h2 class="mt-5 anim-fade-up">Warranty</h2>
+          <details class="faq-item anim-fade-up"><summary>How long is the warranty?</summary><p>Mattresses carry a 10-year warranty (15 years on Luxe models). Beds have a 5-year warranty. Pillows and accessories have 2–5 year warranties.</p></details>
+          <details class="faq-item anim-fade-up"><summary>What does the warranty cover?</summary><p>Manufacturing defects and sagging deeper than 1.5 inches under normal use. It doesn't cover normal wear, stains, or misuse.</p></details>
 
-        <h2 class="mt-5 anim-fade-up">Care</h2>
-        <details class="faq-item anim-fade-up"><summary>How do I clean my mattress?</summary><p>Spot-clean with mild detergent and cold water. Always use a waterproof protector. We offer an annual deep-clean service with Care Plus.</p></details>
-        <details class="faq-item anim-fade-up"><summary>How often should I rotate my mattress?</summary><p>Rotate head-to-toe every 3 months for the first year, then every 6 months. Our mattresses are single-sided — no flipping needed.</p></details>
-      </div>
-      <aside class="col-lg-4">
-        <div class="help-card hover-card anim-fade-up">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdQ9BOpkucS-b0chhpxaZL8NLpmgQA-2dsPGcSzENDIWs-bsa08n2HjVTw&s=10" alt="RestWell support agent ready to help" loading="lazy">
-          <h3>Still have questions?</h3>
-          <p>Our sleep experts are here Mon–Sat, 9am–8pm.</p>
-          <a href="contact.html" class="btn btn-primary w-100">Contact us</a>
+          <h2 class="mt-5 anim-fade-up">Care</h2>
+          <details class="faq-item anim-fade-up"><summary>How do I clean my mattress?</summary><p>Spot-clean with mild detergent and cold water. Always use a waterproof protector. We offer an annual deep-clean service with Care Plus.</p></details>
+          <details class="faq-item anim-fade-up"><summary>How often should I rotate my mattress?</summary><p>Rotate head-to-toe every 3 months for the first year, then every 6 months. Our mattresses are single-sided — no flipping needed.</p></details>
         </div>
-      </aside>
-    </div>
-  </div>
-</section>
-
-<!-- Section 4: Quick stats -->
-<section class="stats-band">
-  <div class="container">
-    <div class="row text-center g-4">
-      <div class="col-6 col-md-3"><div class="anim-fade-up"><strong>100</strong><span>Night trial</span></div></div>
-      <div class="col-6 col-md-3"><div class="anim-fade-up delay-1"><strong>10-yr</strong><span>Warranty</span></div></div>
-      <div class="col-6 col-md-3"><div class="anim-fade-up delay-2"><strong>Free</strong><span>Delivery</span></div></div>
-      <div class="col-6 col-md-3"><div class="anim-fade-up delay-3"><strong>4.8★</strong><span>Support rating</span></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- Section 5: Sleep tips teaser -->
-<section class="section bg-soft">
-  <div class="container">
-    <div class="row align-items-center g-5">
-      <div class="col-lg-6"><img src="https://img.magnific.com/free-photo/man-bed-typing-phone_23-2148563416.jpg" alt="Person reading sleep tips on a phone in bed" class="img-soft anim-fade-in" loading="lazy"></div>
-      <div class="col-lg-6">
-        <span class="eyebrow anim-fade-up">Learn more</span>
-        <h2 class="anim-fade-up delay-1">Sleep tips on the journal</h2>
-        <p class="anim-fade-up delay-2">We've written over 60 articles on sleep science, buying guides, and bedroom design. Start with our most-read guides.</p>
-        <a href="blog.html" class="btn btn-primary anim-fade-up delay-3">Read the journal</a>
+        <aside class="col-lg-4">
+          <div class="help-card hover-card anim-fade-up">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdQ9BOpkucS-b0chhpxaZL8NLpmgQA-2dsPGcSzENDIWs-bsa08n2HjVTw&s=10" alt="RestWell support agent ready to help" loading="lazy">
+            <h3>Still have questions?</h3>
+            <p>Our sleep experts are here Mon–Sat, 9am–8pm.</p>
+            <a href="contact.html" class="btn btn-primary w-100">Contact us</a>
+          </div>
+        </aside>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Section 6: Newsletter -->
-<section class="newsletter-section">
-  <div class="container text-center">
-    <h2 class="anim-fade-up">Get answers before everyone else</h2>
-    <p class="lead anim-fade-up delay-1">We publish new FAQs and sleep tips weekly.</p>
-    <form class="newsletter-form anim-fade-up delay-2" action="faq.html" method="get">
-      <input type="email" placeholder="you@example.com" aria-label="Email address" required>
-      <button type="submit" class="btn btn-primary">Subscribe</button>
-    </form>
-  </div>
-</section>
+  <!-- Section 4: Quick stats -->
+  <section class="stats-band">
+    <div class="container">
+      <div class="row text-center g-4">
+        <div class="col-6 col-md-3"><div class="anim-fade-up"><strong>100</strong><span>Night trial</span></div></div>
+        <div class="col-6 col-md-3"><div class="anim-fade-up delay-1"><strong>10-yr</strong><span>Warranty</span></div></div>
+        <div class="col-6 col-md-3"><div class="anim-fade-up delay-2"><strong>Free</strong><span>Delivery</span></div></div>
+        <div class="col-6 col-md-3"><div class="anim-fade-up delay-3"><strong>4.8★</strong><span>Support rating</span></div></div>
+      </div>
+    </div>
+  </section>
 
-<!-- Section 7: CTA -->
-<section class="section">
-  <div class="container text-center">
-    <h2 class="anim-fade-up">Ready to sleep better?</h2>
-    <p class="lead anim-fade-up delay-1">Browse our mattresses with a 100-night trial.</p>
-    <a href="products-mattresses.html" class="btn btn-primary btn-lg anim-fade-up delay-2">Shop mattresses</a>
-  </div>
-</section>
+  <!-- Section 5: Sleep tips teaser -->
+  <section class="section bg-soft">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6"><img src="https://img.magnific.com/free-photo/man-bed-typing-phone_23-2148563416.jpg" alt="Person reading sleep tips on a phone in bed" class="img-soft anim-fade-in" loading="lazy"></div>
+        <div class="col-lg-6">
+          <span class="eyebrow anim-fade-up">Learn more</span>
+          <h2 class="anim-fade-up delay-1">Sleep tips on the journal</h2>
+          <p class="anim-fade-up delay-2">We've written over 60 articles on sleep science, buying guides, and bedroom design. Start with our most-read guides.</p>
+          <a href="blog.html" class="btn btn-primary anim-fade-up delay-3">Read the journal</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Newsletter -->
+  <section class="newsletter-section">
+    <div class="container text-center">
+      <h2 class="anim-fade-up">Get answers before everyone else</h2>
+      <p class="lead anim-fade-up delay-1">We publish new FAQs and sleep tips weekly.</p>
+      <form class="newsletter-form anim-fade-up delay-2" action="faq.html" method="get">
+        <input type="email" placeholder="you@example.com" aria-label="Email address" required>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Section 7: CTA -->
+  <section class="section">
+    <div class="container text-center">
+      <h2 class="anim-fade-up">Ready to sleep better?</h2>
+      <p class="lead anim-fade-up delay-1">Browse our mattresses with a 100-night trial.</p>
+      <a href="products-mattresses.html" class="btn btn-primary btn-lg anim-fade-up delay-2">Shop mattresses</a>
+    </div>
+  </section>
 </main>
 
 <footer class="site-footer">

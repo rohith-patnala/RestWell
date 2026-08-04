@@ -38,3 +38,929 @@
 
 /* ---------- Section: Floating theme controls ---------- */
 .auth-controls{position:fixed;top:var(--space-4);right:var(--space-4);display:flex;gap:var(--space-3);z-index:10}
+
+
+
+
+
+
+
+/* Updated Header & Toggle Styles */
+.brand .rest {
+  color: #3A6B8C !important;
+}
+.brand .well {
+  color: #C9A66B !important;
+}
+
+/* Slider Dark Mode Toggle */
+.theme-toggle-slider {
+  display: inline-flex;
+  align-items: center;
+  background: #e9ecef;
+  border-radius: 50rem;
+  padding: 3px;
+  cursor: pointer;
+  position: relative;
+  width: 64px;
+  height: 32px;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+}
+.theme-toggle-slider .slider-circle {
+  position: absolute;
+  left: 3px;
+  width: 26px;
+  height: 26px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.theme-toggle-slider .icon-sun,
+.theme-toggle-slider .icon-moon {
+  position: relative;
+  z-index: 2;
+  width: 50%;
+  text-align: center;
+  font-size: 14px;
+  line-height: 26px;
+  user-select: none;
+}
+.theme-toggle-slider .icon-sun {
+  color: #d97706;
+}
+.theme-toggle-slider .icon-moon {
+  color: #6c757d;
+}
+
+/* Checked state for dark mode slider */
+#darkMode:checked ~ * .theme-toggle-slider,
+body:has(#darkMode:checked) .theme-toggle-slider,
+.theme-input:checked + .theme-toggle-slider {
+  background: #2b3035;
+}
+#darkMode:checked ~ * .theme-toggle-slider .slider-circle,
+body:has(#darkMode:checked) .slider-circle,
+#darkMode:checked ~ .auth-controls .slider-circle {
+  transform: translateX(32px);
+}
+
+/* Hide raw checkbox */
+input.theme-input[type="checkbox"]#darkMode,
+input.theme-input[type="checkbox"]#rtlMode,
+input.theme-input[type="checkbox"]#mobileNav {
+  display: none;
+}
+
+/* RTL Button White Color Text Styling by default */
+.rtl-toggle {
+  color: #ffffff !important;
+}
+
+/* Layout and Sizing Adjustments */
+html, body {
+  height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+}
+.auth-shell {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+.auth-card {
+  flex: 0 0 50%;
+  max-width: 50%;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.auth-aside {
+  flex: 0 0 50%;
+  max-width: 50%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+.auth-aside img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.auth-aside-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  color: #ffffff;
+}
+.auth-controls {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 100;
+}
+
+/* Social Login Buttons */
+.social-login-btns .btn {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.btn-google {
+  background-color: #ffffff;
+  color: #3c4043;
+  border: 1px solid #dadce0;
+}
+.btn-google:hover {
+  background-color: #f8f9fa;
+  border-color: #dadce0;
+  color: #1f2124;
+}
+.btn-apple {
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid #000000;
+}
+.btn-apple:hover {
+  background-color: #222222;
+  border-color: #222222;
+  color: #ffffff;
+}
+
+/* Mobile Hamburger Styles */
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: #334155;
+  margin: 4px 0;
+  transition: 0.3s;
+}
+.mobile-panel {
+  width: 280px;
+  padding: 24px 20px;
+  background: #ffffff;
+  position: fixed;
+  top: 0;
+  right: -280px;
+  height: 100vh;
+  z-index: 1050;
+  transition: right 0.3s ease;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+  overflow-y: auto;
+}
+#mobileNav:checked ~ .mobile-panel {
+  right: 0;
+}
+.mobile-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  z-index: 1040;
+  display: none;
+}
+#mobileNav:checked ~ .mobile-overlay {
+  display: block;
+}
+.mobile-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.mobile-panel ul li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+.mobile-panel ul li a {
+  text-decoration: none;
+  color: #334155;
+  font-weight: 500;
+  display: block;
+}
+
+/* Mobile-specific navigation dropdown accordion styles */
+.mobile-dropdown-toggle {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.mobile-submenu {
+  list-style: none;
+  padding-left: 1rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.mobile-submenu-toggle {
+  display: none;
+}
+.mobile-submenu-toggle:checked ~ .mobile-submenu {
+  max-height: 500px;
+}
+
+/* ================= MOBILE RESPONSIVE TWEAKS ================= */
+@media (max-width: 991.98px) {
+  html, body {
+    height: auto !important;
+    overflow-y: auto !important;
+  }
+  .auth-shell {
+    flex-direction: column !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+  .auth-aside {
+    display: none !important;
+  }
+  .auth-card {
+    flex: 1 1 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    padding: 3rem 1.5rem !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  .auth-card form,
+  .auth-card .social-login-btns,
+  .auth-card .text-center {
+    width: 100% !important;
+    max-width: 400px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .auth-card .d-flex.justify-content-between {
+    text-align: left !important;
+  }
+  .auth-controls {
+    top: 1rem !important;
+    right: 1rem !important;
+    position: absolute !important;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  /* Change RTL button text color to black only in mobile responsive view */
+  .rtl-toggle {
+    color: #000000 !important;
+  }
+}
+
+
+
+
+
+
+
+/* Brand Header Colors */
+.brand .rest {
+  color: #3A6B8C !important;
+}
+.brand .well {
+  color: #C9A66B !important;
+}
+
+/* Slider Dark Mode Toggle */
+.theme-toggle-slider {
+  display: inline-flex;
+  align-items: center;
+  background: #e9ecef;
+  border-radius: 50rem;
+  padding: 3px;
+  cursor: pointer;
+  position: relative;
+  width: 64px;
+  height: 32px;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+}
+.theme-toggle-slider .slider-circle {
+  position: absolute;
+  left: 3px;
+  width: 26px;
+  height: 26px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.theme-toggle-slider .icon-sun,
+.theme-toggle-slider .icon-moon {
+  position: relative;
+  z-index: 2;
+  width: 50%;
+  text-align: center;
+  font-size: 14px;
+  line-height: 26px;
+  user-select: none;
+}
+.theme-toggle-slider .icon-sun {
+  color: #d97706;
+}
+.theme-toggle-slider .icon-moon {
+  color: #6c757d;
+}
+
+/* Checked state for dark mode slider */
+#darkMode:checked ~ * .theme-toggle-slider,
+body:has(#darkMode:checked) .theme-toggle-slider,
+.theme-input:checked + .theme-toggle-slider {
+  background: #2b3035;
+}
+#darkMode:checked ~ * .theme-toggle-slider .slider-circle,
+body:has(#darkMode:checked) .slider-circle,
+#darkMode:checked ~ .auth-controls .slider-circle {
+  transform: translateX(32px);
+}
+
+/* Hide raw checkbox inputs */
+input.theme-input[type="checkbox"]#darkMode,
+input.theme-input[type="checkbox"]#rtlMode,
+input.theme-input[type="checkbox"]#mobileNav {
+  display: none;
+}
+
+/* RTL Button Text Styling by default */
+.rtl-toggle {
+  color: #ffffff !important;
+}
+
+/* Locked Single-Screen Viewport Layout */
+html, body {
+  height: 100vh;
+  max-height: 100vh;
+  margin: 0;
+  overflow: hidden !important;
+}
+
+.auth-shell {
+  display: flex;
+  height: 100vh;
+  max-height: 100vh;
+  width: 100vw;
+  overflow: hidden !important;
+}
+
+.auth-card {
+  flex: 0 0 50%;
+  max-width: 50%;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden !important;
+  padding: 1.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  box-sizing: border-box;
+}
+
+.auth-aside {
+  flex: 0 0 50%;
+  max-width: 50%;
+  height: 100vh;
+  max-height: 100vh;
+  position: relative;
+  overflow: hidden !important;
+}
+
+.auth-aside img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.auth-aside-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /* Added extra top padding to push the title text lower down on the image */
+  padding: 5rem 2.5rem 2rem 2.5rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 60%, transparent 100%);
+  color: #ffffff;
+}
+
+.auth-aside-overlay h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.auth-aside-overlay p {
+  font-size: 0.9rem;
+  margin-bottom: 0;
+  opacity: 0.9;
+}
+
+.auth-controls {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 100;
+}
+
+/* Highly Proportional Form Elements */
+.auth-card h1 {
+  font-size: 1.35rem;
+  margin-bottom: 0.15rem;
+}
+
+.auth-card p.text-muted {
+  font-size: 0.8rem;
+  margin-bottom: 0.4rem !important;
+}
+
+.auth-form .mb-3 {
+  margin-bottom: 0.35rem !important;
+}
+
+.auth-form .form-label {
+  font-size: 0.74rem;
+  font-weight: 500;
+  margin-bottom: 0.1rem;
+}
+
+.auth-form .form-control {
+  padding: 0.25rem 0.6rem;
+  font-size: 0.82rem;
+  line-height: 1.15;
+}
+
+.auth-form .form-check {
+  font-size: 0.76rem;
+  margin-bottom: 0.35rem !important;
+}
+
+.auth-form .btn-primary {
+  padding: 0.35rem;
+  font-size: 0.85rem;
+}
+
+.auth-divider {
+  margin: 0.35rem 0;
+  text-align: center;
+  position: relative;
+}
+
+.auth-divider span {
+  background: #ffffff;
+  padding: 0 0.4rem;
+  font-size: 0.72rem;
+  color: #6c757d;
+  position: relative;
+  z-index: 1;
+}
+
+.auth-divider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  border-top: 1px solid #dee2e6;
+}
+
+/* Social Login Buttons */
+.social-login-btns .btn {
+  font-size: 0.8rem;
+  padding: 0.32rem 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.btn-social, .btn-google {
+  background-color: #ffffff;
+  color: #3c4043;
+  border: 1px solid #dadce0;
+}
+.btn-social:hover, .btn-google:hover {
+  background-color: #f8f9fa;
+  border-color: #c1c4c8;
+  color: #1f2124;
+}
+.btn-apple {
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid #000000;
+}
+.btn-apple:hover {
+  background-color: #222222;
+  border-color: #222222;
+  color: #ffffff;
+}
+
+/* Mobile Hamburger Styles */
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: #334155;
+  margin: 4px 0;
+  transition: 0.3s;
+}
+.mobile-panel {
+  width: 280px;
+  padding: 24px 20px;
+  background: #ffffff;
+  position: fixed;
+  top: 0;
+  right: -280px;
+  height: 100vh;
+  z-index: 1050;
+  transition: right 0.3s ease;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+  overflow-y: auto;
+}
+#mobileNav:checked ~ .mobile-panel {
+  right: 0;
+}
+.mobile-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  z-index: 1040;
+  display: none;
+}
+#mobileNav:checked ~ .mobile-overlay {
+  display: block;
+}
+.mobile-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.mobile-panel ul li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+.mobile-panel ul li a {
+  text-decoration: none;
+  color: #334155;
+  font-weight: 500;
+  display: block;
+}
+
+/* Mobile Submenu Accordion Styles */
+.mobile-dropdown-toggle {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.mobile-submenu {
+  list-style: none;
+  padding-left: 1rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.mobile-submenu-toggle {
+  display: none;
+}
+.mobile-submenu-toggle:checked ~ .mobile-submenu {
+  max-height: 500px;
+}
+
+/* ================= MOBILE RESPONSIVE TWEAKS ================= */
+@media (max-width: 991.98px) {
+  html, body {
+    height: auto !important;
+    max-height: none !important;
+    overflow-y: auto !important;
+  }
+  .auth-shell {
+    flex-direction: column !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+  .auth-aside {
+    display: none !important;
+  }
+  .auth-card {
+    flex: 1 1 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    min-height: 100vh !important;
+    padding: 3rem 1.5rem !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  .auth-card form,
+  .auth-card .social-login-btns,
+  .auth-card .text-center {
+    width: 100% !important;
+    max-width: 400px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .auth-form .mb-3,
+  .auth-card .form-check {
+    text-align: left !important;
+  }
+  .auth-controls {
+    top: 1rem !important;
+    right: 1rem !important;
+    position: absolute !important;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .rtl-toggle {
+    color: #000000 !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Updated Header & Toggle Styles */
+.brand .rest {
+  color: #3A6B8C !important;
+}
+.brand .well {
+  color: #C9A66B !important;
+}
+
+/* Slider Dark Mode Toggle */
+.theme-toggle-slider {
+  display: inline-flex;
+  align-items: center;
+  background: #e9ecef;
+  border-radius: 50rem;
+  padding: 3px;
+  cursor: pointer;
+  position: relative;
+  width: 64px;
+  height: 32px;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+}
+.theme-toggle-slider .slider-circle {
+  position: absolute;
+  left: 3px;
+  width: 26px;
+  height: 26px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.theme-toggle-slider .icon-sun,
+.theme-toggle-slider .icon-moon {
+  position: relative;
+  z-index: 2;
+  width: 50%;
+  text-align: center;
+  font-size: 14px;
+  line-height: 26px;
+  user-select: none;
+}
+.theme-toggle-slider .icon-sun {
+  color: #d97706;
+}
+.theme-toggle-slider .icon-moon {
+  color: #6c757d;
+}
+
+/* Checked state for dark mode slider */
+#darkMode:checked ~ * .theme-toggle-slider,
+body:has(#darkMode:checked) .theme-toggle-slider,
+.theme-input:checked + .theme-toggle-slider {
+  background: #2b3035;
+}
+#darkMode:checked ~ * .theme-toggle-slider .slider-circle,
+body:has(#darkMode:checked) .slider-circle,
+#darkMode:checked ~ .auth-controls .slider-circle {
+  transform: translateX(32px);
+}
+
+/* Hide raw checkbox */
+input.theme-input[type="checkbox"]#darkMode {
+  display: none;
+}
+
+/* RTL Button White Color Text Styling by default */
+.rtl-toggle {
+  color: #ffffff !important;
+}
+
+/* Layout and Sizing Adjustments */
+html, body {
+  height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+}
+.auth-shell {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+.auth-card {
+  flex: 0 0 50%;
+  max-width: 50%;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.auth-aside {
+  flex: 0 0 50%;
+  max-width: 50%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+.auth-aside img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.auth-aside-overlay {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  right: 40px;
+  color: #fff;
+  background: rgba(0,0,0,0.35);
+  padding: 1.5rem;
+  border-radius: 16px;
+}
+.auth-controls {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 100;
+}
+
+/* Mobile Hamburger Styles */
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: #334155;
+  margin: 4px 0;
+  transition: 0.3s;
+}
+.mobile-panel {
+  width: 280px;
+  padding: 24px 20px;
+  background: #ffffff;
+  position: fixed;
+  top: 0;
+  right: -280px;
+  height: 100vh;
+  z-index: 1050;
+  transition: right 0.3s ease;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+  overflow-y: auto;
+}
+#mobileNav:checked ~ .mobile-panel {
+  right: 0;
+}
+.mobile-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  z-index: 1040;
+  display: none;
+}
+#mobileNav:checked ~ .mobile-overlay {
+  display: block;
+}
+input.theme-input[type="checkbox"]#mobileNav {
+  display: none;
+}
+.mobile-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.mobile-panel ul li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+.mobile-panel ul li a {
+  text-decoration: none;
+  color: #334155;
+  font-weight: 500;
+  display: block;
+}
+
+/* Mobile-specific navigation dropdown accordion styles */
+.mobile-dropdown-toggle {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.mobile-submenu {
+  list-style: none;
+  padding-left: 1rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.mobile-submenu-toggle {
+  display: none;
+}
+.mobile-submenu-toggle:checked ~ .mobile-submenu {
+  max-height: 500px;
+}
+
+/* ================= MOBILE RESPONSIVE TWEAKS ================= */
+@media (max-width: 991.98px) {
+  html, body {
+    height: auto !important;
+    overflow-y: auto !important;
+  }
+  .auth-shell {
+    flex-direction: column !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+  .auth-aside {
+    display: none !important;
+  }
+  .auth-card {
+    flex: 1 1 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    padding: 3rem 1.5rem !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  .auth-card form,
+  .auth-card .text-center {
+    width: 100% !important;
+    max-width: 400px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .auth-form .mb-3 {
+    text-align: left !important;
+  }
+  .auth-controls {
+    top: 1rem !important;
+    right: 1rem !important;
+    position: absolute !important;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .rtl-toggle {
+    color: #000000 !important;
+  }
+}

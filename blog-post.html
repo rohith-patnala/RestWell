@@ -19,288 +19,6 @@
 
 <link href="global.css" rel="stylesheet">
 <link href="about.css" rel="stylesheet">
-<style>
-  /* Updated Header & Toggle Styles */
-  .brand-text .rest {
-    color: #3A6B8C;
-  }
-  .brand-text .well {
-    color: #C9A66B;
-  }
-  .navbar {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  .nav-list {
-    flex: 1;
-    justify-content: center;
-  }
-  .header-controls {
-    margin-left: auto;
-  }
-  
-  /* Slider Dark Mode Toggle */
-  .theme-toggle-slider {
-    display: inline-flex;
-    align-items: center;
-    background: #e9ecef;
-    border-radius: 50rem;
-    padding: 3px;
-    cursor: pointer;
-    position: relative;
-    width: 64px;
-    height: 32px;
-    box-sizing: border-box;
-    transition: background-color 0.3s ease;
-  }
-  .theme-toggle-slider .slider-circle {
-    position: absolute;
-    left: 3px;
-    width: 26px;
-    height: 26px;
-    background: #ffffff;
-    border-radius: 50%;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .theme-toggle-slider .icon-sun,
-  .theme-toggle-slider .icon-moon {
-    position: relative;
-    z-index: 2;
-    width: 50%;
-    text-align: center;
-    font-size: 14px;
-    line-height: 26px;
-    user-select: none;
-  }
-  .theme-toggle-slider .icon-sun {
-    color: #d97706;
-  }
-  .theme-toggle-slider .icon-moon {
-    color: #6c757d;
-  }
-
-  /* Checked state for dark mode slider */
-  #darkMode:checked ~ * .theme-toggle-slider,
-  body:has(#darkMode:checked) .theme-toggle-slider,
-  .theme-input:checked + .theme-toggle-slider {
-    background: #2b3035;
-  }
-  #darkMode:checked ~ * .theme-toggle-slider .slider-circle,
-  body:has(#darkMode:checked) .slider-circle,
-  #darkMode:checked ~ .site-header .slider-circle {
-    transform: translateX(32px);
-  }
-
-  /* Hide raw checkbox */
-  input.theme-input[type="checkbox"]#darkMode {
-    display: none;
-  }
-
-  /* RTL Button Black Color Text Styling */
-  .rtl-toggle {
-    color: #000000 !important;
-  }
-
-  /* Hero Section Height & Alignment Adjustments (90vh - 95vh & Centered) with Increased Text Sizes */
-  .page-hero {
-    min-height: 92vh !important;
-    height: 92vh !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    padding-top: 4rem !important;
-    padding-bottom: 4rem !important;
-    text-align: center !important;
-  }
-  .page-hero .container,
-  .page-hero div {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 100% !important;
-    text-align: center !important;
-  }
-  .page-hero h1,
-  .page-hero p,
-  .page-hero span {
-    text-align: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-
-  /* Increased Hero Text Sizes */
-  .page-hero h1 {
-    font-size: 3.5rem !important;
-    font-weight: 800 !important;
-    margin-bottom: 1.25rem !important;
-  }
-  .page-hero p {
-    font-size: 1.35rem !important;
-    max-width: 800px;
-    line-height: 1.6;
-  }
-  .page-hero .eyebrow {
-    font-size: 1.15rem !important;
-    font-weight: 700 !important;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 0.75rem !important;
-    display: inline-block;
-  }
-
-  /* Timeline Customizations: Navy Blue Line & Card Borders */
-  .timeline {
-    position: relative;
-  }
-  .timeline::before {
-    background-color: #3A6B8C !important; /* Navy blue timeline line */
-  }
-  .timeline-item .body {
-    border: 1px solid #dee2e6; /* Adds clear borders to timeline cards */
-    border-radius: 0.5rem;
-    padding: 1.5rem;
-    background-color: #ffffff;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-  }
-
-  /* Center align icons and headlines in Section 3 values cards with uniform navy blue matching borders */
-  .value-card {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 0.5rem;
-    padding: 2rem;
-    background-color: #ffffff;
-    border: 1px solid #3A6B8C;
-  }
-  .value-card i {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-  }
-
-  /* ================= MOBILE RESPONSIVE TWEAKS ================= */
-  html, body {
-    overflow-x: hidden !important;
-    max-width: 100vw !important;
-  }
-
-  @media (max-width: 991.98px) {
-    .header-controls .btn-signin-desktop {
-      display: none !important;
-    }
-    .navbar {
-      justify-content: space-between !important;
-      padding-left: 0 !important;
-      padding-right: 0.25rem !important;
-    }
-    .container-fluid.px-4 {
-      padding-left: 0.5rem !important;
-      padding-right: 0.5rem !important;
-    }
-    .brand {
-      margin-right: auto !important;
-      padding-left: 0 !important;
-    }
-    .header-controls {
-      margin-left: 0 !important;
-      display: flex !important;
-      align-items: center !important;
-      gap: 0.5rem !important;
-    }
-  }
-
-  /* Mobile Nav Drawer Enhancements */
-  .hamburger span {
-    display: block;
-    width: 22px;
-    height: 2px;
-    background-color: #334155;
-    margin: 4px 0;
-    transition: 0.3s;
-  }
-
-  .mobile-panel {
-    width: 280px;
-    padding: 24px 20px;
-    background: #ffffff;
-    position: fixed;
-    top: 0;
-    right: -280px;
-    height: 100vh;
-    z-index: 1050;
-    transition: right 0.3s ease;
-    box-shadow: -2px 0 10px rgba(0,0,0,0.1);
-    overflow-y: auto;
-  }
-
-  #mobileNav:checked ~ .mobile-panel {
-    right: 0;
-  }
-
-  .mobile-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0,0,0,0.5);
-    z-index: 1040;
-    display: none;
-  }
-
-  #mobileNav:checked ~ .mobile-overlay {
-    display: block;
-  }
-
-  input.theme-input[type="checkbox"]#mobileNav {
-    display: none;
-  }
-
-  .mobile-panel ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .mobile-panel ul li {
-    padding: 0.5rem 0;
-    border-bottom: 1px solid #e2e8f0;
-  }
-
-  .mobile-panel ul li a {
-    text-decoration: none;
-    color: #334155;
-    font-weight: 500;
-    display: block;
-  }
-
-  /* Mobile-specific navigation dropdown accordion styles */
-  .mobile-dropdown-toggle {
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .mobile-submenu {
-    list-style: none;
-    padding-left: 1rem;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-  }
-  .mobile-submenu-toggle {
-    display: none;
-  }
-  .mobile-submenu-toggle:checked ~ .mobile-submenu {
-    max-height: 500px;
-  }
-</style>
 </head>
 <body>
 <input type="checkbox" id="darkMode" class="theme-input" aria-hidden="true">
@@ -330,7 +48,7 @@
           </ul>
         </li>  
         <li>
-          <a class="nav-link" href="service-details.html">Services </a>
+          <a class="nav-link" href="service-details.html">Services</a>
         </li>
         <li>
           <a class="nav-link" href="products-mattresses.html">Products <i class="bi bi-chevron-down caret"></i></a>
@@ -349,11 +67,10 @@
       </ul>
 
       <div class="header-controls d-flex align-items-center gap-2 ms-auto">
-        <!-- Replaced dark mode label with custom slider layout -->
-        <label class="theme-toggle-slider" for="darkMode" title="Toggle dark mode" aria-label="Toggle dark mode">
-          <span class="slider-circle"></span>
-          <span class="icon-sun"><i class="bi bi-sun-fill"></i></span>
-          <span class="icon-moon"><i class="bi bi-moon-fill"></i></span>
+        <label class="theme-toggle-switch" for="darkMode" title="Toggle dark mode" aria-label="Toggle dark mode">
+          <i class="bi bi-sun-fill icon-sun"></i>
+          <i class="bi bi-moon-stars-fill icon-moon"></i>
+          <span class="toggle-slider"></span>
         </label>
         
         <label class="rtl-toggle btn btn-outline-secondary btn-sm px-2 py-1 mb-0" for="rtlMode" title="Toggle RTL" aria-label="Toggle right-to-left" style="cursor: pointer;">RTL</label>
@@ -374,7 +91,6 @@
     <label for="mobileNav" class="btn-close" aria-label="Close" style="cursor: pointer;"></label>
   </div>
   <ul>
-    <!-- Home Dropdown for Mobile -->
     <li>
       <input type="checkbox" id="mobHomeToggle" class="mobile-submenu-toggle">
       <label for="mobHomeToggle" class="mobile-dropdown-toggle py-2 text-decoration-none text-dark fw-medium">
@@ -386,10 +102,8 @@
       </ul>
     </li>
 
-    <!-- Services (Renamed from Service Details) -->
     <li><a href="service-details.html">Services</a></li>
 
-    <!-- Products Dropdown for Mobile -->
     <li>
       <input type="checkbox" id="mobProdToggle" class="mobile-submenu-toggle">
       <label for="mobProdToggle" class="mobile-dropdown-toggle py-2 text-decoration-none text-dark fw-medium">
@@ -427,7 +141,7 @@
   <div class="container">
     <div class="row align-items-center g-5">
       <div class="col-lg-6" data-aos="fade-right">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFYAgr6_tbDwTauG-QveiW6pU68zzV9ZhQAAUT-MWOIjjb462kVDxWOLY&s=10" alt="Artisans hand-stitching a mattress in the RestWell workshop" class="img-soft" loading="lazy">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFYAgr6_tbDwTauG-QveiW6pU68zzV9ZhQAAUT-MWOIjjb462kVDxWOLY&s=10" alt="Artisans hand-stitching a mattress in the RestWell workshop" class="img-fluid rounded" loading="lazy">
       </div>
       <div class="col-lg-6">
         <span class="eyebrow" data-aos="fade-up">How it began</span>
@@ -484,10 +198,10 @@
       <h2>Meet the team</h2>
     </div>
     <div class="row g-4">
-      <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="100"><div class="team-card hover-card"><img src="https://plus.unsplash.com/premium_photo-1689977927774-401b12d137d6?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fG1hbGUlMjBwcm9maWxlfGVufDB8fDB8fHww" alt="Aditya, Founder and CEO" loading="lazy"><h3>Aditya Rao</h3><span>Founder & CEO</span></div></div>
-      <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="200"><div class="team-card hover-card"><img src="https://www.shutterstock.com/image-photo/advertising-testimonial-photo-smiling-young-260nw-2637206875.jpg" alt="Nisha, Head of Design" loading="lazy"><h3>Nisha Gupta</h3><span>Head of Design</span></div></div>
-      <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="300"><div class="team-card hover-card"><img src="https://plus.unsplash.com/premium_photo-1689708721750-8a0e6dc14cee?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8aHVtYW4lMjBwaG90b3xlbnwwfHwwfHx8MA%3D%3D" alt="Ravi, Sleep Science Lead" loading="lazy"><h3>Ravi Menon</h3><span>Sleep Science Lead</span></div></div>
-      <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="400"><div class="team-card hover-card"><img src="https://www.shutterstock.com/image-photo/portrait-group-young-business-people-260nw-2700901223.jpg" alt="Fatima, Operations Head" loading="lazy"><h3>Fatima Sheikh</h3><span>Operations Head</span></div></div>
+      <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="100"><div class="team-card hover-card"><img src="https://plus.unsplash.com/premium_photo-1689977927774-401b12d137d6?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fG1hbGUlMjBwcm9maWxlfGVufDB8fDB8fHww" alt="Aditya, Founder and CEO" class="img-fluid rounded mb-2" loading="lazy"><h3>Aditya Rao</h3><span>Founder & CEO</span></div></div>
+      <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="200"><div class="team-card hover-card"><img src="https://www.shutterstock.com/image-photo/advertising-testimonial-photo-smiling-young-260nw-2637206875.jpg" alt="Nisha, Head of Design" class="img-fluid rounded mb-2" loading="lazy"><h3>Nisha Gupta</h3><span>Head of Design</span></div></div>
+      <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="300"><div class="team-card hover-card"><img src="https://plus.unsplash.com/premium_photo-1689708721750-8a0e6dc14cee?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8aHVtYW4lMjBwaG90b3xlbnwwfHwwfHx8MA%3D%3D" alt="Ravi, Sleep Science Lead" class="img-fluid rounded mb-2" loading="lazy"><h3>Ravi Menon</h3><span>Sleep Science Lead</span></div></div>
+      <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="400"><div class="team-card hover-card"><img src="https://www.shutterstock.com/image-photo/portrait-group-young-business-people-260nw-2700901223.jpg" alt="Fatima, Operations Head" class="img-fluid rounded mb-2" loading="lazy"><h3>Fatima Sheikh</h3><span>Operations Head</span></div></div>
     </div>
   </div>
 </section>
@@ -528,9 +242,9 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init({
-    duration: 800, // Animation duration in milliseconds
-    once: true,    // Whether animation should happen only once while scrolling down
-    offset: 100    // Offset (in px) from the original trigger point
+    duration: 800,
+    once: true,
+    offset: 100
   });
 </script>
 

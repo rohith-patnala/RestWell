@@ -11,300 +11,11 @@
 <meta property="og:type" content="website">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<!-- AOS CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <link href="global.css" rel="stylesheet">
 <link href="products.css" rel="stylesheet">
-<style>
-  /* Updated Header & Toggle Styles */
-  .brand-text .rest {
-    color: #3A6B8C;
-  }
-  .brand-text .well {
-    color: #C9A66B;
-  }
-  .navbar {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  .nav-list {
-    flex: 1;
-    justify-content: center;
-  }
-  .header-controls {
-    margin-left: auto;
-  }
-  
-  /* Slider Dark Mode Toggle */
-  .theme-toggle-slider {
-    display: inline-flex;
-    align-items: center;
-    background: #e9ecef;
-    border-radius: 50rem;
-    padding: 3px;
-    cursor: pointer;
-    position: relative;
-    width: 64px;
-    height: 32px;
-    box-sizing: border-box;
-    transition: background-color 0.3s ease;
-  }
-  .theme-toggle-slider .slider-circle {
-    position: absolute;
-    left: 3px;
-    width: 26px;
-    height: 26px;
-    background: #ffffff;
-    border-radius: 50%;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .theme-toggle-slider .icon-sun,
-  .theme-toggle-slider .icon-moon {
-    position: relative;
-    z-index: 2;
-    width: 50%;
-    text-align: center;
-    font-size: 14px;
-    line-height: 26px;
-    user-select: none;
-  }
-  .theme-toggle-slider .icon-sun {
-    color: #d97706;
-  }
-  .theme-toggle-slider .icon-moon {
-    color: #6c757d;
-  }
-
-  /* Checked state for dark mode slider */
-  #darkMode:checked ~ * .theme-toggle-slider,
-  body:has(#darkMode:checked) .theme-toggle-slider,
-  .theme-input:checked + .theme-toggle-slider {
-    background: #2b3035;
-  }
-  #darkMode:checked ~ * .theme-toggle-slider .slider-circle,
-  body:has(#darkMode:checked) .slider-circle,
-  #darkMode:checked ~ .site-header .slider-circle {
-    transform: translateX(32px);
-  }
-
-  /* Hide raw checkbox */
-  input.theme-input[type="checkbox"]#darkMode {
-    display: none;
-  }
-
-  /* Hero Section Height & Alignment Adjustments (90vh - 95vh & Centered) with Increased Text Sizes */
-  .page-hero {
-    min-height: 92vh !important;
-    height: 92vh !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    padding-top: 4rem !important;
-    padding-bottom: 4rem !important;
-    text-align: center !important;
-  }
-  .page-hero .container,
-  .page-hero div {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 100% !important;
-    text-align: center !important;
-  }
-  .page-hero h1,
-  .page-hero p,
-  .page-hero span {
-    text-align: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-
-  /* Increased Hero Text Sizes */
-  .page-hero h1 {
-    font-size: 3.5rem !important;
-    font-weight: 800 !important;
-    margin-bottom: 1.25rem !important;
-  }
-  .page-hero p {
-    font-size: 1.35rem !important;
-    max-width: 800px;
-    line-height: 1.6;
-  }
-  .page-hero .eyebrow {
-    font-size: 1.15rem !important;
-    font-weight: 700 !important;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 0.75rem !important;
-    display: inline-block;
-  }
-
-  /* ================= BULLETPROOF UNIVERSAL DARK MODE STYLING ================= */
-  #darkMode:checked,
-  #darkMode:checked body,
-  #darkMode:checked ~ main {
-    background-color: #0f172a !important;
-    color: #f8fafc !important;
-  }
-
-  #darkMode:checked *:not(.btn):not(.badge):not(.chip):not(.brand-text):not(.rest):not(.well) {
-    color: #f8fafc !important;
-  }
-
-  #darkMode:checked .text-muted,
-  #darkMode:checked p,
-  #darkMode:checked .lead,
-  #darkMode:checked span:not(.rest):not(.well):not(.brand-text span) {
-    color: #cbd5e1 !important;
-  }
-
-  #darkMode:checked .site-header,
-  #darkMode:checked .page-hero,
-  #darkMode:checked .section,
-  #darkMode:checked .bg-soft,
-  #darkMode:checked .site-footer {
-    background-color: #1e293b !important;
-    background-image: none !important;
-  }
-
-  #darkMode:checked .product-card,
-  #darkMode:checked .info-box,
-  #darkMode:checked .feature-item,
-  #darkMode:checked .testimonial-card {
-    background-color: #0f172a !important;
-    border-color: #334155 !important;
-    color: #f8fafc !important;
-  }
-
-  #darkMode:checked .form-control {
-    background-color: #1e293b !important;
-    border-color: #334155 !important;
-    color: #f8fafc !important;
-  }
-
-  #darkMode:checked .rtl-toggle {
-    background-color: #1e293b;
-    border-color: #334155;
-    color: #f8fafc !important;
-  }
-
-  /* ================= MOBILE RESPONSIVE TWEAKS ================= */
-  html, body {
-    overflow-x: hidden !important;
-    max-width: 100vw !important;
-  }
-
-  @media (max-width: 991.98px) {
-    .header-controls .btn-signin-desktop {
-      display: none !important;
-    }
-    .navbar {
-      justify-content: space-between !important;
-      padding-left: 0 !important;
-      padding-right: 0.25rem !important;
-    }
-    .container-fluid.px-4 {
-      padding-left: 0.5rem !important;
-      padding-right: 0.5rem !important;
-    }
-    .brand {
-      margin-right: auto !important;
-      padding-left: 0 !important;
-    }
-    .header-controls {
-      margin-left: 0 !important;
-      display: flex !important;
-      align-items: center !important;
-      gap: 0.5rem !important;
-    }
-  }
-
-  /* Mobile Nav Drawer Enhancements */
-  .hamburger span {
-    display: block;
-    width: 22px;
-    height: 2px;
-    background-color: #334155;
-    margin: 4px 0;
-    transition: 0.3s;
-  }
-
-  .mobile-panel {
-    width: 280px;
-    padding: 24px 20px;
-    background: #ffffff;
-    position: fixed;
-    top: 0;
-    right: -280px;
-    height: 100vh;
-    z-index: 1050;
-    transition: right 0.3s ease;
-    box-shadow: -2px 0 10px rgba(0,0,0,0.1);
-    overflow-y: auto;
-  }
-
-  #mobileNav:checked ~ .mobile-panel {
-    right: 0;
-  }
-
-  .mobile-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0,0,0,0.5);
-    z-index: 1040;
-    display: none;
-  }
-
-  #mobileNav:checked ~ .mobile-overlay {
-    display: block;
-  }
-
-  input.theme-input[type="checkbox"]#mobileNav {
-    display: none;
-  }
-
-  .mobile-panel ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .mobile-panel ul li {
-    padding: 0.5rem 0;
-    border-bottom: 1px solid #e2e8f0;
-  }
-
-  .mobile-panel ul li a {
-    text-decoration: none;
-    color: #334155;
-    font-weight: 500;
-    display: block;
-  }
-
-  /* Mobile-specific navigation dropdown accordion styles */
-  .mobile-dropdown-toggle {
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .mobile-submenu {
-    list-style: none;
-    padding-left: 1rem;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-  }
-  .mobile-submenu-toggle {
-    display: none;
-  }
-  .mobile-submenu-toggle:checked ~ .mobile-submenu {
-    max-height: 500px;
-  }
-</style>
+<link href="bedsheets.css" rel="stylesheet">
 </head>
 <body>
 <input type="checkbox" id="darkMode" class="theme-input" aria-hidden="true">
@@ -334,7 +45,7 @@
           </ul>
         </li>  
         <li>
-          <a class="nav-link" href="service-details.html">Services </a>
+          <a class="nav-link" href="service-details.html">Services</a>
         </li>
         <li>
           <a class="nav-link" href="products-mattresses.html">Products <i class="bi bi-chevron-down caret"></i></a>
@@ -353,7 +64,7 @@
       </ul>
 
       <div class="header-controls d-flex align-items-center gap-2 ms-auto">
-        <!-- Replaced dark mode label with custom slider layout -->
+        <!-- Theme Toggle Slider -->
         <label class="theme-toggle-slider" for="darkMode" title="Toggle dark mode" aria-label="Toggle dark mode">
           <span class="slider-circle"></span>
           <span class="icon-sun"><i class="bi bi-sun-fill"></i></span>
@@ -378,7 +89,6 @@
     <label for="mobileNav" class="btn-close" aria-label="Close" style="cursor: pointer;"></label>
   </div>
   <ul>
-    <!-- Home Dropdown for Mobile -->
     <li>
       <input type="checkbox" id="mobHomeToggle" class="mobile-submenu-toggle">
       <label for="mobHomeToggle" class="mobile-dropdown-toggle py-2 text-decoration-none text-dark fw-medium">
@@ -389,11 +99,7 @@
         <li class="border-bottom-0"><a href="home2.html" class="py-2 text-muted">Home 2 — Brand Story</a></li>
       </ul>
     </li>
-
-    <!-- Services (Renamed from Service Details) -->
     <li><a href="service-details.html">Services</a></li>
-
-    <!-- Products Dropdown for Mobile -->
     <li>
       <input type="checkbox" id="mobProdToggle" class="mobile-submenu-toggle">
       <label for="mobProdToggle" class="mobile-dropdown-toggle py-2 text-decoration-none text-dark fw-medium">
@@ -408,7 +114,6 @@
         <li class="border-bottom-0"><a href="products-accessories.html" class="py-2 text-muted">Accessories</a></li>
       </ul>
     </li>
-
     <li><a href="about.html">About</a></li>
     <li><a href="blog.html">Blog</a></li>
     <li><a href="contact.html">Contact</a></li>
@@ -418,9 +123,10 @@
 
 <main>
 <!-- Section 1: Page hero -->
+
 <section class="page-hero">
   <div class="container text-center">
-    <span class="eyebrow anim-fade-up">Bed Sheets</span>
+    <span class="eyebrow anim-fade-up"><span style="color: #C9A66B !important;">Bed</span> <span style="color: #C9A66B !important;">Sheets</span></span>
     <h1 class="display-4 anim-fade-up delay-1">Sheets that feel like a hotel suite</h1>
     <p class="lead anim-fade-up delay-2">Egyptian cotton, breathable linen, and smooth sateen — in colours that calm your bedroom.</p>
   </div>
@@ -430,12 +136,301 @@
 <section class="section">
   <div class="container">
     <div class="row g-4">
-      <div class="col-md-6 col-lg-4"><article class="product-card hover-card anim-fade-up"><div class="hover-img"><img src="https://www.malako-india.com/cdn/shop/products/malako-italian-opulence-800-tc-turquoise-jacquard-super-king-size-100-egyptian-cotton-bed-sheetduvet-cover-149978.webp?v=1754834882" alt="Egyptian cotton sateen sheet set" loading="lazy"><span class="badge-trial">3-piece set</span></div><div class="product-body"><span class="chip">Cotton</span><h3>Egyptian Cotton Sateen</h3><p>300 TC · King · 3 pieces</p><ul class="specs"><li>Sateen weave</li><li>Deep pocket</li><li>OEKO-TEX</li></ul><div class="price-row"><div class="price">₹2,799</div><a href="productview.html" class="btn btn-primary btn-sm">View</a></div></div></article></div>
-      <div class="col-md-6 col-lg-4"><article class="product-card hover-card anim-fade-up delay-1"><div class="hover-img"><img src="https://thehomeandlinenladies.com.au/cdn/shop/products/Olivesheetsets_808x700.jpg?v=1651188297" alt="Pure linen bed sheet set" loading="lazy"><span class="badge-trial">3-piece set</span></div><div class="product-body"><span class="chip">Linen</span><h3>Pure Linen Set</h3><p>Pre-washed · Queen · 3 pieces</p><ul class="specs"><li>Breathable</li><li>Summer cool</li><li>Stone-washed</li></ul><div class="price-row"><div class="price">₹4,499</div><a href="productview.html" class="btn btn-primary btn-sm">View</a></div></div></article></div>
-      <div class="col-md-6 col-lg-4"><article class="product-card hover-card anim-fade-up delay-2"><div class="hover-img"><img src="https://whitesoflondon.in/cdn/shop/files/R_36856.jpg?v=1782803739" alt="Organic cotton percale sheets" loading="lazy"><span class="badge-trial">3-piece set</span></div><div class="product-body"><span class="chip">Cotton</span><h3>Organic Percale</h3><p>GOTS certified · Double · 3 pieces</p><ul class="specs"><li>Crisp feel</li><li>Organic</li><li>200 TC</li></ul><div class="price-row"><div class="price">₹1,999</div><a href="productview.html" class="btn btn-primary btn-sm">View</a></div></div></article></div>
-      <div class="col-md-6 col-lg-4"><article class="product-card hover-card anim-fade-up delay-3"><div class="hover-img"><img src="https://www.bambaw.com/cdn/shop/files/BBxDCxOL_Lifestyle_Website_Hero_001.jpg?v=1749629274&width=1600" alt="Bamboo fiber bed sheet set" loading="lazy"><span class="badge-trial">3-piece set</span></div><div class="product-body"><span class="chip">Bamboo</span><h3>Bamboo Fiber Set</h3><p>Cooling · King · 3 pieces</p><ul class="specs"><li>Moisture-wicking</li><li>Soft</li><li>Eco-friendly</li></ul><div class="price-row"><div class="price">₹3,299</div><a href="productview.html" class="btn btn-primary btn-sm">View</a></div></div></article></div>
-      <div class="col-md-6 col-lg-4"><article class="product-card hover-card anim-fade-up"><div class="hover-img"><img src="https://m.media-amazon.com/images/I/71sp4liKrPL.jpg" alt="Flannel winter bed sheet" loading="lazy"><span class="badge-trial">3-piece set</span></div><div class="product-body"><span class="chip">Flannel</span><h3>Cozy Flannel Winter</h3><p>Brushed cotton · Queen · 3 pieces</p><ul class="specs"><li>Winter warm</li><li>Soft brushed</li><li>180 GSM</li></ul><div class="price-row"><div class="price">₹2,199</div><a href="productview.html" class="btn btn-primary btn-sm">View</a></div></div></article></div>
-      <div class="col-md-6 col-lg-4"><article class="product-card hover-card anim-fade-up delay-1"><div class="hover-img"><img src="https://www.klotthe.com/cdn/shop/files/2_24ec5df9-b752-4314-b225-86010748235d_1445x.jpg?v=1716269895" alt="Basic cotton bed sheet value pack" loading="lazy"><span class="badge-trial">Value pack</span></div><div class="product-body"><span class="chip">Value</span><h3>Cotton Value Pack</h3><p>2 sets · Single · 6 pieces</p><ul class="specs"><li>Everyday use</li><li>Easy care</li><li>2 colours</li></ul><div class="price-row"><div class="price">₹899</div><a href="productview.html" class="btn btn-primary btn-sm">View</a></div></div></article></div>
+      
+      <!-- CARD 1 -->
+      <div class="col-md-6 col-lg-4">
+        <article class="product-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-flipper">
+            <div class="card-front">
+              <div class="hover-img">
+                <img src="https://www.malako-india.com/cdn/shop/products/malako-italian-opulence-800-tc-turquoise-jacquard-super-king-size-100-egyptian-cotton-bed-sheetduvet-cover-149978.webp?v=1754834882" alt="Egyptian cotton sateen sheet set" loading="lazy">
+                <span class="badge-trial">3-piece set</span>
+              </div>
+              <div class="product-body flex-grow-1 d-flex flex-column justify-content-between">
+                <div>
+                  <span class="chip">Cotton</span>
+                  <h3>Egyptian Cotton Sateen</h3>
+                  <p>300 TC · King · 3 pieces</p>
+                  <ul class="specs">
+                    <li>Sateen weave</li>
+                    <li>Deep pocket</li>
+                    <li>OEKO-TEX</li>
+                  </ul>
+                </div>
+                <div class="price-row mt-3">
+                  <div class="price">₹2,799</div>
+                  <button type="button" class="btn btn-primary btn-sm view-btn">View</button>
+                </div>
+              </div>
+            </div>
+            <div class="card-back">
+              <div>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="badge bg-primary">Advantages</span>
+                  <button type="button" class="btn-close close-btn" aria-label="Close"></button>
+                </div>
+                <h4 class="h5 mb-2">Egyptian Sateen</h4>
+                <hr class="my-2">
+                <ul class="list-unstyled d-flex flex-column gap-2 text-start small">
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Lustrous Finish:</strong> Smooth sateen weave offers a silky, luxurious hand-feel.</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Deep Pocket Fit:</strong> Elastic edges fit mattresses up to 16 inches deep.</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Chemical-Free:</strong> OEKO-TEX certified for sensitive skin.</li>
+                </ul>
+              </div>
+              <div class="pt-2 border-top d-flex gap-2">
+                <a href="#" class="btn btn-primary btn-sm w-100">Buy Now</a>
+                <button type="button" class="btn btn-outline-secondary btn-sm close-btn">Back</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="col-md-6 col-lg-4">
+        <article class="product-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-flipper">
+            <div class="card-front">
+              <div class="hover-img">
+                <img src="https://thehomeandlinenladies.com.au/cdn/shop/products/Olivesheetsets_808x700.jpg?v=1651188297" alt="Pure linen bed sheet set" loading="lazy">
+                <span class="badge-trial">3-piece set</span>
+              </div>
+              <div class="product-body flex-grow-1 d-flex flex-column justify-content-between">
+                <div>
+                  <span class="chip">Linen</span>
+                  <h3>Pure Linen Set</h3>
+                  <p>Pre-washed · Queen · 3 pieces</p>
+                  <ul class="specs">
+                    <li>Breathable</li>
+                    <li>Summer cool</li>
+                    <li>Stone-washed</li>
+                  </ul>
+                </div>
+                <div class="price-row mt-3">
+                  <div class="price">₹4,499</div>
+                  <button type="button" class="btn btn-primary btn-sm view-btn">View</button>
+                </div>
+              </div>
+            </div>
+            <div class="card-back">
+              <div>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="badge bg-primary">Advantages</span>
+                  <button type="button" class="btn-close close-btn" aria-label="Close"></button>
+                </div>
+                <h4 class="h5 mb-2">Pure Linen Set</h4>
+                <hr class="my-2">
+                <ul class="list-unstyled d-flex flex-column gap-2 text-start small">
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Max Airflow:</strong> Highly breathable flax keeps you cool all night.</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Pre-Softened:</strong> Stone-washed process gives immediate lived-in softness.</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Gets Softer:</strong> Natural fibers become smoother after every single wash.</li>
+                </ul>
+              </div>
+              <div class="pt-2 border-top d-flex gap-2">
+                <a href="#" class="btn btn-primary btn-sm w-100">Buy Now</a>
+                <button type="button" class="btn btn-outline-secondary btn-sm close-btn">Back</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="col-md-6 col-lg-4">
+        <article class="product-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="card-flipper">
+            <div class="card-front">
+              <div class="hover-img">
+                <img src="https://whitesoflondon.in/cdn/shop/files/R_36856.jpg?v=1782803739" alt="Organic cotton percale sheets" loading="lazy">
+                <span class="badge-trial">3-piece set</span>
+              </div>
+              <div class="product-body flex-grow-1 d-flex flex-column justify-content-between">
+                <div>
+                  <span class="chip">Cotton</span>
+                  <h3>Organic Percale</h3>
+                  <p>GOTS certified · Double · 3 pieces</p>
+                  <ul class="specs">
+                    <li>Crisp feel</li>
+                    <li>Organic</li>
+                    <li>200 TC</li>
+                  </ul>
+                </div>
+                <div class="price-row mt-3">
+                  <div class="price">₹1,999</div>
+                  <button type="button" class="btn btn-primary btn-sm view-btn">View</button>
+                </div>
+              </div>
+            </div>
+            <div class="card-back">
+              <div>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="badge bg-primary">Advantages</span>
+                  <button type="button" class="btn-close close-btn" aria-label="Close"></button>
+                </div>
+                <h4 class="h5 mb-2">Organic Percale</h4>
+                <hr class="my-2">
+                <ul class="list-unstyled d-flex flex-column gap-2 text-start small">
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Classic Crispness:</strong> Matte percale finish feels like crisp luxury hotel bedding.</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>GOTS Certified:</strong> 100% organic cotton free from synthetic pesticides.</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Hot-Sleeper Ready:</strong> Lightweight, airy weave prevents overheating.</li>
+                </ul>
+              </div>
+              <div class="pt-2 border-top d-flex gap-2">
+                <a href="#" class="btn btn-primary btn-sm w-100">Buy Now</a>
+                <button type="button" class="btn btn-outline-secondary btn-sm close-btn">Back</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="col-md-6 col-lg-4">
+        <article class="product-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-flipper">
+            <div class="card-front">
+              <div class="hover-img">
+                <img src="https://www.bambaw.com/cdn/shop/files/BBxDCxOL_Lifestyle_Website_Hero_001.jpg?v=1749629274&width=1600" alt="Bamboo fiber bed sheet set" loading="lazy">
+                <span class="badge-trial">3-piece set</span>
+              </div>
+              <div class="product-body flex-grow-1 d-flex flex-column justify-content-between">
+                <div>
+                  <span class="chip">Bamboo</span>
+                  <h3>Bamboo Fiber Set</h3>
+                  <p>Cooling · King · 3 pieces</p>
+                  <ul class="specs">
+                    <li>Moisture-wicking</li>
+                    <li>Soft</li>
+                    <li>Eco-friendly</li>
+                  </ul>
+                </div>
+                <div class="price-row mt-3">
+                  <div class="price">₹3,299</div>
+                  <button type="button" class="btn btn-primary btn-sm view-btn">View</button>
+                </div>
+              </div>
+            </div>
+            <div class="card-back">
+              <div>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="badge bg-primary">Advantages</span>
+                  <button type="button" class="btn-close close-btn" aria-label="Close"></button>
+                </div>
+                <h4 class="h5 mb-2">Bamboo Fiber Set</h4>
+                <hr class="my-2">
+                <ul class="list-unstyled d-flex flex-column gap-2 text-start small">
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Moisture Wicking:</strong> Keeps sweat away for a dry night's sleep.</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Silky Smooth:</strong> Softer than silk with natural temperature regulation.</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Sustainable Choice:</strong> Fast-growing sustainable bamboo material.</li>
+                </ul>
+              </div>
+              <div class="pt-2 border-top d-flex gap-2">
+                <a href="#" class="btn btn-primary btn-sm w-100">Buy Now</a>
+                <button type="button" class="btn btn-outline-secondary btn-sm close-btn">Back</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- CARD 5 -->
+      <div class="col-md-6 col-lg-4">
+        <article class="product-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-flipper">
+            <div class="card-front">
+              <div class="hover-img">
+                <img src="https://m.media-amazon.com/images/I/71sp4liKrPL.jpg" alt="Flannel winter bed sheet" loading="lazy">
+                <span class="badge-trial">3-piece set</span>
+              </div>
+              <div class="product-body flex-grow-1 d-flex flex-column justify-content-between">
+                <div>
+                  <span class="chip">Flannel</span>
+                  <h3>Cozy Flannel Winter</h3>
+                  <p>Brushed cotton · Queen · 3 pieces</p>
+                  <ul class="specs">
+                    <li>Winter warm</li>
+                    <li>Soft brushed</li>
+                    <li>180 GSM</li>
+                  </ul>
+                </div>
+                <div class="price-row mt-3">
+                  <div class="price">₹2,199</div>
+                  <button type="button" class="btn btn-primary btn-sm view-btn">View</button>
+                </div>
+              </div>
+            </div>
+            <div class="card-back">
+              <div>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="badge bg-primary">Advantages</span>
+                  <button type="button" class="btn-close close-btn" aria-label="Close"></button>
+                </div>
+                <h4 class="h5 mb-2">Cozy Flannel Winter</h4>
+                <hr class="my-2">
+                <ul class="list-unstyled d-flex flex-column gap-2 text-start small">
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Thermal Warmth:</strong> Double-brushed cotton holds warmth during cold nights.</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Ultra Plush:</strong> Thick 180 GSM fabric provides velvety softness.</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Anti-Pilling:</strong> Specially treated to avoid fuzz balls after washing.</li>
+                </ul>
+              </div>
+              <div class="pt-2 border-top d-flex gap-2">
+                <a href="#" class="btn btn-primary btn-sm w-100">Buy Now</a>
+                <button type="button" class="btn btn-outline-secondary btn-sm close-btn">Back</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- CARD 6 -->
+      <div class="col-md-6 col-lg-4">
+        <article class="product-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="card-flipper">
+            <div class="card-front">
+              <div class="hover-img">
+                <img src="https://www.klotthe.com/cdn/shop/files/2_24ec5df9-b752-4314-b225-86010748235d_1445x.jpg?v=1716269895" alt="Basic cotton bed sheet value pack" loading="lazy">
+                <span class="badge-trial">Value pack</span>
+              </div>
+              <div class="product-body flex-grow-1 d-flex flex-column justify-content-between">
+                <div>
+                  <span class="chip">Value</span>
+                  <h3>Cotton Value Pack</h3>
+                  <p>2 sets · Single · 6 pieces</p>
+                  <ul class="specs">
+                    <li>Everyday use</li>
+                    <li>Easy care</li>
+                    <li>2 colours</li>
+                  </ul>
+                </div>
+                <div class="price-row mt-3">
+                  <div class="price">₹899</div>
+                  <button type="button" class="btn btn-primary btn-sm view-btn">View</button>
+                </div>
+              </div>
+            </div>
+            <div class="card-back">
+              <div>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="badge bg-primary">Advantages</span>
+                  <button type="button" class="btn-close close-btn" aria-label="Close"></button>
+                </div>
+                <h4 class="h5 mb-2">Cotton Value Pack</h4>
+                <hr class="my-2">
+                <ul class="list-unstyled d-flex flex-column gap-2 text-start small">
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Double Set:</strong> Great budget pick with 2 full sheet sets included.</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Machine Washable:</strong> Durable everyday fabric designed for easy laundering.</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Fade Resistant:</strong> Reactive dyes maintain color brilliance over time.</li>
+                </ul>
+              </div>
+              <div class="pt-2 border-top d-flex gap-2">
+                <a href="#" class="btn btn-primary btn-sm w-100">Buy Now</a>
+                <button type="button" class="btn btn-outline-secondary btn-sm close-btn">Back</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
     </div>
   </div>
 </section>
@@ -444,14 +439,13 @@
 <section class="section bg-soft">
   <div class="container">
     <div class="row align-items-center g-5">
-      <div class="col-lg-6">
-        <img src="https://kokkafabrics.com/cdn/shop/articles/cotton_vs_linen_01.jpg?v=1747705700" alt="Close-up of cotton and linen fabric weaves" class="img-soft anim-fade-in" loading="lazy">
+      <div class="col-lg-6" data-aos="fade-right">
+        <img src="https://kokkafabrics.com/cdn/shop/articles/cotton_vs_linen_01.jpg?v=1747705700" alt="Close-up of cotton and linen fabric weaves" class="img-soft" loading="lazy">
       </div>
       <div class="col-lg-6">
-        <span class="eyebrow anim-fade-up">Materials guide</span>
-        <h2 class="anim-fade-up delay-1">Choose the right weave for you</h2>
-        <!-- Added list-unstyled to remove default list styling -->
-        <ul class="feature-list list-unstyled anim-fade-up delay-2">
+        <span class="eyebrow" data-aos="fade-left">Materials guide</span>
+        <h2 data-aos="fade-left" data-aos-delay="100">Choose the right weave for you</h2>
+        <ul class="feature-list list-unstyled" data-aos="fade-left" data-aos-delay="200">
           <li><i class="bi bi-check-circle-fill"></i> <strong>Percale</strong> — crisp, cool, matte finish. Great for hot sleepers.</li>
           <li><i class="bi bi-check-circle-fill"></i> <strong>Sateen</strong> — silky, smooth, slight sheen. Feels luxurious.</li>
           <li><i class="bi bi-check-circle-fill"></i> <strong>Linen</strong> — textured, breathable, gets softer with every wash.</li>
@@ -465,12 +459,12 @@
 <!-- Section 5: Feature highlight -->
 <section class="section">
   <div class="container">
-    <div class="text-center mb-5 anim-fade-up"><span class="eyebrow">Why RestWell sheets</span><h2>Built to last, soft to touch</h2></div>
+    <div class="text-center mb-5" data-aos="fade-up"><span class="eyebrow">Why RestWell sheets</span><h2>Built to last, soft to touch</h2></div>
     <div class="feature-strip">
-      <div class="feature-item hover-card anim-fade-up"><i class="bi bi-droplet"></i><h3>Deep pockets</h3><p>Fits mattresses up to 16 inches thick.</p></div>
-      <div class="feature-item hover-card anim-fade-up delay-1"><i class="bi bi-flower1"></i><h3>OEKO-TEX certified</h3><p>No harmful dyes or chemicals.</p></div>
-      <div class="feature-item hover-card anim-fade-up delay-2"><i class="bi bi-stars"></i><h3>Softer with wash</h3><p>Pre-washed fabrics that improve over time.</p></div>
-      <div class="feature-item hover-card anim-fade-up delay-3"><i class="bi bi-palette"></i><h3>Calming colours</h3><p>12 shades designed for restful bedrooms.</p></div>
+      <div class="feature-item hover-card" data-aos="fade-up" data-aos-delay="100"><i class="bi bi-droplet"></i><h3>Deep pockets</h3><p>Fits mattresses up to 16 inches thick.</p></div>
+      <div class="feature-item hover-card" data-aos="fade-up" data-aos-delay="200"><i class="bi bi-flower1"></i><h3>OEKO-TEX certified</h3><p>No harmful dyes or chemicals.</p></div>
+      <div class="feature-item hover-card" data-aos="fade-up" data-aos-delay="300"><i class="bi bi-stars"></i><h3>Softer with wash</h3><p>Pre-washed fabrics that improve over time.</p></div>
+      <div class="feature-item hover-card" data-aos="fade-up" data-aos-delay="400"><i class="bi bi-palette"></i><h3>Calming colours</h3><p>12 shades designed for restful bedrooms.</p></div>
     </div>
   </div>
 </section>
@@ -478,11 +472,11 @@
 <!-- Section 6: Testimonials -->
 <section class="section bg-soft">
   <div class="container">
-    <div class="text-center mb-5 anim-fade-up"><span class="eyebrow">Reviews</span><h2>What customer's say</h2></div>
+    <div class="text-center mb-5" data-aos="fade-up"><span class="eyebrow">Reviews</span><h2>What customer's say</h2></div>
     <div class="row g-4">
-      <div class="col-md-4"><div class="testimonial-card hover-card anim-fade-up"><div class="stars">★★★★★</div><p>"Egyptian cotton set feels like a 5-star hotel. Worth every rupee."</p><div class="author"><strong>Tara M.</strong><span>Kochi</span></div></div></div>
-      <div class="col-md-4"><div class="testimonial-card hover-card anim-fade-up delay-1"><div class="stars">★★★★★</div><p>"Linen sheets are a game-changer in Chennai humidity. So breathable."</p><div class="author"><strong>Vignesh S.</strong><span>Chennai</span></div></div></div>
-      <div class="col-md-4"><div class="testimonial-card hover-card anim-fade-up delay-2"><div class="stars">★★★★★</div><p>"Colours are exactly as shown, and they've stayed soft after 20 washes."</p><div class="author"><strong>Shalini R.</strong><span>Indore</span></div></div></div>
+      <div class="col-md-4"><div class="testimonial-card hover-card" data-aos="fade-up" data-aos-delay="100"><div class="stars">★★★★★</div><p>"Egyptian cotton set feels like a 5-star hotel. Worth every rupee."</p><div class="author"><strong>Tara M.</strong><span>Kochi</span></div></div></div>
+      <div class="col-md-4"><div class="testimonial-card hover-card" data-aos="fade-up" data-aos-delay="200"><div class="stars">★★★★★</div><p>"Linen sheets are a game-changer in Chennai humidity. So breathable."</p><div class="author"><strong>Vignesh S.</strong><span>Chennai</span></div></div></div>
+      <div class="col-md-4"><div class="testimonial-card hover-card" data-aos="fade-up" data-aos-delay="300"><div class="stars">★★★★★</div><p>"Colours are exactly as shown, and they've stayed soft after 20 washes."</p><div class="author"><strong>Shalini R.</strong><span>Indore</span></div></div></div>
     </div>
   </div>
 </section>
@@ -490,9 +484,9 @@
 <!-- Section 7: Newsletter CTA -->
 <section class="newsletter-section">
   <div class="container text-center">
-    <h2 class="anim-fade-up">Refresh your bedroom this season</h2>
-    <p class="lead anim-fade-up delay-1">Subscribe for new colour launches and seasonal offers.</p>
-    <form class="newsletter-form anim-fade-up delay-2" action="products-bedsheets.html" method="get">
+    <h2 data-aos="fade-up">Refresh your bedroom this season</h2>
+    <p class="lead" data-aos="fade-up" data-aos-delay="100">Subscribe for new colour launches and seasonal offers.</p>
+    <form class="newsletter-form" data-aos="fade-up" data-aos-delay="200" action="products-bedsheets.html" method="get">
       <input type="email" placeholder="you@example.com" aria-label="Email address" required>
       <button type="submit" class="btn btn-primary">Subscribe</button>
     </form>
@@ -500,6 +494,7 @@
 </section>
 </main>
 
+<!-- ===================== FOOTER ===================== -->
 <footer class="site-footer">
   <div class="container-fluid px-5">
     <div class="row g-4 justify-content-between">
@@ -522,5 +517,33 @@
   </div>
 </footer>
 
+<!-- AOS Script -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  AOS.init({
+    duration: 800,
+    easing: 'ease-out-cubic',
+    once: true,
+    offset: 120
+  });
+
+  document.querySelectorAll('.view-btn').forEach(button => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      const card = button.closest('.product-card');
+      card.classList.add('flipped');
+    });
+  });
+
+  document.querySelectorAll('.close-btn').forEach(button => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      const card = button.closest('.product-card');
+      card.classList.remove('flipped');
+    });
+  });
+});
+</script>
 </body>
 </html>
