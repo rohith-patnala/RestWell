@@ -21,6 +21,118 @@
 <link href="global.css" rel="stylesheet">
 <link href="home1.css" rel="stylesheet">
 
+<style>
+/* ===================== FIXED HEADER STYLES ===================== */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1030;
+  background-color: var(--bs-body-bg, #ffffff); /* Fallback background */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.3s ease;
+}
+
+/* Prevent content from hiding under the fixed header */
+body {
+  padding-top: 76px; /* Adjust this value depending on your header's actual height */
+}
+
+/* Ensure header background matches dark mode properly */
+#darkMode:checked ~ * .site-header,
+#darkMode:checked ~ body .site-header {
+  background-color: #121212 !important;
+  border-bottom: 1px solid #2d3748;
+}
+
+/* ===================== FULL-PAGE DARK MODE OVERRIDE ===================== */
+#darkMode:checked ~ * {
+  --bs-body-bg: #121212 !important;
+  --bs-body-color: #ffffff !important;
+}
+
+#darkMode:checked ~ body,
+#darkMode:checked ~ * body {
+  background-color: #121212 !important;
+  color: #ffffff !important;
+}
+
+#darkMode:checked ~ * .hero-section,
+#darkMode:checked ~ body .hero-section {
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+}
+
+#darkMode:checked ~ * .bg-soft,
+#darkMode:checked ~ body .bg-soft {
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+}
+
+#darkMode:checked ~ * .card,
+#darkMode:checked ~ * .product-card,
+#darkMode:checked ~ * .testimonial-card,
+#darkMode:checked ~ * .category-card,
+#darkMode:checked ~ * .booking-form,
+#darkMode:checked ~ * .trust-item,
+#darkMode:checked ~ body .card,
+#darkMode:checked ~ body .product-card,
+#darkMode:checked ~ body .testimonial-card,
+#darkMode:checked ~ body .category-card,
+#darkMode:checked ~ body .booking-form,
+#darkMode:checked ~ body .trust-item {
+  background-color: #1e1e1e !important;
+  color: #ffffff !important;
+  border-color: #2d3748 !important;
+}
+
+#darkMode:checked ~ * h1,
+#darkMode:checked ~ * h2,
+#darkMode:checked ~ * h3,
+#darkMode:checked ~ * h4,
+#darkMode:checked ~ * h5,
+#darkMode:checked ~ * h6,
+#darkMode:checked ~ * .lead,
+#darkMode:checked ~ * p,
+#darkMode:checked ~ * span,
+#darkMode:checked ~ body h1,
+#darkMode:checked ~ body h2,
+#darkMode:checked ~ body h3,
+#darkMode:checked ~ body h4,
+#darkMode:checked ~ body h5,
+#darkMode:checked ~ body h6,
+#darkMode:checked ~ body .lead,
+#darkMode:checked ~ body p,
+#darkMode:checked ~ body span:not(.slider-circle):not(.icon-sun):not(.icon-moon) {
+  color: #ffffff !important;
+}
+
+#darkMode:checked ~ * .ppp,
+#darkMode:checked ~ * .text-muted,
+#darkMode:checked ~ body .ppp,
+#darkMode:checked ~ body .text-muted {
+  color: #a0aec0 !important;
+}
+
+#darkMode:checked ~ * .form-control,
+#darkMode:checked ~ body .form-control {
+  background-color: #2d3748 !important;
+  color: #ffffff !important;
+  border-color: #4a5568 !important;
+}
+
+#darkMode:checked ~ * .form-control::placeholder,
+#darkMode:checked ~ body .form-control::placeholder {
+  color: #a0aec0 !important;
+}
+
+#darkMode:checked ~ * .site-footer,
+#darkMode:checked ~ body .site-footer {
+  background-color: #0b0f19 !important;
+  color: #ffffff !important;
+}
+</style>
 </head>
 <body>
 
@@ -128,7 +240,6 @@
     <li class="mt-3"><a href="login.html" class="btn btn-primary btn-sm w-100 text-white text-center">Sign In</a></li>
   </ul>
 </aside>
-
 <main>
 <!-- ===================== Section 1: Hero ===================== -->
 <section class="hero-section">
@@ -156,7 +267,9 @@
 </section>
 
 <!-- ===================== Section 2: Trust badges ===================== -->
-<section class="trust-section section-tight">
+<br><section class="trust-section section-tight">
+  <h2>Trust Badges</h2>
+  <br>
   <div class="container">
     <div class="row text-center g-4">
       <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="100">
@@ -299,12 +412,12 @@
       <h2 class="mb-2">Book a free sleep consultation</h2>
       <p class="lead mb-0">Try our mattresses in person. Pick a slot and our sleep expert will guide you.</p>
     </div>
-    <div class="row g-5 align-items-center">
-      <div class="col-lg-5">
-        <img src="https://pos-prod-public-bucket.s3.ap-south-1.amazonaws.com/public/STORE_IMAGES/1753164530763.jpeg" alt="Bright RestWell showroom with mattresses on display" class="img-soft" loading="lazy" data-aos="fade-right" data-aos-delay="300">
+    <div class="row g-5 align-items-stretch">
+      <div class="col-lg-6 d-flex">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVy6IWHYV0znedyN0aHnMY3RiHSXJkYlK82Sc2vKnGgVxpke-o7lxNNT0&s=10" alt="Bright RestWell showroom with mattresses on display" class="booking-img img-soft" loading="lazy" data-aos="fade-right" data-aos-delay="300">
       </div>
-      <div class="col-lg-7">
-        <form class="booking-form card p-4" action="contact.html" method="get" data-aos="zoom-in" data-aos-delay="200">
+      <div class="col-lg-6 d-flex">
+        <form class="booking-form card p-4 w-100" action="contact.html" method="get" data-aos="zoom-in" data-aos-delay="200">
           <div class="row g-3">
             <div class="col-md-6"><label for="bk-name" class="form-label">Full name</label><input type="text" id="bk-name" class="form-control" placeholder="Enter your full name" required></div>
             <div class="col-md-6"><label for="bk-phone" class="form-label">Phone</label><input type="tel" id="bk-phone" class="form-control" placeholder="Enter your phone number" required></div>
@@ -318,7 +431,7 @@
     </div>
   </div>
 </section>
-
+     
 <!-- ===================== Section 8: Newsletter CTA ===================== -->
 <section class="newsletter-section">
   <div class="container text-center">

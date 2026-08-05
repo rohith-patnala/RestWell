@@ -4,7 +4,7 @@ html{
 
 
 
-.hero-section{padding:var(--space-8) 0;background:linear-gradient(135deg,var(--neutral-100),var(--neutral-50))}
+.hero-section{padding:var(--space-8) 0;background:linear-gradient(135deg,var(--neutral-100),var(--neutral-50)), margin-top:0px;}
 .hero-img{border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);max-height:520px;object-fit:cover;width:100%}
 .hero-stats{display:flex;gap:var(--space-6);margin-top:var(--space-6)}
 .hero-stats div{display:flex;flex-direction:column}
@@ -516,3 +516,89 @@ html{
   .mobile-submenu-toggle:checked ~ .mobile-submenu {
     max-height: 500px;
   }
+
+
+
+
+ /* Ensure columns stretch equally */
+#booking .row.align-items-stretch {
+  display: flex;
+}
+
+/* Force the image to cover its column completely */
+#booking .booking-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block;
+}
+
+/* Make ALL form labels appear in pure black (#000000) */
+#booking .booking-form .form-label {
+  color: #000000 !important;
+  font-weight: 600 !important;
+  opacity: 1 !important;
+  background-color: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+/* Further increased height specifically for the Address / City input box */
+#booking .booking-form #bk-addr {
+  min-height: 80px !important;
+  padding-top: 18px !important;
+  padding-bottom: 18px !important;
+}
+
+/* Mute/reduce the color shade of placeholder text and native date/time inner placeholder texts */
+#booking .booking-form .form-control::-webkit-datetime-edit {
+  color: #6c757d !important;
+  opacity: 0.8;
+}
+
+#booking .booking-form .form-control::placeholder {
+  color: #6c757d !important;
+  opacity: 0.8;
+}
+
+
+
+.trust-section h2{
+  align-items: center;
+  text-align: center;
+}
+
+main {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.hero-section {
+  margin-top: 0 !important;
+  padding-top: 2rem !important; /* Adjust padding if you want it closer or further from the header */
+}
+
+
+/* Prevent content from hiding under the fixed header */
+body {
+  padding-top: 56px; /* Reduced from 76px to fit your header's actual height */
+}
+
+
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1030;
+  background-color: var(--bs-body-bg, #ffffff);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.3s ease;
+}
+
+
+
+
+
+

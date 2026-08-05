@@ -311,3 +311,141 @@ input.theme-input[type="checkbox"]#mobileNav {
   font-weight: 500;
   display: block;
 }
+
+
+
+/* Make the row a flex container with equal height columns */
+.section .row.align-items-center {
+  display: flex;
+  align-items: stretch !important;
+}
+
+/* Ensure the image column and image take up 100% height */
+.section .row.align-items-center > .col-lg-6:first-child {
+  display: flex;
+}
+
+.section .row.align-items-center > .col-lg-6:first-child img.img-soft {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* Fixed Header */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1030;
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Prevent content from hiding behind the fixed header */
+body {
+  padding-top: 80px; /* Adjust based on your header height */
+}
+
+
+/* Ensure no unwanted spacing from body padding */
+body {
+  padding-top: 0 !important;
+}
+
+/* Position the page hero directly below the fixed header */
+.page-hero {
+  padding-top: calc(80px + 3rem); /* 80px accounts for the fixed header height */
+  padding-bottom: 3rem;
+}
+
+
+
+.page-hero {
+  min-height: 92vh; /* Sets the height between 90vh and 95vh */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 80px; /* Accounts for the fixed header height so content isn't hidden */
+  padding-bottom: 3rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Ensure the inner container fills properly within the flex hero */
+.page-hero .container1 {
+  width: 100%;
+}
+
+
+
+/* Fix Section 5 row alignment and height */
+.section .row.align-items-center {
+  display: flex;
+  align-items: center !important;
+}
+
+/* Ensure the image column and image scale properly without overflowing */
+.section .row.align-items-center > .col-lg-6 img.img-soft {
+  width: 100%;
+  height: auto;
+  max-height: 450px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Ensure proper spacing for text content inside the section */
+.section .col-lg-6 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+
+/* Center-align content for Section 7 service cards */
+.section .service-card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ensure the icons inside the service cards are perfectly centered */
+.section .service-card i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem; /* Adjusts spacing between icon and heading */
+}
+
+
+
+/* Hero section height and background coverage for desktop */
+.page-hero {
+  min-height: 92vh; /* Adjust between 90vh and 95vh as needed */
+  height: 92vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 80px; /* Accounts for the fixed header */
+  padding-bottom: 0;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  width: 100%;
+}
+
+/* Ensure the inner container fills the layout correctly */
+.page-hero .container1,
+.page-hero .container {
+  width: 100%;
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+}
